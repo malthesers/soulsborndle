@@ -3,7 +3,7 @@
     <div class="h-[30rem] bg-boss-hidden bg-cover bg-center backdrop-grayscale flex flex-col text-center justify-end">
       <div class="bg-black bg-opacity-70 p-2">
         <p class="text-3xl">{{ known.name }}</p>
-        <div class="flex flex-row gap-8 text-center justify-center">
+        <div class="flex flex-col sm:flex-row gap-8 text-center justify-center">
           <div class="text-2xl px-2"><span class="text-sm">Game</span><p>{{ known.game }}</p></div>
           <div class="text-2xl px-2"><span class="text-sm">Health</span><p v-if="known.health">{{ known.health.toLocaleString() }}</p><p v-else>{{ known.healthMin.toLocaleString() }} - {{ known.healthMax.toLocaleString() }}</p></div>
           <div class="text-2xl px-2"><span class="text-sm">Souls</span><p v-if="known.souls">{{ known.souls.toLocaleString() }}</p><p v-else>{{ known.soulsMin.toLocaleString() }} - {{ known.soulsMax.toLocaleString() }}</p></div>
@@ -66,6 +66,7 @@ const known = ref({
 })
 
 function validateGuess(boss) {
+  guessedBosses.value.unshift(boss);
   // Check if guess is correct
   if (boss.name === correct.value.name) {
     known.value.name = boss.name;
@@ -73,7 +74,6 @@ function validateGuess(boss) {
     known.value.health = boss.health;
     known.value.souls = boss.souls;
   } else {
-    guessedBosses.value.unshift(boss);
 
     // Validate name
     if (boss.game === correct.value.game) known.value.game = boss.game

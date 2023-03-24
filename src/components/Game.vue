@@ -1,7 +1,7 @@
 <template>
   <main class="max-w-6xl mx-auto p-2 my-8">
     <button @click="resetGame" class="bg-zinc-800 border-2 border-white rounded text-xl py-2 px-4 duration-200 hover:bg-zinc-900">New Game</button>
-    <div class="grid md:grid-cols-2 lg:grid-cols-[3fr_2fr] gap-4 mt-4">
+    <div class="grid sm:grid-cols-2 md:grid-cols-[3fr_2fr] gap-4 mt-4">
       <BossFrame :known="known" />
       <div>
         <BossSearch @guessEntered="(boss) => validateGuess(boss)" :bosses="remainingBosses"/>
@@ -20,32 +20,32 @@ const bosses = ref([
     game: "Bloodborne",
     health: 3015,
     souls: 4000,
-    weaknesses: ['Fire'],
-    resistances: ['Magic', 'Lightning', 'Strike']
+    weaknesses: ['fire'],
+    resistances: ['magic', 'lightning', 'strike']
   },
   {
     name: "Father Gascoigne (Human)",
     game: "Bloodborne",
     health: 2031,
     souls: 1800,
-    weaknesses: ['Fire'],
-    resistances: ['Lightning']
+    weaknesses: ['fire'],
+    resistances: ['lightning']
   },
   {
     name: "Father Gascoigne (Beast)",
     game: "Bloodborne",
     health: 2031,
     souls: 1800,
-    weaknesses: ['Fire'],
-    resistances: ['Magic']
+    weaknesses: ['fire'],
+    resistances: ['magic']
   },
   {
     name: "Blood-starved Beast",
     game: "Bloodborne",
     health: 3470,
     souls: 6600,
-    weaknesses: ['Fire'],
-    resistances: ['Magic', 'Lightning']
+    weaknesses: ['fire'],
+    resistances: ['magic', 'lightning']
   },
   {
     name: "The Witch of Hemwick",
@@ -58,29 +58,32 @@ const bosses = ref([
   {
     name: "Darkbeast Paarl",
     game: "Bloodborne",
-    health: 2611,
-    souls: 11800,
-    weaknesses: ['Magic', 'Fire'],
-    resistances: ['Strike', 'Lightning']
+    health: 4552,
+    souls: 21000,
+    weaknesses: ['magic', 'fire'],
+    resistances: ['strike', 'lightning']
   },
   {
     name: "Vicar Amelia",
     game: "Bloodborne",
     health: 5367,
     souls: 15000,
-    weaknesses: [''],
-    resistances: ['']
+    weaknesses: ['fire'],
+    resistances: ['strike']
   },
   {
     name: "Malenia, Blade of Miquella",
     game: "Elden Ring",
     health: 33251,
     souls: 480000,
-    weaknesses: [''],
-    resistances: ['']
+    weaknesses: ['fire'],
+    resistances: ['holy']
   },
 ])
 const guessedBosses = ref([])
+const guesses = computed(() => {
+  return guessedBosses.value.length;
+})
 const remainingBosses = computed(() => {
   return bosses.value.filter(boss => !guessedBosses.value.includes(boss));
 })

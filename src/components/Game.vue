@@ -2,16 +2,7 @@
   <main class="max-w-6xl mx-auto p-2 my-8">
     <button @click="resetGame" class="bg-zinc-800 border-2 border-white rounded text-xl py-2 px-4 duration-200 hover:bg-zinc-900">New Game</button>
     <div class="grid md:grid-cols-2 lg:grid-cols-[3fr_2fr] gap-4 mt-4">
-      <div class="h-[30rem] bg-boss-hidden bg-cover bg-center flex flex-col text-center justify-end">
-        <div class="h-full bg-gradient-to-t from-zinc-900 flex flex-col justify-end">
-          <p class="text-3xl p-2">{{ known.name }}</p>
-          <div class="grid md:grid-cols-3 gap-2 text-center justify-center p-2">
-            <div class="text-2xl px-2"><span class="text-sm">Game</span><p>{{ known.game }}</p></div>
-            <div class="text-2xl px-2"><span class="text-sm">Health</span><p v-if="known.health">{{ known.health.toLocaleString() }}</p><p v-else>{{ known.healthMin.toLocaleString() }} - {{ known.healthMax.toLocaleString() }}</p></div>
-            <div class="text-2xl px-2"><span class="text-sm">Souls</span><p v-if="known.souls">{{ known.souls.toLocaleString() }}</p><p v-else>{{ known.soulsMin.toLocaleString() }} - {{ known.soulsMax.toLocaleString() }}</p></div>
-          </div>
-        </div>
-      </div>
+      <BossFrame :known="known" />
       <div>
         <BossSearch @guessEntered="(boss) => validateGuess(boss)" :bosses="remainingBosses"/>
         <div class="flex flex-col gap-4">

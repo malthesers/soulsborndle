@@ -7,8 +7,8 @@
           <p class="text-lg px-2 py-1 text-center">{{ boss.name }}</p>
           <div class="grid grid-cols-3 text-center">
             <div class="text-lg px-4"><span class="text-sm">Game</span><p>{{ boss.game }}</p></div>
-            <div class="text-lg px-4"><span class="text-sm">Health</span><p>{{ boss.health }}</p></div>
-            <div class="text-lg px-4"><span class="text-sm">Souls</span><p>{{ boss.souls }}</p></div>
+            <div class="text-lg px-4"><span class="text-sm">Health</span><p>{{ boss.health.toLocaleString() }}</p></div>
+            <div class="text-lg px-4"><span class="text-sm">Souls</span><p>{{ boss.souls.toLocaleString() }}</p></div>
           </div>
         </div>
       </div>

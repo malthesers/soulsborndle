@@ -1,20 +1,30 @@
 <template>
   <main class="max-w-6xl mx-auto p-2 my-8">
     <button @click="resetGame" class="bg-zinc-800 border-2 border-white rounded text-xl py-2 px-4 duration-200 hover:bg-zinc-900">New Game</button>
-    <div class="grid sm:grid-cols-2 md:grid-cols-[3fr_2fr] gap-4 mt-4">
+    <button @click="wasGuessed = true" class="bg-zinc-800 border-2 border-white rounded text-xl ml-4 py-2 px-4 duration-200 hover:bg-zinc-900">Test fade</button>
+    <div class="flex flex-col md:flex-row gap-4 mt-4">
       <BossFrame :known="known" />
-      <div>
+      <div class="w-full">
         <BossSearch @guessEntered="(boss) => validateGuess(boss)" :bosses="remainingBosses"/>
         <div class="flex flex-col gap-4">
           <BossCardGuess v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct"/>
         </div>
       </div>
     </div>
+    <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
   </main>
 </template>
 
 <script setup>
 const bosses = ref([
+  {
+    name: "bossdawg",
+    game: "Bloodborne",
+    health: 3015,
+    souls: 4000,
+    weaknesses: ['fire', 'fire', 'fire'],
+    resistances: ['magic', 'lightning', 'strike']
+  },
   {
     name: "Cleric Beast",
     game: "Bloodborne",
@@ -96,8 +106,9 @@ const known = ref({
   soulsMax: 999999,
   health: 0,
   healthMin: 0,
-  healthMax: 999999,
+  healthMax: 99999,
 })
+const wasGuessed = ref(false);
 
 function validateGuess(boss) {
   guessedBosses.value.unshift(boss);
@@ -107,6 +118,7 @@ function validateGuess(boss) {
     known.value.game = boss.game;
     known.value.health = boss.health;
     known.value.souls = boss.souls;
+    wasGuessed.value = true;
   } else {
 
     // Validate name
@@ -135,6 +147,7 @@ function validateGuess(boss) {
 function resetGame() {
   // Clear guesses
   guessedBosses.value = []
+  wasGuessed.value = false;
   // Clear known
   known.value = {
     name: '???',

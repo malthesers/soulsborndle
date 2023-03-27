@@ -62,8 +62,8 @@ const bosses = ref([
     game: "Bloodborne",
     health: 2611,
     souls: 11800,
-    weaknesses: [''],
-    resistances: ['']
+    weaknesses: [],
+    resistances: []
   },
   {
     name: "Darkbeast Paarl",

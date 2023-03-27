@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:min-w-[27rem] h-[30rem] bg-boss-hidden bg-cover bg-center flex flex-col text-center justify-end">
+  <div class="lg:min-w-[27rem] h-[30rem]  bg-cover bg-center flex flex-col text-center justify-end">
     <div class="h-full bg-gradient-to-t from-zinc-900 flex flex-col justify-end">
       <p class="text-3xl p-2">{{ known.name }}</p>
       <div class="text-center justify-center p-2">

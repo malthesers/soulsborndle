@@ -16,13 +16,13 @@
       </div>
       <div :class="weakMatch" class="w-full p-1">
         <p class="text-sm">Weaknesses</p>
-        <div class="flex gap-2 justify-center">
+        <div class="h-9 flex gap-2 justify-center">
           <DamageBox v-for="weakness in boss.weaknesses" :key="weakness" :damageType="weakness"/>
         </div>
       </div>
       <div :class="resMatch" class="w-full p-1">
         <p class="text-sm">Resistances</p>
-        <div class="flex flex-row justify-center gap-1">
+        <div class="h-9 flex flex-row justify-center gap-1">
           <DamageBox v-for="resistance in boss.resistances" :key="resistance" :damageType="resistance"/>
         </div>
       </div>

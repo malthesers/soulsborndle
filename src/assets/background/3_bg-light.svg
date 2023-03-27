@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .e {
+        fill: #18181b;
+      }
+
+      .f {
+        fill: url(#c);
+        opacity: .5;
+      }
+    </style>
+    <radialGradient id="c" cx="1233.0213" cy="96.41297" fx="1233.0213" fy="96.41297" r="1652.03125" gradientTransform="translate(0 1084.2256) scale(1 .62047)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ea836d"/>
+      <stop offset=".37913" stop-color="#e8816c" stop-opacity=".99199"/>
+      <stop offset=".51571" stop-color="#e17e68" stop-opacity=".96297"/>
+      <stop offset=".61305" stop-color="#d57763" stop-opacity=".91244"/>
+      <stop offset=".6918" stop-color="#c46e5b" stop-opacity=".84022"/>
+      <stop offset=".75927" stop-color="#ae6151" stop-opacity=".74608"/>
+      <stop offset=".81903" stop-color="#935244" stop-opacity=".62977"/>
+      <stop offset=".87305" stop-color="#724035" stop-opacity=".49122"/>
+      <stop offset=".92272" stop-color="#4d2b23" stop-opacity=".32991"/>
+      <stop offset=".96691" stop-color="#241410" stop-opacity=".15419"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g id="b" data-name="backcover">
+    <rect class="e" width="1920" height="1080"/>
+  </g>
+  <ellipse id="d" data-name="background-light" class="f" cx="1233.0213" cy="1144.04716" rx="1652.03125" ry="1025.03927"/>
+</svg>

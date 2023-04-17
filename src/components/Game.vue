@@ -168,6 +168,12 @@ function validateGuess(boss) {
     } else if (boss.souls > correct.value.souls && boss.souls < known.value.soulsMax) {
       known.value.soulsMax = boss.souls - 1
     }
+
+    // Validate weaknesses
+    if (JSON.stringify(boss.weaknesses) === JSON.stringify(correct.value.weaknesses)) known.value.weaknesses = boss.weaknesses;
+
+    // Validate resistances
+    if (JSON.stringify(boss.resistances) === JSON.stringify(correct.value.resistances)) known.value.resistances = boss.resistances;
   }
 }
 

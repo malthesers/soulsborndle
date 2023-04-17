@@ -30,15 +30,6 @@
                 <DamageBox v-for="resistance in boss.resistances" :key="resistance" :damageType="resistance"/>
               </div>
             </div>
-<!-- 
-            <div  class="w-full px-2">
-              <span class="text-sm">Weaknesses</span>
-              <div class="flex gap-2 justify-center"><span v-for="weak in boss.weaknesses" :key="weak">{{ damageTypes[weak] }}</span></div>
-            </div>
-            <div  class="w-full px-2">
-              <span class="text-sm">Resistances</span>
-              <div class="flex gap-2 justify-center"><span v-for="res in boss.resistances" :key="res">{{ damageTypes[res] }}</span></div>
-            </div> -->
           </div>
       </div>
     </div>

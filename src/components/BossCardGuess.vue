@@ -2,41 +2,31 @@
   <div>
     <p class="bg-zinc-900 text-lg px-2 py-1 text-center">{{ boss.name }}</p>
     <div class="flex flex-col sm:flex-row gap-1 text-center">
-      <div :class="[boss.game === correct.game ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[8rem] p-1 text-lg">
+      <div :class="[boss.game === correct.game ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[10rem] text-xl p-1">
         <p class="text-sm">Game</p>
-        <p class="leading-loose">{{ boss.game }}</p>
+        <p class="leading-[2.2]">{{ boss.game }}</p>
       </div>
-      <div :class="[boss.health === correct.health ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] p-1 text-lg">
+      <div :class="[boss.health === correct.health ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] text-xl p-1">
         <p class="text-sm">Health</p>
-        <p class="leading-loose">{{ boss.health.toLocaleString() }}</p>
+        <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
       </div>
-      <div :class="[boss.souls === correct.souls ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] p-1 text-lg">
+      <div :class="[boss.souls === correct.souls ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] text-xl p-1">
         <p class="text-sm">Souls</p>
-        <p class="leading-loose">{{ boss.souls.toLocaleString() }}</p>
+        <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
       </div>
-      <div :class="weakMatch" class="w-full p-1">
+      <div :class="weakMatch" class="sm:min-w-[8rem] w-full p-1">
         <p class="text-sm">Weaknesses</p>
-        <div class="h-9 flex gap-2 justify-center">
+        <div class="h-11 flex flex-row justify-center gap-1">
           <DamageBox v-for="weakness in boss.weaknesses" :key="weakness" :damageType="weakness"/>
         </div>
       </div>
-      <div :class="resMatch" class="w-full p-1">
+      <div :class="resMatch" class="sm:min-w-[8rem] w-full p-1">
         <p class="text-sm">Resistances</p>
-        <div class="h-9 flex flex-row justify-center gap-1">
+        <div class="h-11 flex flex-row justify-center gap-1">
           <DamageBox v-for="resistance in boss.resistances" :key="resistance" :damageType="resistance"/>
         </div>
       </div>
     </div>
-    <!-- <div class="grid grid-cols-2 gap-1 mt-1 text-center">
-      <div :class="weakMatch">
-        <span class="text-sm">Weaknesses</span>
-        <p><span v-for="weak in boss.weaknesses" :key="weak">{{ weak }}</span></p>
-      </div>
-      <div :class="resMatch">
-        <span class="text-sm">Resistances</span>
-        <p><span v-for="res in boss.resistances" :key="res">{{ res }}</span></p>
-      </div>
-    </div> -->
   </div>
 </template>
 

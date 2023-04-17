@@ -12,6 +12,13 @@ module.exports = {
       boxShadow: {
         'inner-dmg': 'inset 0px 0px 5px 5px rgba(0,0,0,0.7)'
       }
+    },
+    screens: {
+      sm: '650px',
+      md: '768px',
+      lg: '900px',
+      xl: '1280px',
+      '2xl': '1536px'
     }
   },
   plugins: []

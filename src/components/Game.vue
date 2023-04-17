@@ -1,9 +1,10 @@
 <template>
-  <main class="max-w-6xl mx-auto p-2 my-8">
-    <button @click="resetGame" class="bg-zinc-800 border-2 border-white rounded text-xl py-2 px-4 duration-200 hover:bg-zinc-900">New Game</button>
-    <button @click="wasGuessed = true" class="bg-zinc-800 border-2 border-white rounded text-xl ml-4 py-2 px-4 duration-200 hover:bg-zinc-900">Test fade</button>
-    <div class="flex flex-col md:flex-row gap-4 mt-4">
-      <BossFrame :known="known" />
+  <main class="max-w-5xl mx-auto p-2 my-8">
+    <button @click="resetGame" class="font-bold border-2 border-white rounded text-xl py-2 px-4 duration-200 hover:bg-white hover:text-zinc-900">New Game</button>
+    <button @click="wasGuessed = true" class=" font-bold border-2 border-white rounded text-xl ml-4 py-2 px-4 duration-200 hover:bg-white hover:text-zinc-900">Test fade</button>
+    <div class="grid lg:grid-cols-[1fr_3fr] gap-4 mt-4">
+      <!-- <BossFrame :known="known" /> -->
+      <KnownInfo :known="known" />
       <div class="w-full">
         <BossSearch @guessEntered="(boss) => validateGuess(boss)" :bosses="remainingBosses"/>
         <div class="flex flex-col gap-4">
@@ -17,14 +18,40 @@
 
 <script setup>
 const bosses = ref([
+  // start of test bossess
   {
     name: "bossdawg",
-    game: "Bloodborne",
-    health: 3015,
-    souls: 4000,
+    game: "Demon's Souls",
+    health: 88888,
+    souls: 888888,
     weaknesses: ['fire', 'fire', 'fire'],
     resistances: ['magic', 'lightning', 'strike']
   },
+  {
+    name: "bossdawg2",
+    game: "Demon's Souls",
+    health: 88888,
+    souls: 888888,
+    weaknesses: ['fire', 'fire', 'fire'],
+    resistances: ['magic', 'lightning', 'strike']
+  },
+  {
+    name: "bossdawg3",
+    game: "Demon's Souls",
+    health: 88888,
+    souls: 888888,
+    weaknesses: ['fire', 'fire', 'fire'],
+    resistances: ['magic', 'lightning', 'strike']
+  },
+  {
+    name: "bossdawg4",
+    game: "Demon's Souls",
+    health: 88888,
+    souls: 888888,
+    weaknesses: ['fire', 'fire', 'fire'],
+    resistances: ['magic', 'lightning', 'strike']
+  },
+  // end of test bosses
   {
     name: "Cleric Beast",
     game: "Bloodborne",
@@ -157,7 +184,7 @@ function resetGame() {
     soulsMax: 999999,
     health: 0,
     healthMin: 0,
-    healthMax: 999999,
+    healthMax: 99999,
   }
   // Generate new boss
   correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)]

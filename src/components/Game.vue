@@ -1,7 +1,8 @@
 <template>
   <main class="max-w-5xl mx-auto p-2 my-8">
     <button @click="resetGame" class="font-bold border-2 border-white rounded text-xl py-2 px-4 duration-200 hover:bg-white hover:text-zinc-900">New Game</button>
-    <button @click="wasGuessed = true" class=" font-bold border-2 border-white rounded text-xl ml-4 py-2 px-4 duration-200 hover:bg-white hover:text-zinc-900">Test fade</button>
+    <button @click="showHowTo = true" class="font-bold border-2 border-white rounded text-xl ml-4 py-2 px-4 duration-200 hover:bg-white hover:text-zinc-900">How To</button>
+    <button @click="wasGuessed = true" class="font-bold border-2 border-white rounded text-xl ml-4 py-2 px-4 duration-200 hover:bg-white hover:text-zinc-900">Test fade</button>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4 mt-4">
       <!-- <BossFrame :known="known" /> -->
       <KnownInfo :known="known" />
@@ -12,6 +13,7 @@
         </div>
       </div>
     </div>
+    <HowToModal :showHowTo="showHowTo"/>
     <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
   </main>
 </template>
@@ -136,6 +138,7 @@ const known = ref({
   healthMax: 99999,
 })
 const wasGuessed = ref(false);
+const showHowTo = ref(false);
 
 function validateGuess(boss) {
   guessedBosses.value.unshift(boss);

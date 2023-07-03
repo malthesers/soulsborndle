@@ -15,12 +15,13 @@
       </div>
     </div>
     <HowToModal @hideHowTo="showHowTo = false" :showHowTo="showHowTo"/>
-    <RecordsModal @hideRecords="showRecords = false" :showRecords="showRecords"/>
+    <RecordsModal @hideRecords="showRecords = false" :showRecords="showRecords" :records="records"/>
     <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
   </main>
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import bossData from '../bosses.js'
 const bosses = ref(bossData)
 const guessedBosses = ref([])
@@ -41,6 +42,8 @@ const known = ref({
   healthMin: 0,
   healthMax: 99999,
 })
+const records = ref([])
+
 const wasGuessed = ref(false);
 const showHowTo = ref(false);
 const showRecords = ref(false);
@@ -49,11 +52,20 @@ function validateGuess(boss) {
   guessedBosses.value.unshift(boss);
   // Check if guess is correct
   if (boss.name === correct.value.name) {
+    // Set correct vaules
     known.value.name = boss.name;
     known.value.game = boss.game;
     known.value.health = boss.health;
     known.value.souls = boss.souls;
+
+    // Trigger succesful events
     wasGuessed.value = true;
+
+    // Add to records
+    records.value.push({
+      name: boss.name,
+      guesses: guessCount.value
+    })
   } else {
 
     // Validate name

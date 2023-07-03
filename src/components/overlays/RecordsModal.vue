@@ -2,19 +2,20 @@
   <Teleport to="body">
     <Transition name="fade">
       <div v-if="showRecords" @click="$emit('hideRecords')" class="fixed top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
-        <div class="w-full max-w-max mx-auto bg-black p-4 text-center md:text-lg">
+        <div class="w-full max-w-xl mx-auto bg-black p-4 text-center md:text-lg">
           <p class="text-3xl">Records</p>
-          <table class="w-full text-left border-separate border-spacing-2">
+          <p v-if="records.length === 0">You have not guessed a boss yet.</p>
+          <table v-else class="w-full text-left border-separate border-spacing-2">
             <thead>
               <tr>
-                <th>Guesses</th>
+                <th>#</th>
                 <th>Boss</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="n in 10" :key="n">
-                <td>{{ n }}</td>
-                <td>Lorian, Elder Prince and Lothric, Younger Prince</td>
+              <tr v-for="record in sortedRecords" :key="`${record.guesses}-${record.name}`">
+                <td>{{ record.guesses }}</td>
+                <td>{{ record.name }}</td>
               </tr>
             </tbody>
           </table>
@@ -27,7 +28,12 @@
 <script setup>
 const emits = defineEmits(['hideRecords'])
 const props = defineProps({
-  showRecords: Boolean
+  showRecords: Boolean,
+  records: Array,
+})
+
+const sortedRecords = computed(() => {
+  return props.records.sort((record1, record2) => record1.guesses - record2.guesses)
 })
 
 </script>

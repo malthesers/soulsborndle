@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <HowToModal :showHowTo="showHowTo"/>
+    <HowToModal @hideHowTo="showHowTo = false" :showHowTo="showHowTo"/>
     <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
   </main>
 </template>

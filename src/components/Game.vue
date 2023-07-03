@@ -7,7 +7,7 @@
       <!-- <BossFrame :known="known" /> -->
       <KnownInfo :known="known" />
       <div class="w-full">
-        <BossSearch @guessEntered="(boss) => validateGuess(boss)" :bosses="remainingBosses"/>
+        <BossSearch @guessEntered="(boss) => validateGuess(boss)" :bosses="remainingBosses" :wasGuessed="wasGuessed"/>
         <div class="flex flex-col gap-4">
           <BossCardGuess v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct"/>
         </div>

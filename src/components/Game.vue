@@ -31,6 +31,7 @@ const guessCount = computed(() => {
 const remainingBosses = computed(() => {
   return bosses.value.filter(boss => !guessedBosses.value.includes(boss));
 })
+const records = ref([])
 const correct = ref({})
 const known = ref({
   name: '???',
@@ -42,7 +43,7 @@ const known = ref({
   healthMin: 0,
   healthMax: 99999,
 })
-const records = ref([])
+
 
 const wasGuessed = ref(false);
 const showHowTo = ref(false);
@@ -62,10 +63,7 @@ function validateGuess(boss) {
     wasGuessed.value = true;
 
     // Add to records
-    records.value.push({
-      name: boss.name,
-      guesses: guessCount.value
-    })
+    updateRecords(boss.name, guessCount.value);
   } else {
 
     // Validate name
@@ -95,6 +93,14 @@ function validateGuess(boss) {
     // Validate resistances
     if (JSON.stringify(boss.resistances) === JSON.stringify(correct.value.resistances)) known.value.resistances = boss.resistances;
   }
+}
+
+function updateRecords(name, guesses) {
+  // Add to array
+  records.value.push({
+    name: name,
+    guesses: guesses
+  })
 }
 
 function resetGame() {

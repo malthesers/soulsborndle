@@ -15,10 +15,10 @@
 </template>
 
 <script setup>
+const emits = defineEmits(['hideEffect'])
 const props = defineProps({
   wasGuessed: Boolean
 })
-const emits = defineEmits(['hideEffect'])
 
 const guessedText = ref('BOSS GUESSED');
 </script>

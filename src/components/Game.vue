@@ -15,7 +15,7 @@
       </div>
     </div>
     <InstructionsModal @hideInstructions="showInstructions = false" :showInstructions="showInstructions"/>
-    <RecordsModal @hideRecords="showRecords = false" :showRecords="showRecords" :records="records"/>
+    <RecordsModal @hideRecords="showRecords = false" @resetRecords="records = []" :showRecords="showRecords" :records="records"/>
     <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
   </main>
 </template>
@@ -107,8 +107,6 @@ function updateRecords(name, guesses) {
   // Cap records at 10 entries
   records.value = records.value.slice(0, 10)
 
-  // Save to localStorage
-  localStorage.setItem('records', JSON.stringify(records.value));
 }
 
 function resetGame() {
@@ -129,6 +127,11 @@ function resetGame() {
   // Generate new boss
   correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)]
 }
+
+watch(records, (newRecords) => {
+  // Save to localStorage
+  localStorage.setItem('records', JSON.stringify(records.value));
+})
 
 onMounted(() => {
   // Set random boss to guess

@@ -106,6 +106,9 @@ function updateRecords(name, guesses) {
 
   // Cap records at 10 entries
   records.value = records.value.slice(0, 10)
+
+  // Save to localStorage
+  localStorage.setItem('records', JSON.stringify(records.value));
 }
 
 function resetGame() {
@@ -128,6 +131,9 @@ function resetGame() {
 }
 
 onMounted(() => {
+  // Set random boss to guess
   correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)];
+  // Fetch stored records
+  records.value = JSON.parse(localStorage.getItem('records')) || []
 })
 </script>

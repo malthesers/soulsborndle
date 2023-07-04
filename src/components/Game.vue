@@ -30,6 +30,7 @@ const guessCount = computed(() => {
 const remainingBosses = computed(() => {
   return bosses.value.filter(boss => !guessedBosses.value.includes(boss));
 })
+const records = ref([])
 const correct = ref({})
 const known = ref({
   name: '???',
@@ -46,10 +47,6 @@ const wasGuessed = ref(false);
 const showInstructions = ref(false);
 const showRecords = ref(false);
 
-const records = ref([])
-// const sortedRecords = computed(() => {
-//   return records.value.sort((record1, record2) => record1.guesses - record2.guesses)
-// })
 
 function validateGuess(boss) {
   guessedBosses.value.unshift(boss);
@@ -104,9 +101,11 @@ function updateRecords(name, guesses) {
     guesses: guesses
   })
 
-  console.log(records.value)
-
+  // Sort array by guesses
   records.value.sort((record1, record2) => record1.guesses - record2.guesses)
+
+  // Cap records at 10 entries
+  records.value = records.value.slice(0, 10)
 }
 
 function resetGame() {

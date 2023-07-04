@@ -13,7 +13,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="record in sortedRecords" :key="`${record.guesses}-${record.name}`">
+              <tr v-for="record in records" :key="`${record.guesses}-${record.name}`">
                 <td>{{ record.guesses }}</td>
                 <td>{{ record.name }}</td>
               </tr>
@@ -32,9 +32,6 @@ const props = defineProps({
   records: Array,
 })
 
-const sortedRecords = computed(() => {
-  return props.records.sort((record1, record2) => record1.guesses - record2.guesses)
-})
 
 </script>
 

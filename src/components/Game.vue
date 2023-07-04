@@ -103,7 +103,6 @@ function updateRecords(name, guesses) {
 
   // Cap records at 10 entries
   records.value = records.value.slice(0, 10)
-
 }
 
 function resetGame() {

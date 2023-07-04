@@ -23,15 +23,3 @@ const props = defineProps({
 
 const games = ref(['Demon\'s Souls', 'Dark Souls', 'Dark Souls II', 'Dark Souls III', 'Bloodborne', 'Elden Ring'])
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 300ms ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>

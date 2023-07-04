@@ -24,9 +24,6 @@
 import bossData from '../bosses.js'
 const bosses = ref(bossData)
 const guessedBosses = ref([])
-const guessCount = computed(() => {
-  return guessedBosses.value.length;
-})
 const remainingBosses = computed(() => {
   return bosses.value.filter(boss => !guessedBosses.value.includes(boss));
 })
@@ -62,7 +59,7 @@ function validateGuess(boss) {
     wasGuessed.value = true;
 
     // Add to records
-    updateRecords(boss.name, guessCount.value);
+    updateRecords(boss.name, guessedBosses.value.length);
   } else {
 
     // Validate name
@@ -128,7 +125,7 @@ function resetGame() {
   correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)]
 }
 
-watch(records, (newRecords) => {
+watch(records, () => {
   // Save to localStorage
   localStorage.setItem('records', JSON.stringify(records.value));
 })

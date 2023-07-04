@@ -21,7 +21,6 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
 import bossData from '../bosses.js'
 const bosses = ref(bossData)
 const guessedBosses = ref([])

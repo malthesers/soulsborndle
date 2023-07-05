@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import bossData from '../bosses.js'
+import bossData from '../bosses/test-bosses.js'
 import demonsSoulsBosses from '../bosses/demons-souls.js'
 import darkSouls1Bosses from '../bosses/dark-souls-1.js'
 import darkSouls2Bosses from '../bosses/dark-souls-2.js'

@@ -22,10 +22,11 @@
 
 <script setup>
 import bossData from '../bosses.js'
+import demonsSoulsBosses from '../bosses/demons-souls.js'
 import bloodborneBosses from '../bosses/bloodborne.js'
 import eldenRingBosses from '../bosses/elden-ring.js'
 // const bosses = ref(bossData)
-const bosses = ref([...bloodborneBosses, ...eldenRingBosses])
+const bosses = ref([ ...demonsSoulsBosses, ...bloodborneBosses, ...eldenRingBosses])
 
 const guessedBosses = ref([])
 const remainingBosses = computed(() => {

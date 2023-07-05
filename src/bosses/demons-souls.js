@@ -5,7 +5,7 @@ export const bosses = [
     health: 1150,
     souls: 1270,
     weaknesses: ['fire'],
-    resistances: ['']
+    resistances: []
   }
 ]
 

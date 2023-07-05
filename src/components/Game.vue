@@ -22,7 +22,11 @@
 
 <script setup>
 import bossData from '../bosses.js'
-const bosses = ref(bossData)
+import bloodborneBosses from '../bosses/bloodborne.js'
+import sekiroBosses from '../bosses/sekiro.js'
+// const bosses = ref(bossData)
+const bosses = ref([...bloodborneBosses, ...sekiroBosses])
+
 const guessedBosses = ref([])
 const remainingBosses = computed(() => {
   return bosses.value.filter(boss => !guessedBosses.value.includes(boss));

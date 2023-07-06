@@ -5,7 +5,6 @@
     <button @click="showRecords = true" class="font-bold border-2 border-white rounded text-xl ml-4 py-2 px-4 duration-200 hover:bg-white hover:text-zinc-900">Records</button>
     <button @click="wasGuessed = true" class="font-bold border-2 border-white rounded text-xl ml-4 py-2 px-4 duration-200 hover:bg-white hover:text-zinc-900">Test fade</button>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4 mt-4">
-      <!-- <BossFrame :known="known" /> -->
       <KnownInfo :known="known" />
       <div class="w-full">
         <BossSearch @guessEntered="(boss) => validateGuess(boss)" :bosses="remainingBosses" :wasGuessed="wasGuessed"/>

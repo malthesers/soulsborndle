@@ -21,7 +21,7 @@
                 </tr>
               </tbody>
             </table>
-            <button @click="$emit('resetRecords')" class="font-bold border-2 border-white rounded text-xl py-2 px-4 mt-4 duration-200 hover:bg-white hover:text-zinc-900">Clear records</button>
+            <Button @click="$emit('resetRecords')" text="Clear records"/>
           </div>
         </div>
       </div>

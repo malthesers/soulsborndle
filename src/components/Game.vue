@@ -3,7 +3,7 @@
     <Button @click="resetGame" text="New Game"/>
     <Button @click="showInstructions = true" text="Instructions"/>
     <Button @click="showRecords = true" text="Records"/>
-    <Button @click="wasGuessed = true" text="Test fade"/>
+    <!-- <Button @click="wasGuessed = true" text="Test fade"/> -->
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <KnownInfo :known="known" />
       <div class="w-full">

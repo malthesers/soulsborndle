@@ -1,9 +1,11 @@
 <template>
   <main class="max-w-5xl mx-auto p-2 my-8">
-    <Button @click="resetGame" text="New Game"/>
-    <Button @click="showInstructions = true" text="Instructions"/>
-    <Button @click="showRecords = true" text="Records"/>
-    <!-- <Button @click="wasGuessed = true" text="Test fade"/> -->
+    <div class="grid sm:flex gap-4 mb-4">
+      <Button @click="resetGame" text="New Game"/>
+      <Button @click="showInstructions = true" text="Instructions"/>
+      <Button @click="showRecords = true" text="Records"/>
+      <!-- <Button @click="wasGuessed = true" text="Test fade"/> -->
+    </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <KnownInfo :known="known" />
       <div class="w-full">

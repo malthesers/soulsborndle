@@ -7,7 +7,7 @@
           <p v-if="records.length === 0">You have not guessed a boss yet.</p>
           <div v-else>
             <p>Listed below is your 10 fastest guessed bosses sorted by amount of guesses.</p>
-            <table class="w-full text-left border-separate border-spacing-2">
+            <table class="w-full text-left my-4">
               <thead>
                 <tr>
                   <th>#</th>

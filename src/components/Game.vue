@@ -1,6 +1,6 @@
 <template>
   <main class="max-w-5xl mx-auto p-2 my-8">
-    <div class="flex flex-wrap gap-4 mb-4">
+    <div class="grid sm:flex gap-4 mb-4">
       <Button @click="resetGame" text="New Game"/>
       <Button @click="showInstructions = true" text="Instructions"/>
       <Button @click="showRecords = true" text="Records"/>

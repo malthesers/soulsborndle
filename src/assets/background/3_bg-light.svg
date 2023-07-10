@@ -25,8 +25,5 @@
       <stop offset="1" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <g id="b" data-name="backcover">
-    <rect class="e" width="1920" height="1080"/>
-  </g>
   <ellipse id="d" data-name="background-light" class="f" cx="1233.0213" cy="1144.04716" rx="1652.03125" ry="1025.03927"/>
 </svg>

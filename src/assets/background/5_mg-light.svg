@@ -2,10 +2,6 @@
 <svg id="a" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
   <defs>
     <style>
-      .e {
-        fill: #18181b;
-      }
-
       .f {
         fill: url(#c);
         opacity: .5;
@@ -25,8 +21,5 @@
       <stop offset="1" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <g id="b" data-name="backcover">
-    <rect class="e" width="1920" height="1080"/>
-  </g>
   <ellipse id="d" data-name="middleground-light" class="f" cx="1001.02124" cy="1079.56085" rx="1652.03125" ry="687.53275"/>
 </svg>

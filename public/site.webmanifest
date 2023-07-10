@@ -1,6 +1,7 @@
 {
   "name":"Soulsborndle",
   "short_name":"Soulsborndle",
+  "start_url":"/soulsborndle/",
   "icons":[
     {
       "src":"/android-chrome-192x192.png",

@@ -102,6 +102,38 @@ export const bosses = [
     souls: 40400,
     weaknesses: ['magic'],
     resistances: []
+  },
+  {
+    name: 'Leechmonger',
+    game: "Demon's Souls",
+    health: 2047,
+    souls: 8249,
+    weaknesses: ['fire'],
+    resistances: []
+  },
+  {
+    name: 'Dirty Colossus',
+    game: "Demon's Souls",
+    health: 3367,
+    souls: 33433,
+    weaknesses: ['fire'],
+    resistances: ['thrust']
+  },
+  {
+    name: 'Garl Vinland',
+    game: "Demon's Souls",
+    health: 1320,
+    souls: 16750,
+    weaknesses: ['fire'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Maiden Astraea',
+    game: "Demon's Souls",
+    health: 3055,
+    souls: 23400,
+    weaknesses: ['fire'],
+    resistances: []
   }
 ]
 

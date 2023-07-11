@@ -52,7 +52,7 @@ export const bosses = [
     game: "Demon's Souls",
     health: 4340,
     souls: 26800,
-    weaknesses: [''],
+    weaknesses: [],
     resistances: ['fire']
   }
 ]

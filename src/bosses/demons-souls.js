@@ -27,7 +27,7 @@ export const bosses = [
     name: 'Old King Allant',
     game: "Demon's Souls",
     health: 2960,
-    souls: 35850,
+    souls: 75500,
     weaknesses: ['fire'],
     resistances: ['magic']
   },

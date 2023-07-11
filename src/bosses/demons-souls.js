@@ -54,6 +54,30 @@ export const bosses = [
     souls: 26800,
     weaknesses: [],
     resistances: ['fire']
+  },
+  {
+    name: "Fool's Idol",
+    game: "Demon's Souls",
+    health: 1864,
+    souls: 8430,
+    weaknesses: ['fire'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Maneater',
+    game: "Demon's Souls",
+    health: 2790,
+    souls: 13880,
+    weaknesses: ['fire'],
+    resistances: []
+  },
+  {
+    name: 'Old Monk',
+    game: "Demon's Souls",
+    health: 0,
+    souls: 0,
+    weaknesses: ['magic'],
+    resistances: ['slash']
   }
 ]
 

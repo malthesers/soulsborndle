@@ -93,7 +93,7 @@ export const bosses = [
     health: 4410,
     souls: 33750,
     weaknesses: ['fire'],
-    resistances: ['']
+    resistances: []
   },
   {
     name: 'Storm King',
@@ -101,7 +101,7 @@ export const bosses = [
     health: 1172,
     souls: 40400,
     weaknesses: ['magic'],
-    resistances: ['']
+    resistances: []
   }
 ]
 

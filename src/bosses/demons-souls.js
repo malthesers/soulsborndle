@@ -30,6 +30,30 @@ export const bosses = [
     souls: 35850,
     weaknesses: ['fire'],
     resistances: ['magic']
+  },
+  {
+    name: 'Armor Spider',
+    game: "Demon's Souls",
+    health: 1732,
+    souls: 5950,
+    weaknesses: ['magic'],
+    resistances: ['fire', 'slash']
+  },
+  {
+    name: 'Flamelurker',
+    game: "Demon's Souls",
+    health: 3720,
+    souls: 22500,
+    weaknesses: ['magic'],
+    resistances: ['fire', 'slash', 'thrust']
+  },
+  {
+    name: 'Dragon God',
+    game: "Demon's Souls",
+    health: 4340,
+    souls: 26800,
+    weaknesses: [''],
+    resistances: ['fire']
   }
 ]
 

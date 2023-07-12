@@ -120,7 +120,7 @@ export const bosses = [
     resistances: ['magic']
   },
   {
-    name: 'Nito',
+    name: 'Gravelord Nito',
     game: 'Dark Souls',
     health: 4317,
     souls: 60000,

@@ -198,6 +198,38 @@ export const bosses = [
     souls: 60000,
     weaknesses: ['lightning'],
     resistances: []
+  },
+  {
+    name: 'Knight Artorias',
+    game: 'Dark Souls',
+    health: 3750,
+    souls: 50000,
+    weaknesses: ['strike'],
+    resistances: ['magic', 'fire', 'lightning']
+  },
+  {
+    name: 'Black Dragon Kalameet',
+    game: 'Dark Souls',
+    health: 5400,
+    souls: 60000,
+    weaknesses: ['strike'],
+    resistances: ['magic', 'fire', 'lightning']
+  },
+  {
+    name: 'Manus, Father of the Abyss',
+    game: 'Dark Souls',
+    health: 6665,
+    souls: 60000,
+    weaknesses: ['physical'],
+    resistances: ['magic', 'fire', 'lightning']
+  },
+  {
+    name: 'Sanctuary Guardian',
+    game: 'Dark Souls',
+    health: 2560,
+    souls: 30000,
+    weaknesses: ['physical'],
+    resistances: ['magic', 'fire', 'lightning']
   }
 ]
 

@@ -29,7 +29,7 @@ export const bosses = [
     health: 4200,
     souls: 20000,
     weaknesses: [],
-    resistances: []
+    resistances: ['fire']
   },
   {
     name: 'Centipede Demon',
@@ -37,7 +37,7 @@ export const bosses = [
     health: 3432,
     souls: 40000,
     weaknesses: ['lightning'],
-    resistances: []
+    resistances: ['fire']
   },
   {
     name: 'Chaos Witch Quelaag',
@@ -52,7 +52,7 @@ export const bosses = [
     game: 'Dark Souls',
     health: 2300,
     souls: 30000,
-    weaknesses: ['fire'],
+    weaknesses: ['fire', 'lightning'],
     resistances: []
   }
 ]

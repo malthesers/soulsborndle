@@ -8,16 +8,4 @@
 const props = defineProps({
   damageType: String,
 })
-
-const damageTypes = ref({
-  'magic': 'magic_2',
-  'fire': 'fire_2',
-  'lightning': 'lightning',
-  'dark': 'dark',
-  'holy': 'holy_2',
-  'physical': 'physical',
-  'slash': 'slash',
-  'strike': 'strike',
-  'thrust': 'thrust'
-})
 </script>

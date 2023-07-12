@@ -108,7 +108,87 @@ export const bosses = [
     game: 'Dark Souls',
     health: 2880,
     souls: 40000,
-    weaknesses: [],
+    weaknesses: ['lightning'],
+    resistances: ['slash']
+  },
+  {
+    name: 'Moonlight Butterfly',
+    game: 'Dark Souls',
+    health: 1255,
+    souls: 10000,
+    weaknesses: ['fire'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Nito',
+    game: 'Dark Souls',
+    health: 4317,
+    souls: 60000,
+    weaknesses: ['fire'],
+    resistances: []
+  },
+  {
+    name: 'Dragon Slayer Ornstein (Normal)',
+    game: 'Dark Souls',
+    health: 1642,
+    souls: 50000,
+    weaknesses: ['magic', 'fire'],
+    resistances: ['lightning']
+  },
+  {
+    name: 'Dragon Slayer Ornstein (Super)',
+    game: 'Dark Souls',
+    health: 2981,
+    souls: 50000,
+    weaknesses: ['magic', 'fire'],
+    resistances: ['lightning']
+  },
+  {
+    name: 'Executioner Smough (Normal)',
+    game: 'Dark Souls',
+    health: 2645,
+    souls: 50000,
+    weaknesses: ['fire', 'lightning'],
+    resistances: ['strike']
+  },
+  {
+    name: 'Executioner Smough (Super)',
+    game: 'Dark Souls',
+    health: 4094,
+    souls: 50000,
+    weaknesses: ['fire'],
+    resistances: ['strike']
+  },
+  {
+    name: 'Pinwheel',
+    game: 'Dark Souls',
+    health: 1326,
+    souls: 15000,
+    weaknesses: ['magic', 'fire', 'lightning'],
+    resistances: []
+  },
+  {
+    name: 'Seath the Scaleless',
+    game: 'Dark Souls',
+    health: 5525,
+    souls: 60000,
+    weaknesses: ['fire', 'lightning'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Stray Demon',
+    game: 'Dark Souls',
+    health: 5250,
+    souls: 20000,
+    weaknesses: ['magic', 'slash', 'lightning'],
+    resistances: ['strike']
+  },
+  {
+    name: 'Taurus Demon',
+    game: 'Dark Souls',
+    health: 1215,
+    souls: 3000,
+    weaknesses: ['lightning'],
     resistances: []
   }
 ]

@@ -190,6 +190,14 @@ export const bosses = [
     souls: 3000,
     weaknesses: ['lightning'],
     resistances: []
+  },
+  {
+    name: 'The Bed of Chaos',
+    game: 'Dark Souls',
+    health: 2,
+    souls: 60000,
+    weaknesses: ['lightning'],
+    resistances: []
   }
 ]
 

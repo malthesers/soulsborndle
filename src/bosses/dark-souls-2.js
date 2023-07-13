@@ -200,7 +200,7 @@ export const bosses = [
     resistances: ['dark']
   },
   {
-    name: 'King Vendrick',
+    name: 'Vendrick',
     game: 'Dark Souls II',
     health: 11450,
     souls: 90000,
@@ -214,6 +214,86 @@ export const bosses = [
     souls: 35000,
     weaknesses: ['lightning'],
     resistances: ['dark']
+  },
+  {
+    name: 'Dragonrider',
+    game: 'Dark Souls II',
+    health: 3050,
+    souls: 12000,
+    weaknesses: ['fire', 'lightning', 'strike'],
+    resistances: []
+  },
+  {
+    name: 'Twin Dragonriders (Archer)',
+    game: 'Dark Souls II',
+    health: 1470,
+    souls: 26000,
+    weaknesses: ['fire', 'lightning', 'strike'],
+    resistances: []
+  },
+  {
+    name: 'Twin Dragonriders (Warrior)',
+    game: 'Dark Souls II',
+    health: 3670,
+    souls: 26000,
+    weaknesses: ['fire', 'lightning', 'strike'],
+    resistances: []
+  },
+  {
+    name: 'Prowling Magus and Congregation',
+    game: 'Dark Souls II',
+    health: 2580,
+    souls: 7000,
+    weaknesses: [],
+    resistances: []
+  },
+  {
+    name: 'Giant Lord',
+    game: 'Dark Souls II',
+    health: 5970,
+    souls: 75000,
+    weaknesses: ['dark'],
+    resistances: []
+  },
+  {
+    name: 'Ancient Dragon',
+    game: 'Dark Souls II',
+    health: 19840,
+    souls: 120000,
+    weaknesses: ['magic', 'lightning', 'dark'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Throne Watcher',
+    game: 'Dark Souls II',
+    health: 2760,
+    souls: 68000,
+    weaknesses: ['lightning', 'strike'],
+    resistances: []
+  },
+  {
+    name: 'Throne Defender',
+    game: 'Dark Souls II',
+    health: 3910,
+    souls: 68000,
+    weaknesses: ['lightning', 'strike'],
+    resistances: []
+  },
+  {
+    name: 'Nashandra',
+    game: 'Dark Souls II',
+    health: 8770,
+    souls: 90000,
+    weaknesses: ['lightning', 'strike'],
+    resistances: ['dark']
+  },
+  {
+    name: 'Aldia, Scholar of the First Sin',
+    game: 'Dark Souls II',
+    health: 6800,
+    souls: 0,
+    weaknesses: ['slash'],
+    resistances: ['fire', 'dark']
   }
 ]
 

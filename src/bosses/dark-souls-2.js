@@ -166,6 +166,54 @@ export const bosses = [
     souls: 75000,
     weaknesses: ['dark', 'strike'],
     resistances: ['magic']
+  },
+  {
+    name: 'Old Iron King',
+    game: 'Dark Souls II',
+    health: 6070,
+    souls: 48000,
+    weaknesses: ['lightning', 'strike'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Guardian Dragon',
+    game: 'Dark Souls II',
+    health: 5270,
+    souls: 37000,
+    weaknesses: ['magic', 'dark'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Demon of Song',
+    game: 'Dark Souls II',
+    health: 6180,
+    souls: 26000,
+    weaknesses: ['magic', 'lightning', 'dark'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Velstadt, the Royal Aegis',
+    game: 'Dark Souls II',
+    health: 6290,
+    souls: 50000,
+    weaknesses: ['lightning', 'strike'],
+    resistances: ['dark']
+  },
+  {
+    name: 'King Vendrick',
+    game: 'Dark Souls II',
+    health: 11450,
+    souls: 90000,
+    weaknesses: ['slash'],
+    resistances: ['dark']
+  },
+  {
+    name: 'Darklurker',
+    game: 'Dark Souls II',
+    health: 5770,
+    souls: 35000,
+    weaknesses: ['lightning'],
+    resistances: ['dark']
   }
 ]
 

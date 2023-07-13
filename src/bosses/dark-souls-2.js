@@ -350,6 +350,38 @@ export const bosses = [
     souls: 80000,
     weaknesses: ['dark', 'thrust'],
     resistances: ['magic']
+  },
+  {
+    name: 'Burnt Ivory King',
+    game: 'Dark Souls II',
+    health: 8040,
+    souls: 92000,
+    weaknesses: ['lightning', 'strike'],
+    resistances: []
+  },
+  {
+    name: "Aava, the King's Pet",
+    game: 'Dark Souls II',
+    health: 8930,
+    souls: 78000,
+    weaknesses: ['fire'],
+    resistances: []
+  },
+  {
+    name: "Lud, the King's Pet",
+    game: 'Dark Souls II',
+    health: 5070,
+    souls: 56000,
+    weaknesses: ['fire'],
+    resistances: []
+  },
+  {
+    name: "Zallen, the King's Pet",
+    game: 'Dark Souls II',
+    health: 5070,
+    souls: 56000,
+    weaknesses: ['fire'],
+    resistances: []
   }
 ]
 

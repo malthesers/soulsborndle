@@ -1,7 +1,7 @@
 <template>
   <div class="relative mb-4">
     <input v-model="search" :disabled="wasGuessed" placeholder="Enter boss name..." class="w-full text-black p-2 outline-none">
-    <div v-if="showSearch" class="absolute w-full max-h-[990px] overflow-auto bg-zinc-700">
+    <div v-if="showSearch" class="absolute w-full max-h-[660px] overflow-auto bg-zinc-700">
       <div v-for="boss in searchedBosses" :key="boss.name" @click="enterGuess(boss)" @keydown.enter="enterGuess(boss)" tabindex="0" class="cursor-pointer border-t-2 shadow-2xl outline-none hover:bg-zinc-900 focus:bg-zinc-900">
           <p class="text-lg px-2 py-1 text-center">{{ boss.name }}</p>
           <div class="flex flex-col sm:flex-row gap-1 text-center">

@@ -160,14 +160,6 @@ export const bosses = [
     resistances: ['fire']
   },
   {
-    name: 'Smelter Demon (Blue)',
-    game: 'Dark Souls II',
-    health: 9260,
-    souls: 75000,
-    weaknesses: ['dark', 'strike'],
-    resistances: ['magic']
-  },
-  {
     name: 'Old Iron King',
     game: 'Dark Souls II',
     health: 6070,
@@ -334,6 +326,30 @@ export const bosses = [
     souls: 60000,
     weaknesses: [],
     resistances: []
+  },
+  {
+    name: 'Smelter Demon (Blue)',
+    game: 'Dark Souls II',
+    health: 9260,
+    souls: 75000,
+    weaknesses: ['dark', 'strike'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Fume Knight',
+    game: 'Dark Souls II',
+    health: 10100,
+    souls: 84000,
+    weaknesses: ['dark', 'lightning', 'physical'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Sir Alonne',
+    game: 'Dark Souls II',
+    health: 10140,
+    souls: 80000,
+    weaknesses: ['dark', 'thrust'],
+    resistances: ['magic']
   }
 ]
 

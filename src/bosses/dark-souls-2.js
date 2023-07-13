@@ -102,6 +102,70 @@ export const bosses = [
     souls: 14000,
     weaknesses: ['fire'],
     resistances: []
+  },
+  {
+    name: 'Scorpioness Najka',
+    game: 'Dark Souls II',
+    health: 5911,
+    souls: 23000,
+    weaknesses: ['fire'],
+    resistances: ['magic']
+  },
+  {
+    name: "The Duke's Dear Freja",
+    game: 'Dark Souls II',
+    health: 4220,
+    souls: 42000,
+    weaknesses: ['fire', 'strike'],
+    resistances: ['magic', 'lightning', 'dark']
+  },
+  {
+    name: 'Mytha, the Baneful Queen',
+    game: 'Dark Souls II',
+    health: 3570,
+    souls: 20000,
+    weaknesses: ['fire'],
+    resistances: ['magic', 'lightning', 'slash']
+  },
+  {
+    name: 'The Rotten',
+    game: 'Dark Souls II',
+    health: 7080,
+    souls: 47000,
+    weaknesses: ['lightning', 'thrust'],
+    resistances: ['dark', 'strike']
+  },
+  {
+    name: 'Old Dragonslayer',
+    game: 'Dark Souls II',
+    health: 2880,
+    souls: 20000,
+    weaknesses: [],
+    resistances: ['dark']
+  },
+  {
+    name: 'Covetous Demon',
+    game: 'Dark Souls II',
+    health: 4440,
+    souls: 13000,
+    weaknesses: ['magic', 'fire', 'thrust'],
+    resistances: ['lightning', 'strike']
+  },
+  {
+    name: 'Smelter Demon (Red)',
+    game: 'Dark Souls II',
+    health: 5970,
+    souls: 32000,
+    weaknesses: ['lightning', 'strike', 'thrust'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Smelter Demon (Blue)',
+    game: 'Dark Souls II',
+    health: 9260,
+    souls: 75000,
+    weaknesses: ['dark', 'strike'],
+    resistances: ['magic']
   }
 ]
 

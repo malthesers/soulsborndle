@@ -294,6 +294,46 @@ export const bosses = [
     souls: 0,
     weaknesses: ['slash'],
     resistances: ['fire', 'dark']
+  },
+  {
+    name: 'Elana, Squalid Queen',
+    game: 'Dark Souls II',
+    health: 9280,
+    souls: 54000,
+    weaknesses: ['magic', 'strike'],
+    resistances: ['dark']
+  },
+  {
+    name: 'Sinh, the Slumbering Dragon',
+    game: 'Dark Souls II',
+    health: 10030,
+    souls: 96000,
+    weaknesses: ['magic', 'dark'],
+    resistances: ['fire', 'lightning']
+  },
+  {
+    name: 'Afflicted Graverobber',
+    game: 'Dark Souls II',
+    health: 3350,
+    souls: 60000,
+    weaknesses: [],
+    resistances: []
+  },
+  {
+    name: 'Ancient Soldier Varg',
+    game: 'Dark Souls II',
+    health: 3310,
+    souls: 60000,
+    weaknesses: [],
+    resistances: []
+  },
+  {
+    name: 'Cerah the Old Explorer',
+    game: 'Dark Souls II',
+    health: 2540,
+    souls: 60000,
+    weaknesses: [],
+    resistances: []
   }
 ]
 

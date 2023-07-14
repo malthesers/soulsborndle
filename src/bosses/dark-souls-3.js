@@ -192,7 +192,15 @@ export const bosses = [
     resistances: []
   },
   {
-    name: 'Demon in Pain & Demon from Below',
+    name: 'Demon in Pain',
+    game: 'Dark Souls III',
+    health: 7062,
+    souls: 100000,
+    weaknesses: ['dark', 'slash'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Demon from Below',
     game: 'Dark Souls III',
     health: 7062,
     souls: 100000,

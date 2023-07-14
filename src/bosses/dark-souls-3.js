@@ -190,6 +190,46 @@ export const bosses = [
     souls: 60000,
     weaknesses: ['fire', 'lightning'],
     resistances: []
+  },
+  {
+    name: 'Demon in Pain & Demon from Below',
+    game: 'Dark Souls III',
+    health: 7062,
+    souls: 100000,
+    weaknesses: ['dark', 'slash'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Demon Prince',
+    game: 'Dark Souls III',
+    health: 7045,
+    souls: 100000,
+    weaknesses: [],
+    resistances: ['fire']
+  },
+  {
+    name: 'Halflight, Spear of the Church',
+    game: 'Dark Souls III',
+    health: 3350,
+    souls: 80000,
+    weaknesses: ['lightning'],
+    resistances: []
+  },
+  {
+    name: 'Darkeater Midir',
+    game: 'Dark Souls III',
+    health: 15860,
+    souls: 150000,
+    weaknesses: ['lightning', 'thrust'],
+    resistances: ['magic', 'fire', 'dark']
+  },
+  {
+    name: 'Slave Knight Gael',
+    game: 'Dark Souls III',
+    health: 15037,
+    souls: 120000,
+    weaknesses: ['strike'],
+    resistances: ['slash']
   }
 ]
 

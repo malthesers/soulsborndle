@@ -4,7 +4,7 @@ export const bosses = [
     game: 'Dark Souls III',
     health: 1037,
     souls: 3000,
-    weaknesses: ['fire', 'lightning', 'strike'],
+    weaknesses: ['fire'],
     resistances: ['dark']
   }
 ]

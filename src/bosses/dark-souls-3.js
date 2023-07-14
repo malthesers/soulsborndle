@@ -166,6 +166,30 @@ export const bosses = [
     souls: 100000,
     weaknesses: ['lightning', 'dark'],
     resistances: ['fire']
+  },
+  {
+    name: 'Sister Friede',
+    game: 'Dark Souls III',
+    health: 4863,
+    souls: 72000,
+    weaknesses: ['strike'],
+    resistances: []
+  },
+  {
+    name: "Champion's Gravetender",
+    game: 'Dark Souls III',
+    health: 2791,
+    souls: 60000,
+    weaknesses: ['lightning'],
+    resistances: []
+  },
+  {
+    name: 'Gravetender Greatwolf',
+    game: 'Dark Souls III',
+    health: 2791,
+    souls: 60000,
+    weaknesses: ['fire', 'lightning'],
+    resistances: []
   }
 ]
 

@@ -126,6 +126,46 @@ export const bosses = [
     souls: 85000,
     weaknesses: ['strike', 'slash', 'thrust'],
     resistances: ['dark']
+  },
+  {
+    name: 'Lorian, Elder Prince',
+    game: 'Dark Souls III',
+    health: 3436,
+    souls: 85000,
+    weaknesses: ['lightning'],
+    resistances: ['dark']
+  },
+  {
+    name: 'Ancient Wyvern',
+    game: 'Dark Souls III',
+    health: 7873,
+    souls: 70000,
+    weaknesses: ['lightning'],
+    resistances: []
+  },
+  {
+    name: 'King of the Storm',
+    game: 'Dark Souls III',
+    health: 4577,
+    souls: 80000,
+    weaknesses: ['lightning'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Nameless King',
+    game: 'Dark Souls III',
+    health: 7100,
+    souls: 80000,
+    weaknesses: ['fire'],
+    resistances: ['lightning']
+  },
+  {
+    name: 'Soul of Cinder',
+    game: 'Dark Souls III',
+    health: 10766,
+    souls: 100000,
+    weaknesses: ['lightning', 'dark'],
+    resistances: ['fire']
   }
 ]
 

@@ -62,6 +62,70 @@ export const bosses = [
     souls: 25000,
     weaknesses: ['dark'],
     resistances: ['fire']
+  },
+  {
+    name: 'Pontiff Sulyvahn',
+    game: 'Dark Souls III',
+    health: 5106,
+    souls: 28000,
+    weaknesses: ['thrust'],
+    resistances: []
+  },
+  {
+    name: 'Yhorm the Giant',
+    game: 'Dark Souls III',
+    health: 27822,
+    souls: 36000,
+    weaknesses: ['lightning'],
+    resistances: ['fire', 'slash', 'thrust']
+  },
+  {
+    name: 'Aldrich, Devourer of Gods',
+    game: 'Dark Souls III',
+    health: 4727,
+    souls: 50000,
+    weaknesses: ['fire', 'lightning'],
+    resistances: ['magic', 'dark']
+  },
+  {
+    name: 'Dancer of the Boreal Valley',
+    game: 'Dark Souls III',
+    health: 5111,
+    souls: 60000,
+    weaknesses: ['lightning', 'dark', 'strike'],
+    resistances: []
+  },
+  {
+    name: 'Dragonslayer Armour',
+    game: 'Dark Souls III',
+    health: 4581,
+    souls: 48000,
+    weaknesses: ['strike'],
+    resistances: ['lightning', 'dark']
+  },
+  {
+    name: 'Oceiros, the Consumed King',
+    game: 'Dark Souls III',
+    health: 8087,
+    souls: 58000,
+    weaknesses: ['lightning'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Champion Gundyr',
+    game: 'Dark Souls III',
+    health: 4956,
+    souls: 60000,
+    weaknesses: ['lightning'],
+    resistances: []
+  },
+  {
+    name: 'Lothric, Younger Prince',
+    game: 'Dark Souls III',
+    health: 4294,
+    souls: 85000,
+    weaknesses: ['strike', 'slash', 'thrust'],
+    resistances: ['dark']
   }
 ]
 

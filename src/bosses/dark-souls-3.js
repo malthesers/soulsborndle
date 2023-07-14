@@ -170,7 +170,7 @@ export const bosses = [
   {
     name: 'Sister Friede',
     game: 'Dark Souls III',
-    health: 4863,
+    health: 18877,
     souls: 72000,
     weaknesses: ['strike'],
     resistances: []

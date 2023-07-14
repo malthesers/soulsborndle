@@ -238,6 +238,14 @@ export const bosses = [
     souls: 120000,
     weaknesses: ['strike'],
     resistances: ['slash']
+  },
+  {
+    name: 'Slave Knight Gael (Hollow)',
+    game: 'Dark Souls III',
+    health: 15037,
+    souls: 120000,
+    weaknesses: ['strike'],
+    resistances: ['dark', 'slash']
   }
 ]
 

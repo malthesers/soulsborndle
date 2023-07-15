@@ -158,6 +158,54 @@ export const bosses = [
     souls: 11800,
     weaknesses: [],
     resistances: []
+  },
+  {
+    name: 'Ludwig, The Accursed',
+    game: 'Bloodborne',
+    health: 16658,
+    souls: 34500,
+    weaknesses: ['fire'],
+    resistances: []
+  },
+  {
+    name: 'Ludwig, The Holy Blade',
+    game: 'Bloodborne',
+    health: 16658,
+    souls: 34500,
+    weaknesses: [],
+    resistances: []
+  },
+  {
+    name: 'Orphan of Kos',
+    game: 'Bloodborne',
+    health: 19217,
+    souls: 60000,
+    weaknesses: ['fire'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Lady Maria of the Astral Clocktower',
+    game: 'Bloodborne',
+    health: 14081,
+    souls: 39000,
+    weaknesses: ['magic', 'lightning'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Living Failures',
+    game: 'Bloodborne',
+    health: 20646,
+    souls: 22000,
+    weaknesses: ['thrust', 'lightning'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Laurence, The First Vicar',
+    game: 'Bloodborne',
+    health: 21242,
+    souls: 29500,
+    weaknesses: ['strike'],
+    resistances: ['fire']
   }
 ]
 

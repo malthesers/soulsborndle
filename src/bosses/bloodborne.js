@@ -104,11 +104,43 @@ export const bosses = [
     resistances: []
   },
   {
-    name: 'The Witch of Hemwick',
+    name: 'The One Reborn',
     game: 'Bloodborne',
-    health: 2611,
-    souls: 11800,
-    weaknesses: [],
+    health: 10375,
+    souls: 36300,
+    weaknesses: ['fire', 'lightning'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Rom, the Vacuous Spider',
+    game: 'Bloodborne',
+    health: 5058,
+    souls: 36300,
+    weaknesses: ['magic', 'fire', 'lightning'],
+    resistances: []
+  },
+  {
+    name: 'Shadow of Yharnam (Sword)',
+    game: 'Bloodborne',
+    health: 3645,
+    souls: 18500,
+    weaknesses: ['magic', 'lightning'],
+    resistances: []
+  },
+  {
+    name: 'Shadow of Yharnam (Candle)',
+    game: 'Bloodborne',
+    health: 2302,
+    souls: 18500,
+    weaknesses: ['magic', 'lightning'],
+    resistances: []
+  },
+  {
+    name: 'Shadow of Yharnam (Fireball)',
+    game: 'Bloodborne',
+    health: 2046,
+    souls: 18500,
+    weaknesses: ['fire'],
     resistances: []
   },
   {
@@ -118,6 +150,14 @@ export const bosses = [
     souls: 15000,
     weaknesses: ['fire'],
     resistances: ['strike']
+  },
+  {
+    name: 'Witch of Hemwick',
+    game: 'Bloodborne',
+    health: 2611,
+    souls: 11800,
+    weaknesses: [],
+    resistances: []
   }
 ]
 

@@ -64,6 +64,46 @@ export const bosses = [
     resistances: []
   },
   {
+    name: 'Gehrman, the First Hunter',
+    game: 'Bloodborne',
+    health: 14293,
+    souls: 128000,
+    weaknesses: ['magic', 'lightning'],
+    resistances: []
+  },
+  {
+    name: 'Martyr Logarius',
+    game: 'Bloodborne',
+    health: 9081,
+    souls: 25600,
+    weaknesses: [],
+    resistances: ['magic']
+  },
+  {
+    name: "Mergo's Wet Nurse",
+    game: 'Bloodborne',
+    health: 14081,
+    souls: 72000,
+    weaknesses: ['magic', 'fire', 'lightning'],
+    resistances: ['strike']
+  },
+  {
+    name: 'Micolash, Host of the Nightmare',
+    game: 'Bloodborne',
+    health: 5250,
+    souls: 48400,
+    weaknesses: [],
+    resistances: ['magic']
+  },
+  {
+    name: 'Moon Presence',
+    game: 'Bloodborne',
+    health: 8909,
+    souls: 230000,
+    weaknesses: ['magic', 'fire', 'lightning'],
+    resistances: []
+  },
+  {
     name: 'The Witch of Hemwick',
     game: 'Bloodborne',
     health: 2611,

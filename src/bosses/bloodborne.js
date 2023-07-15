@@ -5,7 +5,7 @@ export const bosses = [
     health: 3015,
     souls: 4000,
     weaknesses: ['fire'],
-    resistances: ['magic', 'lightning', 'strike']
+    resistances: ['strike']
   },
   {
     name: 'Father Gascoigne (Human)',
@@ -21,7 +21,7 @@ export const bosses = [
     health: 2031,
     souls: 1800,
     weaknesses: ['fire'],
-    resistances: ['magic']
+    resistances: []
   },
   {
     name: 'Blood-starved Beast',
@@ -29,7 +29,7 @@ export const bosses = [
     health: 3470,
     souls: 6600,
     weaknesses: ['fire'],
-    resistances: ['magic', 'lightning']
+    resistances: []
   },
   {
     name: 'The Witch of Hemwick',

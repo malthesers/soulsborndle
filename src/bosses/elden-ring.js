@@ -222,6 +222,54 @@ export const bosses = [
     souls: 38000,
     weaknesses: ['fire'],
     resistances: []
+  },
+  {
+    name: 'Sir Gideon Ofnir, The All-Knowing',
+    game: 'Elden Ring',
+    health: 6226,
+    souls: 150000,
+    weaknesses: ['lightning'],
+    resistances: []
+  },
+  {
+    name: 'Ancient Dragon Lansseax',
+    game: 'Elden Ring',
+    health: 9087,
+    souls: 60000,
+    weaknesses: ['thrust'],
+    resistances: ['lightning']
+  },
+  {
+    name: "Commander O'Neil",
+    game: 'Elden Ring',
+    health: 9210,
+    souls: 12000,
+    weaknesses: ['thrust'],
+    resistances: ['slash']
+  },
+  {
+    name: 'Commander Niall',
+    game: 'Elden Ring',
+    health: 15541,
+    souls: 90000,
+    weaknesses: ['thrust'],
+    resistances: ['slash']
+  },
+  {
+    name: 'Crucible Knight Siluria',
+    game: 'Elden Ring',
+    health: 4606,
+    souls: 25000,
+    weaknesses: [],
+    resistances: ['magic', 'holy']
+  },
+  {
+    name: 'Elemer of the Briar',
+    game: 'Elden Ring',
+    health: 4897,
+    souls: 24000,
+    weaknesses: [],
+    resistances: ['magic', 'fire', 'holy']
   }
 ]
 

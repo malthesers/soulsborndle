@@ -6,6 +6,8 @@
       <Button @click="showRecords = true" text="Records"/>
       <!-- <Button @click="wasGuessed = true" text="Test fade"/> -->
     </div>
+      <!-- delete later -->
+      <p>Total bosses: {{ totalBosses }}</p>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <KnownInfo :known="known" />
       <div class="w-full">
@@ -38,6 +40,10 @@ const bosses = ref(
     ...eldenRingBosses
   ]
  )
+
+ const totalBosses = computed(() => {
+  return bosses.value.length
+ })
 
 const guessedBosses = ref([])
 const remainingBosses = computed(() => {

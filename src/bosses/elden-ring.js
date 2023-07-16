@@ -270,6 +270,62 @@ export const bosses = [
     souls: 24000,
     weaknesses: [],
     resistances: ['magic', 'fire', 'holy']
+  },
+  {
+    name: 'Flying Dragon Greyll',
+    game: 'Elden Ring',
+    health: 11500,
+    souls: 80000,
+    weaknesses: ['thrust'],
+    resistances: []
+  },
+  {
+    name: 'Glintstone Dragon Smarag',
+    game: 'Elden Ring',
+    health: 6069,
+    souls: 14000,
+    weaknesses: ['thrust'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Godfrey, First Elden Lord (Golden Shade)',
+    game: 'Elden Ring',
+    health: 7099,
+    souls: 80000,
+    weaknesses: ['lightning', 'thrust'],
+    resistances: ['holy']
+  },
+  {
+    name: 'Godskin Apostle',
+    game: 'Elden Ring',
+    health: 13596,
+    souls: 94000,
+    weaknesses: ['slash'],
+    resistances: ['fire', 'holy']
+  },
+  {
+    name: "Fia's Champions",
+    game: 'Elden Ring',
+    health: 8569,
+    souls: 40000,
+    weaknesses: [],
+    resistances: []
+  },
+  {
+    name: 'Godskin Noble',
+    game: 'Elden Ring',
+    health: 10060,
+    souls: 50000,
+    weaknesses: ['thrust'],
+    resistances: ['fire', 'holy', 'strike']
+  },
+  {
+    name: 'Great Wyrm Theodorix',
+    game: 'Elden Ring',
+    health: 25649,
+    souls: 180000,
+    weaknesses: ['physical', 'strike', 'thrust'],
+    resistances: ['fire']
   }
 ]
 

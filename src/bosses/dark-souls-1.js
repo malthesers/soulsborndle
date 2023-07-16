@@ -28,8 +28,8 @@ export const bosses = [
     game: 'Dark Souls',
     health: 4200,
     souls: 20000,
-    weaknesses: ['magic'],
-    resistances: ['fire']
+    weaknesses: [],
+    resistances: []
   },
   {
     name: 'Centipede Demon',

@@ -150,6 +150,54 @@ export const bosses = [
     souls: 210000,
     weaknesses: ['thrust'],
     resistances: []
+  },
+  {
+    name: 'Ancestor Spirit',
+    game: 'Elden Ring',
+    health: 4393,
+    souls: 13000,
+    weaknesses: ['fire', 'holy', 'slash'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Margit, the Fell Omen',
+    game: 'Elden Ring',
+    health: 4174,
+    souls: 12000,
+    weaknesses: ['slash'],
+    resistances: ['holy']
+  },
+  {
+    name: 'Flying Dragon Agheel',
+    game: 'Elden Ring',
+    health: 3200,
+    souls: 5000,
+    weaknesses: ['thrust'],
+    resistances: []
+  },
+  {
+    name: 'Dragonkin Soldier of Nokstella',
+    game: 'Elden Ring',
+    health: 4372,
+    souls: 12000,
+    weaknesses: ['slash'],
+    resistances: ['lightning']
+  },
+  {
+    name: 'Leonine Misbegotten',
+    game: 'Elden Ring',
+    health: 2198,
+    souls: 3800,
+    weaknesses: ['fire', 'slash'],
+    resistances: []
+  },
+  {
+    name: 'Red Wolf of Radagon',
+    game: 'Elden Ring',
+    health: 2204,
+    souls: 14000,
+    weaknesses: ['slash'],
+    resistances: ['magic']
   }
 ]
 

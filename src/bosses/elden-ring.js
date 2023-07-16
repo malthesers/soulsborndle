@@ -326,6 +326,46 @@ export const bosses = [
     souls: 180000,
     weaknesses: ['physical', 'strike', 'thrust'],
     resistances: ['fire']
+  },
+  {
+    name: 'Loretta, Knight of the Haligtree',
+    game: 'Elden Ring',
+    health: 13397,
+    souls: 200000,
+    weaknesses: ['lightning'],
+    resistances: ['magic', 'fire']
+  },
+  {
+    name: 'Royal Knight Loretta',
+    game: 'Elden Ring',
+    health: 4214,
+    souls: 7500,
+    weaknesses: ['lightning'],
+    resistances: ['magic', 'fire']
+  },
+  {
+    name: 'Magma Wyrm Makar',
+    game: 'Elden Ring',
+    health: 7141,
+    souls: 24000,
+    weaknesses: ['physical', 'strike', 'thrust'],
+    resistances: ['fire']
+  },
+  {
+    name: 'Mohg, the Omen',
+    game: 'Elden Ring',
+    health: 14000,
+    souls: 100000,
+    weaknesses: [],
+    resistances: ['fire']
+  },
+  {
+    name: 'Mimic Tear',
+    game: 'Elden Ring',
+    health: 19536,
+    souls: 10000,
+    weaknesses: [],
+    resistances: []
   }
 ]
 

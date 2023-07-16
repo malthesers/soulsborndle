@@ -198,6 +198,30 @@ export const bosses = [
     souls: 14000,
     weaknesses: ['slash'],
     resistances: ['magic']
+  },
+  {
+    name: 'Glintstone Dragon Adula',
+    game: 'Elden Ring',
+    health: 11550,
+    souls: 120000,
+    weaknesses: ['thrust'],
+    resistances: ['magic']
+  },
+  {
+    name: 'Borealis, the Freezing Fog',
+    game: 'Elden Ring',
+    health: 11268,
+    souls: 100000,
+    weaknesses: ['strike'],
+    resistances: ['slash', 'thrust']
+  },
+  {
+    name: 'Decaying Ekzykes',
+    game: 'Elden Ring',
+    health: 23731,
+    souls: 38000,
+    weaknesses: ['fire'],
+    resistances: []
   }
 ]
 

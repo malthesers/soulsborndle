@@ -10,13 +10,14 @@
             <p v-for="game in games" :key="game">{{ game }}</p>
           </div>
           <p class="text-xl mb-2">Damage Types</p>
+          <p class="mb-2">Arcane and Bolt are treated as Magic and Lightning, while Blunt and Pierce are treated Blunt and Thrust.</p>
           <div class="mx-auto max-w-fit mb-2 xs:w-full grid grid-cols-2 xs:grid-cols-3 gap-2">
             <p v-for="damageType in damageTypes" :key="damageType" class="flex gap-2">
               <DamageBox :damageType="damageType"/>
               <span class="capitalize my-auto">{{ damageType }}</span>
             </p>
           </div>
-          <p>Arcane and Bolt are treated as Magic and Lightning, while Blunt and Pierce are treated Blunt and Thrust.</p>
+          <p><span class="font-bold text-red-900">Red</span> means nothing is correct, <span class="font-bold text-yellow-700">orange</span> means partially correct and <span class="font-bold text-green-900">green</span> completely correct.</p>
         </div>
       </div>
     </Transition>

@@ -27,7 +27,7 @@ import darkSouls1Bosses from '../bosses/dark-souls-1.json'
 import darkSouls2Bosses from '../bosses/dark-souls-2.json'
 import darkSouls3Bosses from '../bosses/dark-souls-3.json'
 import bloodborneBosses from '../bosses/bloodborne.json'
-import eldenRingBosses from '../bosses/elden-ring.js'
+import eldenRingBosses from '../bosses/elden-ring.json'
 
 const bosses = ref(
   [ ...demonsSoulsBosses,

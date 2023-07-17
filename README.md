@@ -43,5 +43,6 @@ Below are the damage types used for calculationg the weaknesses and resistances,
 
 ### 🥇 Records
 
-- Your top 10 personal best attempts are stored and can be seen in a modal by clicking the Records button.
+- Your top 10 personal best attempts are stored and can be seen in a modal by clicking the _Records_ button.
 - This displays the name of the guessed boss and the amount of attempts needed to guess the boss.
+- You can clear the currently stored records at any time by clicking the _Clear records_ button.

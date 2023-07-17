@@ -8,6 +8,20 @@ A Wordle-like Souls-like web game - guess the boss by using hints from your past
 
 ## 📋 Instructions
 
+At every new game, a random boss will be chosen for you to guess. Start by entering any boss and use the provided feedback to figure out a new guess. Continue this way, narrowing down the potential bosses to eventually get the answer.
+
+The info box on the left shows the range of the health pools and the amount of souls dropped, updating dynamically as you enter your guesses. Likewise, the game as well as the resistances and weaknesses will pop up here, as they are getting confirmed by your guesses.
+
+The _souls_ parameter is comprised of _souls_ as they are known in _Demon's Souls_ and the _Dark Souls_ series, _blood echoes_ as they are known as in Bloodborne and _runes_ as they are known as in Elden Ring.
+
+The background colours of the boss information is described below.
+
+| Colour | Indication |
+| - | - |
+| 🟥🟥🟥 | The parameter is completely incorrect |
+| 🟧🟧🟧 | The parameter is partially correct |
+| 🟩🟩🟩 | The parameter is completely correct |
+
 ### 💀 Bosses
 
 Bosses included come from the games listed below.
@@ -23,7 +37,7 @@ Bosses that are **part of multi-boss encounters** may or may not be split into s
 
 Bosses that have **multiple phases**, may likewise have several entries, if their resistances changes inbetween fights, e.g. Slave Knight Gael becoming more resistant to dark after first phase.
 
-### ⚔️ Damage Types
+### ⚔️ Damage types
 
 Below are the damage types used for calculationg the weaknesses and resistances, including the icons used to represent each individual damage type as well as a description, as the names of similar damage types vary throughout the games, e.g. _lightning_ being _bolt_ in Bloodborne. Hence _bolt_ is treated as _lightning_ to simplify the types of damage instead of separating them.
 

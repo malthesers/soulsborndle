@@ -10,8 +10,10 @@
         <div class="inline-block text-2xl px-4">
           <span class="text-sm">Health</span>
           <p v-if="known.health">{{ known.health.toLocaleString() }}</p>
-          <p v-else class="whitespace-nowrap">
-            {{ known.healthMin.toLocaleString() }} - {{ known.healthMax.toLocaleString() }}
+          <p v-else class="whitespace-nowrap flex">
+            <span>{{ known.healthMin.toLocaleString() }}</span>
+            <span>-</span>
+            <span>{{ known.healthMax.toLocaleString() }}</span>
           </p>
         </div>
         <div class="inline-block text-2xl px-4">

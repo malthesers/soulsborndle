@@ -39,3 +39,9 @@ Below are the damage types used for calculationg the weaknesses and resistances,
 | <img src="https://github.com/malthesers/soulsborndle/blob/main/public/icons/strike.svg" width="35" height="35">  | Strike | Comprised of strike as well as blunt from Demon's Souls and Bloodborne |
 | <img src="https://github.com/malthesers/soulsborndle/blob/main/public/icons/thrust.svg" width="35" height="35">  | Thrust | Comprised of thrust as well as pierce from Demon's Souls and Elden Ring |
 
+## 🧩 Features
+
+### 🥇 Records
+
+- Your top 10 personal best attempts are stored and can be seen in a modal by clicking the Records button.
+- This displays the name of the guessed boss and the amount of attempts needed to guess the boss.

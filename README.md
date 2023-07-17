@@ -8,7 +8,7 @@ Start the [encounter](https://malthesers.github.io/soulsborndle/) now!
 
 ## 📋 Instructions
 
-### Bosses
+### 💀 Bosses
 
 Bosses included come from the games listed below.
 
@@ -23,7 +23,7 @@ Bosses that are **part of multi-boss encounters** may or may not be split into s
 
 Bosses that have **multiple phases**, may likewise have several entries, if their resistances changes inbetween fights, e.g. Slave Knight Gael becoming more resistant to dark after first phase.
 
-### Damage Types
+### ⚔️ Damage Types
 
 Below are the damage types used for calculationg the weaknesses and resistances, including the icons used to represent each individual damage type as well as a description, as the names of similar damage types vary throughout the games, e.g. _lightning_ being _bolt_ in Bloodborne. Hence _bolt_ is treated as _lightning_ to simplify the types of damage instead of separating them.
 

@@ -4,7 +4,7 @@
     "game": "Elden Ring",
     "health": 6080,
     "souls": 20000,
-    "weaknesses": [""],
+    "weaknesses": [],
     "resistances": ["holy"]
   },
   {

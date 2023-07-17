@@ -20,7 +20,7 @@
     "game": "Bloodborne",
     "health": 2764,
     "souls": 24640,
-    "weaknesses": ["thrust", "lightning"],
+    "weaknesses": ["lightning", "thrust"],
     "resistances": ["physical", "strike"]
   },
   {

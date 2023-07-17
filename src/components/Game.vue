@@ -54,6 +54,8 @@ const known = ref({
   health: 0,
   healthMin: 0,
   healthMax: 99999,
+  weaknesses: [],
+  resistances: []
 })
 
 const wasGuessed = ref(false);
@@ -100,10 +102,26 @@ function validateGuess(boss) {
     }
 
     // Validate weaknesses
-    if (JSON.stringify(boss.weaknesses) === JSON.stringify(correct.value.weaknesses)) known.value.weaknesses = boss.weaknesses;
+    if (boss.weaknesses.toString() === correct.value.weaknesses.toString()) {
+      known.value.weaknesses = boss.weaknesses
+    } else {
+      correct.value.weaknesses.forEach(weakness => {
+        if (boss.weaknesses.includes(weakness) && boss.weaknesses.length === 1) {
+          known.value.weaknesses.push(weakness)
+        }
+      })
+    }
 
     // Validate resistances
-    if (JSON.stringify(boss.resistances) === JSON.stringify(correct.value.resistances)) known.value.resistances = boss.resistances;
+    if (boss.resistances.toString() === correct.value.resistances.toString()) {
+      known.value.resistances = boss.resistances
+    } else {
+      correct.value.resistances.forEach(resistance => {
+        if (boss.resistances.includes(resistance) && boss.resistances.length === 1) {
+          known.value.resistances.push(resistance)
+        }
+      })
+    }
   }
 }
 
@@ -135,6 +153,8 @@ function resetGame() {
     health: 0,
     healthMin: 0,
     healthMax: 99999,
+    weaknesses: [],
+    resistances: []
   }
   // Generate new boss
   correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)]

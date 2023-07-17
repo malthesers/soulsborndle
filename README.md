@@ -6,6 +6,8 @@ A Wordle-like Souls-like web game - guess the boss by using hints from your past
 
 Start the [encounter](https://malthesers.github.io/soulsborndle/) now!
 
+![](https://github.com/malthesers/soulsborndle/blob/main/public/docs/new-game-link.png)
+
 ## 📋 Instructions
 
 ### 💀 Bosses

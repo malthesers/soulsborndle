@@ -51,18 +51,6 @@ const searchedBosses = computed(() => {
   return props.bosses.filter(boss => boss.name.toLocaleLowerCase().includes(search.value.toLocaleLowerCase()))
 })
 
-const damageTypes = ref({
-  'magic': '✨',
-  'fire': '🔥',
-  'lightning': '⚡',
-  'dark': '😈',
-  'holy': '😇',
-  'physical': '⚔️',
-  'slash': '🔪',
-  'strike': '🔨',
-  'thrust': '🏹'
-})
-
 function enterGuess (boss) {
   search.value = '';
   emits('guessEntered', boss)

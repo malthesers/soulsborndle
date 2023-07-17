@@ -22,8 +22,8 @@
 </template>
 
 <script setup>
-import demonsSoulsBosses from '../bosses/demons-souls.js'
-import darkSouls1Bosses from '../bosses/dark-souls.json'
+import demonsSoulsBosses from '../bosses/demons-souls.json'
+import darkSouls1Bosses from '../bosses/dark-souls-1.json'
 import darkSouls2Bosses from '../bosses/dark-souls-2.json'
 import darkSouls3Bosses from '../bosses/dark-souls-3.json'
 import bloodborneBosses from '../bosses/bloodborne.json'

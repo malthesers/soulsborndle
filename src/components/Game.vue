@@ -24,7 +24,7 @@
 <script setup>
 import demonsSoulsBosses from '../bosses/demons-souls.js'
 import darkSouls1Bosses from '../bosses/dark-souls.json'
-import darkSouls2Bosses from '../bosses/dark-souls-2.js'
+import darkSouls2Bosses from '../bosses/dark-souls-2.json'
 import darkSouls3Bosses from '../bosses/dark-souls-3.js'
 import bloodborneBosses from '../bosses/bloodborne.json'
 import eldenRingBosses from '../bosses/elden-ring.js'

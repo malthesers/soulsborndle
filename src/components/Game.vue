@@ -106,7 +106,8 @@ function validateGuess(boss) {
       known.value.weaknesses = boss.weaknesses
     } else {
       correct.value.weaknesses.forEach(weakness => {
-        if (boss.weaknesses.includes(weakness) && boss.weaknesses.length === 1) {
+        // If guessed boss has 1 weakness part of the answer, add it to known weaknesses if not already added
+        if (boss.weaknesses.includes(weakness) && boss.weaknesses.length === 1 && !known.value.weaknesses.includes(weakness)) {
           known.value.weaknesses.push(weakness)
         }
       })
@@ -117,7 +118,8 @@ function validateGuess(boss) {
       known.value.resistances = boss.resistances
     } else {
       correct.value.resistances.forEach(resistance => {
-        if (boss.resistances.includes(resistance) && boss.resistances.length === 1) {
+        // If guessed boss has 1 resistance part of the answer, add it to known resistances if not already added
+        if (boss.resistances.includes(resistance) && boss.resistances.length === 1 && !known.value.resistances.includes(resistance)) {
           known.value.resistances.push(resistance)
         }
       })

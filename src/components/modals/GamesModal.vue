@@ -12,10 +12,11 @@
             <Button @click="chosenGames.darkSouls2 = !chosenGames.darkSouls2" text="Dark Souls 2" :class="[chosenGames.darkSouls2 ? 'bg-green-900' : 'bg-red-900']"/>
             <Button @click="chosenGames.eldenRing = !chosenGames.eldenRing" text="Elden Ring" :class="[chosenGames.eldenRing ? 'bg-green-900' : 'bg-red-900']"/>
             <Button @click="chosenGames.darkSouls3 = !chosenGames.darkSouls3" text="Dark Souls 3" :class="[chosenGames.darkSouls3 ? 'bg-green-900' : 'bg-red-900']"/> -->
-            <Button v-for="(isChosen, name) in chosenGames" :key="name"
-              :text="name"
-              :class="[isChosen ? 'bg-green-900' : 'bg-red-900']"
-              @click="chosenGames[name] = !chosenGames[name]"
+            <Button v-for="(game, key) in chosenGames"
+              :key="game.name"
+              :text="game.name"
+              :class="[game.isChosen ? 'bg-green-900' : 'bg-red-900']"
+              @click="chosenGames[key].isChosen = !chosenGames[key].isChosen"
             />
           </div>
         </div>

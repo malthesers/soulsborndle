@@ -32,23 +32,41 @@ import bloodborneBosses from '../bosses/bloodborne.json'
 import eldenRingBosses from '../bosses/elden-ring.json'
 
 const chosenGames = ref({
-  demonsSouls: true,
-  darkSouls1: true,
-  darkSouls2: true,
-  darkSouls3: true,
-  bloodborne: true,
-  eldenRing: true
+  demonsSouls: {
+    name: "Demon's Souls",
+    isChosen: true
+  },
+  darkSouls1: {
+    name: "Dark Souls 1",
+    isChosen: true
+  },
+  darkSouls2: {
+    name: "Dark Souls 2",
+    isChosen: true
+  },
+  darkSouls3: {
+    name: "Dark Souls 3",
+    isChosen: true
+  },
+  bloodborne: {
+    name: "Bloodborne",
+    isChosen: true
+  },
+  eldenRing: {
+    name: "Elden Ring",
+    isChosen: true
+  }
 })
 
 const bosses = computed(() => {
   let chosenBosses = []
 
-  if (chosenGames.value.demonsSouls) chosenBosses.push(...demonsSoulsBosses)
-  if (chosenGames.value.darkSouls1) chosenBosses.push(...darkSouls1Bosses)
-  if (chosenGames.value.darkSouls2) chosenBosses.push(...darkSouls2Bosses)
-  if (chosenGames.value.darkSouls3) chosenBosses.push(...darkSouls3Bosses)
-  if (chosenGames.value.bloodborne) chosenBosses.push(...bloodborneBosses)
-  if (chosenGames.value.eldenRing) chosenBosses.push(...eldenRingBosses)
+  if (chosenGames.value.demonsSouls.isChosen) chosenBosses.push(...demonsSoulsBosses)
+  if (chosenGames.value.darkSouls1.isChosen) chosenBosses.push(...darkSouls1Bosses)
+  if (chosenGames.value.darkSouls2.isChosen) chosenBosses.push(...darkSouls2Bosses)
+  if (chosenGames.value.darkSouls3.isChosen) chosenBosses.push(...darkSouls3Bosses)
+  if (chosenGames.value.bloodborne.isChosen) chosenBosses.push(...bloodborneBosses)
+  if (chosenGames.value.eldenRing.isChosen) chosenBosses.push(...eldenRingBosses)
 
   return chosenBosses
 })

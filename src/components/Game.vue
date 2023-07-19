@@ -4,6 +4,7 @@
       <Button @click="resetGame" text="New Game"/>
       <Button @click="showInstructions = true" text="Instructions"/>
       <Button @click="showRecords = true" text="Records"/>
+      <Button @click="showGames = true" text="Games"/>
       <!-- <Button @click="wasGuessed = true" text="Test fade"/> -->
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
@@ -17,6 +18,7 @@
     </div>
     <InstructionsModal @hideInstructions="showInstructions = false" :showInstructions="showInstructions"/>
     <RecordsModal @hideRecords="showRecords = false" @resetRecords="records = []" :showRecords="showRecords" :records="records"/>
+    <GamesModal @hideGames="showGames = false" :showGames="showGames" :chosenGames="chosenGames"/>
     <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
   </main>
 </template>
@@ -29,6 +31,15 @@ import darkSouls3Bosses from '../bosses/dark-souls-3.json'
 import bloodborneBosses from '../bosses/bloodborne.json'
 import eldenRingBosses from '../bosses/elden-ring.json'
 
+const chosenGames = ({
+  demonsSouls: true,
+  darkSouls: true,
+  darkSouls2: true,
+  darkSouls3: true,
+  bloodborne: true,
+  eldenRing: true
+})
+
 const bosses = ref(
   [ ...demonsSoulsBosses,
     ...darkSouls1Bosses, 
@@ -37,7 +48,7 @@ const bosses = ref(
     ...bloodborneBosses,
     ...eldenRingBosses
   ]
- )
+)
 
 const guessedBosses = ref([])
 const remainingBosses = computed(() => {
@@ -61,6 +72,7 @@ const known = ref({
 const wasGuessed = ref(false);
 const showInstructions = ref(false);
 const showRecords = ref(false);
+const showGames = ref(false);
 
 
 function validateGuess(boss) {

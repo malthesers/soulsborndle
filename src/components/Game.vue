@@ -31,24 +31,27 @@ import darkSouls3Bosses from '../bosses/dark-souls-3.json'
 import bloodborneBosses from '../bosses/bloodborne.json'
 import eldenRingBosses from '../bosses/elden-ring.json'
 
-const chosenGames = ({
+const chosenGames = ref({
   demonsSouls: true,
-  darkSouls: true,
+  darkSouls1: true,
   darkSouls2: true,
   darkSouls3: true,
   bloodborne: true,
   eldenRing: true
 })
 
-const bosses = ref(
-  [ ...demonsSoulsBosses,
-    ...darkSouls1Bosses, 
-    ...darkSouls2Bosses, 
-    ...darkSouls3Bosses, 
-    ...bloodborneBosses,
-    ...eldenRingBosses
-  ]
-)
+const bosses = computed(() => {
+  let chosenBosses = []
+
+  if (chosenGames.value.demonsSouls) chosenBosses.push(...demonsSoulsBosses)
+  if (chosenGames.value.darkSouls1) chosenBosses.push(...darkSouls1Bosses)
+  if (chosenGames.value.darkSouls2) chosenBosses.push(...darkSouls2Bosses)
+  if (chosenGames.value.darkSouls3) chosenBosses.push(...darkSouls3Bosses)
+  if (chosenGames.value.bloodborne) chosenBosses.push(...bloodborneBosses)
+  if (chosenGames.value.eldenRing) chosenBosses.push(...eldenRingBosses)
+
+  return chosenBosses
+})
 
 const guessedBosses = ref([])
 const remainingBosses = computed(() => {

@@ -16,7 +16,7 @@
               @click="chosenGames[key].isChosen = !chosenGames[key].isChosen"
             />
           </div>
-          <Button @click="$emit('hideGames')" text="New Game"/>
+          <Button @click="$emit('newGame')" text="New Game"/>
         </div>
       </div>
     </Transition>

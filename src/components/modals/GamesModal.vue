@@ -11,6 +11,7 @@
               :text="game.name"
               :class="[game.isChosen ? 'bg-green-900 hover:bg-green-900' : 'bg-red-900 hover:bg-red-900']"
               class="hover:text-white"
+              :hover="false"
               @click="chosenGames[key].isChosen = !chosenGames[key].isChosen"
             />
           </div>

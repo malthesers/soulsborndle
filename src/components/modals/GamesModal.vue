@@ -10,7 +10,7 @@
               :key="game.name"
               :text="game.name"
               :class="[game.isChosen ? 'bg-green-900' : 'bg-red-900']"
-              class="hover:text-white"
+              class="hover:bg-opacity-50"
               :hover="false"
               @click="chosenGames[key].isChosen = !chosenGames[key].isChosen"
             />

@@ -16,10 +16,10 @@
         </div>
       </div>
     </div>
+    <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
     <InstructionsModal @hideInstructions="showInstructions = false" :showInstructions="showInstructions"/>
     <RecordsModal @hideRecords="showRecords = false" @resetRecords="records = []" :showRecords="showRecords" :records="records"/>
     <GamesModal @hideGames="showGames = false" @newGame="showGames = false, resetGame()" :showGames="showGames" :chosenGames="chosenGames"/>
-    <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
   </main>
 </template>
 

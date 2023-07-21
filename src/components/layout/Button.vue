@@ -1,5 +1,5 @@
 <template>
-  <button :class="{'hover:bg-white hover:text-zinc-900' : hover}" class="font-bold border-2 border-white text-xl py-2 px-4 whitespace-nowrap duration-200">{{ text }}</button>
+  <button :class="{'hover:bg-white hover:text-zinc-900' : hover}" class="font-bold border-2 border-white sm:text-xl py-2 px-4 whitespace-nowrap duration-200">{{ text }}</button>
 </template>
 
 <script setup>

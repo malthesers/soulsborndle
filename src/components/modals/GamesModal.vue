@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-const emits = defineEmits(['hideGames'])
+const emits = defineEmits(['hideGames', 'newGame'])
 const props = defineProps({
   showGames: Boolean,
   chosenGames: Object

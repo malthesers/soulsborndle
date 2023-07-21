@@ -40,22 +40,22 @@ const chosenGames = ref({
     name: "Dark Souls 1",
     isChosen: true
   },
+  bloodborne: {
+    name: "Bloodborne",
+    isChosen: true
+  },
   darkSouls2: {
     name: "Dark Souls 2",
+    isChosen: true
+  },
+  eldenRing: {
+    name: "Elden Ring",
     isChosen: true
   },
   darkSouls3: {
     name: "Dark Souls 3",
     isChosen: true
   },
-  bloodborne: {
-    name: "Bloodborne",
-    isChosen: true
-  },
-  eldenRing: {
-    name: "Elden Ring",
-    isChosen: true
-  }
 })
 
 const bosses = computed(() => {

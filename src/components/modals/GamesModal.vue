@@ -29,4 +29,9 @@ const props = defineProps({
   showGames: Boolean,
   chosenGames: Object
 })
+
+watch(props.chosenGames, () => {
+  // Save chosenGames to localStorage
+  localStorage.setItem('games', JSON.stringify(props.chosenGames));
+})
 </script>

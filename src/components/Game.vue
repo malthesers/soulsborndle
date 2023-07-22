@@ -196,7 +196,7 @@ function resetGame() {
 }
 
 watch(records, () => {
-  // Save to localStorage
+  // Save records to localStorage
   localStorage.setItem('records', JSON.stringify(records.value));
 })
 

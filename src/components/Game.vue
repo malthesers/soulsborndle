@@ -201,9 +201,19 @@ watch(records, () => {
 })
 
 onMounted(() => {
-  // Set random boss to guess
-  correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)];
   // Fetch stored records
   records.value = JSON.parse(localStorage.getItem('records')) || []
+
+  // Get stored games
+  if (localStorage.getItem('games')) {
+    const savedGames = JSON.parse(localStorage.getItem('games'))
+
+    for (const game in savedGames) {
+      chosenGames.value[game].isChosen = savedGames[game].isChosen
+    }
+  }
+  
+  // Set random boss to guess
+  correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)];
 })
 </script>

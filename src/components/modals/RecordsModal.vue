@@ -21,7 +21,10 @@
                 </tr>
               </tbody>
             </table>
-            <Button @click="$emit('resetRecords')" text="Clear records"/>
+            <div class="flex gap-4 justify-center">
+              <Button @click="$emit('resetRecords')" text="Clear records"/>
+              <Button @click="$emit('hideRecords')" text="Close"/>
+            </div>
           </div>
         </div>
       </div>

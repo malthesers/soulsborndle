@@ -13,10 +13,10 @@
               :class="[game.isChosen ? 'bg-green-900' : 'bg-red-900']"
               class="hover:bg-opacity-50"
               :hover="false"
-              @click="chosenGames[key].isChosen = !chosenGames[key].isChosen"
+              @click="chosenGames[key].isChosen = !chosenGames[key].isChosen, $emit('newGame')"
             />
           </div>
-          <Button @click="$emit('newGame')" text="New Game"/>
+          <Button @click="$emit('hideGames')" text="Close"/>
         </div>
       </div>
     </Transition>

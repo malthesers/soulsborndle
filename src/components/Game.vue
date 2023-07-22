@@ -19,7 +19,7 @@
     <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
     <InstructionsModal @hideInstructions="showInstructions = false" :showInstructions="showInstructions"/>
     <RecordsModal @hideRecords="showRecords = false" @resetRecords="records = []" :showRecords="showRecords" :records="records"/>
-    <GamesModal @hideGames="showGames = false" @newGame="showGames = false, resetGame()" :showGames="showGames" :chosenGames="chosenGames"/>
+    <GamesModal @hideGames="showGames = false" @newGame="resetGame" :showGames="showGames" :chosenGames="chosenGames"/>
   </main>
 </template>
 

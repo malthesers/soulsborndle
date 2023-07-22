@@ -9,7 +9,13 @@
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <KnownInfo :known="known" />
       <div class="w-full">
-        <BossSearch @guessEntered="(boss) => validateGuess(boss)" @updateSearch="(value) => search = value" :bosses="remainingBosses" :search="search" :wasGuessed="wasGuessed"/>
+        <BossSearch
+          @guessEntered="(boss) => validateGuess(boss)"
+          @updateSearch="(value) => search = value"
+          :bosses="remainingBosses"
+          :search="search"
+          :wasGuessed="wasGuessed"
+        />
         <div class="flex flex-col gap-4">
           <BossCardGuess v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct"/>
         </div>

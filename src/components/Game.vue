@@ -182,9 +182,13 @@ function updateRecords(name, guesses) {
 }
 
 function resetGame() {
+  // Clear search value
+  search.value = ''
+
   // Clear guesses
   guessedBosses.value = []
   wasGuessed.value = false;
+  
   // Clear known
   known.value = {
     name: '???',

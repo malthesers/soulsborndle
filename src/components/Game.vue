@@ -201,8 +201,8 @@ watch(records, () => {
 })
 
 onMounted(() => {
-  // Fetch stored records
-  records.value = JSON.parse(localStorage.getItem('records')) || []
+  // Get stored records
+  if (localStorage.getItem('records')) records.value = JSON.parse(localStorage.getItem('records'))
 
   // Get stored games
   if (localStorage.getItem('games')) {

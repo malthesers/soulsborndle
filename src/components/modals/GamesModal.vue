@@ -4,7 +4,7 @@
       <div v-if="showGames" @click.self="$emit('hideGames')" class="fixed top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <div class="w-full max-w-xl mx-auto bg-black p-4 text-center cursor-auto md:text-lg">
           <p class="text-3xl">Games</p>
-          <p class="mb-2">Below you can choose the games whose bosses will be included amongst the possible bosses.</p>
+          <p class="mb-2">Below you can choose the games whose bosses will be included amongst the possible bosses. Toggling a filter resets the game.</p>
           <p class="mb-2">A <span class="font-bold text-red-900">red</span> background means the game will be <span class="font-bold">excluded</span> from the pool of bosses, while a <span class="font-bold text-green-900">green</span> background means the game will be <span class="font-bold">included.</span></p>
           <div class="grid xs:grid-cols-2 gap-4 mb-4">
             <Button v-for="(game, key) in chosenGames"

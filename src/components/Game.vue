@@ -10,7 +10,7 @@
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <KnownInfo :known="known" />
       <div class="w-full">
-        <BossSearch @guessEntered="(boss) => validateGuess(boss)" :bosses="remainingBosses" :wasGuessed="wasGuessed"/>
+        <BossSearch @guessEntered="(boss) => validateGuess(boss)" @updateSearch="(value) => search = value" :bosses="remainingBosses" :search="search" :wasGuessed="wasGuessed"/>
         <div class="flex flex-col gap-4">
           <BossCardGuess v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct"/>
         </div>
@@ -75,6 +75,8 @@ const guessedBosses = ref([])
 const remainingBosses = computed(() => {
   return bosses.value.filter(boss => !guessedBosses.value.includes(boss));
 })
+
+const search = ref('')
 const records = ref([])
 const correct = ref({})
 const known = ref({
@@ -97,7 +99,12 @@ const showGames = ref(false);
 
 
 function validateGuess(boss) {
+  // Add to guessed bosses
   guessedBosses.value.unshift(boss);
+
+  // Clear search value
+  search.value = ''
+
   // Check if guess is correct
   if (boss.name === correct.value.name) {
     // Set correct vaules

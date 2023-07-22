@@ -1,6 +1,6 @@
 <template>
   <div class="relative mb-4">
-    <input v-model="search" :disabled="wasGuessed" placeholder="Enter boss name..." class="w-full text-black p-2 outline-none">
+    <input @input="$emit('updateSearch', $event.target.value)" :value="search" :disabled="wasGuessed" placeholder="Enter boss name..." class="w-full text-black p-2 outline-none">
     <div v-if="showSearch" class="absolute w-full max-h-[660px] overflow-auto bg-zinc-700">
       <div v-for="boss in searchedBosses" :key="boss.name" @click="enterGuess(boss)" @keydown.enter="enterGuess(boss)" tabindex="0" class="cursor-pointer border-t-2 shadow-2xl outline-none hover:bg-zinc-900 focus:bg-zinc-900">
           <p class="text-lg px-2 py-1 text-center">{{ boss.name }}</p>
@@ -36,23 +36,24 @@
 </template>
 
 <script setup>
-const emits = defineEmits(['guessEntered'])
+const emits = defineEmits(['guessEntered', 'updateSearch'])
 const props = defineProps({
   bosses: Array,
+  search: String,
   wasGuessed: Boolean
 })
 
-const search = ref('');
+// const search = ref('');
 const showSearch = computed(() => {
-  return (search.value.length > 1 ? true : false)
+  // return (search.value.length > 1 ? true : false)
+  return (props.search.length > 1 ? true : false)
 })
 
 const searchedBosses = computed(() => {
-  return props.bosses.filter(boss => boss.name.toLocaleLowerCase().includes(search.value.toLocaleLowerCase()))
+  return props.bosses.filter(boss => boss.name.toLocaleLowerCase().includes(props.search.toLocaleLowerCase()))
 })
 
 function enterGuess (boss) {
-  search.value = '';
   emits('guessEntered', boss)
   document.querySelector("input").focus()
 }

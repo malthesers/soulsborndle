@@ -5,7 +5,6 @@
       <Button @click="showInstructions = true" text="Instructions"/>
       <Button @click="showRecords = true" text="Records"/>
       <Button @click="showGames = true" text="Games"/>
-      <!-- <Button @click="wasGuessed = true" text="Test fade"/> -->
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <KnownInfo :known="known" />
@@ -188,7 +187,7 @@ function resetGame() {
   // Clear guesses
   guessedBosses.value = []
   wasGuessed.value = false;
-  
+
   // Clear known
   known.value = {
     name: '???',

@@ -43,9 +43,7 @@ const props = defineProps({
   wasGuessed: Boolean
 })
 
-// const search = ref('');
 const showSearch = computed(() => {
-  // return (search.value.length > 1 ? true : false)
   return (props.search.length > 1 ? true : false)
 })
 

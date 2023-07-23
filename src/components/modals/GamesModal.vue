@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <Transition name="fade">
-      <div v-if="showGames" @click.self="$emit('hideGames')" class="fixed top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
+      <div v-if="showGames" @click.self="hideGames" class="fixed top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <div class="w-full max-w-xl mx-auto bg-black p-4 text-center cursor-auto md:text-lg">
           <p class="text-3xl">Games</p>
           <p class="mb-2">Below you can choose the games whose bosses will be included amongst the possible bosses. Toggling a filter resets the game.</p>
@@ -17,7 +17,7 @@
             />
           </div>
           <p>{{ noChosenGames }}</p>
-          <Button @click="$emit('hideGames')" text="Close"/>
+          <Button @click="hideGames" :disabled="noChosenGames" text="Close"/>
         </div>
       </div>
     </Transition>
@@ -38,6 +38,10 @@ const noChosenGames = computed(() => {
     return props.chosenGames[key].isChosen === false
   })
 })
+
+function hideGames() {
+  emits('hideGames');
+}
 
 watch(props.chosenGames, () => {
   // Save chosenGames to localStorage

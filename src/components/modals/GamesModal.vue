@@ -13,11 +13,11 @@
               :class="[game.isChosen ? 'bg-green-900' : 'bg-red-900']"
               class="!px-2 hover:bg-opacity-50"
               :hover="false"
-              @click="chosenGames[key].isChosen = !chosenGames[key].isChosen, $emit('newGame')"
+              @click="chosenGames[key].isChosen = !chosenGames[key].isChosen, showErrorMessage = false, $emit('newGame')"
             />
           </div>
-          <p>{{ noChosenGames }}</p>
-          <Button @click="hideGames" :disabled="noChosenGames" text="Close"/>
+          <p v-if="showErrorMessage" class="mb-2">You must choose at least 1 game to play.</p>
+          <Button @click="hideGames" text="Close"/>
         </div>
       </div>
     </Transition>
@@ -31,6 +31,7 @@ const props = defineProps({
   chosenGames: Object
 })
 
+const showErrorMessage = ref(false)
 const noChosenGames = computed(() => {
   const gamesKeys = Object.keys(props.chosenGames)
 
@@ -40,7 +41,11 @@ const noChosenGames = computed(() => {
 })
 
 function hideGames() {
-  emits('hideGames');
+  if (noChosenGames) {
+    showErrorMessage.value = true
+  } else {
+    emits('hideGames');
+  }
 }
 
 watch(props.chosenGames, () => {

@@ -16,6 +16,7 @@
               @click="chosenGames[key].isChosen = !chosenGames[key].isChosen, $emit('newGame')"
             />
           </div>
+          <p>{{ noChosenGames }}</p>
           <Button @click="$emit('hideGames')" text="Close"/>
         </div>
       </div>
@@ -28,6 +29,14 @@ const emits = defineEmits(['hideGames', 'newGame'])
 const props = defineProps({
   showGames: Boolean,
   chosenGames: Object
+})
+
+const noChosenGames = computed(() => {
+  const gamesKeys = Object.keys(props.chosenGames)
+
+  return gamesKeys.every(key => {
+    return props.chosenGames[key].isChosen === false
+  })
 })
 
 watch(props.chosenGames, () => {

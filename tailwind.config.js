@@ -10,7 +10,10 @@ module.exports = {
         'boss-hidden': "url('/boss-default.jpg')"
       },
       boxShadow: {
-        'inner-dmg': 'inset 0px 0px 5px 5px rgba(0,0,0,0.7)'
+        'inner-dmg': 'inset 0px 0px 5px 5px rgba(0, 0, 0, 0.7)'
+      },
+      dropShadow: {
+        red: '0 35px 35px rgba(239, 68, 68, 0.25)'
       }
     },
     screens: {

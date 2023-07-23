@@ -16,7 +16,7 @@
               @click="chosenGames[key].isChosen = !chosenGames[key].isChosen, showErrorMessage = false, $emit('newGame')"
             />
           </div>
-          <p v-if="showErrorMessage" class="mb-2">You must choose at least 1 game to play.</p>
+          <p v-if="showErrorMessage" class="text-red-600 mb-2">You must choose at least 1 game to play.</p>
           <Button @click="hideGames" text="Close"/>
         </div>
       </div>

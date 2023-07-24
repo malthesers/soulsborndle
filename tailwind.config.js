@@ -16,6 +16,9 @@ module.exports = {
         red: '0 1px 5px rgba(239, 68, 68, 1)'
       }
     },
+    animation: {
+      pulse: 'pulse 1500ms cubic-bezier(0.4, 0, 0.6, 1) infinite'
+    },
     screens: {
       xs: '450px',
       sm: '650px',

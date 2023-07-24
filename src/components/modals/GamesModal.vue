@@ -13,7 +13,7 @@
               :class="[game.isChosen ? 'bg-green-900' : 'bg-red-900']"
               class="!px-2 hover:bg-opacity-50"
               :hover="false"
-              @click="chosenGames[key].isChosen = !chosenGames[key].isChosen, showErrorMessage = false, $emit('newGame')"
+              @click="toggleGame(key)"
             />
           </div>
           <Transition name="slide">
@@ -34,6 +34,7 @@ const props = defineProps({
 })
 
 const showErrorMessage = ref(false)
+const showErrorMessageExtra = ref(false)
 const noChosenGames = computed(() => {
   const gamesKeys = Object.keys(props.chosenGames)
 
@@ -43,11 +44,20 @@ const noChosenGames = computed(() => {
 })
 
 function hideGames() {
-  if (noChosenGames) {
+  if (showErrorMessage.value) {
+    showErrorMessageExtra.value = true
+  } else if (noChosenGames.value) {
     showErrorMessage.value = true
   } else {
     emits('hideGames');
   }
+}
+
+function toggleGame(key) {
+  props.chosenGames[key].isChosen = !props.chosenGames[key].isChosen
+  showErrorMessage.value = false
+  showErrorMessageExtra.value = false
+  emits('newGame')
 }
 
 watch(props.chosenGames, () => {

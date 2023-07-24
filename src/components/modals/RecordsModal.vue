@@ -7,7 +7,7 @@
           <p v-if="records.length === 0" class="mb-2">You have not guessed a boss yet.</p>
           <div v-else>
             <p class="mb-2">Listed below is your 10 fastest guessed bosses sorted by amount of guesses.</p>
-            <table class="w-full text-left mb-2">
+            <table class="w-full text-left mb-2 border-separate border-spacing-1">
               <thead>
                 <tr>
                   <th>#</th>
@@ -19,12 +19,12 @@
                 <tr v-for="record in records" :key="`${record.guesses}-${record.name}`">
                   <td>{{ record.guesses }}</td>
                   <td>{{ record.name }}</td>
-                  <th class="text-center"><span v-if="record.games['demonsSouls'].isChosen">x</span></th>
-                  <th class="text-center"><span v-if="record.games['darkSouls1'].isChosen">x</span></th>
-                  <th class="text-center"><span v-if="record.games['darkSouls2'].isChosen">x</span></th>
-                  <th class="text-center"><span v-if="record.games['darkSouls3'].isChosen">x</span></th>
-                  <th class="text-center"><span v-if="record.games['bloodborne'].isChosen">x</span></th>
-                  <th class="text-center"><span v-if="record.games['eldenRing'].isChosen">x</span></th>
+                  <th :class="[record.games['demonsSouls'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
+                  <th :class="[record.games['darkSouls1'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
+                  <th :class="[record.games['darkSouls2'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
+                  <th :class="[record.games['darkSouls3'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
+                  <th :class="[record.games['bloodborne'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
+                  <th :class="[record.games['eldenRing'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
                 </tr>
               </tbody>
             </table>

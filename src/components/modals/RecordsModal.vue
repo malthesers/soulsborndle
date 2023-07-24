@@ -10,7 +10,7 @@
             <table class="w-full text-left mb-2">
               <thead>
                 <tr>
-                  <th class="hidden xs:table-cell px-2">#</th>
+                  <th class="hidden xs:table-cell px-2 text-center">#</th>
                   <th class="hidden xs:table-cell">Boss</th>
                   <th v-for="(game, key) in games" :key="key"
                     class="hidden xs:table-cell text-center text-sm w-9 border-l-4 border-black"
@@ -19,7 +19,7 @@
               </thead>
               <tbody v-for="record in records" :key="`${record.guesses}-${record.name}`" class="bg-zinc-900 border-black border-b-8">
                 <tr>
-                  <td class="px-2">{{ record.guesses }}</td>
+                  <td class="px-2 text-center">{{ record.guesses }}</td>
                   <td class="xs:hidden" colspan="5">{{ record.name }}</td>
                   <td class="hidden xs:table-cell" colspan="1">{{ record.name }}</td>
                   <td v-for="(game, key) in games" :key="key"

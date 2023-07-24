@@ -18,6 +18,17 @@
   opacity: 0;
 }
 
+.slide-enter-active,
+.slide-leave-active {
+  transition: max-height 300ms ease;
+  max-height: 2rem;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  max-height: 0;
+}
+
 .yharnam-layer {
   position: absolute;
   top: 0;

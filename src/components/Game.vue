@@ -122,7 +122,7 @@ function validateGuess(boss) {
     wasGuessed.value = true;
 
     // Add to records
-    updateRecords(boss.name, guessedBosses.value.length);
+    updateRecords(boss.name, guessedBosses.value.length, chosenGames.value);
   } else {
 
     // Validate name
@@ -172,11 +172,12 @@ function validateGuess(boss) {
   }
 }
 
-function updateRecords(name, guesses) {
+function updateRecords(name, guesses, games) {
   // Add to array
   records.value.push({
     name: name,
-    guesses: guesses
+    guesses: guesses,
+    games: games
   })
 
   // Sort array by guesses

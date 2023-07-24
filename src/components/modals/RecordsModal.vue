@@ -6,14 +6,14 @@
           <p class="text-3xl">Records</p>
           <p v-if="records.length === 0" class="mb-2">You have not guessed a boss yet.</p>
           <div v-else>
-            <p class="mb-2">Listed below is your 10 fastest guessed bosses sorted by amount of guesses.</p>
-            <table class="w-full text-left mb-2">
+            <p class="mb-2">Listed below is your 10 fastest guessed bosses sorted by amount of guesses. On the right, you see the games chosen when you set the record.</p>
+            <table class="w-full text-left text-base mb-2">
               <thead>
                 <tr>
                   <th class="hidden xs:table-cell px-2 text-center">#</th>
                   <th class="hidden xs:table-cell">Boss</th>
                   <th v-for="(game, key) in games" :key="key"
-                    class="hidden xs:table-cell text-center text-sm w-9 border-l-4 border-black"
+                    class="hidden xs:table-cell text-center w-9 border-l-4 border-black"
                   >{{ game }}</th>
                 </tr>
               </thead>

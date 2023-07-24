@@ -12,19 +12,14 @@
                 <tr>
                   <th>#</th>
                   <th>Boss</th>
-                  <th v-for="abbr in abbreviations" :key="abbr">{{ abbr }}</th>
+                  <th v-for="(game, key) in games" :key="key">{{ game }}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="record in records" :key="`${record.guesses}-${record.name}`">
                   <td>{{ record.guesses }}</td>
                   <td>{{ record.name }}</td>
-                  <th :class="[record.games['demonsSouls'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
-                  <th :class="[record.games['darkSouls1'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
-                  <th :class="[record.games['darkSouls2'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
-                  <th :class="[record.games['darkSouls3'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
-                  <th :class="[record.games['bloodborne'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
-                  <th :class="[record.games['eldenRing'].isChosen ? 'bg-green-900' : 'bg-red-900']"></th>
+                  <td v-for="(game, key) in games" :key="key" :class="[record.games[key].isChosen ? 'bg-green-900' : 'bg-red-900']"></td>
                 </tr>
               </tbody>
             </table>
@@ -46,5 +41,12 @@ const props = defineProps({
   records: Array,
 })
 
-const abbreviations = ref(['DeS', 'DS1', 'DS2', 'DS3', 'BB', 'ER'])
+const games = ref({
+  demonsSouls: 'DeS',
+  darkSouls1: 'DS1',
+  darkSouls2: 'DS2',
+  darkSouls3: 'DS3',
+  bloodborne: 'BB',
+  eldenRing: 'ER'
+})
 </script>

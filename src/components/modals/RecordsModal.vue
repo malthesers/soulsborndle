@@ -12,7 +12,9 @@
                 <tr>
                   <th class="hidden xs:table-cell px-2">#</th>
                   <th class="hidden xs:table-cell">Boss</th>
-                  <th v-for="(game, key) in games" :key="key" class="hidden xs:table-cell">{{ game }}</th>
+                  <th v-for="(game, key) in games" :key="key"
+                    class="hidden xs:table-cell text-center text-sm w-9 border-l-4 border-black"
+                  >{{ game }}</th>
                 </tr>
               </thead>
               <tbody v-for="record in records" :key="`${record.guesses}-${record.name}`" class="bg-zinc-900 border-black border-b-8">
@@ -22,7 +24,7 @@
                   <td class="hidden xs:table-cell" colspan="1">{{ record.name }}</td>
                   <td v-for="(game, key) in games" :key="key"
                     :class="[record.games[key].isChosen ? 'bg-green-900' : 'bg-red-900']"
-                    class="hidden xs:table-cell"
+                    class="hidden xs:table-cell border-l-4 border-black"
                   ></td>
                 </tr>
                 <!-- Mobile row -->
@@ -55,7 +57,7 @@ const props = defineProps({
 
 const games = ref({
   demonsSouls: 'DeS',
-  darkSouls1: 'DS1',
+  darkSouls1: 'DS',
   darkSouls2: 'DS2',
   darkSouls3: 'DS3',
   bloodborne: 'BB',

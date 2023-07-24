@@ -16,6 +16,7 @@
                 </tr>
               </thead>
               <tbody v-for="record in records" :key="`${record.guesses}-${record.name}`">
+                <!-- Desktop row -->
                 <tr>
                   <td>{{ record.guesses }}</td>
                   <td class="hidden xs:table-cell" colspan="1">{{ record.name }}</td>
@@ -25,6 +26,7 @@
                     class="hidden xs:table-cell"
                   ></td>
                 </tr>
+                <!-- Mobile row -->
                 <tr class="xs:hidden">
                   <td
                     v-for="(game, key) in games" :key="key"

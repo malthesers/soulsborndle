@@ -12,12 +12,19 @@
                 <tr>
                   <th>#</th>
                   <th>Boss</th>
+                  <th v-for="abbr in abbreviations" :key="abbr">{{ abbr }}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="record in records" :key="`${record.guesses}-${record.name}`">
                   <td>{{ record.guesses }}</td>
                   <td>{{ record.name }}</td>
+                  <th class="text-center"><span v-if="record.games['demonsSouls'].isChosen">x</span></th>
+                  <th class="text-center"><span v-if="record.games['darkSouls1'].isChosen">x</span></th>
+                  <th class="text-center"><span v-if="record.games['darkSouls2'].isChosen">x</span></th>
+                  <th class="text-center"><span v-if="record.games['darkSouls3'].isChosen">x</span></th>
+                  <th class="text-center"><span v-if="record.games['bloodborne'].isChosen">x</span></th>
+                  <th class="text-center"><span v-if="record.games['eldenRing'].isChosen">x</span></th>
                 </tr>
               </tbody>
             </table>
@@ -38,4 +45,6 @@ const props = defineProps({
   showRecords: Boolean,
   records: Array,
 })
+
+const abbreviations = ref(['DeS', 'DS1', 'DS2', 'DS3', 'BB', 'ER'])
 </script>

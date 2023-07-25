@@ -7,7 +7,11 @@
       <div class="sm:inline-block lg:block text-2xl mx-4">
         <span class="text-sm">Health</span>
         <p v-if="known.health">{{ known.health.toLocaleString() }}</p>
-        <p v-else class="whitespace-nowrap">{{ known.healthMin.toLocaleString() }} - {{ known.healthMax.toLocaleString() }}</p>
+        <p v-else class="whitespace-nowrap">
+          <span>{{ known.healthMin.toLocaleString() }}</span>
+          <span class="px-2">-</span>
+          <span>{{ known.healthMax.toLocaleString() }}</span>
+        </p>
       </div>
       <div class="sm:inline-block lg:block text-2xl mx-4">
         <span class="text-sm">Souls</span>

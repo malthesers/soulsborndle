@@ -16,7 +16,7 @@
               @click="toggleGame(key)"
             />
           </div>
-          <Transition name="slide">
+          <Transition name="message">
             <p v-if="showErrorMessage" :class="{ 'animate-pulse' : showErrorMessageExtra }" class="text-red-500 drop-shadow-red duration-300 overflow-hidden">You must choose at least 1 game.</p>
           </Transition>
           <Button @click="hideGames" text="Close" class="mt-2"/>

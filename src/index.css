@@ -29,14 +29,14 @@
   /* transform: scale(0); */
 }
 
-.slide-enter-active,
-.slide-leave-active {
+.message-enter-active,
+.message-leave-active {
   transition: max-height 300ms ease;
   max-height: 2rem;
 }
 
-.slide-enter-from,
-.slide-leave-to {
+.message-enter-from,
+.message-leave-to {
   max-height: 0;
 }
 

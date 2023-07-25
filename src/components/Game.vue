@@ -16,7 +16,7 @@
           :search="search"
           :wasGuessed="wasGuessed"
         />
-        <TransitionGroup name="boss-card" tag="div" class="flex flex-col gap-4">
+        <TransitionGroup name="guess" tag="div" mode="out-in" class="flex flex-col gap-4">
           <BossCardGuess v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct"/>
         </TransitionGroup>
       </div>

@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <Transition name="modal">
+    <Transition name="guessed">
       <div v-if="wasGuessed" @click="$emit('hideEffect')" class="fixed top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer">
         <div class="grid grid-cols-[1fr] grid-rows-[1fr] place-content-center py-12 vertical-fade text-4xl sm:text-5xl md:text-7xl text-center">
           <!-- <p v-for="n in [3, 2, 1]" :key="n" :class="`text-zinc-${400+n*100} scale-[${100}%_${150+n*5}%]`" class="col-[1/1] row-[1/1] w-full z-10 text-3xl sm:text-5xl md:text-7xl whitespace-nowrap transform">BOSS GUESSED</p> -->
@@ -24,22 +24,22 @@ const guessedText = ref('BOSS GUESSED');
 </script>
 
 <style scoped>
-.fade-enter-active {
+.guessed-enter-active {
   transition: opacity 3s ease;
 }
-.fade-enter-from {
+.guessed-enter-from {
   opacity: 0;
 }
 
-.fade-enter-active p:nth-of-type(1),
-.fade-enter-active p:nth-of-type(2),
-.fade-enter-active p:nth-of-type(3) {
+.guessed-enter-active p:nth-of-type(1),
+.guessed-enter-active p:nth-of-type(2),
+.guessed-enter-active p:nth-of-type(3) {
   transition: letter-spacing 2.5s;
   transition-delay: 0.5s;
 }
-.fade-enter-from p:nth-of-type(1),
-.fade-enter-from p:nth-of-type(2),
-.fade-enter-from p:nth-of-type(3) {
+.guessed-enter-from p:nth-of-type(1),
+.guessed-enter-from p:nth-of-type(2),
+.guessed-enter-from p:nth-of-type(3) {
   letter-spacing: 1px;
 }
 </style>

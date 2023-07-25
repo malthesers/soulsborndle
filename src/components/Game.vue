@@ -16,10 +16,9 @@
           :search="search"
           :wasGuessed="wasGuessed"
         />
-        <BossGuesses :bosses="guessedBosses" :correct="correct" />
-        <!-- <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4">
           <BossCardGuess v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct"/>
-        </div> -->
+        </div>
       </div>
     </div>
     <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>

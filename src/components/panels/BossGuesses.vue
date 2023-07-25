@@ -2,7 +2,7 @@
   <!-- Container -->
   <div class="flex flex-col gap-4">
     <!-- Boss Card -->
-    <div v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct">
+    <div v-for="boss in bosses" :key="boss.name" :boss="boss">
       <p class="bg-zinc-900 text-lg px-2 py-1 text-center">{{ boss.name }}</p>
       <div class="flex flex-col sm:flex-row gap-1 text-center">
         <div :class="[boss.game === correct.game ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[10rem] text-xl p-1">
@@ -37,7 +37,7 @@
 <script setup>
 const props = defineProps({
   correct: Object,
-  guessedBosses: Array
+  bosses: Array
 })
 
 const weakMatch = computed(() => {

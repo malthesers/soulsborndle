@@ -22,9 +22,9 @@
       </div>
       <div class="sm:inline-block lg:block mx-4">
         <span class="text-sm">Resistances</span>
-        <div class="h-10 flex flex-row justify-center gap-1">
+        <TransitionGroup name="damage" tag="div" class="h-10 flex flex-row justify-center gap-1">
           <DamageBox v-for="resistance in known.resistances" :key="resistance" :damageType="resistance"/>
-        </div>
+        </TransitionGroup>
       </div>
   </div>
 </template>

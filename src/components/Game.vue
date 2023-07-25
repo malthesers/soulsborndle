@@ -122,7 +122,7 @@ function validateGuess(boss) {
     wasGuessed.value = true;
 
     // Add to records
-    updateRecords(boss.name, guessedBosses.value.length, chosenGames.value);
+    updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(chosenGames.value)));
   } else {
 
     // Validate name

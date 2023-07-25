@@ -8,9 +8,13 @@
         <span class="text-sm">Health</span>
         <p v-if="known.health">{{ known.health.toLocaleString() }}</p>
         <p v-else class="whitespace-nowrap">
-          <span>{{ known.healthMin.toLocaleString() }}</span>
+          <Transition name="fade" mode="out-in">
+            <span :key="known.healthMin">{{ known.healthMin.toLocaleString() }}</span>
+          </Transition>
           <span class="px-2">-</span>
-          <span>{{ known.healthMax.toLocaleString() }}</span>
+          <Transition name="fade" mode="out-in">
+          <span :key="known.healthMax">{{ known.healthMax.toLocaleString() }}</span>
+          </Transition>
         </p>
       </div>
       <div class="sm:inline-block lg:block text-2xl mx-4">
@@ -36,5 +40,9 @@
 <script setup>
 const props = defineProps({
   known: Object
+})
+
+watch(() => props.known.healthMin, () => {
+  console.log('min health change')
 })
 </script>

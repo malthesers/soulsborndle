@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <Transition name="fade">
+    <Transition name="modal">
       <div v-if="showInstructions" @click.self="$emit('hideInstructions')" class="fixed top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <div class="overflow-auto w-full max-w-xl max-h-[75%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Instructions</p>

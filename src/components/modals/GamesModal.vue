@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <Transition name="fade">
+    <Transition name="modal">
       <div v-if="showGames" @click.self="hideGames" class="fixed top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <div class="w-full max-w-xl mx-auto bg-black p-4 text-center cursor-auto md:text-lg">
           <p class="text-3xl">Games</p>

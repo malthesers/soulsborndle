@@ -8,6 +8,16 @@
   }
 }
 
+.yharnam-layer {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+/* Transition for modals */
+
 .modal-enter-active,
 .modal-leave-active {
   transition: opacity 300ms ease;
@@ -17,6 +27,8 @@
 .modal-leave-to {
   opacity: 0;
 }
+
+/* Transition for known info */
 
 .known-enter-active,
 .known-leave-active {
@@ -29,6 +41,8 @@
   /* transform: scale(0); */
 }
 
+/* Transition for error message */
+
 .message-enter-active,
 .message-leave-active {
   transition: max-height 300ms ease;
@@ -38,12 +52,4 @@
 .message-enter-from,
 .message-leave-to {
   max-height: 0;
-}
-
-.yharnam-layer {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
 }

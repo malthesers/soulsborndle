@@ -21,9 +21,13 @@
         <span class="text-sm">Souls</span>
         <p v-if="known.souls">{{ known.souls.toLocaleString() }}</p>
         <p v-else class="whitespace-nowrap">
-          <span>{{ known.soulsMin.toLocaleString() }}</span>
+          <Transition name="fade" mode="out-in">
+            <span :key="known.soulsMin">{{ known.soulsMin.toLocaleString() }}</span>
+          </Transition>
           <span class="px-2">-</span>
-          <span>{{ known.soulsMax.toLocaleString() }}</span>
+          <Transition name="fade" mode="out-in">
+            <span :key="known.soulsMax">{{ known.soulsMax.toLocaleString() }}</span>
+          </Transition>
         </p>
       </div>
       <div class="sm:inline-block lg:block mx-4">

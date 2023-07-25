@@ -16,9 +16,9 @@
       </div>
       <div class="sm:inline-block lg:block mx-4">
         <span class="text-sm">Weaknesses</span>
-        <div class="h-10 flex flex-row justify-center gap-1">
+        <TransitionGroup name="damage" tag="div" class="h-10 flex flex-row justify-center gap-1">
           <DamageBox v-for="weakness in known.weaknesses" :key="weakness" :damageType="weakness"/>
-        </div>
+        </TransitionGroup>
       </div>
       <div class="sm:inline-block lg:block mx-4">
         <span class="text-sm">Resistances</span>

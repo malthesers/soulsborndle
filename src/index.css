@@ -18,6 +18,17 @@
   opacity: 0;
 }
 
+.damage-enter-active,
+.damage-leave-active {
+  transition: all 350ms ease-out;
+}
+
+.damage-enter-from,
+.damage-leave-to {
+  opacity: 0;
+  /* transform: scale(0); */
+}
+
 .slide-enter-active,
 .slide-leave-active {
   transition: max-height 300ms ease;

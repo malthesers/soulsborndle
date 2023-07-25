@@ -18,13 +18,13 @@
   opacity: 0;
 }
 
-.damage-enter-active,
-.damage-leave-active {
+.known-enter-active,
+.known-leave-active {
   transition: all 350ms ease-out;
 }
 
-.damage-enter-from,
-.damage-leave-to {
+.known-enter-from,
+.known-leave-to {
   opacity: 0;
   /* transform: scale(0); */
 }

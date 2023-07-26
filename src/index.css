@@ -45,12 +45,15 @@
 
 .guess-enter-active,
 .guess-leave-active {
-  transition: all 350ms ease-in;
+  transition: all 300ms ease-in;
+  /* max-width: 100%;
+  overflow: hidden; */
 }
 
 .guess-enter-from,
 .guess-leave-to {
   opacity: 0;
+  /* max-width: 0; */
 }
 
 /* Transition for error message */

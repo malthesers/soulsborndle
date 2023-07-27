@@ -1,5 +1,6 @@
 <template>
   <main class="max-w-5xl mx-auto p-2 my-8">
+    <!-- Button group -->
     <div class="grid grid-cols-2 sm:flex gap-4 mb-4">
       <Button @click="resetGame" text="New Game"/>
       <Button @click="showInstructions = true" text="Instructions"/>
@@ -7,7 +8,9 @@
       <Button @click="showGames = true" text="Games"/>
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
+      <!-- Left side container -->
       <KnownInfo :known="known" />
+      <!-- Right side container -->
       <div class="w-full">
         <BossSearch
           @guessEntered="(boss) => validateGuess(boss)"
@@ -21,6 +24,7 @@
         </TransitionGroup>
       </div>
     </div>
+    <!-- Modals -->
     <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
     <InstructionsModal @hideInstructions="showInstructions = false" :showInstructions="showInstructions"/>
     <RecordsModal @hideRecords="showRecords = false" @resetRecords="records = []" :showRecords="showRecords" :records="records"/>

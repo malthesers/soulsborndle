@@ -56,8 +56,4 @@
 const props = defineProps({
   known: Object
 })
-
-watch(() => props.known.healthMin, () => {
-  console.log('min health change')
-})
 </script>

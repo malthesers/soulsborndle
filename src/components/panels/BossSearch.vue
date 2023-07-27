@@ -2,27 +2,33 @@
   <div class="relative mb-4">
     <input @input="$emit('updateSearch', $event.target.value)" :value="search" :disabled="wasGuessed" placeholder="Enter boss name..." class="w-full text-black p-2 outline-none">
     <div v-if="showSearch" class="absolute w-full max-h-[660px] overflow-auto bg-zinc-700">
+      <!-- Boss cards for search results -->
       <div v-for="boss in searchedBosses" :key="boss.name" @click="enterGuess(boss)" @keydown.enter="enterGuess(boss)" tabindex="0" class="cursor-pointer border-t-2 shadow-2xl outline-none hover:bg-zinc-900 focus:bg-zinc-900">
           <p class="text-lg px-2 py-1 text-center">{{ boss.name }}</p>
           <div class="flex flex-col sm:flex-row gap-1 text-center">
+            <!-- Boss game -->
             <div class="sm:min-w-[10rem] text-xl p-1">
               <p class="text-sm">Game</p>
               <p class="leading-[2.2]">{{ boss.game }}</p>
             </div>
+            <!-- Boss health -->
             <div class="sm:min-w-[5rem] text-xl p-1">
               <p class="text-sm">Health</p>
               <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
             </div>
+            <!-- Boss souls -->
             <div class="sm:min-w-[5rem] text-xl p-1">
               <p class="text-sm">Souls</p>
               <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
             </div>
+            <!-- Boss weaknesses -->
             <div class="sm:min-w-[8rem] w-full p-1">
               <p class="text-sm">Weaknesses</p>
               <div class="h-11 flex flex-row justify-center gap-1">
                 <DamageBox v-for="weakness in boss.weaknesses" :key="weakness" :damageType="weakness"/>
               </div>
             </div>
+            <!-- Boss resistances -->
             <div class="sm:min-w-[8rem] w-full p-1">
               <p class="text-sm">Resistances</p>
               <div class="h-11 flex flex-row justify-center gap-1">

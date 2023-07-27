@@ -1,15 +1,15 @@
 <template>
   <div class="lg:sticky top-0 h-max sm:flex justify-center lg:block text-center bg-zinc-900 bg-opacity-60 p-2">
-      <div class="sm:inline-block lg:block text-2xl mx-4">
+      <div class="sm:inline-block lg:block mx-4">
         <span class="text-sm">Game</span>
-        <Transition name="known" mode="out-in">
+        <Transition name="known" mode="out-in" class="h-10 whitespace-nowrap text-2xl">
           <p :key="known.game">{{ known.game }}</p>
         </Transition>
       </div>
-      <div class="sm:inline-block lg:block text-2xl mx-4">
+      <div class="sm:inline-block lg:block mx-4">
         <span class="text-sm">Health</span>
         <p v-if="known.health">{{ known.health.toLocaleString() }}</p>
-        <p v-else class="whitespace-nowrap">
+        <p v-else class="h-10 whitespace-nowrap text-2xl">
           <Transition name="known" mode="out-in">
             <span :key="known.healthMin">{{ known.healthMin.toLocaleString() }}</span>
           </Transition>
@@ -19,10 +19,10 @@
           </Transition>
         </p>
       </div>
-      <div class="sm:inline-block lg:block text-2xl mx-4">
+      <div class="sm:inline-block lg:block mx-4">
         <span class="text-sm">Souls</span>
         <p v-if="known.souls">{{ known.souls.toLocaleString() }}</p>
-        <p v-else class="whitespace-nowrap">
+        <p v-else class="h-10 whitespace-nowrap text-2xl">
           <Transition name="known" mode="out-in">
             <span :key="known.soulsMin">{{ known.soulsMin.toLocaleString() }}</span>
           </Transition>

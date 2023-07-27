@@ -18,14 +18,14 @@
         <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
       </div>
       <!-- Guessed boss weaknesses -->
-      <div :class="weakMatch" class="sm:min-w-[8rem] w-full p-1">
+      <div :class="weaknessesBgColor" class="sm:min-w-[8rem] w-full p-1">
         <p class="text-sm">Weaknesses</p>
         <div class="h-11 flex flex-row justify-center gap-1">
           <DamageBox v-for="weakness in boss.weaknesses" :key="weakness" :damageType="weakness"/>
         </div>
       </div>
       <!-- Guessed boss resistances -->
-      <div :class="resMatch" class="sm:min-w-[8rem] w-full p-1">
+      <div :class="resistancesBgColor" class="sm:min-w-[8rem] w-full p-1">
         <p class="text-sm">Resistances</p>
         <div class="h-11 flex flex-row justify-center gap-1">
           <DamageBox v-for="resistance in boss.resistances" :key="resistance" :damageType="resistance"/>
@@ -42,7 +42,7 @@ const props = defineProps({
 })
 
 
-const weakMatch = computed(() => {
+const weaknessesBgColor = computed(() => {
   let bgColor = 'bg-red-900';
 
   if (props.correct.weaknesses.some(weak => props.boss.weaknesses.includes(weak))) {
@@ -56,7 +56,7 @@ const weakMatch = computed(() => {
   return bgColor
 })
 
-const resMatch = computed(() => {
+const resistancesBgColor = computed(() => {
   let bgColor = 'bg-red-900';
 
   if (props.correct.resistances.some(weak => props.boss.resistances.includes(weak))) {

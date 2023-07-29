@@ -8,7 +8,7 @@
         <p class="leading-[2.2]">{{ boss.game }}</p>
       </div>
       <!-- Health & Souls container -->
-      <div class="w-full flex gap-1">
+      <div class="w-full flex gap-1 sm:w-min">
         <!-- Guessed boss health -->
         <div :class="[boss.health === correct.health ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] w-full text-xl p-1">
           <p class="text-sm">Health</p>

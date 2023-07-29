@@ -3,15 +3,15 @@
     <!-- Known game -->
     <div class="sm:inline-block lg:block mx-4">
       <p class="text-sm">Game</p>
-      <Transition name="known" mode="out-in" class="h-11 whitespace-nowrap text-2xl">
+      <Transition name="known" mode="out-in" class="h-11 whitespace-nowrap text-xl lg:text-2xl">
         <p :key="known.game">{{ known.game }}</p>
       </Transition>
     </div>
     <!-- Known health -->
     <div class="sm:inline-block lg:block mx-4">
       <p class="text-sm">Health</p>
-      <p v-if="known.health" class="text-2xl">{{ known.health.toLocaleString() }}</p>
-      <p v-else class="h-11 whitespace-nowrap text-2xl">
+      <p v-if="known.health" class="text-xl lg:text-2xl">{{ known.health.toLocaleString() }}</p>
+      <p v-else class="h-11 whitespace-nowrap text-xl lg:text-2xl">
         <Transition name="known" mode="out-in">
           <span :key="known.healthMin">{{ known.healthMin.toLocaleString() }}</span>
         </Transition>
@@ -24,8 +24,8 @@
     <!-- Known souls -->
     <div class="sm:inline-block lg:block mx-4">
       <p class="text-sm">Souls</p>
-      <p v-if="known.souls" class="text-2xl">{{ known.souls.toLocaleString() }}</p>
-      <p v-else class="h-11 whitespace-nowrap text-2xl">
+      <p v-if="known.souls" class="text-xl lg:text-2xl">{{ known.souls.toLocaleString() }}</p>
+      <p v-else class="h-11 whitespace-nowrap text-xl lg:text-2xl">
         <Transition name="known" mode="out-in">
           <span :key="known.soulsMin">{{ known.soulsMin.toLocaleString() }}</span>
         </Transition>

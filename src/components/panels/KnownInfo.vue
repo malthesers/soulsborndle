@@ -10,7 +10,7 @@
     <!-- Known health -->
     <div class="sm:inline-block lg:block mx-4">
       <span class="text-sm">Health</span>
-      <p v-if="known.health">{{ known.health.toLocaleString() }}</p>
+      <p v-if="known.health" class="text-2xl">{{ known.health.toLocaleString() }}</p>
       <p v-else class="h-10 whitespace-nowrap text-2xl">
         <Transition name="known" mode="out-in">
           <span :key="known.healthMin">{{ known.healthMin.toLocaleString() }}</span>
@@ -24,7 +24,7 @@
     <!-- Known souls -->
     <div class="sm:inline-block lg:block mx-4">
       <span class="text-sm">Souls</span>
-      <p v-if="known.souls">{{ known.souls.toLocaleString() }}</p>
+      <p v-if="known.souls" class="text-2xl">{{ known.souls.toLocaleString() }}</p>
       <p v-else class="h-10 whitespace-nowrap text-2xl">
         <Transition name="known" mode="out-in">
           <span :key="known.soulsMin">{{ known.soulsMin.toLocaleString() }}</span>

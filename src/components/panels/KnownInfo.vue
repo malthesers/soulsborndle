@@ -36,7 +36,7 @@
       </p>
     </div>
     <!-- Known weaknesses -->
-    <div class="sm:inline-block lg:block mx-4">
+    <div class="sm:inline-block lg:block mx-4 mb-4 sm:mb-0 lg:mb-4">
       <p class="text-sm">Weaknesses</p>
       <TransitionGroup name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
         <DamageBox v-for="weakness in known.weaknesses" :key="weakness" :damageType="weakness"/>

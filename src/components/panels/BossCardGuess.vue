@@ -7,16 +7,20 @@
         <p class="text-sm">Game</p>
         <p class="leading-[2.2]">{{ boss.game }}</p>
       </div>
-      <!-- Guessed boss health -->
-      <div :class="[boss.health === correct.health ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] text-xl p-1">
-        <p class="text-sm">Health</p>
-        <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
+      <!-- Health & Souls container -->
+      <div class="w-full flex gap-1">
+        <!-- Guessed boss health -->
+        <div :class="[boss.health === correct.health ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] w-full text-xl p-1">
+          <p class="text-sm">Health</p>
+          <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
+        </div>
+        <!-- Guessed boss souls -->
+        <div :class="[boss.souls === correct.souls ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] w-full text-xl p-1">
+          <p class="text-sm">Souls</p>
+          <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
+        </div>
       </div>
-      <!-- Guessed boss souls -->
-      <div :class="[boss.souls === correct.souls ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] text-xl p-1">
-        <p class="text-sm">Souls</p>
-        <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
-      </div>
+      <!-- Weaknesses & Resistances container -->
       <div class="w-full flex gap-1">
         <!-- Guessed boss weaknesses -->
         <div :class="weaknessesBgColor" class="sm:min-w-[8rem] w-full p-1">

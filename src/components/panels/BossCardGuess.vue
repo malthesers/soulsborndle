@@ -17,7 +17,7 @@
         <p class="text-sm">Souls</p>
         <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
       </div>
-      <div class="flex gap-1">
+      <div class="w-full flex gap-1">
         <!-- Guessed boss weaknesses -->
         <div :class="weaknessesBgColor" class="sm:min-w-[8rem] w-full p-1">
           <p class="text-sm">Weaknesses</p>

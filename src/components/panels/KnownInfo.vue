@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:sticky top-0 h-max sm:flex sm:gap-4 justify-center lg:block text-center bg-zinc-900 bg-opacity-60 p-2">
+  <div class="lg:sticky top-0 h-max md:flex md:gap-4 justify-center lg:block text-center bg-zinc-900 bg-opacity-60 p-2">
     <!-- Known game -->
     <div class="sm:inline-block lg:block mb-2 sm:mb-0">
       <p class="text-sm">Game</p>
@@ -8,7 +8,7 @@
       </Transition>
     </div>
     <!-- Known health & souls container -->
-    <div class="grid grid-cols-2 sm:flex sm:gap-4 lg:block mb-2 sm:mb-0">
+    <div class="grid grid-cols-2 md:flex md:gap-4 lg:block mb-2 sm:mb-0">
       <!-- Known health -->
       <div class="sm:inline-block lg:block">
         <p class="text-sm">Health</p>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <!-- Known weaknesses & resistances container -->
-    <div class="grid grid-cols-2 sm:flex sm:gap-4 lg:block">
+    <div class="grid grid-cols-2 md:flex md:gap-4 lg:block">
       <!-- Known weaknesses -->
       <div class="sm:inline-block lg:block mb-4 sm:mb-0 lg:mb-4">
         <p class="text-sm">Weaknesses</p>

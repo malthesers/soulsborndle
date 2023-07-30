@@ -2,7 +2,7 @@
   <Teleport to="body">
     <Transition name="modal">
       <div v-if="showRecords" @click.self="$emit('hideRecords')" class="fixed top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
-        <div class="w-full max-w-xl mx-auto bg-black p-4 text-center cursor-auto md:text-lg">
+        <div class="overflow-auto w-full max-w-xl mx-auto bg-black p-4 text-center cursor-auto md:text-lg">
           <p class="text-3xl">Records</p>
           <p v-if="records.length === 0" class="mb-2">You have not guessed a boss yet.</p>
           <div v-else>

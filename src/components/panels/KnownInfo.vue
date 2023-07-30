@@ -3,10 +3,11 @@
     <!-- Known game -->
     <div class="sm:inline-block lg:block">
       <p class="text-sm">Game</p>
-      <Transition name="known" mode="out-in" class="h-11 whitespace-nowrap text-xl lg:text-2xl">
+      <Transition name="known" mode="out-in" class="lg:h-11 whitespace-nowrap text-xl lg:text-2xl">
         <p :key="known.game">{{ known.game }}</p>
       </Transition>
     </div>
+    <!-- Known health & souls container -->
     <div class="grid grid-cols-2 sm:flex sm:gap-4 lg:block">
       <!-- Known health -->
       <div class="sm:inline-block lg:block">
@@ -37,19 +38,22 @@
         </p>
       </div>
     </div>
-    <!-- Known weaknesses -->
-    <div class="sm:inline-block lg:block mb-4 sm:mb-0 lg:mb-4">
-      <p class="text-sm">Weaknesses</p>
-      <TransitionGroup name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
-        <DamageBox v-for="weakness in known.weaknesses" :key="weakness" :damageType="weakness"/>
-      </TransitionGroup>
-    </div>
-    <!-- Known restistances -->
-    <div class="sm:inline-block lg:block">
-      <p class="text-sm">Resistances</p>
-      <TransitionGroup name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
-        <DamageBox v-for="resistance in known.resistances" :key="resistance" :damageType="resistance"/>
-      </TransitionGroup>
+    <!-- Known weaknesses & resistances container -->
+    <div class="grid grid-cols-2 sm:flex sm:gap-4 lg:block">
+      <!-- Known weaknesses -->
+      <div class="sm:inline-block lg:block mb-4 sm:mb-0 lg:mb-4">
+        <p class="text-sm">Weaknesses</p>
+        <TransitionGroup name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
+          <DamageBox v-for="weakness in known.weaknesses" :key="weakness" :damageType="weakness"/>
+        </TransitionGroup>
+      </div>
+      <!-- Known restistances -->
+      <div class="sm:inline-block lg:block">
+        <p class="text-sm">Resistances</p>
+        <TransitionGroup name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
+          <DamageBox v-for="resistance in known.resistances" :key="resistance" :damageType="resistance"/>
+        </TransitionGroup>
+      </div>
     </div>
   </div>
 </template>

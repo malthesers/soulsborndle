@@ -1,7 +1,7 @@
 <template>
   <div class="relative mb-4">
     <input @input="$emit('updateSearch', $event.target.value)" :value="search" :disabled="wasGuessed" placeholder="Enter boss name..." class="w-full text-black p-2 outline-none">
-    <div v-if="showSearch" class="absolute w-full max-h-[660px] overflow-auto bg-zinc-700">
+    <div v-if="showSearch" class="z-10 absolute w-full max-h-[660px] overflow-auto bg-zinc-700">
       <!-- Boss cards for search results -->
       <div v-for="boss in searchedBosses" :key="boss.name" @click="enterGuess(boss)" @keydown.enter="enterGuess(boss)" tabindex="0" class="cursor-pointer border-b-2 pb-1 outline-none duration-200 hover:bg-zinc-900 focus:bg-zinc-900">
         <p class="text-lg px-2 py-1 text-center">{{ boss.name }}</p>

@@ -4,25 +4,28 @@
     <div v-if="showSearch" class="absolute w-full max-h-[660px] overflow-auto bg-zinc-700">
       <!-- Boss cards for search results -->
       <div v-for="boss in searchedBosses" :key="boss.name" @click="enterGuess(boss)" @keydown.enter="enterGuess(boss)" tabindex="0" class="cursor-pointer border-b-2 outline-none duration-200 hover:bg-zinc-900 focus:bg-zinc-900">
-          <p class="text-lg px-2 py-1 text-center">{{ boss.name }}</p>
-          <div class="flex flex-col sm:flex-row gap-1 text-center">
-            <!-- Boss game -->
-            <div class="sm:min-w-[10rem] text-xl p-1">
-              <p class="text-sm">Game</p>
-              <p class="leading-[2.2]">{{ boss.game }}</p>
+        <p class="text-lg px-2 py-1 text-center">{{ boss.name }}</p>
+        <div class="flex flex-col sm:flex-row gap-1 text-center">
+          <!-- Boss game -->
+          <div class="sm:min-w-[10rem] text-xl p-1">
+            <p class="text-sm">Game</p>
+            <p class="leading-[2.2]">{{ boss.game }}</p>
+          </div>
+          <!-- Health & Souls container -->
+          <div class="w-full flex gap-1 sm:w-min">
+            <!-- Boss health -->
+            <div class="sm:min-w-[5rem] w-full text-xl p-1">
+              <p class="text-sm">Health</p>
+              <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
             </div>
-            <div class="w-full flex gap-1 sm:w-min">
-              <!-- Boss health -->
-              <div class="sm:min-w-[5rem] w-full text-xl p-1">
-                <p class="text-sm">Health</p>
-                <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
-              </div>
-              <!-- Boss souls -->
-              <div class="sm:min-w-[5rem] w-full text-xl p-1">
-                <p class="text-sm">Souls</p>
-                <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
-              </div>
+            <!-- Boss souls -->
+            <div class="sm:min-w-[5rem] w-full text-xl p-1">
+              <p class="text-sm">Souls</p>
+              <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
             </div>
+          </div>
+          <!-- Weaknesses & Resistances container -->
+          <div class="w-full flex gap-1">
             <!-- Boss weaknesses -->
             <div class="sm:min-w-[8rem] w-full p-1">
               <p class="text-sm">Weaknesses</p>
@@ -38,6 +41,7 @@
               </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
   </div>

@@ -11,15 +11,17 @@
               <p class="text-sm">Game</p>
               <p class="leading-[2.2]">{{ boss.game }}</p>
             </div>
-            <!-- Boss health -->
-            <div class="sm:min-w-[5rem] text-xl p-1">
-              <p class="text-sm">Health</p>
-              <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
-            </div>
-            <!-- Boss souls -->
-            <div class="sm:min-w-[5rem] text-xl p-1">
-              <p class="text-sm">Souls</p>
-              <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
+            <div class="w-full flex gap-1 sm:w-min">
+              <!-- Boss health -->
+              <div class="sm:min-w-[5rem] w-full text-xl p-1">
+                <p class="text-sm">Health</p>
+                <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
+              </div>
+              <!-- Boss souls -->
+              <div class="sm:min-w-[5rem] w-full text-xl p-1">
+                <p class="text-sm">Souls</p>
+                <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
+              </div>
             </div>
             <!-- Boss weaknesses -->
             <div class="sm:min-w-[8rem] w-full p-1">

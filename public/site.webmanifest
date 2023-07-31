@@ -14,10 +14,10 @@
       "type": "image/png"
     },
     {
-      "src": "maskable_icon.png",
+      "src": "maskable-icon.png",
       "sizes": "240x240",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ],
   "theme_color": "#18181b",

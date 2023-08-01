@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="overflow-hidden">
     <p class="bg-zinc-900 text-lg px-2 py-1 text-center whitespace-nowrap">{{ boss.name }}</p>
     <div class="flex flex-col sm:flex-row gap-1 text-center">
       <!-- Guessed boss game -->

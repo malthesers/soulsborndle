@@ -2,7 +2,7 @@
   <main class="max-w-5xl mx-auto p-2 m-2 xs:my-8">
     <!-- Button group -->
     <div class="grid grid-cols-2 sm:flex gap-4 mb-4">
-      <Button @click="resetGame" text="New Game"/>
+      <Button @click="newGame" text="New Game"/>
       <Button @click="showInstructions = true" text="Instructions"/>
       <Button @click="showRecords = true" text="Records"/>
       <Button @click="showGames = true" text="Games"/>
@@ -25,10 +25,10 @@
       </div>
     </div>
     <!-- Modals -->
-    <GuessedEffect @hideEffect="resetGame" :wasGuessed="wasGuessed"/>
+    <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed"/>
     <InstructionsModal @hideInstructions="showInstructions = false" :showInstructions="showInstructions"/>
     <RecordsModal @hideRecords="showRecords = false" @resetRecords="records = []" :showRecords="showRecords" :records="records"/>
-    <GamesModal @hideGames="showGames = false" @newGame="resetGame" :showGames="showGames" :chosenGames="chosenGames"/>
+    <GamesModal @hideGames="showGames = false" @newGame="newGame" :showGames="showGames" :chosenGames="chosenGames"/>
   </main>
 </template>
 
@@ -191,7 +191,7 @@ function updateRecords(name, guesses, games) {
   records.value = records.value.slice(0, 10)
 }
 
-function resetGame() {
+function newGame() {
   // Clear search value
   search.value = ''
 
@@ -235,6 +235,7 @@ onMounted(() => {
   }
   
   // Set random boss to guess
-  correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)];
+  // correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)];
+  newGame()
 })
 </script>

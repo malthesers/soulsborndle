@@ -63,6 +63,5 @@ function toggleGame(key) {
 watch(props.chosenGames, () => {
   // Save chosenGames to localStorage
   localStorage.setItem('games', JSON.stringify(props.chosenGames));
-  console.log('test')
 })
 </script>

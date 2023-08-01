@@ -66,6 +66,15 @@ const chosenGames = ref({
     isChosen: true
   },
 })
+const onlyOneGameChosen = computed(() => {
+  let chosenGamesCount = 0;
+
+  for (const game in chosenGames.value) {
+    if (chosenGames.value[game].isChosen === true) chosenGamesCount++;
+  }
+
+  return (chosenGamesCount === 1 ? true : false)
+})
 
 const bosses = computed(() => {
   let chosenBosses = []
@@ -212,8 +221,12 @@ function newGame() {
     weaknesses: [],
     resistances: []
   }
+
   // Generate new boss
   correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)]
+
+  
+  if (onlyOneGameChosen.value) known.value.game = correct.value.game
 }
 
 watch(records, () => {

@@ -4,9 +4,9 @@
       <div v-if="showRecords" @click.self="$emit('hideRecords')" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <div class="overflow-auto w-full max-w-xl max-h-[75%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Records</p>
-          <p v-if="records.length === 0" class="mb-2">You have not guessed a boss yet.</p>
+          <p class="mb-2">Listed below are your 10 fastest victories sorted by amount of guesses. On the right, you see the games chosen when you set the record.</p>
+          <p v-if="records.length === 0" class="mb-2 font-bold">You have not guessed a boss yet.</p>
           <div v-else>
-            <p class="mb-2">Listed below is your 10 fastest guessed bosses sorted by amount of guesses. On the right, you see the games chosen when you set the record.</p>
             <table class="w-full text-left text-base mb-2">
               <thead>
                 <tr>
@@ -37,10 +37,10 @@
                 </tr>
               </tbody>
             </table>
-            <div class="flex gap-4 justify-center">
-              <Button @click="$emit('resetRecords')" text="Clear records"/>
-              <Button @click="$emit('hideRecords')" text="Close"/>
-            </div>
+          </div>
+          <div class="flex gap-4 justify-center">
+            <Button v-if="records.length !== 0" @click="$emit('resetRecords')" text="Clear records"/>
+            <Button @click="$emit('hideRecords')" text="Close"/>
           </div>
         </div>
       </div>

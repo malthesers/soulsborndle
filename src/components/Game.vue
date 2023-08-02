@@ -209,18 +209,16 @@ function newGame() {
   wasGuessed.value = false;
 
   // Clear known
-  known.value = {
-    name: '???',
-    game: '???',
-    souls: 0,
-    soulsMin: 0,
-    soulsMax: 999999,
-    health: 0,
-    healthMin: 0,
-    healthMax: 99999,
-    weaknesses: [],
-    resistances: []
-  }
+  known.value.name = '???'
+  known.value.game = '???'
+  known.value.souls = 0
+  known.value.soulsMin = 0
+  known.value.soulsMax = 999999
+  known.value.health = 0
+  known.value.healthMin = 0
+  known.value.healthMax = 99999
+  known.value.weaknesses = []
+  known.value.resistances = []
 
   // Generate new boss
   correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)]

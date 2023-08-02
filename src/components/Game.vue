@@ -138,7 +138,7 @@ function validateGuess(boss) {
     updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(chosenGames.value)));
   } else {
 
-    // Validate name
+    // Validate game
     if (boss.game === correct.value.game) known.value.game = boss.game
 
     // Validate health

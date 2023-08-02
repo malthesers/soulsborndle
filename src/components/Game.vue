@@ -201,7 +201,6 @@ function updateRecords(name, guesses, games) {
 }
 
 function newGame() {
-  console.log('newGame')
   // Clear search value
   search.value = ''
 
@@ -221,8 +220,8 @@ function newGame() {
   known.value.health = 0
   known.value.healthMin = 0
   known.value.healthMax = 99999
-  // known.value.weaknesses.splice(0)
-  // known.value.resistances.splice(0)
+  known.value.weaknesses.splice(0)
+  known.value.resistances.splice(0)
 
   // if (onlyOneGameChosen.value) known.value.game = correct.value.game
 }

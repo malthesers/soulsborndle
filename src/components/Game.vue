@@ -222,8 +222,6 @@ function newGame() {
   known.value.healthMax = 99999
   known.value.weaknesses.splice(0)
   known.value.resistances.splice(0)
-
-  // if (onlyOneGameChosen.value) known.value.game = correct.value.game
 }
 
 watch(records, () => {
@@ -243,9 +241,7 @@ onMounted(() => {
       chosenGames.value[game].isChosen = savedGames[game].isChosen
     }
   }
-  
-  // Set random boss to guess
-  // correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)];
+
   newGame()
 })
 </script>

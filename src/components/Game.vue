@@ -27,7 +27,7 @@
     <!-- Modals -->
     <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed"/>
     <InstructionsModal @hideInstructions="showInstructions = false" :showInstructions="showInstructions"/>
-    <RecordsModal @hideRecords="showRecords = false" @resetRecords="records = []" :showRecords="showRecords" :records="records"/>
+    <RecordsModal @hideRecords="showRecords = false" @resetRecords="records.splice(0)" :showRecords="showRecords" :records="records"/>
     <GamesModal @hideGames="showGames = false" @newGame="newGame" :showGames="showGames" :chosenGames="chosenGames"/>
   </main>
 </template>
@@ -201,11 +201,12 @@ function updateRecords(name, guesses, games) {
 }
 
 function newGame() {
+  console.log('newGame')
   // Clear search value
   search.value = ''
 
   // Clear guesses
-  guessedBosses.value = []
+  guessedBosses.value.splice(0)
   wasGuessed.value = false;
 
   // Generate new boss
@@ -220,8 +221,8 @@ function newGame() {
   known.value.health = 0
   known.value.healthMin = 0
   known.value.healthMax = 99999
-  known.value.weaknesses = []
-  known.value.resistances = []
+  // known.value.weaknesses.splice(0)
+  // known.value.resistances.splice(0)
 
   // if (onlyOneGameChosen.value) known.value.game = correct.value.game
 }

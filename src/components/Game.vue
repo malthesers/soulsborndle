@@ -208,9 +208,12 @@ function newGame() {
   guessedBosses.value = []
   wasGuessed.value = false;
 
-  // Clear known
+  // Generate new boss
+  correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)]
+
+  // Reset known info
   known.value.name = '???'
-  known.value.game = '???'
+  known.value.game = (onlyOneGameChosen.value ? correct.value.game : '???')
   known.value.souls = 0
   known.value.soulsMin = 0
   known.value.soulsMax = 999999
@@ -220,11 +223,7 @@ function newGame() {
   known.value.weaknesses = []
   known.value.resistances = []
 
-  // Generate new boss
-  correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)]
-
-  
-  if (onlyOneGameChosen.value) known.value.game = correct.value.game
+  // if (onlyOneGameChosen.value) known.value.game = correct.value.game
 }
 
 watch(records, () => {

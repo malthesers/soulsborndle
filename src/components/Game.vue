@@ -5,7 +5,7 @@
       <Button @click="newGame" text="New Game"/>
       <Button @click="showInstructions = true" text="Instructions"/>
       <Button @click="showRecords = true" text="Records"/>
-      <Button @click="showGames = true" text="Games"/>
+      <Button @click="showModal['games'] = true" text="Games"/>
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <!-- Left side container -->
@@ -28,7 +28,7 @@
     <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed"/>
     <InstructionsModal @hideInstructions="showInstructions = false" :showInstructions="showInstructions"/>
     <RecordsModal @hideRecords="showRecords = false" @resetRecords="records.splice(0)" :showRecords="showRecords" :records="records"/>
-    <GamesModal @hideGames="showGames = false" @newGame="newGame" :showGames="showGames" :chosenGames="chosenGames"/>
+    <GamesModal @hideGames="showModal['games'] = false" @newGame="newGame" :showGames="showModal.games" :chosenGames="chosenGames"/>
   </main>
 </template>
 
@@ -113,8 +113,13 @@ const known = ref({
 const wasGuessed = ref(false);
 const showInstructions = ref(false);
 const showRecords = ref(false);
-const showGames = ref(false);
 
+const showModal = ref({
+  wasGuessed: false,
+  showInstructions: false,
+  showRecords: false,
+  games: false
+})
 
 function validateGuess(boss) {
   // Add to guessed bosses

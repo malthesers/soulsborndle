@@ -228,6 +228,12 @@ function newGame() {
   known.value.resistances.splice(0)
 }
 
+watch(modalOpen, () => {
+  const body = document.querySelector("body");
+
+  if (modalOpen.value) body.classList = 'overflow-hidden'
+})
+
 watch(records, () => {
   // Save records to localStorage
   localStorage.setItem('records', JSON.stringify(records.value));

@@ -231,7 +231,11 @@ function newGame() {
 watch(modalOpen, () => {
   const body = document.querySelector("body");
 
-  if (modalOpen.value) body.classList = 'overflow-hidden'
+  if (modalOpen.value) {
+    body.classList = 'overflow-hidden'
+  } else {
+    body.classList = ''
+  }
 })
 
 watch(records, () => {
@@ -252,6 +256,7 @@ onMounted(() => {
     }
   }
 
+  // Start first game
   newGame()
 })
 </script>

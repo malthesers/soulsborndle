@@ -116,6 +116,9 @@ const showModal = ref({
   records: false,
   games: false
 })
+const modalOpen = computed(() => {
+  return Object.values(showModal.value).some(modal => modal === true)
+})
 
 function validateGuess(boss) {
   // Add to guessed bosses

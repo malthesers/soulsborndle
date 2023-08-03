@@ -111,11 +111,7 @@ const known = ref({
 })
 
 const wasGuessed = ref(false);
-const showInstructions = ref(false);
-const showRecords = ref(false);
-
 const showModal = ref({
-  wasGuessed: false,
   instructions: false,
   records: false,
   games: false

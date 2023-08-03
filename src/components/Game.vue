@@ -3,8 +3,8 @@
     <!-- Button group -->
     <div class="grid grid-cols-2 sm:flex gap-4 mb-4">
       <Button @click="newGame" text="New Game"/>
-      <Button @click="showInstructions = true" text="Instructions"/>
-      <Button @click="showRecords = true" text="Records"/>
+      <Button @click="showModal['instructions'] = true" text="Instructions"/>
+      <Button @click="showModal['records'] = true" text="Records"/>
       <Button @click="showModal['games'] = true" text="Games"/>
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
@@ -26,8 +26,8 @@
     </div>
     <!-- Modals -->
     <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed"/>
-    <InstructionsModal @hideInstructions="showInstructions = false" :showInstructions="showInstructions"/>
-    <RecordsModal @hideRecords="showRecords = false" @resetRecords="records.splice(0)" :showRecords="showRecords" :records="records"/>
+    <InstructionsModal @hideInstructions="showModal['instructions'] = false" :showInstructions="showModal['instructions']"/>
+    <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records.splice(0)" :showRecords="showModal['records']" :records="records"/>
     <GamesModal @hideGames="showModal['games'] = false" @newGame="newGame" :showGames="showModal.games" :chosenGames="chosenGames"/>
   </main>
 </template>
@@ -116,8 +116,8 @@ const showRecords = ref(false);
 
 const showModal = ref({
   wasGuessed: false,
-  showInstructions: false,
-  showRecords: false,
+  instructions: false,
+  records: false,
   games: false
 })
 

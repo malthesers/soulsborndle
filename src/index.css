@@ -68,3 +68,27 @@
 .message-leave-to {
   max-height: 0;
 }
+
+/* Transition for records */
+
+.recordsmessage-enter-active,
+.recordsmessage-leave-active {
+  transition: max-height 300ms ease;
+  transition-delay: 750ms;
+  max-height: 2rem;
+}
+
+.recordsmessage-enter-from,
+.recordsmessage-leave-to {
+  max-height: 0;
+}
+
+.records-enter-active,
+.records-leave-active {
+  transition: max-height 750ms ease;
+}
+
+.records-enter-from,
+.records-leave-to {
+  max-height: 0;
+}

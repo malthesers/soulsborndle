@@ -7,6 +7,10 @@
     background: linear-gradient(0deg, transparent 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, transparent 100%);
   }
 
+  .failed-fade {
+    transition: opacity 1000ms ease-in;
+  }
+
   .yharnam-layer {
     position: absolute;
     top: 0;

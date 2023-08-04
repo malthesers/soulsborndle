@@ -19,8 +19,8 @@
           :search="search"
           :wasGuessed="wasGuessed"
         />
-        <TransitionGroup name="guess" tag="div" mode="out-in" class="flex flex-col gap-4">
-          <BossGuess v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct"/>
+        <TransitionGroup :name="[ wasFailed ? 'failed' : 'guess']" tag="div" mode="out-in" class="flex flex-col gap-4">
+          <BossGuess v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct" class="failed-fade"/>
         </TransitionGroup>
       </div>
     </div>
@@ -264,3 +264,22 @@ onMounted(() => {
   newGame()
 })
 </script>
+
+<style scoped>
+.failed-enter-active,
+.failed-leave-active {
+  transition: opacity 1000ms ease-in;
+}
+
+.guess-enter-active,
+.guess-leave-active {
+  transition: opacity 250ms ease-in;
+}
+
+.failed-enter-from,
+.faield-leave-to,
+.guess-enter-from,
+.guess-leave-to {
+  opacity: 0;
+}
+</style>

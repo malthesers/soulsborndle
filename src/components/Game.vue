@@ -27,7 +27,7 @@
     <!-- Modals -->
     <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed"/>
     <InstructionsModal @hideInstructions="showModal['instructions'] = false" :showInstructions="showModal['instructions']"/>
-    <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records.splice(0)" :showRecords="showModal['records']" :records="records"/>
+    <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records = []" :showRecords="showModal['records']" :records="records"/>
     <GamesModal @hideGames="showModal['games'] = false" @newGame="newGame" :showGames="showModal.games" :chosenGames="chosenGames"/>
   </main>
 </template>
@@ -241,6 +241,7 @@ watch(modalOpen, () => {
 watch(records, () => {
   // Save records to localStorage
   localStorage.setItem('records', JSON.stringify(records.value));
+  console.log('yeet')
 })
 
 onMounted(() => {

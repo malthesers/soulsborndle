@@ -5,7 +5,7 @@
         <div class="overflow-auto w-full max-w-xl max-h-[75%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Records</p>
           <p class="mb-2">Listed below are your 10 fastest victories sorted by amount of guesses. On the right, you see the games chosen when you set the record.</p>
-          <Transition name="recordsmessage">
+          <Transition name="message">
             <p v-if="records.length === 0" class="font-bold overflow-hidden">You have not guessed a boss yet.</p>
           </Transition>
           <Transition name="records">
@@ -69,3 +69,27 @@ const games = ref({
   eldenRing: 'ER'
 })
 </script>
+
+<style scoped>
+.message-enter-active,
+.message-leave-active {
+  transition: max-height 300ms ease;
+  transition-delay: 750ms;
+  max-height: 2rem;
+}
+
+.message-enter-from,
+.message-leave-to {
+  max-height: 0;
+}
+
+.records-enter-active,
+.records-leave-active {
+  transition: max-height 750ms ease;
+}
+
+.records-enter-from,
+.records-leave-to {
+  max-height: 0;
+}
+</style>

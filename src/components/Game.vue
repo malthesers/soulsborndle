@@ -241,7 +241,6 @@ watch(modalOpen, () => {
 watch(records, () => {
   // Save records to localStorage
   localStorage.setItem('records', JSON.stringify(records.value));
-  console.log('yeet')
 })
 
 onMounted(() => {

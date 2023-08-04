@@ -6,7 +6,7 @@
   .vertical-fade {
     background: linear-gradient(0deg, transparent 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, transparent 100%);
   }
-  
+
   .yharnam-layer {
     position: absolute;
     top: 0;
@@ -16,6 +16,9 @@
   }
 }
 
+body::-webkit-scrollbar {
+  width: 0;
+}
 
 .modal-enter-active,
 .modal-leave-active {

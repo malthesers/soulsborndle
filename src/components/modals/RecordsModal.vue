@@ -6,38 +6,36 @@
           <p class="text-3xl">Records</p>
           <p class="mb-2">Listed below are your 10 fastest victories sorted by amount of guesses. On the right, you see the games chosen when you set the record.</p>
           <p v-if="records.length === 0" class="mb-2 font-bold">You have not guessed a boss yet.</p>
-          <div v-else>
-            <table class="w-full text-left text-base mb-2">
-              <thead>
-                <tr>
-                  <th class="hidden xs:table-cell px-2 text-center">#</th>
-                  <th class="hidden xs:table-cell">Boss</th>
-                  <th v-for="(game, key) in games" :key="key"
-                    class="hidden xs:table-cell text-center w-9 border-l-4 border-black"
-                  >{{ game }}</th>
-                </tr>
-              </thead>
-              <tbody v-for="record in records" :key="`${record.guesses}-${record.name}`" class="bg-zinc-900 border-black border-b-8">
-                <tr>
-                  <td class="px-2 text-center">{{ record.guesses }}</td>
-                  <td class="xs:hidden" colspan="5">{{ record.name }}</td>
-                  <td class="hidden xs:table-cell" colspan="1">{{ record.name }}</td>
-                  <td v-for="(game, key) in games" :key="key"
-                    :class="[record.games[key].isChosen ? 'bg-green-900' : 'bg-red-900']"
-                    class="hidden xs:table-cell border-l-4 border-black"
-                  ></td>
-                </tr>
-                <!-- Mobile row -->
-                <tr class="xs:hidden">
-                  <td
-                    v-for="(game, key) in games" :key="key"
-                    :class="[record.games[key].isChosen ? 'bg-green-900' : 'bg-red-900']"
-                    class="w-1/6 text-center"
-                  ><span>{{ game }}</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <table v-else class="w-full text-left text-base mb-2">
+            <thead>
+              <tr>
+                <th class="hidden xs:table-cell px-2 text-center">#</th>
+                <th class="hidden xs:table-cell">Boss</th>
+                <th v-for="(game, key) in games" :key="key"
+                  class="hidden xs:table-cell text-center w-9 border-l-4 border-black"
+                >{{ game }}</th>
+              </tr>
+            </thead>
+            <tbody v-for="record in records" :key="`${record.guesses}-${record.name}`" class="bg-zinc-900 border-black border-b-8">
+              <tr>
+                <td class="px-2 text-center">{{ record.guesses }}</td>
+                <td class="xs:hidden" colspan="5">{{ record.name }}</td>
+                <td class="hidden xs:table-cell" colspan="1">{{ record.name }}</td>
+                <td v-for="(game, key) in games" :key="key"
+                  :class="[record.games[key].isChosen ? 'bg-green-900' : 'bg-red-900']"
+                  class="hidden xs:table-cell border-l-4 border-black"
+                ></td>
+              </tr>
+              <!-- Mobile row -->
+              <tr class="xs:hidden">
+                <td
+                  v-for="(game, key) in games" :key="key"
+                  :class="[record.games[key].isChosen ? 'bg-green-900' : 'bg-red-900']"
+                  class="w-1/6 text-center"
+                ><span>{{ game }}</span></td>
+              </tr>
+            </tbody>
+          </table>
           <div class="flex gap-4 justify-center">
             <Button v-if="records.length !== 0" @click="$emit('resetRecords')" text="Clear records"/>
             <Button @click="$emit('hideRecords')" text="Close"/>

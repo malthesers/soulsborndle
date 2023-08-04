@@ -2,7 +2,7 @@
   <main class="max-w-5xl mx-auto p-2 m-2 xs:my-8">
     <!-- Button group -->
     <div class="grid grid-cols-2 sm:flex gap-4 mb-4">
-      <Button @click="newGame" text="New Game"/>
+      <Button @click="wasFailed = true" text="New Game"/>
       <Button @click="showModal['instructions'] = true" text="Instructions"/>
       <Button @click="showModal['records'] = true" text="Records"/>
       <Button @click="showModal['games'] = true" text="Games"/>
@@ -24,8 +24,10 @@
         </TransitionGroup>
       </div>
     </div>
-    <!-- Modals -->
+    <!-- Effects -->
     <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed"/>
+    <FailedEffect @hideEffect="newGame" :wasFailed="wasFailed"/>
+    <!-- Modals -->
     <InstructionsModal @hideInstructions="showModal['instructions'] = false" :showInstructions="showModal['instructions']"/>
     <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records = []" :showRecords="showModal['records']" :records="records"/>
     <GamesModal @hideGames="showModal['games'] = false" @newGame="newGame" :showGames="showModal.games" :chosenGames="chosenGames"/>
@@ -110,7 +112,8 @@ const known = ref({
   resistances: []
 })
 
-const wasGuessed = ref(false);
+const wasGuessed = ref(false)
+const wasFailed = ref(false)
 const showModal = ref({
   instructions: false,
   records: false,
@@ -210,7 +213,8 @@ function newGame() {
 
   // Clear guesses
   guessedBosses.value.splice(0)
-  wasGuessed.value = false;
+  wasGuessed.value = false
+  wasFailed.value = false
 
   // Generate new boss
   correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)]

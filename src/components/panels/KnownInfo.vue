@@ -63,3 +63,15 @@ const props = defineProps({
   known: Object
 })
 </script>
+
+<style scoped>
+.known-enter-active,
+.known-leave-active {
+  transition: all 350ms ease-out;
+}
+
+.known-enter-from,
+.known-leave-to {
+  opacity: 0;
+}
+</style>

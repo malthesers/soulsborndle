@@ -3,19 +3,19 @@
     <p class="bg-zinc-900 text-lg px-2 py-1 text-center whitespace-nowrap">{{ boss.name }}</p>
     <div class="flex flex-col sm:flex-row gap-1 text-center">
       <!-- Guessed boss game -->
-      <div :class="[boss.game === correct.game ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[10rem] text-xl p-1">
+      <div :class="boss.game === correct.game ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[10rem] text-xl p-1">
         <p class="text-sm">Game</p>
         <p class="leading-[2.2]">{{ boss.game }}</p>
       </div>
       <!-- Health & Souls container -->
       <div class="w-full flex gap-1 sm:w-min">
         <!-- Guessed boss health -->
-        <div :class="[boss.health === correct.health ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] w-full text-xl p-1">
+        <div :class="boss.health === correct.health ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[5rem] w-full text-xl p-1">
           <p class="text-sm">Health</p>
           <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
         </div>
         <!-- Guessed boss souls -->
-        <div :class="[boss.souls === correct.souls ? 'bg-green-900' : 'bg-red-900']" class="sm:min-w-[5rem] w-full text-xl p-1">
+        <div :class="boss.souls === correct.souls ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[5rem] w-full text-xl p-1">
           <p class="text-sm">Souls</p>
           <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
         </div>

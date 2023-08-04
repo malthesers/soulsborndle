@@ -30,7 +30,7 @@
                     <td class="xs:hidden" colspan="5">{{ record.name }}</td>
                     <td class="hidden xs:table-cell" colspan="1">{{ record.name }}</td>
                     <td v-for="(game, key) in games" :key="key"
-                      :class="[record.games[key].isChosen ? 'bg-green-900' : 'bg-red-900']"
+                      :class="record.games[key].isChosen ? 'bg-green-900' : 'bg-red-900'"
                       class="hidden xs:table-cell border-l-4 border-black"
                     ></td>
                   </tr>
@@ -38,7 +38,7 @@
                   <tr class="xs:hidden">
                     <td
                       v-for="(game, key) in games" :key="key"
-                      :class="[record.games[key].isChosen ? 'bg-green-900' : 'bg-red-900']"
+                      :class="record.games[key].isChosen ? 'bg-green-900' : 'bg-red-900'"
                       class="w-1/6 text-center"
                     ><span>{{ game }}</span></td>
                   </tr>

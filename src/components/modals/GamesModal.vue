@@ -11,7 +11,7 @@
             <Button v-for="(game, key) in chosenGames"
               :key="game.name"
               :text="game.name"
-              :class="[game.isChosen ? 'bg-green-900' : 'bg-red-900']"
+              :class="game.isChosen ? 'bg-green-900' : 'bg-red-900'"
               class="!px-2 hover:bg-opacity-50"
               :hover="false"
               @click="toggleGame(key)"

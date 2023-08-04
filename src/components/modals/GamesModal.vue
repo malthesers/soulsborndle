@@ -65,3 +65,16 @@ watch(props.chosenGames, () => {
   localStorage.setItem('games', JSON.stringify(props.chosenGames));
 })
 </script>
+
+<style scoped>
+.message-enter-active,
+.message-leave-active {
+  transition: max-height 300ms ease;
+  max-height: 2rem;
+}
+
+.message-enter-from,
+.message-leave-to {
+  max-height: 0;
+}
+</style>

@@ -5,12 +5,15 @@
         <div class="overflow-auto w-full max-w-xl max-h-[75%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Records</p>
           <p class="mb-2">Listed below are your 10 fastest victories sorted by amount of guesses. On the right, you see the games chosen when you set the record.</p>
+          <!-- No bosses guessed message -->
           <Transition name="message">
             <p v-if="records.length === 0" class="font-bold overflow-hidden">You have not guessed a boss yet.</p>
           </Transition>
+          <!-- Records table -->
           <Transition name="records">
             <div v-if="records.length !== 0" class="overflow-hidden max-h-96">
               <table class="w-full text-left text-base mb-2">
+                <!-- Table head -->
                 <thead>
                   <tr>
                     <th class="hidden xs:table-cell px-2 text-center">#</th>
@@ -43,6 +46,7 @@
               </table>
             </div>
           </Transition>
+          <!-- Buttons -->
           <div class="flex gap-4 justify-center mt-2">
             <Button v-if="records.length !== 0" @click="$emit('resetRecords')" text="Clear records"/>
             <Button @click="$emit('hideRecords')" text="Close"/>

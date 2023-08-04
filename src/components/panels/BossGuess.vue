@@ -47,7 +47,6 @@ const props = defineProps({
   boss: Object
 })
 
-
 const weaknessesBgColor = computed(() => {
   let bgColor = 'bg-red-900';
 

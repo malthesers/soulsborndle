@@ -6,11 +6,13 @@
           <p class="text-3xl">Instructions</p>
           <p class="mb-2">Enter the name a boss and narrow it down using the hints based on your previous guesses.</p>
           <p class="mb-2"><span class="font-bold text-red-900">Red</span> means incorrect, <span class="font-bold text-yellow-700">orange</span> means partially correct and <span class="font-bold text-green-900">green</span> completely correct.</p>
+          <!-- Bosses information -->
           <p class="text-xl">Bosses</p>
           <p class="mb-2">From the following games, excluding Elden Ring field bosses:</p>
           <div class="grid grid-cols-2 xs:grid-cols-3 mb-2">
             <p v-for="game in games" :key="game">{{ game }}</p>
           </div>
+          <!-- Damage type information -->
           <p class="text-xl">Damage Types</p>
           <p class="mb-2">Arcane and Bolt are treated as Magic and Lightning, while Blunt and Pierce are treated Blunt and Thrust.</p>
           <div class="mx-auto mb-4 xs:w-full grid grid-cols-2 xs:grid-cols-3 gap-2">
@@ -19,6 +21,7 @@
               <span class="capitalize my-auto">{{ damageType }}</span>
             </p>
           </div>
+          <!-- Buttons -->
           <Button @click="$emit('hideInstructions')" text="Close"/>
         </div>
       </div>

@@ -2,7 +2,7 @@
   <main class="max-w-5xl mx-auto p-2 m-2 xs:my-8">
     <!-- Button group -->
     <div class="grid grid-cols-2 sm:flex gap-4 mb-4">
-      <Button @click="wasFailed = true" text="New Game"/>
+      <Button @click="wasFailed = true, guessedBosses.unshift(correct)" text="New Game"/>
       <Button @click="showModal['instructions'] = true" text="Instructions"/>
       <Button @click="showModal['records'] = true" text="Records"/>
       <Button @click="showModal['games'] = true" text="Games"/>

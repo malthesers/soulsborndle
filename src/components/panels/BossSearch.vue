@@ -1,6 +1,6 @@
 <template>
   <div class="relative mb-4">
-    <input @input="$emit('updateSearch', $event.target.value)" :value="search" :disabled="wasGuessed" placeholder="Enter boss name..." class="w-full text-black p-2 outline-none">
+    <input ref="input" @input="$emit('updateSearch', $event.target.value)" :value="search"  placeholder="Enter boss name..." class="w-full text-black p-2 outline-none">
     <div v-if="showSearch" class="z-10 absolute w-full max-h-[660px] overflow-auto overscroll-contain bg-zinc-700">
       <!-- Boss cards for search results -->
       <div v-for="boss in searchedBosses" :key="boss.name" @click="enterGuess(boss)" @keydown.enter="enterGuess(boss)" tabindex="0" class="cursor-pointer border-b-2 pb-1 outline-none duration-200 last:border-b-0 hover:bg-zinc-900 focus:bg-zinc-900">
@@ -53,6 +53,12 @@ const props = defineProps({
   bosses: Array,
   search: String,
   wasGuessed: Boolean
+})
+
+const input = ref(null)
+
+watch(() => props.bosses, () => {
+  input.value.focus()
 })
 
 const showSearch = computed(() => {

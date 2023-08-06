@@ -71,6 +71,5 @@ const searchedBosses = computed(() => {
 
 function enterGuess (boss) {
   emits('guessEntered', boss)
-  document.querySelector("input").focus()
 }
 </script>

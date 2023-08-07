@@ -10,12 +10,12 @@
       <!-- Health & Souls container -->
       <div class="w-full flex gap-1 sm:w-min">
         <!-- Guessed boss health -->
-        <div :class="boss.health === correct.health ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[5rem] w-full text-xl p-1">
+        <div :class="healthBgColor" class="sm:min-w-[5rem] w-full text-xl p-1">
           <p class="text-sm">Health</p>
           <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
         </div>
         <!-- Guessed boss souls -->
-        <div :class="boss.souls === correct.souls ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[5rem] w-full text-xl p-1">
+        <div :class="soulsBgColor" class="sm:min-w-[5rem] w-full text-xl p-1">
           <p class="text-sm">Souls</p>
           <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
         </div>
@@ -45,6 +45,30 @@
 const props = defineProps({
   correct: Object,
   boss: Object
+})
+
+const healthBgColor = computed(() => {
+  const difference = Math.abs(props.correct.health - props.boss.health)
+  let bgColor = 'bg-red-900'
+
+  if (difference < 5000) bgColor = 'bg-amber-800'
+  if (difference < 2500) bgColor = 'bg-yellow-700'
+  if (difference < 1000) bgColor = 'bg-lime-800'
+  if (difference === 0) bgColor = 'bg-green-900'
+
+  return bgColor
+})
+
+const soulsBgColor = computed(() => {
+  const difference = Math.abs(props.correct.souls - props.boss.souls)
+  let bgColor = 'bg-red-900'
+
+  if (difference < 50000) bgColor = 'bg-amber-800'
+  if (difference < 25000) bgColor = 'bg-yellow-700'
+  if (difference < 5000) bgColor = 'bg-lime-800'
+  if (difference === 0) bgColor = 'bg-green-900'
+
+  return bgColor
 })
 
 const weaknessesBgColor = computed(() => {

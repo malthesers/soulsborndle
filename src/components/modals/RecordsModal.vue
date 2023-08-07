@@ -11,16 +11,14 @@
           </Transition>
           <!-- Records table -->
           <Transition name="records">
-            <div v-if="records.length !== 0" class="overflow-hidden max-h-96">
-              <table class="w-full text-left text-base mb-2">
+            <div v-if="records.length !== 0" class="mb-2 overflow-hidden max-h-[38rem] sm:max-h-96">
+              <table class="w-full text-left text-base">
                 <!-- Table head -->
                 <thead>
                   <tr>
                     <th class="hidden xs:table-cell px-2 text-center">#</th>
                     <th class="hidden xs:table-cell">Boss</th>
-                    <th v-for="(game, key) in games" :key="key"
-                      class="hidden xs:table-cell text-center w-9 border-l-4 border-black"
-                    >{{ game }}</th>
+                    <th v-for="(game, key) in games" :key="key" class="hidden xs:table-cell text-center w-9 border-l-4 border-black">{{ game }}</th>
                   </tr>
                 </thead>
                 <tbody v-for="record in records" :key="`${record.guesses}-${record.name}`" class="bg-zinc-900 border-black border-b-8">

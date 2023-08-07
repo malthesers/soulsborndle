@@ -15,7 +15,7 @@
           <p class="leading-[2.2] relative flex justify-center">
             <span>{{ boss.health.toLocaleString() }}</span>
             <span v-if="boss.health !== correct.health" class="absolute h-full flex flex-col">
-              <span v-if="!healthIsHigher" class="text-xs leading-3 mb-auto">⏶</span>
+              <span v-if="boss.health < correct.health" class="text-xs leading-3 mb-auto">⏶</span>
               <span v-else class="text-xs leading-3 mt-auto">⏷</span>
             </span>
           </p>
@@ -26,7 +26,7 @@
           <p class="leading-[2.2] relative flex justify-center">
             <span>{{ boss.souls.toLocaleString() }}</span>
             <span v-if="boss.souls !== correct.souls" class="absolute h-full flex flex-col">
-              <span v-if="!soulsIsHigher" class="text-xs leading-3 mb-auto">⏶</span>
+              <span v-if="boss.souls < correct.souls" class="text-xs leading-3 mb-auto">⏶</span>
               <span v-else class="text-xs leading-3 mt-auto">⏷</span>
             </span>
           </p>
@@ -57,14 +57,6 @@
 const props = defineProps({
   correct: Object,
   boss: Object
-})
-
-const healthIsHigher = computed(() => {
-  return props.boss.health > props.correct.health ? true : false
-})
-
-const soulsIsHigher = computed(() => {
-  return props.boss.souls > props.correct.souls ? true : false
 })
 
 const weaknessesBgColor = computed(() => {

@@ -10,7 +10,8 @@
           <p class="text-xl">Bosses</p>
           <p class="mb-2">By default any from the games below. You can however deselect any game by clicking the <span class="italic">Games</span> button.</p>
           <div class="grid grid-cols-2 xs:grid-cols-3 mb-2">
-            <p v-for="game in games" :key="game">{{ game }}</p>
+            <p v-for="game in gamesDesktop" :key="game" class="hidden xs:block">{{ game }}</p>
+            <p v-for="game in gamesMobile" :key="game" class="xs:hidden">{{ game }}</p>
           </div>
           <!-- Damage type information -->
           <p class="text-xl">Damage Types</p>
@@ -35,6 +36,7 @@ const props = defineProps({
   showInstructions: Boolean
 })
 
-const games = ref(['Demon\'s Souls', 'Dark Souls', 'Bloodborne', 'Dark Souls II', 'Elden Ring', 'Dark Souls III'])
+const gamesDesktop = ref(['Demon\'s Souls', 'Bloodborne', 'Elden Ring', 'Dark Souls', 'Dark Souls II', 'Dark Souls III'])
+const gamesMobile = ref(['Demon\'s Souls', 'Dark Souls', 'Bloodborne', 'Dark Souls II', 'Elden Ring', 'Dark Souls III'])
 const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
 </script>

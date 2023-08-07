@@ -12,12 +12,24 @@
         <!-- Guessed boss health -->
         <div :class="boss.health === correct.health ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[5rem] w-full text-xl p-1">
           <p class="text-sm">Health</p>
-          <p class="leading-[2.2]">{{ boss.health.toLocaleString() }} <span :class="{ 'rotate-180': healthIsHigher}" class="inline-block">↑</span></p>
+          <p class="leading-[2.2] relative flex justify-center">
+            <span>{{ boss.health.toLocaleString() }}</span>
+            <span v-if="boss.health !== correct.health" class="absolute h-full flex flex-col">
+              <span v-if="!healthIsHigher" class="text-xs leading-3 mb-auto">⏶</span>
+              <span v-else class="text-xs leading-3 mt-auto">⏷</span>
+            </span>
+          </p>
         </div>
         <!-- Guessed boss souls -->
         <div :class="boss.souls === correct.souls ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[5rem] w-full text-xl p-1">
           <p class="text-sm">Souls</p>
-          <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
+          <p class="leading-[2.2] relative flex justify-center">
+            <span>{{ boss.souls.toLocaleString() }}</span>
+            <span v-if="boss.souls !== correct.souls" class="absolute h-full flex flex-col">
+              <span v-if="!soulsIsHigher" class="text-xs leading-3 mb-auto">⏶</span>
+              <span v-else class="text-xs leading-3 mt-auto">⏷</span>
+            </span>
+          </p>
         </div>
       </div>
       <!-- Weaknesses & Resistances container -->

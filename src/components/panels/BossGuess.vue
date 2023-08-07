@@ -12,7 +12,7 @@
         <!-- Guessed boss health -->
         <div :class="boss.health === correct.health ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[5rem] w-full text-xl p-1">
           <p class="text-sm">Health</p>
-          <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
+          <p class="leading-[2.2]">{{ boss.health.toLocaleString() }} <span :class="{ 'rotate-180': healthIsHigher}" class="inline-block">↑</span></p>
         </div>
         <!-- Guessed boss souls -->
         <div :class="boss.souls === correct.souls ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[5rem] w-full text-xl p-1">
@@ -45,6 +45,14 @@
 const props = defineProps({
   correct: Object,
   boss: Object
+})
+
+const healthIsHigher = computed(() => {
+  return props.boss.health > props.correct.health ? true : false
+})
+
+const soulsIsHigher = computed(() => {
+  return props.boss.souls > props.correct.souls ? true : false
 })
 
 const weaknessesBgColor = computed(() => {

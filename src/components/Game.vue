@@ -103,11 +103,7 @@ const known = ref({
   name: '???',
   game: '???',
   souls: 0,
-  soulsMin: 0,
-  soulsMax: 999999,
   health: 0,
-  healthMin: 0,
-  healthMax: 99999,
   weaknesses: [],
   resistances: []
 })
@@ -149,22 +145,10 @@ function validateGuess(boss) {
     if (boss.game === correct.value.game) known.value.game = boss.game
 
     // Validate health
-    if(boss.health === correct.value.health) {
-      known.value.health = boss.health
-    } else if (boss.health < correct.value.health && boss.health > known.value.healthMin) {
-      known.value.healthMin = boss.health + 1
-    } else if (boss.health > correct.value.health && boss.health < known.value.healthMax) {
-      known.value.healthMax = boss.health - 1
-    }
+    if(boss.health === correct.value.health) known.value.health = boss.health
 
-    // Validate souls drop
-    if (boss.souls === correct.value.souls) {
-      known.value.souls = boss.souls
-    } else if (boss.souls < correct.value.souls && boss.souls > known.value.soulsMin) {
-      known.value.soulsMin = boss.souls + 1
-    } else if (boss.souls > correct.value.souls && boss.souls < known.value.soulsMax) {
-      known.value.soulsMax = boss.souls - 1
-    }
+    // Validate souls
+    if (boss.souls === correct.value.souls) known.value.souls = boss.souls
 
     // Validate weaknesses
     if (boss.weaknesses.toString() === correct.value.weaknesses.toString()) {
@@ -222,12 +206,8 @@ function newGame() {
   // Reset known info
   known.value.name = '???'
   known.value.game = (onlyOneGameChosen.value ? correct.value.game : '???')
-  known.value.souls = 0
-  known.value.soulsMin = 0
-  known.value.soulsMax = 999999
-  known.value.health = 0
-  known.value.healthMin = 0
-  known.value.healthMax = 99999
+  known.value.souls = '?'
+  known.value.health = '?'
   known.value.weaknesses.splice(0)
   known.value.resistances.splice(0)
 }

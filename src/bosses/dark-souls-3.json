@@ -28,7 +28,7 @@
     "game": "Dark Souls III",
     "health": 2723,
     "souls": 8000,
-    "weaknesses": ["strike", "slash", "thrust"],
+    "weaknesses": ["slash", "strike", "thrust"],
     "resistances": ["magic"]
   },
   {
@@ -44,7 +44,7 @@
     "game": "Dark Souls III",
     "health": 4099,
     "souls": 13000,
-    "weaknesses": ["strike", "slash", "thrust"],
+    "weaknesses": ["slash", "strike", "thrust"],
     "resistances": ["magic", "dark"]
   },
   {
@@ -124,7 +124,7 @@
     "game": "Dark Souls III",
     "health": 4294,
     "souls": 85000,
-    "weaknesses": ["strike", "slash", "thrust"],
+    "weaknesses": ["slash", "strike", "thrust"],
     "resistances": ["dark"]
   },
   {

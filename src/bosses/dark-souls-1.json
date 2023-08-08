@@ -180,7 +180,7 @@
     "game": "Dark Souls",
     "health": 5250,
     "souls": 20000,
-    "weaknesses": ["magic", "slash", "lightning"],
+    "weaknesses": ["magic", "lightning", "slash"],
     "resistances": ["strike"]
   },
   {

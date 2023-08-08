@@ -340,7 +340,7 @@
     "game": "Dark Souls II",
     "health": 10100,
     "souls": 84000,
-    "weaknesses": ["dark", "lightning", "physical"],
+    "weaknesses": ["lightning", "dark", "physical"],
     "resistances": ["fire"]
   },
   {

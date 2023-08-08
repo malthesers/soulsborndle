@@ -37,7 +37,7 @@
     "health": 4552,
     "souls": 21000,
     "weaknesses": ["magic", "fire"],
-    "resistances": ["strike", "lightning"]
+    "resistances": ["lightning", "strike"]
   },
   {
     "name": "Ebrietas, Daughter of the Cosmos",
@@ -196,7 +196,7 @@
     "game": "Bloodborne",
     "health": 20646,
     "souls": 22000,
-    "weaknesses": ["thrust", "lightning"],
+    "weaknesses": ["lightning", "thrust"],
     "resistances": ["magic"]
   },
   {

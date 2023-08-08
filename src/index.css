@@ -24,6 +24,10 @@ body::-webkit-scrollbar {
   width: 0;
 }
 
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
 .modal-enter-active,
 .modal-leave-active {
   transition: opacity 300ms ease;

@@ -1,6 +1,6 @@
 <template>
   <div class="relative mb-4">
-    <input type="search" ref="input" @input="$emit('updateSearch', $event.target.value)" :value="search"  placeholder="Enter boss name..." class="w-full text-black p-2 rounded-none outline-none">
+    <input ref="input" @input="$emit('updateSearch', $event.target.value)" :value="search"  placeholder="Enter boss name..." class="w-full text-black p-2 rounded-none outline-none">
     <div v-if="showSearch" class="z-10 absolute w-full max-h-[530px] sm:max-h-[568px] overflow-auto overscroll-contain bg-zinc-700">
       <!-- Boss cards for search results -->
       <div v-for="boss in searchedBosses" :key="boss.name" @click="enterGuess(boss)" @keydown.enter="enterGuess(boss)" @keydown.delete="input.focus()" tabindex="0" class="cursor-pointer overflow-hidden border-b-2 pb-1 outline-none transition duration-200 last:border-b-0 hover:bg-zinc-900 focus:bg-zinc-900">

@@ -24,7 +24,7 @@ body::-webkit-scrollbar {
   width: 0;
 }
 
-input[type="search"] {
+input {
   -webkit-appearance: none;
 }
 

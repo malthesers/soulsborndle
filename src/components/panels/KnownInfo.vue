@@ -31,7 +31,7 @@
     <!-- Known weaknesses & resistances container -->
     <div class="grid grid-cols-2 sm:flex sm:gap-1 lg:block">
       <!-- Known weaknesses -->
-      <div class="sm:min-w-[8rem] sm:inline-block lg:block mb-4 sm:mb-0 lg:mb-4">
+      <div class="sm:min-w-[8rem] sm:inline-block lg:block lg:mb-2">
         <p class="text-sm">Weaknesses</p>
         <Transition name="known" mode="out-in">
           <p v-if="known.weaknesses.length === 0" :key="known.weaknesses" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>

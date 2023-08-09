@@ -22,8 +22,8 @@
       <!-- Known souls -->
       <div class="sm:inline-block lg:block">
         <p class="text-sm">Souls</p>
-        <p v-if="known.souls" class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">{{ known.souls.toLocaleString() }}</p>
-        <p v-else class="sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">
+        <!-- <p v-if="known.souls" class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">{{ known.souls.toLocaleString() }}</p> -->
+        <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">
           <Transition name="known" mode="out-in">
             <span :key="known.souls">{{ known.souls.toLocaleString() }}</span>
           </Transition>

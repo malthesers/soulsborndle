@@ -102,8 +102,8 @@ const correct = ref({})
 const known = ref({
   name: '???',
   game: '???',
-  souls: 0,
-  health: 0,
+  souls: '?',
+  health: '?',
   weaknesses: [],
   resistances: []
 })

@@ -43,9 +43,12 @@
       <!-- Known restistances -->
       <div class="sm:min-w-[8rem] sm:inline-block lg:block">
         <p class="text-sm">Resistances</p>
-        <TransitionGroup name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
-          <DamageBox v-for="resistance in known.resistances" :key="resistance" :damageType="resistance"/>
-        </TransitionGroup>
+        <Transition name="known" mode="out-in">
+          <p v-if="known.resistances.length === 0" :key="known.resistances" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
+          <TransitionGroup v-else name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
+            <DamageBox v-for="resistance in known.resistances" :key="resistance" :damageType="resistance"/>
+          </TransitionGroup>
+        </Transition>
       </div>
     </div>
   </div>

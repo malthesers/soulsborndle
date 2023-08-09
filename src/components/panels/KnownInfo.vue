@@ -3,8 +3,8 @@
     <!-- Known game -->
     <div class="sm:inline-block lg:block mb-2 sm:mb-0">
       <p class="text-sm">Game</p>
-      <Transition name="known" mode="out-in" class="sm:min-w-[10rem] sm:h-11 sm:leading-[2.2] whitespace-nowrap text-xl lg:text-2xl">
-        <p :key="known.game">{{ known.game }}</p>
+      <Transition name="known" mode="out-in">
+        <p class="sm:min-w-[10rem] sm:h-11 sm:leading-[2.2] whitespace-nowrap text-xl lg:text-2xl" :key="known.game">{{ known.game }}</p>
       </Transition>
     </div>
     <!-- Known health & souls container -->
@@ -12,20 +12,16 @@
       <!-- Known health -->
       <div class="sm:inline-block lg:block">
         <p class="text-sm">Health</p>
-        <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">
-          <Transition name="known" mode="out-in">
-            <span :key="known.health">{{ known.health.toLocaleString() }}</span>
-          </Transition>
-        </p>
+        <Transition name="known" mode="out-in">
+          <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl" :key="known.health">{{ known.health.toLocaleString() }}</p>
+        </Transition>
       </div>
       <!-- Known souls -->
       <div class="sm:inline-block lg:block">
         <p class="text-sm">Souls</p>
-        <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">
-          <Transition name="known" mode="out-in">
-            <span :key="known.souls">{{ known.souls.toLocaleString() }}</span>
-          </Transition>
-        </p>
+        <Transition name="known" mode="out-in">
+          <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl" :key="known.souls">{{ known.souls.toLocaleString() }}</p>
+        </Transition>
       </div>
     </div>
     <!-- Known weaknesses & resistances container -->

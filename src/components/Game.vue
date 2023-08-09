@@ -142,7 +142,6 @@ function validateGuess(boss) {
     // Add to records
     updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(chosenGames.value)));
   } else {
-
     // Validate game
     if (boss.game === correct.value.game) known.value.game = correct.value.game
 
@@ -203,15 +202,15 @@ function newGame() {
   wasFailed.value = false
 
   // Generate new boss
-  correct.value = bosses.value[Math.floor(Math.random() * bosses.value.length)]
+  correct.value = {...bosses.value[Math.floor(Math.random() * bosses.value.length)]}
 
   // Reset known info
   known.value.name = '???'
   known.value.game = (onlyOneGameChosen.value ? correct.value.game : '???')
   known.value.souls = '?'
   known.value.health = '?'
-  known.value.weaknesses.splice(0)
-  known.value.resistances.splice(0)
+  known.value.weaknesses = []
+  known.value.resistances = []
 }
 
 watch(modalOpen, () => {

@@ -129,10 +129,12 @@ function validateGuess(boss) {
   // Check if guess is correct
   if (boss.name === correct.value.name) {
     // Set correct vaules
-    known.value.name = boss.name;
-    known.value.game = boss.game;
-    known.value.health = boss.health;
-    known.value.souls = boss.souls;
+    known.value.name = correct.value.name;
+    known.value.game = correct.value.game;
+    known.value.health = correct.value.health;
+    known.value.souls = correct.value.souls;
+    known.value.weaknesses = correct.value.weaknesses
+    known.value.resistances = correct.value.resistances
 
     // Trigger succesful events
     wasGuessed.value = true;
@@ -142,17 +144,17 @@ function validateGuess(boss) {
   } else {
 
     // Validate game
-    if (boss.game === correct.value.game) known.value.game = boss.game
+    if (boss.game === correct.value.game) known.value.game = correct.value.game
 
     // Validate health
-    if(boss.health === correct.value.health) known.value.health = boss.health
+    if(boss.health === correct.value.health) known.value.health = correct.value.health
 
     // Validate souls
-    if (boss.souls === correct.value.souls) known.value.souls = boss.souls
+    if (boss.souls === correct.value.souls) known.value.souls = correct.value.souls
 
     // Validate weaknesses
     if (boss.weaknesses.toString() === correct.value.weaknesses.toString()) {
-      known.value.weaknesses = boss.weaknesses
+      known.value.weaknesses = correct.value.weaknesses
     } else {
       correct.value.weaknesses.forEach(weakness => {
         // If guessed boss has 1 weakness part of the answer, add it to known weaknesses if not already added
@@ -164,7 +166,7 @@ function validateGuess(boss) {
 
     // Validate resistances
     if (boss.resistances.toString() === correct.value.resistances.toString()) {
-      known.value.resistances = boss.resistances
+      known.value.resistances = correct.value.resistances
     } else {
       correct.value.resistances.forEach(resistance => {
         // If guessed boss has 1 resistance part of the answer, add it to known resistances if not already added

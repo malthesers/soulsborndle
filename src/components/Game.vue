@@ -105,7 +105,9 @@ const known = ref({
   souls: '?',
   health: '?',
   weaknesses: [],
-  resistances: []
+  resistances: [],
+  hasNoWeaknesses: false,
+  hasNoResistances: false
 })
 
 const wasGuessed = ref(false)
@@ -165,7 +167,12 @@ function validateGuess(boss) {
 
     // Validate resistances
     if (boss.resistances.toString() === correct.value.resistances.toString()) {
-      known.value.resistances = correct.value.resistances
+      // Set boolean to true if no resistances, otherwise update resistances array
+      if (boss.resistances.length === 0) {
+        known.value.hasNoResistances = true
+      } else {
+        known.value.resistances = correct.value.resistances
+      }
     } else {
       correct.value.resistances.forEach(resistance => {
         // If guessed boss has 1 resistance part of the answer, add it to known resistances if not already added
@@ -211,6 +218,8 @@ function newGame() {
   known.value.health = '?'
   known.value.weaknesses = []
   known.value.resistances = []
+  known.value.hasNoWeaknesses = false
+  known.value.hasNoResistances = false
 }
 
 watch(modalOpen, () => {

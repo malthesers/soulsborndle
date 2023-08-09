@@ -1,18 +1,18 @@
 <template>
-  <div class="lg:sticky top-0 h-max sm:flex sm:gap-8 justify-center lg:block text-center bg-zinc-900 bg-opacity-60 p-2">
+  <div class="lg:sticky top-0 h-max sm:flex sm:gap-1 justify-center lg:block text-center bg-zinc-900 bg-opacity-60 p-2">
     <!-- Known game -->
     <div class="sm:inline-block lg:block mb-2 sm:mb-0">
       <p class="text-sm">Game</p>
-      <Transition name="known" mode="out-in" class="sm:h-11 sm:leading-[2.2] whitespace-nowrap text-xl lg:text-2xl">
+      <Transition name="known" mode="out-in" class="sm:min-w-[10rem] sm:h-11 sm:leading-[2.2] whitespace-nowrap text-xl lg:text-2xl">
         <p :key="known.game">{{ known.game }}</p>
       </Transition>
     </div>
     <!-- Known health & souls container -->
-    <div class="grid grid-cols-2 sm:flex sm:gap-8 lg:block mb-2 sm:mb-0">
+    <div class="grid grid-cols-2 sm:flex sm:gap-1 lg:block mb-2 sm:mb-0">
       <!-- Known health -->
       <div class="sm:inline-block lg:block">
         <p class="text-sm">Health</p>
-        <p v-if="known.health" class="sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">{{ known.health.toLocaleString() }}</p>
+        <p v-if="known.health" class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">{{ known.health.toLocaleString() }}</p>
         <p v-else class="sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">
           <Transition name="known" mode="out-in">
             <span :key="known.health">{{ known.health.toLocaleString() }}</span>
@@ -22,7 +22,7 @@
       <!-- Known souls -->
       <div class="sm:inline-block lg:block">
         <p class="text-sm">Souls</p>
-        <p v-if="known.souls" class="sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">{{ known.souls.toLocaleString() }}</p>
+        <p v-if="known.souls" class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">{{ known.souls.toLocaleString() }}</p>
         <p v-else class="sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">
           <Transition name="known" mode="out-in">
             <span :key="known.souls">{{ known.souls.toLocaleString() }}</span>
@@ -31,16 +31,16 @@
       </div>
     </div>
     <!-- Known weaknesses & resistances container -->
-    <div class="grid grid-cols-2 sm:flex sm:gap-8 lg:block">
+    <div class="grid grid-cols-2 sm:flex sm:gap-1 lg:block">
       <!-- Known weaknesses -->
-      <div class="sm:inline-block lg:block mb-4 sm:mb-0 lg:mb-4">
+      <div class="sm:min-w-[8rem] sm:inline-block lg:block mb-4 sm:mb-0 lg:mb-4">
         <p class="text-sm">Weaknesses</p>
         <TransitionGroup name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
           <DamageBox v-for="weakness in known.weaknesses" :key="weakness" :damageType="weakness"/>
         </TransitionGroup>
       </div>
       <!-- Known restistances -->
-      <div class="sm:inline-block lg:block">
+      <div class="sm:min-w-[8rem] sm:inline-block lg:block">
         <p class="text-sm">Resistances</p>
         <TransitionGroup name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
           <DamageBox v-for="resistance in known.resistances" :key="resistance" :damageType="resistance"/>

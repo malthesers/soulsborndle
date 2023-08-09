@@ -137,6 +137,8 @@ function validateGuess(boss) {
     known.value.souls = correct.value.souls;
     known.value.weaknesses = correct.value.weaknesses
     known.value.resistances = correct.value.resistances
+    if (correct.value.weaknesses.length === 0) known.value.weaknesses = true
+    if (correct.value.resistances.length === 0) known.value.resistances = true
 
     // Trigger succesful events
     wasGuessed.value = true;

@@ -155,7 +155,12 @@ function validateGuess(boss) {
 
     // Validate weaknesses
     if (boss.weaknesses.toString() === correct.value.weaknesses.toString()) {
-      known.value.weaknesses = correct.value.weaknesses
+      // Set boolean to true if no weaknesses, otherwise update weaknesses array
+      if (boss.weaknesses.length === 0) {
+        known.value.hasNoWeaknesses = true
+      } else {
+        known.value.weaknesses = correct.value.weaknesses
+      }
     } else {
       correct.value.weaknesses.forEach(weakness => {
         // If guessed boss has 1 weakness part of the answer, add it to known weaknesses if not already added

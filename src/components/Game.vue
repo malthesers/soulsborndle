@@ -161,13 +161,34 @@ function validateGuess(boss) {
         known.value.weaknesses = correct.value.weaknesses
       }
     } else if (boss.weaknesses.length === 1) {
-      correct.value.weaknesses.forEach(weakness => {
-        // If guessed boss has 1 weakness part of the answer, add it to known weaknesses if not already added
-        if (boss.weaknesses.includes(weakness) && !known.value.weaknesses.includes(weakness)) {
-          // known.value.weaknesses.push(weakness)
-          known.value.weaknesses.splice(0, 0, weakness)
+      const weakness = boss.weaknesses[0]
+      // If correct boss contains the one weakness and it is not already added
+      if (correct.value.weaknesses.includes(weakness) && !known.value.weaknesses.includes(weakness)) {
+        const guessedIndex = damageTypes.value.findIndex(damageType => damageType === weakness)
+
+        // If 0 known weaknesses
+        if (known.value.weaknesses.length === 0) {
+          known.value.weaknesses.push(weakness)
         }
-      })
+
+        // If 1 known weakness
+        else if (known.value.weaknesses.length === 1) {
+          const knownIndex1 = damageTypes.value.findIndex(damageType => damageType === known.value.weaknesses[0])
+
+          if (guessedIndex < knownIndex1) known.value.weaknesses.splice(0, 0, weakness)
+          if (guessedIndex > knownIndex1) known.value.weaknesses.splice(1, 0, weakness)
+        }
+      
+        // If 2 known weaknesses
+        else if (known.value.weaknesses.length === 2) {
+          const knownIndex1 = damageTypes.value.findIndex(damageType => damageType === known.value.weaknesses[0])
+          const knownIndex2 = damageTypes.value.findIndex(damageType => damageType === known.value.weaknesses[1])
+
+          if (guessedIndex < knownIndex1 && guessedIndex < knownIndex2) known.value.weaknesses.splice(0, 0, weakness)
+          if (guessedIndex > knownIndex1 && guessedIndex < knownIndex2) known.value.weaknesses.splice(1, 0, weakness)
+          if (guessedIndex > knownIndex1 && guessedIndex > knownIndex2) known.value.weaknesses.splice(2, 0, weakness)
+        }
+      }
     }
 
     // Validate resistances

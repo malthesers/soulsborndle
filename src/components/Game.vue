@@ -109,6 +109,7 @@ const known = ref({
   hasNoWeaknesses: false,
   hasNoResistances: false
 })
+const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
 
 const wasGuessed = ref(false)
 const wasFailed = ref(false)
@@ -178,13 +179,34 @@ function validateGuess(boss) {
         known.value.resistances = correct.value.resistances
       }
     } else if (boss.resistances.length === 1) {
-      correct.value.resistances.forEach(resistance => {
-        // If guessed boss has 1 resistance part of the answer, add it to known resistances if not already added
-        if (boss.resistances.includes(resistance) && !known.value.resistances.includes(resistance)) {
-          // known.value.resistances.push(resistance)
-          known.value.resistances.splice(0, 0, resistance)
+      const resistance = boss.resistances[0]
+      // If correct boss contains the one resistance and it is not already added
+      if (correct.value.resistances.includes(resistance) && !known.value.resistances.includes(resistance)) {
+        const guessedIndex = damageTypes.value.findIndex(damageType => damageType === resistance)
+
+        // If 0 known resistances
+        if (known.value.resistances.length === 0) {
+          known.value.resistances.push(resistance)
         }
-      })
+
+        // If 1 known resistance
+        else if (known.value.resistances.length === 1) {
+          const knownIndex1 = damageTypes.value.findIndex(damageType => damageType === known.value.resistances[0])
+
+          if (guessedIndex < knownIndex1) known.value.resistances.splice(0, 0, resistance)
+          if (guessedIndex > knownIndex1) known.value.resistances.splice(1, 0, resistance)
+        }
+      
+        // If 2 known resistances
+        else if (known.value.resistances.length === 2) {
+          const knownIndex1 = damageTypes.value.findIndex(damageType => damageType === known.value.resistances[0])
+          const knownIndex2 = damageTypes.value.findIndex(damageType => damageType === known.value.resistances[1])
+
+          if (guessedIndex < knownIndex1 && guessedIndex < knownIndex2) known.value.resistances.splice(0, 0, resistance)
+          if (guessedIndex > knownIndex1 && guessedIndex < knownIndex2) known.value.resistances.splice(1, 0, resistance)
+          if (guessedIndex > knownIndex1 && guessedIndex > knownIndex2) known.value.resistances.splice(2, 0, resistance)
+        }
+      }
     }
   }
 }
@@ -225,6 +247,8 @@ function newGame() {
   known.value.resistances = []
   known.value.hasNoWeaknesses = false
   known.value.hasNoResistances = false
+
+  console.log(correct.value.name, correct.value.resistances)
 }
 
 watch(modalOpen, () => {

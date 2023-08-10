@@ -271,13 +271,8 @@ function newGame() {
 }
 
 watch(modalOpen, () => {
-  const body = document.querySelector("body");
-
-  if (modalOpen.value) {
-    body.classList = 'overflow-hidden'
-  } else {
-    body.classList = ''
-  }
+  // Prevent scrolling while modal is open
+  document.querySelector("body").classList = (modalOpen.value ? 'overflow-hidden' : '')
 })
 
 watch(records, () => {

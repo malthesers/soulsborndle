@@ -268,8 +268,6 @@ function newGame() {
   known.value.resistances = []
   known.value.hasNoWeaknesses = false
   known.value.hasNoResistances = false
-
-  console.log(correct.value.name, correct.value.resistances)
 }
 
 watch(modalOpen, () => {

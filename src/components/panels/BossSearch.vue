@@ -68,7 +68,7 @@ const showSearch = computed(() => {
 })
 
 const searchedBosses = computed(() => {
-  return props.bosses.filter(boss => boss.name.toLocaleLowerCase().includes(props.search.toLocaleLowerCase()))
+  return props.bosses.filter(boss => boss.name.toLocaleLowerCase().includes(props.search.toLocaleLowerCase())).slice(0, 15)
 })
 
 function enterGuess (boss) {

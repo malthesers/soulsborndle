@@ -100,8 +100,8 @@ const search = ref('')
 const records = ref([])
 const correct = ref({})
 const known = ref({
-  name: '???',
-  game: '???',
+  name: '?',
+  game: '?',
   souls: '?',
   health: '?',
   weaknesses: [],
@@ -261,7 +261,7 @@ function newGame() {
 
   // Reset known info
   known.value.name = '???'
-  known.value.game = (onlyOneGameChosen.value ? correct.value.game : '???')
+  known.value.game = (onlyOneGameChosen.value ? correct.value.game : '?')
   known.value.souls = '?'
   known.value.health = '?'
   known.value.weaknesses = []

@@ -151,45 +151,46 @@ function validateGuess(boss) {
     if (boss.game === correct.value.game) known.value.game = correct.value.game
     if (boss.health === correct.value.health) known.value.health = correct.value.health
     if (boss.souls === correct.value.souls) known.value.souls = correct.value.souls
+
+    const damageArrays = ['weaknesses', 'resistances']
     
-    const damageTypeArrays = ['weaknesses', 'resistances']
-    
-    damageTypeArrays.forEach((damageTypeArray) => {
+    damageArrays.forEach((damageArray) => {
       // Validate weaknesses
-      if (boss[damageTypeArray].toString() === correct.value[damageTypeArray].toString()) {
+      if (boss[damageArray].toString() === correct.value[damageArray].toString()) {
         // Set boolean to true if no weaknesses, otherwise update weaknesses array
-        if (boss[damageTypeArray].length === 0) {
+        if (boss[damageArray].length === 0) {
           // known.value.hasNoWeaknesses = true
         } else {
-          known.value[damageTypeArray] = correct.value[damageTypeArray]
+          known.value[damageArray] = correct.value[damageArray]
         }
-      } else if (boss[damageTypeArray].length === 1) {
-        const damageType = boss[damageTypeArray][0]
+      } else if (boss[damageArray].length === 1) {
+        const damageType = boss[damageArray][0]
         // If correct boss contains the one weakness and it is not already added
-        if (correct.value[damageTypeArray].includes(damageType) && !known.value[damageTypeArray].includes(damageType)) {
-          const guessedIndex = damageTypes.value.findIndex(damageType => damageType === damageType)
+        if (correct.value[damageArray].includes(damageType) && !known.value[damageArray].includes(damageType)) {
+          const guessedIndex = damageTypes.value.findIndex(damage => damage === damageType)
+            const knownIndex1 = damageTypes.value.findIndex(damage => damage === known.value[damageArray][0])
+            const knownIndex2 = damageTypes.value.findIndex(damage => damage === known.value[damageArray][1])
 
           // If 0 known weaknesses
-          if (known.value[damageTypeArray].length === 0) {
-            known.value[damageTypeArray].push(damageType)
+          if (known.value[damageArray].length === 0) {
+            known.value[damageArray].push(damageType)
           }
 
           // If 1 known weakness
-          else if (known.value[damageTypeArray].length === 1) {
-            const knownIndex1 = damageTypes.value.findIndex(damageType => damageType === known.value[damageTypeArray][0])
+          else if (known.value[damageArray].length === 1) {
+            console.log('1 already known')
 
-            if (guessedIndex < knownIndex1) known.value[damageTypeArray].splice(0, 0, damageType)
-            if (guessedIndex > knownIndex1) known.value[damageTypeArray].splice(1, 0, damageType)
+            if (guessedIndex < knownIndex1) known.value[damageArray].splice(0, 0, damageType)
+            if (guessedIndex > knownIndex1) known.value[damageArray].splice(1, 0, damageType)
           }
         
           // If 2 known weaknesses
-          else if (known.value[damageTypeArray].length === 2) {
-            const knownIndex1 = damageTypes.value.findIndex(damageType => damageType === known.value[damageTypeArray][0])
-            const knownIndex2 = damageTypes.value.findIndex(damageType => damageType === known.value[damageTypeArray][1])
+          else if (known.value[damageArray].length === 2) {
+            console.log('2 already known')
 
-            if (guessedIndex < knownIndex1 && guessedIndex < knownIndex2) known.value[damageTypeArray].splice(0, 0, damageType)
-            if (guessedIndex > knownIndex1 && guessedIndex < knownIndex2) known.value[damageTypeArray].splice(1, 0, damageType)
-            if (guessedIndex > knownIndex1 && guessedIndex > knownIndex2) known.value[damageTypeArray].splice(2, 0, damageType)
+            if (guessedIndex < knownIndex1 && guessedIndex < knownIndex2) known.value[damageArray].splice(0, 0, damageType)
+            if (guessedIndex > knownIndex1 && guessedIndex < knownIndex2) known.value[damageArray].splice(1, 0, damageType)
+            if (guessedIndex > knownIndex1 && guessedIndex > knownIndex2) known.value[damageArray].splice(2, 0, damageType)
           }
         }
       }
@@ -314,7 +315,7 @@ function newGame() {
   known.value.hasNoWeaknesses = false
   known.value.hasNoResistances = false
 
-  console.log(correct.value.resistances)
+  console.log(correct.value.weaknesses)
 }
 
 watch(modalOpen, () => {

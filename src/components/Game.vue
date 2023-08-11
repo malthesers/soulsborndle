@@ -8,9 +8,9 @@
       <Button @click="showModal['games'] = true" text="Games"/>
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
-      <!-- Left side container -->
+      <!-- Known info container -->
       <KnownInfo :known="known" />
-      <!-- Right side container -->
+      <!-- Boss search/guess container -->
       <div class="w-full">
         <BossSearch
           @guessEntered="(boss) => validateGuess(boss)"

@@ -152,12 +152,11 @@ function validateGuess(boss) {
     if (boss.health === correct.value.health) known.value.health = correct.value.health
     if (boss.souls === correct.value.souls) known.value.souls = correct.value.souls
 
+    // Validate weaknesses and resistances
     const damageArrays = ['weaknesses', 'resistances']
-    
     damageArrays.forEach((damageArray) => {
-      // Validate weaknesses
       if (boss[damageArray].toString() === correct.value[damageArray].toString()) {
-        // Set boolean to true if no weaknesses, otherwise update weaknesses array
+        // Set boolean to true if no weaknesses/resistances, otherwise update weaknesses/resistances array
         if (boss[damageArray].length === 0) {
           known.value[`${damageArray}None`] = true
         } else {
@@ -165,18 +164,18 @@ function validateGuess(boss) {
         }
       } else if (boss[damageArray].length === 1) {
         const damage = boss[damageArray][0]
-        // If correct boss contains the one weakness and it is not already added
+        // If correct boss contains the one weakness/resistance and it is not already added
         if (correct.value[damageArray].includes(damage) && !known.value[damageArray].includes(damage)) {
           const guessedIndex = damageTypes.value.findIndex(damageType => damageType === damage)
           const knownIndex1 = damageTypes.value.findIndex(damageType => damageType === known.value[damageArray][0])
           const knownIndex2 = damageTypes.value.findIndex(damageType => damageType === known.value[damageArray][1])
 
-          // If 0 known weaknesses
+          // If 0 known weaknesses/resistances
           if (known.value[damageArray].length === 0) {
             known.value[damageArray].push(damage)
           }
 
-          // If 1 known weakness
+          // If 1 known weakness/resistance
           else if (known.value[damageArray].length === 1) {
             console.log('1 already known')
 
@@ -184,7 +183,7 @@ function validateGuess(boss) {
             if (guessedIndex > knownIndex1) known.value[damageArray].splice(1, 0, damage)
           }
         
-          // If 2 known weaknesses
+          // If 2 known weaknesses/resistances
           else if (known.value[damageArray].length === 2) {
             console.log('2 already known')
 
@@ -234,8 +233,6 @@ function newGame() {
   known.value.resistances = []
   known.value.weaknessesNone = false
   known.value.resistancesNone = false
-
-  console.log(correct.value.weaknesses)
 }
 
 watch(modalOpen, () => {

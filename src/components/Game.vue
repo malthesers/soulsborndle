@@ -177,16 +177,12 @@ function validateGuess(boss) {
 
           // If 1 known weakness/resistance
           else if (known.value[damageArray].length === 1) {
-            console.log('1 already known')
-
             if (guessedIndex < knownIndex1) known.value[damageArray].splice(0, 0, damage)
             if (guessedIndex > knownIndex1) known.value[damageArray].splice(1, 0, damage)
           }
         
           // If 2 known weaknesses/resistances
           else if (known.value[damageArray].length === 2) {
-            console.log('2 already known')
-
             if (guessedIndex < knownIndex1 && guessedIndex < knownIndex2) known.value[damageArray].splice(0, 0, damage)
             if (guessedIndex > knownIndex1 && guessedIndex < knownIndex2) known.value[damageArray].splice(1, 0, damage)
             if (guessedIndex > knownIndex1 && guessedIndex > knownIndex2) known.value[damageArray].splice(2, 0, damage)

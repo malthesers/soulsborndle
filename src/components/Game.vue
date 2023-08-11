@@ -106,8 +106,8 @@ const known = ref({
   health: '?',
   weaknesses: [],
   resistances: [],
-  hasNoWeaknesses: false,
-  hasNoResistances: false
+  weaknessesNone: false,
+  resistancesNone: false
 })
 const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
 
@@ -159,7 +159,7 @@ function validateGuess(boss) {
       if (boss[damageArray].toString() === correct.value[damageArray].toString()) {
         // Set boolean to true if no weaknesses, otherwise update weaknesses array
         if (boss[damageArray].length === 0) {
-          // known.value.hasNoWeaknesses = true
+          known.value[`${damageArray}None`] = true
         } else {
           known.value[damageArray] = correct.value[damageArray]
         }
@@ -202,7 +202,7 @@ function validateGuess(boss) {
     // if (boss.weaknesses.toString() === correct.value.weaknesses.toString()) {
     //   // Set boolean to true if no weaknesses, otherwise update weaknesses array
     //   if (boss.weaknesses.length === 0) {
-    //     known.value.hasNoWeaknesses = true
+    //     known.value.weaknessesNone = true
     //   } else {
     //     known.value.weaknesses = correct.value.weaknesses
     //   }
@@ -241,7 +241,7 @@ function validateGuess(boss) {
     // if (boss.resistances.toString() === correct.value.resistances.toString()) {
     //   // Set boolean to true if no resistances, otherwise update resistances array
     //   if (boss.resistances.length === 0) {
-    //     known.value.hasNoResistances = true
+    //     known.value.resistancesNone = true
     //   } else {
     //     known.value.resistances = correct.value.resistances
     //   }
@@ -312,8 +312,8 @@ function newGame() {
   known.value.health = '?'
   known.value.weaknesses = []
   known.value.resistances = []
-  known.value.hasNoWeaknesses = false
-  known.value.hasNoResistances = false
+  known.value.weaknessesNone = false
+  known.value.resistancesNone = false
 
   console.log(correct.value.weaknesses)
 }

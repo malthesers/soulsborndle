@@ -71,8 +71,10 @@ const chosenGames = ref({
 const oneGameChosen = computed(() => {
   let chosenGamesCount = 0;
 
+  // Check number of chosen games
   for (const game in chosenGames.value) if (chosenGames.value[game].isChosen === true) chosenGamesCount++;
 
+  // Return true if only one game is chosen
   return (chosenGamesCount === 1 ? true : false)
 })
 const noGamesChosen = computed(() => {
@@ -120,7 +122,7 @@ const wasFailed = ref(false)
 const showModal = ref({
   instructions: false,
   records: false,
-  modal: false
+  bosses: false
 })
 const modalOpen = computed(() => {
   return Object.values(showModal.value).some(modal => modal === true)
@@ -243,6 +245,10 @@ onMounted(() => {
     const savedGames = JSON.parse(localStorage.getItem('games'))
 
     for (const game in savedGames) chosenGames.value[game].isChosen = savedGames[game].isChosen
+  }
+
+  if (noGamesChosen.value) {
+    showModal.value['bosses'] = true
   }
 
   // Start first game

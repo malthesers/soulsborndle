@@ -71,9 +71,7 @@ const chosenGames = ref({
 const onlyOneGameChosen = computed(() => {
   let chosenGamesCount = 0;
 
-  for (const game in chosenGames.value) {
-    if (chosenGames.value[game].isChosen === true) chosenGamesCount++;
-  }
+  for (const game in chosenGames.value) if (chosenGames.value[game].isChosen === true) chosenGamesCount++;
 
   return (chosenGamesCount === 1 ? true : false)
 })
@@ -106,8 +104,6 @@ const known = ref({
   health: '?',
   weaknesses: [],
   resistances: [],
-  weaknessesNone: false,
-  resistancesNone: false
 })
 const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
 
@@ -133,8 +129,8 @@ function validateGuess(boss) {
   if (boss.name === correct.value.name) {
     // Set correct vaules
     for (const property in known.value) known.value[property] = correct.value[property]
-    if (correct.value.weaknesses.length === 0) known.value.weaknesses = true
-    if (correct.value.resistances.length === 0) known.value.resistances = true
+    if (correct.value.weaknesses.length === 0) known.value.weaknesses = 0
+    if (correct.value.resistances.length === 0) known.value.resistances = 0
 
     // Trigger succesful events
     wasGuessed.value = true;
@@ -151,12 +147,8 @@ function validateGuess(boss) {
     const damageArrays = ['weaknesses', 'resistances']
     damageArrays.forEach((damageArray) => {
       if (boss[damageArray].toString() === correct.value[damageArray].toString()) {
-        // Set boolean to true if no weaknesses/resistances, otherwise update weaknesses/resistances array
-        if (boss[damageArray].length === 0) {
-          known.value[`${damageArray}None`] = true
-        } else {
-          known.value[damageArray] = correct.value[damageArray]
-        }
+        // Set weaknesses/resistances to 0 if none, otherwise its correct value
+        known.value[damageArray] = (boss[damageArray].length === 0 ? 0 : correct.value[damageArray])
       } else if (boss[damageArray].length === 1) {
         const damage = boss[damageArray][0]
         // If correct boss contains the one weakness/resistance and it is not already added
@@ -222,8 +214,6 @@ function newGame() {
   known.value.health = '?'
   known.value.weaknesses = []
   known.value.resistances = []
-  known.value.weaknessesNone = false
-  known.value.resistancesNone = false
 }
 
 watch(modalOpen, () => {

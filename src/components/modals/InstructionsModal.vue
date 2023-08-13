@@ -8,7 +8,7 @@
           <p class="mb-2"><span class="font-bold text-red-900">Red</span> means incorrect, <span class="font-bold text-yellow-700">orange</span> means partially correct and <span class="font-bold text-green-900">green</span> completely correct.</p>
           <!-- Bosses information -->
           <p class="text-xl">Bosses</p>
-          <p class="mb-2">The bosses below are included by default. You can select any game by clicking the <span class="italic">Games</span> button.</p>
+          <p class="mb-2">The bosses below are included by default. You can select the games to include by clicking the <span class="italic">Bosses</span> button.</p>
           <div class="grid grid-cols-2 xs:grid-cols-3 mb-2">
             <p v-for="game in gamesDesktop" :key="game" class="hidden xs:block">{{ game }}</p>
             <p v-for="game in gamesMobile" :key="game" class="xs:hidden">{{ game }}</p>

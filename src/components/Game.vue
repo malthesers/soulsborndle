@@ -5,7 +5,7 @@
       <Button @click="wasFailed = true, guessedBosses.unshift(correct), search = ''" text="New Game"/>
       <Button @click="showModal['instructions'] = true" text="Instructions"/>
       <Button @click="showModal['records'] = true" text="Records"/>
-      <Button @click="showModal['games'] = true" text="Games"/>
+      <Button @click="showModal['bosses'] = true" text="Bosses"/>
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <!-- Known info container -->
@@ -30,7 +30,7 @@
     <!-- Modals -->
     <InstructionsModal @hideInstructions="showModal['instructions'] = false" :showInstructions="showModal['instructions']"/>
     <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records = []" :showRecords="showModal['records']" :records="records"/>
-    <BossesModal @hideGames="showModal['games'] = false" @newGame="newGame" :showGames="showModal['games']" :chosenGames="chosenGames"/>
+    <BossesModal @hideGames="showModal['bosses'] = false" @newGame="newGame" :showBosses="showModal['bosses']" :chosenGames="chosenGames"/>
   </main>
 </template>
 
@@ -116,7 +116,7 @@ const wasFailed = ref(false)
 const showModal = ref({
   instructions: false,
   records: false,
-  games: false
+  modal: false
 })
 const modalOpen = computed(() => {
   return Object.values(showModal.value).some(modal => modal === true)

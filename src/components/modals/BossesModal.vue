@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="showGames" @click.self="hideGames" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
+      <div v-if="showBosses" @click.self="hideGames" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <!-- Game selector panel -->
         <div class="overflow-auto w-full max-w-xl max-h-[75%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Games</p>
@@ -32,7 +32,7 @@
 <script setup>
 const emits = defineEmits(['hideGames', 'newGame'])
 const props = defineProps({
-  showGames: Boolean,
+  showBosses: Boolean,
   chosenGames: Object
 })
 

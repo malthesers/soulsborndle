@@ -30,7 +30,7 @@
     <!-- Modals -->
     <InstructionsModal @hideInstructions="showModal['instructions'] = false" :showInstructions="showModal['instructions']"/>
     <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records = []" :showRecords="showModal['records']" :records="records"/>
-    <GamesModal @hideGames="showModal['games'] = false" @newGame="newGame" :showGames="showModal['games']" :chosenGames="chosenGames"/>
+    <BossesModal @hideGames="showModal['games'] = false" @newGame="newGame" :showGames="showModal['games']" :chosenGames="chosenGames"/>
   </main>
 </template>
 

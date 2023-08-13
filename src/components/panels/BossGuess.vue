@@ -60,29 +60,27 @@ const props = defineProps({
 })
 
 const weaknessesBgColor = computed(() => {
+  // Set to red by default
   let bgColor = 'bg-red-900';
 
-  if (props.correct.weaknesses.some(weak => props.boss.weaknesses.includes(weak))) {
-    bgColor = 'bg-yellow-700'
-  }
+  // Make weaknesses yellow if partially correct
+  if (props.correct.weaknesses.some(weak => props.boss.weaknesses.includes(weak))) bgColor = 'bg-yellow-700'
   
-  if (props.correct.weaknesses.toString() === props.boss.weaknesses.toString()) {
-    bgColor = 'bg-green-900'
-  }
+  // Make weaknesses green if completely correct
+  if (props.correct.weaknesses.toString() === props.boss.weaknesses.toString()) bgColor = 'bg-green-900'
 
   return bgColor
 })
 
 const resistancesBgColor = computed(() => {
+  // Set to red by default
   let bgColor = 'bg-red-900';
 
-  if (props.correct.resistances.some(weak => props.boss.resistances.includes(weak))) {
-    bgColor = 'bg-yellow-700'
-  }
+  // Make resistances yellow if partially correct
+  if (props.correct.resistances.some(weak => props.boss.resistances.includes(weak))) bgColor = 'bg-yellow-700'
   
-  if (props.correct.resistances.toString() === props.boss.resistances.toString()) {
-    bgColor = 'bg-green-900'
-  }
+  // Make resistances green if completely correct
+  if (props.correct.resistances.toString() === props.boss.resistances.toString()) bgColor = 'bg-green-900'
 
   return bgColor
 })

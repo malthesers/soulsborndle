@@ -59,10 +59,6 @@ const props = defineProps({
 
 const input = ref(null)
 
-watch(() => props.bosses, () => {
-  input.value.focus()
-})
-
 const showSearch = computed(() => {
   return (props.search.length > 1 ? true : false)
 })
@@ -74,6 +70,10 @@ const searchedBosses = computed(() => {
 function enterGuess (boss) {
   emits('guessEntered', boss)
 }
+
+watch(() => props.bosses, () => {
+  input.value.focus()
+})
 </script>
 
 <style scoped>

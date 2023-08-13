@@ -10,7 +10,7 @@ A Wordle-like Souls-like web game - guess the boss by using hints from your past
 
 At every new game, a random boss will be chosen for you to guess. Start by entering any boss and use the provided feedback to figure out a new guess. Continue this way, narrowing down the potential bosses to eventually get the answer.
 
-The info box on the left shows the range of the health pools and the amount of souls dropped, updating dynamically as you enter your guesses. Likewise, the game as well as the resistances and weaknesses will pop up here, as they are getting confirmed by your guesses.
+The info box on the left shows the known information you have correctly guessed, updating dynamically as you go. Likewise, the resistances and weaknesses will pop up here, as they are getting confirmed by your guesses.
 
 The _souls_ parameter is comprised of _souls_ as they are known in _Demon's Souls_ and the _Dark Souls_ series, _blood echoes_ as they are known as in Bloodborne and _runes_ as they are known as in Elden Ring.
 
@@ -24,7 +24,7 @@ The background colours of the boss information is described below.
 
 ### 💀 Bosses
 
-Bosses included come from the games listed below.
+Bosses included in the pool of possible answers come from the games listed below. Open the _Bosses_ modal to modify the included games. Play only Bloodborne, the Dark Souls series or any combination you'd like!
 
 - Demon's Souls
 - Dark Souls
@@ -53,10 +53,9 @@ Below are the damage types used for calculationg the weaknesses and resistances,
 | <img src="https://github.com/malthesers/soulsborndle/blob/main/public/icons/strike.svg" width="35" height="35">  | Strike | Comprised of strike as well as blunt from Demon's Souls and Bloodborne |
 | <img src="https://github.com/malthesers/soulsborndle/blob/main/public/icons/thrust.svg" width="35" height="35">  | Thrust | Comprised of thrust as well as pierce from Demon's Souls and Elden Ring |
 
-## 🧩 Features
-
 ### 🥇 Records
 
 - Your top 10 personal best attempts are stored and can be seen in a modal by clicking the _Records_ button.
 - This displays the name of the guessed boss and the amount of attempts needed to guess the boss.
+- Addtionally you can see the games whose bosses were included when the given record was set.
 - You can clear the currently stored records at any time by clicking the _Clear records_ button.

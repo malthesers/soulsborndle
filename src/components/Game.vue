@@ -254,7 +254,7 @@ onMounted(() => {
 }
 
 .failed-enter-from,
-.faield-leave-to,
+.failed-leave-to,
 .guess-enter-from,
 .guess-leave-to {
   opacity: 0;

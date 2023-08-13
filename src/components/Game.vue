@@ -132,12 +132,7 @@ function validateGuess(boss) {
   // Check if guess is correct
   if (boss.name === correct.value.name) {
     // Set correct vaules
-    known.value.name = correct.value.name;
-    known.value.game = correct.value.game;
-    known.value.health = correct.value.health;
-    known.value.souls = correct.value.souls;
-    known.value.weaknesses = correct.value.weaknesses
-    known.value.resistances = correct.value.resistances
+    for (const property in known.value) known.value[property] = correct.value[property]
     if (correct.value.weaknesses.length === 0) known.value.weaknesses = true
     if (correct.value.resistances.length === 0) known.value.resistances = true
 
@@ -249,9 +244,7 @@ onMounted(() => {
   if (localStorage.getItem('games')) {
     const savedGames = JSON.parse(localStorage.getItem('games'))
 
-    for (const game in savedGames) {
-      chosenGames.value[game].isChosen = savedGames[game].isChosen
-    }
+    for (const game in savedGames) chosenGames.value[game].isChosen = savedGames[game].isChosen
   }
 
   // Start first game

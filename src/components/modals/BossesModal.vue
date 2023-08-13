@@ -33,22 +33,15 @@
 const emits = defineEmits(['hideGames', 'newGame'])
 const props = defineProps({
   showBosses: Boolean,
-  chosenGames: Object
+  chosenGames: Object,
+  noGamesChosen: Boolean
 })
 
 const showErrorMessage = ref(false)
 const showErrorMessageExtra = ref(false)
-const noChosenGames = computed(() => {
-  const gamesKeys = Object.keys(props.chosenGames)
-
-  // Return true if no game
-  return gamesKeys.every(key => {
-    return props.chosenGames[key].isChosen === false
-  })
-})
 
 function hideGames() {
-  if (noChosenGames.value && !showErrorMessage.value) {
+  if (props.noGamesChosen && !showErrorMessage.value) {
     // Show error message if no games chosen
     showErrorMessage.value = true
   } else if (showErrorMessage.value) {

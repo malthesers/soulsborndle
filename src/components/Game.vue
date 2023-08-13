@@ -30,7 +30,7 @@
     <!-- Modals -->
     <InstructionsModal @hideInstructions="showModal['instructions'] = false" :showInstructions="showModal['instructions']"/>
     <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records = []" :showRecords="showModal['records']" :records="records"/>
-    <BossesModal @hideGames="showModal['bosses'] = false" @newGame="newGame" :showBosses="showModal['bosses']" :chosenGames="chosenGames"/>
+    <BossesModal @hideGames="showModal['bosses'] = false" @newGame="newGame" :showBosses="showModal['bosses']" :chosenGames="chosenGames" :noGamesChosen="noGamesChosen"/>
   </main>
 </template>
 
@@ -68,12 +68,20 @@ const chosenGames = ref({
     isChosen: true
   },
 })
-const onlyOneGameChosen = computed(() => {
+const oneGameChosen = computed(() => {
   let chosenGamesCount = 0;
 
   for (const game in chosenGames.value) if (chosenGames.value[game].isChosen === true) chosenGamesCount++;
 
   return (chosenGamesCount === 1 ? true : false)
+})
+const noGamesChosen = computed(() => {
+  const gamesKeys = Object.keys(chosenGames.value)
+
+  // Return true if no game
+  return gamesKeys.every(key => {
+    return chosenGames.value[key].isChosen === false
+  })
 })
 
 const bosses = computed(() => {
@@ -209,7 +217,7 @@ function newGame() {
 
   // Reset known info
   known.value.name = '???'
-  known.value.game = (onlyOneGameChosen.value ? correct.value.game : '?')
+  known.value.game = (oneGameChosen.value ? correct.value.game : '?')
   known.value.souls = '?'
   known.value.health = '?'
   known.value.weaknesses = []

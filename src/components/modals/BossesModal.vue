@@ -41,25 +41,34 @@ const showErrorMessageExtra = ref(false)
 const noChosenGames = computed(() => {
   const gamesKeys = Object.keys(props.chosenGames)
 
+  // Return true if no game
   return gamesKeys.every(key => {
     return props.chosenGames[key].isChosen === false
   })
 })
 
 function hideGames() {
-  if (showErrorMessage.value) {
-    showErrorMessageExtra.value = true
-  } else if (noChosenGames.value) {
+  if (noChosenGames.value && !showErrorMessage.value) {
+    // Show error message if no games chosen
     showErrorMessage.value = true
+  } else if (showErrorMessage.value) {
+    // Start error message flashing second time
+    showErrorMessageExtra.value = true
   } else {
+    // Hide games if at least one game is chosen
     emits('hideGames');
   }
 }
 
 function toggleGame(key) {
+  // Toggle game
   props.chosenGames[key].isChosen = !props.chosenGames[key].isChosen
+
+  // Reset error messages
   showErrorMessage.value = false
   showErrorMessageExtra.value = false
+
+  // Start new game
   emits('newGame')
 }
 

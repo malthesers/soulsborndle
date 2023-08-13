@@ -19,6 +19,7 @@ const props = defineProps({
 const failedEffect = ref(null)
 
 watch(failedEffect, (newValue) => {
+  // Focus effect to allow continuing with keyboard
   if (newValue) newValue.focus()
 })
 </script>

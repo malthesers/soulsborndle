@@ -23,6 +23,7 @@ const guessedText = ref('BOSS GUESSED');
 const guessedEffect = ref(null)
 
 watch(guessedEffect, (newValue) => {
+  // Focus effect to allow continuing with keyboard
   if (newValue) newValue.focus()
 })
 </script>

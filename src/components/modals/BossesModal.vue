@@ -5,7 +5,9 @@
         <!-- Game selector panel -->
         <div class="overflow-auto w-full max-w-xl max-h-[75%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Bosses</p>
-          <p class="mb-2">Below you can choose the games whose bosses will be included. Toggling a filter resets the game.</p>
+          <p class="mb-2">Below you can choose the games whose bosses will be included.</p>
+          <p class="mb-2">Bloodborne does not include Chalice Dungeon bosses, and Elden Ring does not include field bosses.</p>
+          <p class="mb-2">Toggling a filter resets the game.</p>
           <p class="mb-2">A <span class="font-bold text-green-700">green</span> background means the game will be <span class="font-bold">included</span> in the pool of bosses, while a <span class="font-bold text-red-700">red</span> background means the game will be <span class="font-bold">excluded.</span></p>
           <div class="grid grid-cols-2 gap-4 mb-2">
             <Button v-for="(game, key) in chosenGames"

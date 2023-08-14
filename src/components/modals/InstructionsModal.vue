@@ -15,7 +15,7 @@
           </div>
           <!-- Damage type information -->
           <p class="text-xl">Damage Types</p>
-          <p class="mb-2">Arcane and Bolt are treated as Magic and Lightning, while Blunt and Pierce are treated Blunt and Thrust.</p>
+          <p class="mb-2">Arcane and Bolt are treated as Magic and Lightning, while Blunt and Pierce are treated Strike and Thrust.</p>
           <div class="mx-auto mb-4 xs:w-full grid grid-cols-2 xs:grid-cols-3 gap-2">
             <p v-for="damageType in damageTypes" :key="damageType" class="flex gap-2 last:mx-auto last:col-span-2 xs:last:m-0 xs:last:col-span-1">
               <DamageBox :damageType="damageType" :hover="false"/>

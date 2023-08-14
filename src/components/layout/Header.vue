@@ -6,6 +6,6 @@
         <img src="/github-icon.svg" alt="github octocat logo">
       </a>
     </div>
-    <GateOrnament class="transform -scale-y-100"/>
+    <GateOrnament class="transform -scale-y-100 border-b-2 xs:border-b-[3px] border-white"/>
   </header>
 </template>

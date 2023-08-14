@@ -3,7 +3,7 @@
     <Transition name="modal">
       <div v-if="showBosses" @click.self="hideGames" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <!-- Game selector panel -->
-        <div class="overflow-auto w-full max-w-xl max-h-[75%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
+        <div class="overflow-auto w-full max-w-xl max-h-[80%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Bosses</p>
           <p class="mb-2">Below you can choose the games whose bosses will be included.</p>
           <p class="mb-2">Bloodborne does not include Chalice Dungeon bosses, and Elden Ring does not include field bosses.</p>

@@ -72,7 +72,7 @@ function enterGuess (boss) {
 }
 
 watch(() => props.bosses, () => {
-  input.value.focus()
+  if (screen.width > 669) input.value.focus()
 })
 </script>
 

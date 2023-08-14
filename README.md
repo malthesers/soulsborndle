@@ -24,7 +24,7 @@ The background colours of the boss information is described below.
 
 ### 💀 Bosses
 
-Bosses included in the pool of possible answers come from the games listed below. Open the _Bosses_ modal to modify the included games. Play only Bloodborne, the Dark Souls series or any combination you'd like!
+Bosses included in the pool of possible answers come from the games listed below. Open the _Bosses_ modal to modify the included games. Play only _Bloodborne_, the _Dark Souls_ series or any combination you'd like!
 
 - Demon's Souls
 - Dark Souls

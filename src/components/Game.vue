@@ -161,8 +161,8 @@ function validateGuess(boss) {
     const damageArrays = ['weaknesses', 'resistances']
     damageArrays.forEach((damageArray) => {
       if (boss[damageArray].toString() === correct.value[damageArray].toString()) {
-        // Set weaknesses/resistances to 0 if none, otherwise its correct value
-        known.value[damageArray] = (boss[damageArray].length === 0 ? 0 : correct.value[damageArray])
+        // Set boolean to true no weaknesses/resistances
+        if (boss[damageArray].length === 0) known.value.hasNo[damageArray] = true
       } else if (boss[damageArray].length === 1) {
         const damage = boss[damageArray][0]
         // If correct boss contains the one weakness/resistance and it is not already added
@@ -226,6 +226,8 @@ function giveUp() {
   known.value.health = correct.value.health
   known.value.weaknesses = correct.value.weaknesses
   known.value.resistances = correct.value.resistances
+  known.value.hasNo.weaknesses = (correct.value.weaknesses.length === 0 ? true : false)
+  known.value.hasNo.resistances = (correct.value.resistances.length === 0 ? true : false)
 }
 
 function newGame() {
@@ -238,15 +240,7 @@ function newGame() {
   wasFailed.value = false
 
   // Generate new boss
-  // correct.value = {...bosses.value[Math.floor(Math.random() * bosses.value.length)]}
-  correct.value = {
-    "name": "Witch of Hemwick",
-    "game": "Bloodborne",
-    "health": 2611,
-    "souls": 11800,
-    "weaknesses": [],
-    "resistances": []
-  }
+  correct.value = {...bosses.value[Math.floor(Math.random() * bosses.value.length)]}
 
   // Reset known info
   known.value.name = '???'

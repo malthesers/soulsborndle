@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="showInstructions" @click.self="$emit('hideInstructions')" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
+      <div v-if="showInstructions" ref="instructionsModal" tabindex="0" @click.self="$emit('hideInstructions')" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <div class="overflow-auto w-full max-w-xl max-h-[80%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Instructions</p>
           <p class="mb-2">Enter the name a boss and narrow it down using the hints based on your previous guesses.</p>
@@ -36,7 +36,13 @@ const props = defineProps({
   showInstructions: Boolean
 })
 
+const instructionsModal = ref(null)
 const gamesDesktop = ref(['Demon\'s Souls', 'Bloodborne', 'Elden Ring', 'Dark Souls', 'Dark Souls II', 'Dark Souls III'])
 const gamesMobile = ref(['Demon\'s Souls', 'Dark Souls', 'Bloodborne', 'Dark Souls II', 'Elden Ring', 'Dark Souls III'])
 const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
+
+watch(instructionsModal, (newValue) => {
+  // Focus modal to allow continuing with keyboard
+  if (newValue) newValue.focus()
+})
 </script>

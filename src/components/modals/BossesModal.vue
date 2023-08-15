@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="showBosses" @click.self="hideGames" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
+      <div v-if="showBosses" ref="bossesModal" tabindex="0" @click.self="hideGames" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <!-- Game selector panel -->
         <div class="overflow-auto w-full max-w-xl max-h-[80%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Bosses</p>
@@ -39,6 +39,7 @@ const props = defineProps({
   noGamesChosen: Boolean
 })
 
+const bossesModal = ref(null)
 const showErrorMessage = ref(false)
 const showErrorMessageExtra = ref(false)
 
@@ -66,6 +67,11 @@ function toggleGame(key) {
   // Start new game
   emits('newGame')
 }
+
+watch(bossesModal, (newValue) => {
+  // Focus modal to allow continuing with keyboard
+  if (newValue) newValue.focus()
+})
 
 watch(props.chosenGames, () => {
   // Save chosenGames to localStorage

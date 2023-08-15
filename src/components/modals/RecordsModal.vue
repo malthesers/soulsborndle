@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="showRecords" @click.self="$emit('hideRecords')" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
+      <div v-if="showRecords" ref="recordsModal" tabindex="0" @click.self="$emit('hideRecords')" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <div class="overflow-auto w-full max-w-xl max-h-[80%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Records</p>
           <p class="mb-2">Listed below are your 10 fastest victories sorted by amount of guesses, <span class="text-green-900">green</span> indicating the included games and <span class="text-red-900">red</span> indicating excluded games.</p>
@@ -62,6 +62,7 @@ const props = defineProps({
   records: Array,
 })
 
+const recordsModal = ref(null)
 const games = ref({
   demonsSouls: 'DeS',
   darkSouls1: 'DS',
@@ -69,6 +70,11 @@ const games = ref({
   darkSouls3: 'DS3',
   bloodborne: 'BB',
   eldenRing: 'ER'
+})
+
+watch(recordsModal, (newValue) => {
+  // Focus modal to allow continuing with keyboard
+  if (newValue) newValue.focus()
 })
 </script>
 

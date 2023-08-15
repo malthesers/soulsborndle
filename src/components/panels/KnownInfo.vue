@@ -30,10 +30,11 @@
       <div class="sm:min-w-[8rem] sm:inline-block lg:block lg:mb-2">
         <p class="text-sm">Weaknesses</p>
         <Transition name="known" mode="out-in">
-          <p v-if="known.weaknesses.length === 0" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
-          <TransitionGroup v-else name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
+          <TransitionGroup v-if="known.weaknesses.length > 0" name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
             <DamageBox v-for="weakness in known.weaknesses" :key="weakness" :damageType="weakness"/>
           </TransitionGroup>
+          <p v-else-if="known.weaknesses.length === 0" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
+          <p v-else class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">None</p>
         </Transition>
       </div>
       <!-- Known restistances -->

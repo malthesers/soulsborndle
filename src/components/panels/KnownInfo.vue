@@ -30,7 +30,7 @@
       <div class="sm:min-w-[8rem] sm:inline-block lg:block lg:mb-2">
         <p class="text-sm">Weaknesses</p>
         <Transition name="known" mode="out-in">
-          <p v-if="known.weaknesses.length === 0" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
+          <p v-if="known.weaknesses.length === 0 && !known.hasNo.weaknesses" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
           <TransitionGroup v-else-if="known.weaknesses.length > 0" name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
             <DamageBox v-for="weakness in known.weaknesses" :key="weakness" :damageType="weakness"/>
           </TransitionGroup>
@@ -41,7 +41,7 @@
       <div class="sm:min-w-[8rem] sm:inline-block lg:block">
         <p class="text-sm">Resistances</p>
         <Transition name="known" mode="out-in">
-          <p v-if="known.resistances.length === 0" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
+          <p v-if="known.resistances.length === 0 && !known.hasNo.resistances" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
           <TransitionGroup v-else-if="known.resistances.length > 0" name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
             <DamageBox v-for="resistance in known.resistances" :key="resistance" :damageType="resistance"/>
           </TransitionGroup>

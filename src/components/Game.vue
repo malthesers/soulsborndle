@@ -114,6 +114,10 @@ const known = ref({
   health: '?',
   weaknesses: [],
   resistances: [],
+  hasNo: {
+    weaknesses: false,
+    resistances: false
+  }
 })
 const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
 
@@ -138,9 +142,9 @@ function validateGuess(boss) {
   // Check if guess is correct
   if (boss.name === correct.value.name) {
     // Set correct vaules
-    for (const property in known.value) known.value[property] = correct.value[property]
-    if (correct.value.weaknesses.length === 0) known.value.weaknesses = 0
-    if (correct.value.resistances.length === 0) known.value.resistances = 0
+    for (const property in correct.value) known.value[property] = correct.value[property]
+    if (correct.value.weaknesses.length === 0) known.value.hasNo.weaknesses = true
+    if (correct.value.resistances.length === 0) known.value.hasNo.resistances = true
 
     // Trigger succesful events
     wasGuessed.value = true;
@@ -234,7 +238,15 @@ function newGame() {
   wasFailed.value = false
 
   // Generate new boss
-  correct.value = {...bosses.value[Math.floor(Math.random() * bosses.value.length)]}
+  // correct.value = {...bosses.value[Math.floor(Math.random() * bosses.value.length)]}
+  correct.value = {
+    "name": "Witch of Hemwick",
+    "game": "Bloodborne",
+    "health": 2611,
+    "souls": 11800,
+    "weaknesses": [],
+    "resistances": []
+  }
 
   // Reset known info
   known.value.name = '???'
@@ -243,6 +255,8 @@ function newGame() {
   known.value.health = '?'
   known.value.weaknesses = []
   known.value.resistances = []
+  known.value.hasNo.weaknesses = false
+  known.value.hasNo.resistances = false
 }
 
 watch(modalOpen, () => {

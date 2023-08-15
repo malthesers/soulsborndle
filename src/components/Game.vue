@@ -2,7 +2,7 @@
   <main class="max-w-5xl mx-auto p-2 m-2 xs:my-8">
     <!-- Button group -->
     <div class="grid grid-cols-2 sm:flex gap-4 mb-4">
-      <Button @click="wasFailed = true, guessedBosses.unshift(correct), search = ''" text="New Game"/>
+      <Button @click="giveUp" text="New Game"/>
       <Button @click="showModal['instructions'] = true" text="Instructions"/>
       <Button @click="showModal['records'] = true" text="Records"/>
       <Button @click="showModal['bosses'] = true" text="Bosses"/>
@@ -203,6 +203,25 @@ function updateRecords(name, guesses, games) {
 
   // Cap records at 10 entries
   records.value = records.value.slice(0, 10)
+}
+
+function giveUp() {
+  // Clear search value
+  search.value = ''
+
+  // Trigger failure events
+  wasFailed.value = true
+
+  // Add to guessed bosses
+  guessedBosses.value.unshift(correct.value)
+
+  // Display correct info as known
+  known.value.name = correct.value.name
+  known.value.game = correct.value.game
+  known.value.souls = correct.value.souls
+  known.value.health = correct.value.health
+  known.value.weaknesses = correct.value.weaknesses
+  known.value.resistances = correct.value.resistances
 }
 
 function newGame() {

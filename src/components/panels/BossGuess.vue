@@ -14,9 +14,9 @@
           <p class="text-sm">Health</p>
           <p class="leading-[2.2] relative flex justify-center">
             <span>{{ boss.health.toLocaleString() }}</span>
-            <span v-if="boss.health !== correct.health" class="absolute h-full flex flex-col">
-              <span v-if="boss.health < correct.health" class="text-xs leading-3 mb-auto">⏶</span>
-              <span v-else class="text-xs leading-3 mt-auto">⏷</span>
+            <span v-if="boss.health !== correct.health" class="absolute w-full h-full flex flex-col">
+              <img v-if="boss.health < correct.health" src="src/assets/icons/arrow.svg" class="w-2 h-1 m-auto mt-1">
+              <img v-else src="src/assets/icons/arrow.svg" class="w-2 h-1 m-auto mb-1 rotate-180">
             </span>
           </p>
         </div>
@@ -26,8 +26,8 @@
           <p class="leading-[2.2] relative flex justify-center">
             <span>{{ boss.souls.toLocaleString() }}</span>
             <span v-if="boss.souls !== correct.souls" class="absolute h-full flex flex-col">
-              <span v-if="boss.souls < correct.souls" class="text-xs leading-3 mb-auto">⏶</span>
-              <span v-else class="text-xs leading-3 mt-auto">⏷</span>
+              <img v-if="boss.souls < correct.souls" src="src/assets/icons/arrow.svg" class="w-2 h-1 m-auto mt-1">
+              <img v-else src="src/assets/icons/arrow.svg" class="w-2 h-1 m-auto mb-1 rotate-180">
             </span>
           </p>
         </div>
@@ -58,6 +58,9 @@ const props = defineProps({
   correct: Object,
   boss: Object
 })
+
+const downArrow = ref('⏷')
+const upArrow = ref('⏶')
 
 const weaknessesBgColor = computed(() => {
   // Set to red by default

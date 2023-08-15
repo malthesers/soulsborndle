@@ -215,15 +215,7 @@ function newGame() {
   wasFailed.value = false
 
   // Generate new boss
-  // correct.value = {...bosses.value[Math.floor(Math.random() * bosses.value.length)]}
-  correct.value = {
-    "name": "Witch of Hemwick",
-    "game": "Bloodborne",
-    "health": 2611,
-    "souls": 11800,
-    "weaknesses": [],
-    "resistances": []
-  }
+  correct.value = {...bosses.value[Math.floor(Math.random() * bosses.value.length)]}
 
   // Reset known info
   known.value.name = '???'

@@ -20,9 +20,9 @@ The background colours of the boss information is described below.
 
 | Colour | Indication |
 | - | - |
-| <img src="https://github.com/malthesers/soulsborndle/blob/main/public/docs/bg-incorrect.png" style="display: block; width:100%"> | The parameter is completely incorrect |
-| <img src="https://github.com/malthesers/soulsborndle/blob/main/public/docs/bg-partial.png" style="display: block; width:100%"> | The parameter is partially correct |
-| <img src="https://github.com/malthesers/soulsborndle/blob/main/public/docs/bg-correct.png" style="display: block; width:100%"> | The parameter is completely correct |
+| <picture style="display: block; width:100%"><img src="https://github.com/malthesers/soulsborndle/blob/main/public/docs/bg-incorrect.png" style="display: block; width:100%"></picture> | The parameter is completely incorrect |
+| <picture style="display: block; width:100%"><img src="https://github.com/malthesers/soulsborndle/blob/main/public/docs/bg-partial.png" style="display: block; width:100%"></picture> | The parameter is partially correct |
+| <picture style="display: block; width:100%"><img src="https://github.com/malthesers/soulsborndle/blob/main/public/docs/bg-correct.png" style="display: block; width:100%"></picture> | The parameter is completely correct |
 
 ### 💀 Bosses
 

@@ -1,4 +1,4 @@
-![soulsborndle cover image](https://github.com/malthesers/soulsborndle/blob/main/public/docs/readme-cover.png)
+<picture><img src="/public/docs/readme-cover.png" title="Soulsborndle cover image" alt="soulsborndle cover image"></picture>
 
 # ![soulsborndle logo](https://github.com/malthesers/soulsborndle/blob/main/public/favicon-32x32.png) Soulsborndle
 

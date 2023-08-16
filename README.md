@@ -14,6 +14,8 @@ The info box shows the known information you have correctly guessed, updating dy
 
 The _souls_ parameter is comprised of _souls_ as they are known in _Demon's Souls_ and the _Dark Souls_ series, _blood echoes_ as they are known as in Bloodborne and _runes_ as they are known as in Elden Ring.
 
+Both _health_ and _souls_ have arrows to indicate if the correct answer is higher or lower. An arrow above means the correct answer is higher than the guessed one, while one below means the answer is lower.
+
 The background colours of the boss information is described below.
 
 | Colour | Indication |

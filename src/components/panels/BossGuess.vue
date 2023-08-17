@@ -16,7 +16,7 @@
             <span>{{ boss.health.toLocaleString() }}</span>
             <span v-if="boss.health !== correct.health" class="absolute w-full h-full flex flex-col">
               <img v-if="boss.health < correct.health" src="src/assets/icons/arrow_up.svg" class="w-2 h-1 m-auto mt-1">
-              <img v-else src="src/assets/icons/arrow_up.svg" class="w-2 h-1 m-auto mb-1 rotate-180">
+              <img v-else src="src/assets/icons/arrow_down.svg" class="w-2 h-1 m-auto mb-1">
             </span>
           </p>
         </div>
@@ -27,7 +27,7 @@
             <span>{{ boss.souls.toLocaleString() }}</span>
             <span v-if="boss.souls !== correct.souls" class="absolute h-full flex flex-col">
               <img v-if="boss.souls < correct.souls" src="src/assets/icons/arrow_up.svg" class="w-2 h-1 m-auto mt-1">
-              <img v-else src="src/assets/icons/arrow_up.svg" class="w-2 h-1 m-auto mb-1 rotate-180">
+              <img v-else src="src/assets/icons/arrow_down.svg" class="w-2 h-1 m-auto mb-1">
             </span>
           </p>
         </div>

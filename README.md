@@ -20,7 +20,7 @@ The background colours of the boss information is described below.
 
 | Correct | Partially | Incorrect |
 | - | - | - |
-| <picture><img src="/public/docs/bg-incorrect.png"></picture> | <picture><img src="/public/docs/bg-partial.png"></picture> | <picture><img src="/public/docs/bg-correct.png"></picture> |
+| <picture><img src="/public/docs/bg-incorrect.png#gh-light-mode-only"></picture> | <picture><img src="/public/docs/bg-partial.png"></picture> | <picture><img src="/public/docs/bg-correct.png"></picture> |
 
 ### 💀 Bosses
 

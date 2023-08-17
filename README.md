@@ -1,4 +1,4 @@
-<picture><img src="/public/docs/readme-cover.png" title="Soulsborndle cover image" alt="soulsborndle cover image"></picture>
+[![](/public/docs/readme-cover.png)](https://malthesers.github.io/soulsborndle/)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S3NYYC4)
 
@@ -6,7 +6,7 @@
 
 A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!
 
-[![](https://github.com/malthesers/soulsborndle/blob/main/public/docs/new-game-link.png)](https://malthesers.github.io/soulsborndle/)
+[![](/public/docs/new-game-link.png)](https://malthesers.github.io/soulsborndle/)
 
 ## 📋 Instructions
 

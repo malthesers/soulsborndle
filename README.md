@@ -35,7 +35,7 @@ Bosses included in the pool of possible answers come from the games listed below
 
 Bosses that are part of **multi-boss encounters** may or may not be split into separate entries, if they are unique enough to constitute their own entry, i.e. they have different health pools, resistances or their own name.
 
-Bosses that have **multiple phases**, may likewise have several entries, if their resistances changes inbetween fights, e.g. Slave Knight Gael becoming more resistant to dark after first phase.
+Additionally bosses that have **multiple phases**, may have several entries, if their resistances changes inbetween fights, e.g. Slave Knight Gael becoming more resistant to dark after first phase.
 
 ### ⚔️ Damage types
 

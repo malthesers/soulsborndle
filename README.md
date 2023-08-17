@@ -1,5 +1,7 @@
 <picture><img src="/public/docs/readme-cover.png" title="Soulsborndle cover image" alt="soulsborndle cover image"></picture>
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S3NYYC4)
+
 # ![soulsborndle logo](https://github.com/malthesers/soulsborndle/blob/main/public/favicon-32x32.png) Soulsborndle
 
 A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!

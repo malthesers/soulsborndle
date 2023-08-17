@@ -1,7 +1,5 @@
 [![](/public/docs/readme-cover.png)](https://malthesers.github.io/soulsborndle/)
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S3NYYC4)
-
 # ![soulsborndle logo](https://github.com/malthesers/soulsborndle/blob/main/public/favicon-32x32.png) Soulsborndle
 
 A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!
@@ -61,3 +59,9 @@ Below are the damage types used for calculationg the weaknesses and resistances,
 - This displays the name of the guessed boss and the amount of attempts needed to guess the boss.
 - Addtionally you can see the games whose bosses were included when the given record was set.
 - You can clear the currently stored records at any time by clicking the _Clear records_ button.
+
+## Support
+
+...is for me? 😳👉👈
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S3NYYC4)

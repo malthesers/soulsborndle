@@ -60,7 +60,7 @@ Below are the damage types used for calculationg the weaknesses and resistances,
 - Addtionally you can see the games whose bosses were included when the given record was set.
 - You can clear the currently stored records at any time by clicking the _Clear records_ button.
 
-## Support
+## 🙌 Support
 
 ...is for me? 😳👉👈
 

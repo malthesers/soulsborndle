@@ -162,7 +162,11 @@ function validateGuess(boss) {
     damageArrays.forEach((damageArray) => {
       if (boss[damageArray].toString() === correct.value[damageArray].toString()) {
         // Set boolean to true no weaknesses/resistances
-        if (boss[damageArray].length === 0) known.value.hasNo[damageArray] = true
+        if (boss[damageArray].length === 0) {
+          known.value.hasNo[damageArray] = true
+        } else {
+          known.value[damageArray] = correct.value[damageArray]
+        }
       } else if (boss[damageArray].length === 1) {
         const damage = boss[damageArray][0]
         // If correct boss contains the one weakness/resistance and it is not already added
@@ -240,8 +244,15 @@ function newGame() {
   wasFailed.value = false
 
   // Generate new boss
-  correct.value = {...bosses.value[Math.floor(Math.random() * bosses.value.length)]}
-
+  // correct.value = {...bosses.value[Math.floor(Math.random() * bosses.value.length)]}
+  correct.value = {
+    "name": "Blood-starved Beast",
+    "game": "Bloodborne",
+    "health": 3470,
+    "souls": 6600,
+    "weaknesses": ["magic", "fire"],
+    "resistances": []
+  }
   // Reset known info
   known.value.name = '???'
   known.value.game = (oneGameChosen.value ? correct.value.game : '?')

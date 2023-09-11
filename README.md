@@ -1,6 +1,6 @@
 [![](/public/docs/readme-cover.png)](https://malthesers.github.io/soulsborndle/)
 
-# ![soulsborndle logo](https://github.com/malthesers/soulsborndle/blob/main/public/favicon-32x32.png) Soulsborndle
+# <img src="/public/favicon-32x32.png" alt="hogwarts crest" align="center"> Soulsborndle
 
 A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!
 

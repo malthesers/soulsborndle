@@ -19,7 +19,7 @@
           :search="search"
           :wasGuessed="wasGuessed"
         />
-        <TransitionGroup :name="wasFailed ? 'failed' : 'guess'" tag="div" mode="out-in" class="flex flex-col gap-4 min-h-[35rem]">
+        <TransitionGroup :name="wasFailed ? 'failed' : 'guess'" tag="div" mode="out-in" class="flex flex-col gap-4 min-h-[40rem] sm:min-h-0">
           <BossGuess v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct" class="failed-fade"/>
         </TransitionGroup>
       </div>

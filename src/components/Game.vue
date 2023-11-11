@@ -101,7 +101,7 @@ const bosses = computed(() => {
 
 const guessedBosses = ref([])
 const remainingBosses = computed(() => {
-  return bosses.value.filter(boss => !guessedBosses.value.includes(boss));
+  return bosses.value.filter(boss => !guessedBosses.value.some(guess => guess.name === boss.name));
 })
 
 const search = ref('')

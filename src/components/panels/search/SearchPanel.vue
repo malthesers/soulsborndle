@@ -26,10 +26,7 @@ const props = defineProps({
 })
 
 const searchInput = ref(null)
-
-const showSearch = computed(() => {
-  return (props.search.length > 1 ? true : false)
-})
+const showSearch = computed(() => props.search.length > 1 ? true : false)
 
 const searchedBosses = computed(() => {
   return props.bosses.filter(boss => boss.name.toLocaleLowerCase().includes(props.search.toLocaleLowerCase())).slice(0, 15)

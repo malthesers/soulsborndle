@@ -1,17 +1,17 @@
 <template>
   <div class="relative mb-4">
-    <input ref="input" @input="$emit('updateSearch', $event.target.value)" :value="search"  placeholder="Enter boss name..." class="w-full text-black p-2 rounded-none outline-none">
+    <input ref="searchInput" @input="$emit('updateSearch', $event.target.value)" :value="search"  placeholder="Enter boss name..." class="w-full text-black p-2 rounded-none outline-none">
     <Transition name="fade">
       <div v-if="showSearch" class="z-10 absolute w-full max-h-[530px] sm:max-h-[568px] overflow-auto overscroll-contain bg-zinc-700">
         <!-- Boss cards for search results -->
-        <BossSearch
-          v-for="boss in searchedBosses"
+        <BossSearch v-for="boss in searchedBosses"
           tabindex="0"
           :key="boss.name"
           :boss="boss"
           @click="enterGuess(boss)"
           @keydown.enter="enterGuess(boss)"
-          @keydown.delete="input.focus()"/>
+          @keydown.delete="searchInput.focus()"
+        />
       </div>
     </Transition>
   </div>
@@ -25,7 +25,7 @@ const props = defineProps({
   wasGuessed: Boolean
 })
 
-const input = ref(null)
+const searchInput = ref(null)
 
 const showSearch = computed(() => {
   return (props.search.length > 1 ? true : false)
@@ -40,7 +40,7 @@ function enterGuess (boss) {
 }
 
 watch(() => props.bosses, () => {
-  if (screen.width > 669) input.value.focus()
+  if (screen.width > 669) searchInput.value.focus()
 })
 </script>
 

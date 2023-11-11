@@ -12,7 +12,7 @@
       <KnownInfo :known="known" />
       <!-- Boss search/guess container -->
       <div class="w-full">
-        <BossSearch
+        <SearchPanel
           @guessEntered="(boss) => validateGuess(boss)"
           @updateSearch="(value) => search = value"
           :bosses="remainingBosses"

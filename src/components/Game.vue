@@ -21,8 +21,7 @@
     <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed" />
     <FailedEffect @hideEffect="newGame" :wasFailed="wasFailed" />
     <!-- Modals -->
-    <InstructionsModal @hideInstructions="modalStore.showing['instructions'] = false"
-      :showInstructions="modalStore.showing['instructions']" />
+    <InstructionsModal />
     <RecordsModal @hideRecords="modalStore.showing['records'] = false" @resetRecords="records = []"
       :showRecords="modalStore.showing['records']" :records="records" />
     <BossesModal @newGame="newGame" />

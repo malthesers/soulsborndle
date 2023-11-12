@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { bosses } from '../bosses'
-import { type Ref, ref } from 'vue'
+import { type Ref } from 'vue'
 import type { Known } from '../interfaces/Known'
 import type { Boss } from '../interfaces/Boss'
 

@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const emits = defineEmits(['guessEntered', 'updateSearch'])
 const props = defineProps({
   bosses: Array,

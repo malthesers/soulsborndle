@@ -2,37 +2,31 @@
   <main class="max-w-5xl mx-auto p-2 m-2 xs:my-8">
     <!-- Button group -->
     <div class="grid grid-cols-2 sm:flex gap-4 mb-4">
-      <Button @click="giveUp" text="New Game"/>
-      <Button @click="showModal['instructions'] = true" text="Instructions"/>
-      <Button @click="showModal['records'] = true" text="Records"/>
-      <Button @click="showModal['bosses'] = true" text="Bosses"/>
+      <Button @click="giveUp" text="New Game" />
+      <Button @click="showModal['instructions'] = true" text="Instructions" />
+      <Button @click="showModal['records'] = true" text="Records" />
+      <Button @click="showModal['bosses'] = true" text="Bosses" />
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <!-- Known info container -->
       <KnownInfo :known="known" />
       <!-- Boss search/guess container -->
       <div class="w-full">
-        <SearchPanel
-          @guessEntered="(boss) => validateGuess(boss)"
-          @updateSearch="(value) => search = value"
-          :bosses="remainingBosses"
-          :search="search"
-          :wasGuessed="wasGuessed"
-        />
-        <GuessesPanel
-          :guessedBosses="guessedBosses"
-          :wasFailed="wasFailed"
-          :correct="correct"
-        />
+        <SearchPanel @guessEntered="(boss) => validateGuess(boss)" @updateSearch="(value) => search = value"
+          :bosses="remainingBosses" :search="search" :wasGuessed="wasGuessed" />
+        <GuessesPanel :guessedBosses="guessedBosses" :wasFailed="wasFailed" :correct="correct" />
       </div>
     </div>
     <!-- Effects -->
-    <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed"/>
-    <FailedEffect @hideEffect="newGame" :wasFailed="wasFailed"/>
+    <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed" />
+    <FailedEffect @hideEffect="newGame" :wasFailed="wasFailed" />
     <!-- Modals -->
-    <InstructionsModal @hideInstructions="showModal['instructions'] = false" :showInstructions="showModal['instructions']"/>
-    <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records = []" :showRecords="showModal['records']" :records="records"/>
-    <BossesModal @hideGames="showModal['bosses'] = false" @newGame="newGame" :showBosses="showModal['bosses']" :chosenGames="chosenGames" :noGamesChosen="noGamesChosen"/>
+    <InstructionsModal @hideInstructions="showModal['instructions'] = false"
+      :showInstructions="showModal['instructions']" />
+    <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records = []"
+      :showRecords="showModal['records']" :records="records" />
+    <BossesModal @hideGames="showModal['bosses'] = false" @newGame="newGame" :showBosses="showModal['bosses']"
+      :chosenGames="chosenGames" :noGamesChosen="noGamesChosen" />
   </main>
 </template>
 
@@ -191,7 +185,7 @@ function validateGuess(boss) {
             if (guessedIndex < knownIndex1) known.value[damageArray].splice(0, 0, damage)
             if (guessedIndex > knownIndex1) known.value[damageArray].splice(1, 0, damage)
           }
-        
+
           // If 2 known weaknesses/resistances
           else if (known.value[damageArray].length === 2) {
             if (guessedIndex < knownIndex1 && guessedIndex < knownIndex2) known.value[damageArray].splice(0, 0, damage)
@@ -250,7 +244,7 @@ function newGame() {
   wasFailed.value = false
 
   // Generate new boss
-  correct.value = {...bosses.value[Math.floor(Math.random() * bosses.value.length)]}
+  correct.value = { ...bosses.value[Math.floor(Math.random() * bosses.value.length)] }
 
   // Reset known info
   known.value.name = '???'

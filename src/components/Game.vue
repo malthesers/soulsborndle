@@ -22,8 +22,7 @@
     <FailedEffect @hideEffect="newGame" :wasFailed="wasFailed" />
     <!-- Modals -->
     <InstructionsModal />
-    <RecordsModal @hideRecords="modalStore.showing['records'] = false" @resetRecords="records = []"
-      :showRecords="modalStore.showing['records']" :records="records" />
+    <RecordsModal @hideRecords="modalStore.showing['records'] = false" @resetRecords="records = []" :records="records" />
     <BossesModal @newGame="newGame" />
   </main>
 </template>

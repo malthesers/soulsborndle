@@ -1,6 +1,6 @@
 export interface Boss {
   name: string
-  game: "Demon's Souls" | "Dark Souls" | "Dark Souls II" | "Dark Souls III" | "Bloodborne" | "Elden Ring"
+  game: Game
   health: number
   souls: number
   weaknesses: DamageTypeList

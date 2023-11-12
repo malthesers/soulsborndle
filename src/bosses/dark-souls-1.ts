@@ -1,4 +1,4 @@
-import { Boss } from "../interfaces/Boss";
+import type { Boss } from "../interfaces/Boss";
 
 interface DarkSouls1Boss extends Boss {
   game: 'Dark Souls'

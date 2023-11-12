@@ -1,4 +1,4 @@
-import { Boss } from "../interfaces/Boss";
+import type { Boss } from "../interfaces/Boss";
 
 interface BloodborneBoss extends Boss {
   game: 'Bloodborne'

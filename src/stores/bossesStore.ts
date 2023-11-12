@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import { bosses } from '../bosses'
-import { Ref, ref } from 'vue'
-import { Known } from '../interfaces/Known'
-import { Boss } from '../interfaces/Boss'
+import { type Ref, ref } from 'vue'
+import type { Known } from '../interfaces/Known'
+import type { Boss } from '../interfaces/Boss'
 
 export const useBossesStore = defineStore('bossesStore', () => {
   const allBosses:Ref<Boss[]> = ref(bosses)

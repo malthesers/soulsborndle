@@ -1,23 +1,19 @@
 <template>
   <div class="relative mb-4">
-    <input ref="searchInput" @input="$emit('updateSearch', $event.target.value)" :value="search"  placeholder="Enter boss name..." class="w-full text-black p-2 rounded-none outline-none">
+    <input ref="searchInput" @input="$emit('updateSearch', $event.target.value)" :value="search"
+      placeholder="Enter boss name..." class="w-full text-black p-2 rounded-none outline-none">
     <Transition name="fade">
-      <div v-if="showSearch" class="z-10 absolute w-full max-h-[530px] sm:max-h-[568px] overflow-auto overscroll-contain bg-zinc-700">
+      <div v-if="showSearch"
+        class="z-10 absolute w-full max-h-[530px] sm:max-h-[568px] overflow-auto overscroll-contain bg-zinc-700">
         <!-- Boss cards for search results -->
-        <BossSearch v-for="boss in searchedBosses"
-          tabindex="0"
-          :key="boss.name"
-          :boss="boss"
-          @click="enterGuess(boss)"
-          @keydown.enter="enterGuess(boss)"
-          @keydown.delete="searchInput.focus()"
-        />
+        <BossSearch v-for="boss in searchedBosses" tabindex="0" :key="boss.name" :boss="boss" @click="enterGuess(boss)"
+          @keydown.enter="enterGuess(boss)" @keydown.delete="searchInput.focus()" />
       </div>
     </Transition>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const emits = defineEmits(['guessEntered', 'updateSearch'])
 const props = defineProps({
   bosses: Array,
@@ -32,7 +28,7 @@ const searchedBosses = computed(() => {
   return props.bosses.filter(boss => boss.name.toLocaleLowerCase().includes(props.search.toLocaleLowerCase())).slice(0, 15)
 })
 
-function enterGuess (boss) {
+function enterGuess(boss) {
   emits('guessEntered', boss)
 }
 

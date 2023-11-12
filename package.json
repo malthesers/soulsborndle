@@ -7,6 +7,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
@@ -17,18 +18,26 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
-    "@vitejs/plugin-vue": "^4.0.0",
+    "@tsconfig/node18": "^18.2.2",
+    "@types/node": "^18.18.5",
+    "@vitejs/plugin-vue": "^4.4.1",
     "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "@vue/tsconfig": "^0.4.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.36.0",
     "eslint-plugin-vue": "^9.9.0",
     "gh-pages": "^6.0.0",
+    "npm-run-all2": "^6.1.1",
     "postcss": "^8.4.31",
     "prettier": "^2.8.4",
     "tailwindcss": "^3.2.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
     "unplugin-auto-import": "^0.15.1",
     "unplugin-vue-components": "^0.24.1",
     "vite": "^4.2.3",
-    "vue-eslint-parser": "^9.1.0"
+    "vue-eslint-parser": "^9.1.0",
+    "vue-tsc": "^1.8.19"
   }
 }

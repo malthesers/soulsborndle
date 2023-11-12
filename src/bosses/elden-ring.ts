@@ -1,4 +1,4 @@
-import { Boss } from "../interfaces/Boss";
+import type { Boss } from "../interfaces/Boss";
 
 interface EldenRingBoss extends Boss {
   game: 'Elden Ring'

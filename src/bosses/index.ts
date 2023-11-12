@@ -1,9 +1,9 @@
-import demonsSoulsBosses from './demons-souls.json'
-import darkSouls1Bosses from './dark-souls-1.json'
-import darkSouls2Bosses from './dark-souls-2.json'
-import darkSouls3Bosses from './dark-souls-3.json'
-import bloodborneBosses from './bloodborne.json'
-import eldenRingBosses from './elden-ring.json'
+import { demonsSoulsBosses } from './demons-souls'
+import { darkSouls1Bosses } from './dark-souls-1'
+import { darkSouls2Bosses } from './dark-souls-2'
+import { darkSouls3Bosses } from './dark-souls-3'
+import { bloodborneBosses } from './bloodborne'
+import { eldenRingBosses } from './elden-ring'
 import { Boss } from '../interfaces/Boss'
 
 const bosses:Boss[] = [

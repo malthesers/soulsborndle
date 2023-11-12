@@ -25,8 +25,7 @@
       :showInstructions="showModal['instructions']" />
     <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records = []"
       :showRecords="showModal['records']" :records="records" />
-    <BossesModal @hideGames="showModal['bosses'] = false" @newGame="newGame" :showBosses="showModal['bosses']"
-      :chosenGames="chosenGames" :noGamesChosen="noGamesChosen" />
+    <BossesModal @hideGames="showModal['bosses'] = false" @newGame="newGame" :showBosses="showModal['bosses']" />
   </main>
 </template>
 
@@ -43,57 +42,57 @@ import { useGamesStore } from '../stores/gamesStore'
 const bossesStore = useBossesStore()
 const gamesStore = useGamesStore()
 
-const chosenGames = ref({
-  demonsSouls: {
-    name: "Demon's Souls",
-    isChosen: true
-  },
-  darkSouls1: {
-    name: "Dark Souls 1",
-    isChosen: true
-  },
-  bloodborne: {
-    name: "Bloodborne",
-    isChosen: true
-  },
-  darkSouls2: {
-    name: "Dark Souls 2",
-    isChosen: true
-  },
-  eldenRing: {
-    name: "Elden Ring",
-    isChosen: true
-  },
-  darkSouls3: {
-    name: "Dark Souls 3",
-    isChosen: true
-  },
-})
-const oneGameChosen = computed(() => {
-  let chosenGamesCount = 0;
+// const chosenGames = ref({
+//   demonsSouls: {
+//     name: "Demon's Souls",
+//     isChosen: true
+//   },
+//   darkSouls1: {
+//     name: "Dark Souls 1",
+//     isChosen: true
+//   },
+//   bloodborne: {
+//     name: "Bloodborne",
+//     isChosen: true
+//   },
+//   darkSouls2: {
+//     name: "Dark Souls 2",
+//     isChosen: true
+//   },
+//   eldenRing: {
+//     name: "Elden Ring",
+//     isChosen: true
+//   },
+//   darkSouls3: {
+//     name: "Dark Souls 3",
+//     isChosen: true
+//   },
+// })
+// const oneGameChosen = computed(() => {
+//   let chosenGamesCount = 0;
 
-  // Check number of chosen games
-  for (const game in chosenGames.value) if (chosenGames.value[game].isChosen === true) chosenGamesCount++;
+//   // Check number of chosen games
+//   for (const game in chosenGames.value) if (chosenGames.value[game].isChosen === true) chosenGamesCount++;
 
-  // Return true if only one game is chosen
-  return (chosenGamesCount === 1 ? true : false)
-})
-const noGamesChosen = computed(() => {
-  // Return true if every game is not chosen
-  return Object.keys(chosenGames.value).every(key => {
-    return chosenGames.value[key].isChosen === false
-  })
-})
+//   // Return true if only one game is chosen
+//   return (chosenGamesCount === 1 ? true : false)
+// })
+// const noGamesChosen = computed(() => {
+//   // Return true if every game is not chosen
+//   return Object.keys(chosenGames.value).every(key => {
+//     return chosenGames.value[key].isChosen === false
+//   })
+// })
 
 const bosses = computed(() => {
   let chosenBosses = []
 
-  if (chosenGames.value.demonsSouls.isChosen) chosenBosses.push(...demonsSoulsBosses)
-  if (chosenGames.value.darkSouls1.isChosen) chosenBosses.push(...darkSouls1Bosses)
-  if (chosenGames.value.darkSouls2.isChosen) chosenBosses.push(...darkSouls2Bosses)
-  if (chosenGames.value.darkSouls3.isChosen) chosenBosses.push(...darkSouls3Bosses)
-  if (chosenGames.value.bloodborne.isChosen) chosenBosses.push(...bloodborneBosses)
-  if (chosenGames.value.eldenRing.isChosen) chosenBosses.push(...eldenRingBosses)
+  if (gamesStore.chosenGames.demonsSouls.isChosen) chosenBosses.push(...demonsSoulsBosses)
+  if (gamesStore.chosenGames.darkSouls1.isChosen) chosenBosses.push(...darkSouls1Bosses)
+  if (gamesStore.chosenGames.darkSouls2.isChosen) chosenBosses.push(...darkSouls2Bosses)
+  if (gamesStore.chosenGames.darkSouls3.isChosen) chosenBosses.push(...darkSouls3Bosses)
+  if (gamesStore.chosenGames.bloodborne.isChosen) chosenBosses.push(...bloodborneBosses)
+  if (gamesStore.chosenGames.eldenRing.isChosen) chosenBosses.push(...eldenRingBosses)
 
   return chosenBosses
 })
@@ -248,7 +247,7 @@ function newGame() {
 
   // Reset known info
   known.value.name = '???'
-  known.value.game = (oneGameChosen.value ? correct.value.game : '?')
+  known.value.game = (gamesStore.oneGameChosen.value ? correct.value.game : '?')
   known.value.souls = '?'
   known.value.health = '?'
   known.value.weaknesses = []
@@ -275,10 +274,10 @@ onMounted(() => {
   if (localStorage.getItem('games')) {
     const savedGames = JSON.parse(localStorage.getItem('games'))
 
-    for (const game in savedGames) chosenGames.value[game].isChosen = savedGames[game].isChosen
+    for (const game in savedGames) gamesStore.chosenGames[game].isChosen = savedGames[game].isChosen
   }
 
-  if (noGamesChosen.value) {
+  if (gamesStore.noGamesChosen.value) {
     showModal.value['bosses'] = true
   }
 

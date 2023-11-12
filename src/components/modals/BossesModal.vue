@@ -1,30 +1,31 @@
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="showBosses" ref="bossesModal" tabindex="0" @click.self="hideGames" class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
+      <div v-if="showBosses" ref="bossesModal" tabindex="0" @click.self="hideGames"
+        class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <!-- Game selector panel -->
         <div class="overflow-auto w-full max-w-xl max-h-[80%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Bosses</p>
           <p class="mb-2">Below you can choose the games whose bosses will be included.</p>
-          <p class="mb-2">Bloodborne does not include Chalice Dungeon bosses, and Elden Ring does not include field bosses.</p>
+          <p class="mb-2">Bloodborne does not include Chalice Dungeon bosses, and Elden Ring does not include field
+            bosses.</p>
           <p class="mb-2">Toggling a filter resets the game.</p>
-          <p class="mb-2">A <span class="font-bold text-green-700">green</span> background means the game will be <span class="font-bold">included</span> in the pool of bosses, while a <span class="font-bold text-red-700">red</span> background means the game will be <span class="font-bold">excluded.</span></p>
+          <p class="mb-2">A <span class="font-bold text-green-700">green</span> background means the game will be <span
+              class="font-bold">included</span> in the pool of bosses, while a <span
+              class="font-bold text-red-700">red</span> background means the game will be <span
+              class="font-bold">excluded.</span></p>
           <div class="grid grid-cols-2 gap-4 mb-2">
-            <Button v-for="(game, key) in chosenGames"
-              :key="game.name"
-              :text="game.name"
-              :class="game.isChosen ? 'bg-green-900' : 'bg-red-900'"
-              class="!px-2 hover:bg-opacity-50"
-              :hover="false"
-              @click="toggleGame(key)"
-            />
+            <Button v-for="(game, key) in gamesStore.chosenGames" :key="game.name" :text="game.name"
+              :class="game.isChosen ? 'bg-green-900' : 'bg-red-900'" class="!px-2 hover:bg-opacity-50" :hover="false"
+              @click="toggleGame(key)" />
           </div>
           <!-- Error message -->
           <Transition name="message">
-            <p v-if="showErrorMessage" :class="{ 'animate-pulse' : showErrorMessageExtra }" class="text-red-500 drop-shadow-red duration-300 overflow-hidden">You must choose at least 1 game.</p>
+            <p v-if="showErrorMessage" :class="{ 'animate-pulse': showErrorMessageExtra }"
+              class="text-red-500 drop-shadow-red duration-300 overflow-hidden">You must choose at least 1 game.</p>
           </Transition>
           <!-- Buttons -->
-          <Button @click="hideGames" text="Close" class="mt-2"/>
+          <Button @click="hideGames" text="Close" class="mt-2" />
         </div>
       </div>
     </Transition>
@@ -32,19 +33,21 @@
 </template>
 
 <script setup>
+import { useGamesStore } from '@/stores/gamesStore'
+
 const emits = defineEmits(['hideGames', 'newGame'])
 const props = defineProps({
   showBosses: Boolean,
-  chosenGames: Object,
-  noGamesChosen: Boolean
 })
+
+const gamesStore = useGamesStore()
 
 const bossesModal = ref(null)
 const showErrorMessage = ref(false)
 const showErrorMessageExtra = ref(false)
 
 function hideGames() {
-  if (props.noGamesChosen && !showErrorMessage.value) {
+  if (gamesStore.noGamesChosen && !showErrorMessage.value) {
     // Show error message if no games chosen
     showErrorMessage.value = true
   } else if (showErrorMessage.value) {
@@ -58,7 +61,7 @@ function hideGames() {
 
 function toggleGame(key) {
   // Toggle game
-  props.chosenGames[key].isChosen = !props.chosenGames[key].isChosen
+  gamesStore.chosenGames[key].isChosen = !gamesStore.chosenGames[key].isChosen
 
   // Reset error messages
   showErrorMessage.value = false
@@ -73,9 +76,9 @@ watch(bossesModal, (newValue) => {
   if (newValue) newValue.focus()
 })
 
-watch(props.chosenGames, () => {
+watch(gamesStore.chosenGames, () => {
   // Save chosenGames to localStorage
-  localStorage.setItem('games', JSON.stringify(props.chosenGames));
+  localStorage.setItem('games', JSON.stringify(gamesStore.chosenGames));
 })
 </script>
 

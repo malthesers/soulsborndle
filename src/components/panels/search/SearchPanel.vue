@@ -18,7 +18,6 @@ const emits = defineEmits(['guessEntered', 'updateSearch'])
 const props = defineProps({
   bosses: Array,
   search: String,
-  wasGuessed: Boolean
 })
 
 const searchInput = ref(null)

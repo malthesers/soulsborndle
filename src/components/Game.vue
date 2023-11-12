@@ -13,12 +13,12 @@
       <!-- Boss search/guess container -->
       <div class="w-full">
         <SearchPanel @guessEntered="(boss) => validateGuess(boss)" @updateSearch="(value) => search = value"
-          :bosses="remainingBosses" :search="search" :wasGuessed="wasGuessed" />
+          :bosses="remainingBosses" :search="search" />
         <GuessesPanel :guessedBosses="guessedBosses" :correct="correct" />
       </div>
     </div>
     <!-- Effects -->
-    <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed" />
+    <GuessedEffect @hideEffect="newGame" />
     <FailedEffect @hideEffect="newGame" />
     <!-- Modals -->
     <InstructionsModal />
@@ -77,9 +77,6 @@ const known = ref({
 })
 const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
 
-const wasGuessed = ref(false)
-// const wasFailed = ref(false)
-
 function validateGuess(boss) {
   // Add to guessed bosses
   guessedBosses.value.unshift(boss);
@@ -95,7 +92,7 @@ function validateGuess(boss) {
     if (correct.value.resistances.length === 0) known.value.hasNo.resistances = true
 
     // Trigger succesful events
-    wasGuessed.value = true;
+    modalStore.open('guessed')
 
     // Add to records
     updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(chosenGames.value)));
@@ -189,7 +186,7 @@ function newGame() {
 
   // Clear guesses
   guessedBosses.value.splice(0)
-  wasGuessed.value = false
+  modalStore.close('guessed')
   modalStore.close('failed')
 
   // Generate new boss

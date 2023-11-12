@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { type Ref } from 'vue'
+import type { Ref, ComputedRef } from 'vue'
 
 interface Modals {
   instructions: boolean,
@@ -10,7 +10,7 @@ interface Modals {
 }
 
 export const useModalStore = defineStore('modalStore', () => {
-  const showModal:Ref<Modals> = ref({
+  const showing:Ref<Modals> = ref({
     instructions: false,
     records: false,
     bosses: false,
@@ -18,21 +18,21 @@ export const useModalStore = defineStore('modalStore', () => {
     failed: false
   })
   
-  const modalOpen:ComputedRef<boolean> = computed(() => {
-    return Object.values(showModal.value).some(modal => modal === true)
+  const isOpen:ComputedRef<boolean> = computed(() => {
+    return Object.values(showing.value).some(modal => modal === true)
   })
 
   function open(modal:keyof Modals) {
-    showModal.value[modal] = true
+    showing.value[modal] = true
   }
 
   function close(modal:keyof Modals) {
-    showModal.value[modal] = false
+    showing.value[modal] = false
   }
 
   return {
-    showModal,
-    modalOpen,
+    showing,
+    isOpen,
     open,
     close
   }

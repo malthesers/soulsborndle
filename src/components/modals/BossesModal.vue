@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="modalStore.showModal['bosses']" ref="bossesModal" tabindex="0" @click.self="hideGames"
+      <div v-if="modals.showing['bosses']" ref="bossesModal" tabindex="0" @click.self="hideGames"
         class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <!-- Game selector panel -->
         <div class="overflow-auto w-full max-w-xl max-h-[80%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
@@ -38,7 +38,7 @@ import { useGamesStore } from '@/stores/gamesStore'
 
 const emits = defineEmits(['hideGames', 'newGame'])
 
-const modalStore = useModalStore()
+const modals = useModalStore()
 const gamesStore = useGamesStore()
 
 const bossesModal = ref(null)
@@ -54,7 +54,7 @@ function hideGames() {
     showErrorMessageExtra.value = true
   } else {
     // Hide games if at least one game is chosen
-    modalStore.showModal['bosses'] = false
+    modals.close('bosses')
   }
 }
 

@@ -3,9 +3,9 @@
     <!-- Button group -->
     <div class="grid grid-cols-2 sm:flex gap-4 mb-4">
       <Button @click="giveUp" text="New Game" />
-      <Button @click="showModal['instructions'] = true" text="Instructions" />
-      <Button @click="showModal['records'] = true" text="Records" />
-      <Button @click="showModal['bosses'] = true" text="Bosses" />
+      <Button @click="modalStore.showModal['instructions'] = true" text="Instructions" />
+      <Button @click="modalStore.showModal['records'] = true" text="Records" />
+      <Button @click="modalStore.showModal['bosses'] = true" text="Bosses" />
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <!-- Known info container -->
@@ -21,11 +21,11 @@
     <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed" />
     <FailedEffect @hideEffect="newGame" :wasFailed="wasFailed" />
     <!-- Modals -->
-    <InstructionsModal @hideInstructions="showModal['instructions'] = false"
-      :showInstructions="showModal['instructions']" />
-    <RecordsModal @hideRecords="showModal['records'] = false" @resetRecords="records = []"
-      :showRecords="showModal['records']" :records="records" />
-    <BossesModal @hideGames="showModal['bosses'] = false" @newGame="newGame" :showBosses="showModal['bosses']" />
+    <InstructionsModal @hideInstructions="modalStore.showModal['instructions'] = false"
+      :showInstructions="modalStore.showModal['instructions']" />
+    <RecordsModal @hideRecords="modalStore.showModal['records'] = false" @resetRecords="records = []"
+      :showRecords="modalStore.showModal['records']" :records="records" />
+    <BossesModal @newGame="newGame" />
   </main>
 </template>
 
@@ -36,10 +36,12 @@ import darkSouls2Bosses from '../bosses/dark-souls-2.json'
 import darkSouls3Bosses from '../bosses/dark-souls-3.json'
 import bloodborneBosses from '../bosses/bloodborne.json'
 import eldenRingBosses from '../bosses/elden-ring.json'
-import { useBossesStore } from '../stores/bossesStore'
-import { useGamesStore } from '../stores/gamesStore'
+import { useBossesStore } from '@/stores/bossesStore'
+import { useModalStore } from '@/stores/modalStore'
+import { useGamesStore } from '@/stores/gamesStore'
 
 const bossesStore = useBossesStore()
+const modalStore = useModalStore()
 const gamesStore = useGamesStore()
 
 const bosses = computed(() => {
@@ -79,14 +81,14 @@ const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical
 
 const wasGuessed = ref(false)
 const wasFailed = ref(false)
-const showModal = ref({
-  instructions: false,
-  records: false,
-  bosses: false
-})
-const modalOpen = computed(() => {
-  return Object.values(showModal.value).some(modal => modal === true)
-})
+// const showModal = ref({
+//   instructions: false,
+//   records: false,
+//   bosses: false
+// })
+// const modalOpen = computed(() => {
+//   return Object.values(showModal.value).some(modal => modal === true)
+// })
 
 function validateGuess(boss) {
   // Add to guessed bosses
@@ -214,9 +216,9 @@ function newGame() {
   known.value.hasNo.resistances = false
 }
 
-watch(modalOpen, () => {
+watch(() => modalStore.modalOpen, () => {
   // Prevent scrolling while modal is open
-  document.querySelector("body").classList = (modalOpen.value ? 'overflow-hidden' : '')
+  document.querySelector("body").classList = (modalStore.modalOpen ? 'overflow-hidden' : '')
 })
 
 watch(records, () => {
@@ -236,7 +238,7 @@ onMounted(() => {
   }
 
   if (gamesStore.noGamesChosen.value) {
-    showModal.value['bosses'] = true
+    modalStore.showModal['bosses'] = true
   }
 
   // Start first game

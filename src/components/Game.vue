@@ -43,6 +43,11 @@ import darkSouls2Bosses from '../bosses/dark-souls-2.json'
 import darkSouls3Bosses from '../bosses/dark-souls-3.json'
 import bloodborneBosses from '../bosses/bloodborne.json'
 import eldenRingBosses from '../bosses/elden-ring.json'
+import { useBossesStore } from '../stores/bossesStore'
+
+const bossesStore = useBossesStore()
+
+console.log(bossesStore.allBosses)
 
 const chosenGames = ref({
   demonsSouls: {

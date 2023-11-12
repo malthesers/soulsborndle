@@ -14,15 +14,15 @@
       <div class="w-full">
         <SearchPanel @guessEntered="(boss) => validateGuess(boss)" @updateSearch="(value) => search = value"
           :bosses="remainingBosses" :search="search" :wasGuessed="wasGuessed" />
-        <GuessesPanel :guessedBosses="guessedBosses" :wasFailed="wasFailed" :correct="correct" />
+        <GuessesPanel :guessedBosses="guessedBosses" :correct="correct" />
       </div>
     </div>
     <!-- Effects -->
     <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed" />
-    <FailedEffect @hideEffect="newGame" :wasFailed="wasFailed" />
+    <FailedEffect @hideEffect="newGame" />
     <!-- Modals -->
     <InstructionsModal />
-    <RecordsModal @hideRecords="modalStore.showing['records'] = false" @resetRecords="records = []" :records="records" />
+    <RecordsModal @resetRecords="records = []" :records="records" />
     <BossesModal @newGame="newGame" />
   </main>
 </template>
@@ -78,7 +78,7 @@ const known = ref({
 const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
 
 const wasGuessed = ref(false)
-const wasFailed = ref(false)
+// const wasFailed = ref(false)
 
 function validateGuess(boss) {
   // Add to guessed bosses
@@ -167,7 +167,7 @@ function giveUp() {
   search.value = ''
 
   // Trigger failure events
-  wasFailed.value = true
+  modalStore.open('failed')
 
   // Add to guessed bosses
   guessedBosses.value.unshift(correct.value)
@@ -190,7 +190,7 @@ function newGame() {
   // Clear guesses
   guessedBosses.value.splice(0)
   wasGuessed.value = false
-  wasFailed.value = false
+  modalStore.close('failed')
 
   // Generate new boss
   correct.value = { ...bosses.value[Math.floor(Math.random() * bosses.value.length)] }

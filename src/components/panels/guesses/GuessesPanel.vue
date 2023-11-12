@@ -1,26 +1,19 @@
 <template>
-  <TransitionGroup
-    :name="wasFailed ? 'failed' : 'guess'"
-    tag="div"
-    mode="out-in"
-    class="flex flex-col gap-4 min-h-[40rem] sm:min-h-0"
-  >
-    <BossGuess
-      v-for="boss in guessedBosses"
-      :key="boss.name"
-      :boss="boss"
-      :correct="correct"
-      class="failed-fade"
-    />
+  <TransitionGroup :name="modalStore.showing['failed'] ? 'failed' : 'guess'" tag="div" mode="out-in"
+    class="flex flex-col gap-4 min-h-[40rem] sm:min-h-0">
+    <BossGuess v-for="boss in guessedBosses" :key="boss.name" :boss="boss" :correct="correct" class="failed-fade" />
   </TransitionGroup>
 </template>
 
 <script setup>
+import { useModalStore } from '@/stores/modalStore'
+
 const props = defineProps({
   guessedBosses: Array,
-  wasFailed: Boolean,
   correct: Object,
 })
+
+const modalStore = useModalStore()
 </script>
 
 <style scoped>

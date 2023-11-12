@@ -3,9 +3,9 @@
     <!-- Button group -->
     <div class="grid grid-cols-2 sm:flex gap-4 mb-4">
       <Button @click="giveUp" text="New Game" />
-      <Button @click="modals.open('instructions')" text="Instructions" />
-      <Button @click="modals.open('records')" text="Records" />
-      <Button @click="modals.open('bosses')" text="Bosses" />
+      <Button @click="modalStore.open('instructions')" text="Instructions" />
+      <Button @click="modalStore.open('records')" text="Records" />
+      <Button @click="modalStore.open('bosses')" text="Bosses" />
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <!-- Known info container -->
@@ -21,10 +21,10 @@
     <GuessedEffect @hideEffect="newGame" :wasGuessed="wasGuessed" />
     <FailedEffect @hideEffect="newGame" :wasFailed="wasFailed" />
     <!-- Modals -->
-    <InstructionsModal @hideInstructions="modals.showing['instructions'] = false"
-      :showInstructions="modals.showing['instructions']" />
-    <RecordsModal @hideRecords="modals.showing['records'] = false" @resetRecords="records = []"
-      :showRecords="modals.showing['records']" :records="records" />
+    <InstructionsModal @hideInstructions="modalStore.showing['instructions'] = false"
+      :showInstructions="modalStore.showing['instructions']" />
+    <RecordsModal @hideRecords="modalStore.showing['records'] = false" @resetRecords="records = []"
+      :showRecords="modalStore.showing['records']" :records="records" />
     <BossesModal @newGame="newGame" />
   </main>
 </template>
@@ -41,7 +41,7 @@ import { useModalStore } from '@/stores/modalStore'
 import { useGamesStore } from '@/stores/gamesStore'
 
 const bossesStore = useBossesStore()
-const modals = useModalStore()
+const modalStore = useModalStore()
 const gamesStore = useGamesStore()
 
 const bosses = computed(() => {
@@ -208,9 +208,9 @@ function newGame() {
   known.value.hasNo.resistances = false
 }
 
-watch(() => modals.isOpen, () => {
+watch(() => modalStore.isOpen, () => {
   // Prevent scrolling while modals is open
-  document.querySelector("body").classList = (modals.isOpen ? 'overflow-hidden' : '')
+  document.querySelector("body").classList = (modalStore.isOpen ? 'overflow-hidden' : '')
 })
 
 watch(records, () => {
@@ -230,7 +230,7 @@ onMounted(() => {
   }
 
   if (gamesStore.noGamesChosen.value) {
-    modals.open('bosses')
+    modalStore.open('bosses')
   }
 
   // Start first game

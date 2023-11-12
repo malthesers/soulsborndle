@@ -95,7 +95,7 @@ function validateGuess(boss) {
     modalStore.open('guessed')
 
     // Add to records
-    updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(chosenGames.value)));
+    updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(gamesStore.chosenGames)));
   } else {
     // Validate game, health and souls
     if (boss.game === correct.value.game) known.value.game = correct.value.game

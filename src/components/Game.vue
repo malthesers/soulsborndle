@@ -31,6 +31,7 @@ import { useRecordsStore } from '@/stores/recordsStore'
 import { useBossesStore } from '@/stores/bossesStore'
 import { useModalStore } from '@/stores/modalStore'
 import { useGamesStore } from '@/stores/gamesStore'
+import type { ChosenGames } from '@/interfaces/ChosenGames';
 
 const recordsStore = useRecordsStore()
 const bossesStore = useBossesStore()
@@ -93,7 +94,7 @@ watch(() => modalStore.isOpen, () => {
   modalStore.isOpen ? body.classList.add('overflow-hidden') : body.classList.remove('overflow-hidden')
 })
 
-watch(() => recordsStore.records, () => {
+watch(recordsStore.records, () => {
   // Save records to localStorage
   localStorage.setItem('records', JSON.stringify(recordsStore.records));
 })
@@ -106,7 +107,7 @@ onMounted(() => {
   if (localStorage.getItem('games')) {
     const savedGames = JSON.parse(localStorage.getItem('games') as string)
 
-    for (const game in savedGames) gamesStore.chosen[game].isChosen = savedGames[game].isChosen
+    Object.keys(savedGames).forEach((key) => gamesStore.chosen[key as keyof ChosenGames].isChosen = savedGames[key].isChosen)
   }
 
   if (gamesStore.noGamesChosen) {

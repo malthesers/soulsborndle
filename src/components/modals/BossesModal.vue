@@ -32,18 +32,18 @@
   </Teleport>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useModalStore } from '@/stores/modalStore'
 import { useGamesStore } from '@/stores/gamesStore'
+import type { ChosenGames } from '@/interfaces/ChosenGames';
 
 const emits = defineEmits(['hideGames', 'newGame'])
 
 const modalStore = useModalStore()
 const gamesStore = useGamesStore()
-
-const bossesModal = ref(null)
-const showErrorMessage = ref(false)
-const showErrorMessageExtra = ref(false)
+const bossesModal: Ref<HTMLDivElement | null> = ref(null)
+const showErrorMessage: Ref<boolean> = ref(false)
+const showErrorMessageExtra: Ref<boolean> = ref(false)
 
 function hideGames() {
   if (gamesStore.noGamesChosen && !showErrorMessage.value) {
@@ -58,9 +58,9 @@ function hideGames() {
   }
 }
 
-function toggleGame(key) {
+function toggleGame(key: keyof ChosenGames) {
   // Toggle game
-  gamesStore.chosen[key].isChosen = !gamesStore.chosen[key].isChosen
+  gamesStore.chosen[key as keyof ChosenGames].isChosen = !gamesStore.chosen[key as keyof ChosenGames].isChosen
 
   // Reset error messages
   showErrorMessage.value = false

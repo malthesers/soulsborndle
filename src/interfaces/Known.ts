@@ -1,12 +1,12 @@
-import type { Game, DamageTypeList } from './'
+import type { Game, DamageType } from './'
 
 export interface Known {
   name: string
   game: Game | '?'
   souls: number | '?'
   health: number | '?'
-  weaknesses: DamageTypeList
-  resistances: DamageTypeList
+  weaknesses: DamageType[]
+  resistances: DamageType[]
   hasNo: {
     weaknesses: boolean
     resistances: boolean

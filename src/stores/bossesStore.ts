@@ -73,13 +73,11 @@ export const useBossesStore = defineStore('bossesStore', () => {
         
         // If guessed boss has exactly 1 weakness/resistance
         else if (boss[damageArray].length === 1) {
-          const damageType:(DamageType | undefined) = boss[damageArray][0]
-          const answerArray:DamageType[] = answer.value[damageArray]
-          const knownArray:DamageType[] = known.value[damageArray]
+          const damageType:DamageType = boss[damageArray][0]
           
           if (damageType === undefined) return
           // If correct boss contains the one weakness/resistance and it is not already added
-          if (answerArray.includes(damageType) && !knownArray.includes(damageType)) {
+          if (answer.value[damageArray].includes(damageType) && !known.value[damageArray].includes(damageType)) {
             // Get indices to place damageType properly
             const guessedIndex = damageTypes.value.findIndex(type => type === damageType)
             const knownIndex1 = damageTypes.value.findIndex(type => type === known.value[damageArray][0])

@@ -27,7 +27,7 @@
           <p class="mb-2">Arcane and Bolt are treated as Magic and Lightning, while Blunt and Pierce are treated Strike
             and Thrust.</p>
           <div class="mx-auto mb-4 xs:w-full grid grid-cols-2 xs:grid-cols-3 gap-2">
-            <p v-for="damageType in damageTypes" :key="damageType" class="flex gap-2">
+            <p v-for="damageType in bossesStore.damageTypes" :key="damageType" class="flex gap-2">
               <DamageBox :damageType="damageType" :hover="false" />
               <span class="capitalize my-auto">{{ damageType }}</span>
             </p>
@@ -40,14 +40,16 @@
   </Teleport>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { Game } from '@/interfaces';
+import { useBossesStore } from '@/stores/bossesStore';
 import { useModalStore } from '@/stores/modalStore'
 
+const bossesStore = useBossesStore()
 const modalStore = useModalStore()
-const instructionsModal = ref(null)
-const gamesDesktop = ref(['Demon\'s Souls', 'Bloodborne', 'Elden Ring', 'Dark Souls', 'Dark Souls II', 'Dark Souls III'])
-const gamesMobile = ref(['Demon\'s Souls', 'Dark Souls', 'Bloodborne', 'Dark Souls II', 'Elden Ring', 'Dark Souls III'])
-const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
+const instructionsModal: Ref<HTMLDivElement | null> = ref(null)
+const gamesDesktop: Ref<Game[]> = ref(['Demon\'s Souls', 'Bloodborne', 'Elden Ring', 'Dark Souls', 'Dark Souls II', 'Dark Souls III'])
+const gamesMobile: Ref<Game[]> = ref(['Demon\'s Souls', 'Dark Souls', 'Bloodborne', 'Dark Souls II', 'Elden Ring', 'Dark Souls III'])
 
 watch(instructionsModal, (newValue) => {
   if (newValue) newValue.focus() // Focus modal to allow continuing with keyboard

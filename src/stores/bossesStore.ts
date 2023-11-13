@@ -7,7 +7,7 @@ import { type Ref } from 'vue'
 import type { Answer } from '../interfaces/Answer'
 import type { Known } from '../interfaces/Known'
 import type { Boss } from '../interfaces/Boss'
-import type { DamageType, DamageTypeList } from '@/interfaces'
+import type { DamageType } from '@/interfaces'
 
 export const useBossesStore = defineStore('bossesStore', () => {
   const recordsStore = useRecordsStore()
@@ -19,8 +19,8 @@ export const useBossesStore = defineStore('bossesStore', () => {
   const answer:Ref<Answer> = ref({
     name: '?',
     game: '?',
-    souls: '?',
-    health: '?',
+    souls: 0,
+    health: 0,
     weaknesses: [],
     resistances: [],
   })

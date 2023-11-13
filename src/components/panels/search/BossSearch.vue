@@ -45,7 +45,5 @@
 <script setup lang="ts">
 import type { Boss } from '@/interfaces/Boss';
 
-const props = defineProps<{
-  boss: Boss
-}>()
+const props = defineProps<{ boss: Boss }>()
 </script>

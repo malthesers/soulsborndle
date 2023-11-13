@@ -58,14 +58,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { DamageType } from '@/interfaces';
+import type { Boss } from '@/interfaces/Boss';
 import { useBossesStore } from '@/stores/bossesStore'
 
-const props = defineProps({
-  boss: Object
-})
-
 const bossesStore = useBossesStore()
+const props = defineProps<{ boss: Boss }>()
+
 
 const weaknessesBgColor = computed(() => {
   // Set to red by default
@@ -85,7 +85,7 @@ const resistancesBgColor = computed(() => {
   let bgColor = 'bg-red-900';
 
   // Make resistances yellow if partially correct
-  if (bossesStore.answer.resistances.some(weak => props.boss.resistances.includes(weak))) bgColor = 'bg-yellow-700'
+  if (bossesStore.answer.resistances.some((weak: DamageType) => props.boss.resistances.includes(weak))) bgColor = 'bg-yellow-700'
 
   // Make resistances green if completely correct
   if (bossesStore.answer.resistances.toString() === props.boss.resistances.toString()) bgColor = 'bg-green-900'

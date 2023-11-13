@@ -5,6 +5,6 @@ export interface Boss {
   game: Game
   health: number
   souls: number
-  weaknesses: DamageTypeList
-  resistances: DamageTypeList
+  weaknesses: DamageType[]
+  resistances: DamageType[]
 }

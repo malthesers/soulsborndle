@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { type Ref } from 'vue'
 
-interface ChosenGames {
+interface chosen {
   [key: string]: {
     name: string
     isChosen: boolean
@@ -9,7 +9,7 @@ interface ChosenGames {
 }
 
 export const useGamesStore = defineStore('gamesStore', () => {
-  const chosenGames:Ref<ChosenGames> = ref({
+  const chosen:Ref<chosen> = ref({
     demonsSouls: {
       name: "Demon's Souls",
       isChosen: true
@@ -40,7 +40,7 @@ export const useGamesStore = defineStore('gamesStore', () => {
     let chosenGamesCount = 0;
 
     // Check number of chosen games
-    for (const game in chosenGames.value) if (chosenGames.value[game].isChosen === true) chosenGamesCount++;
+    for (const game in chosen.value) if (chosen.value[game].isChosen === true) chosenGamesCount++;
 
     // Return true if only one game is chosen
     return (chosenGamesCount === 1 ? true : false)
@@ -48,13 +48,13 @@ export const useGamesStore = defineStore('gamesStore', () => {
 
   const noGamesChosen:ComputedRef<boolean> = computed(() => {
     // Return true if every game is not chosen
-    return Object.keys(chosenGames.value).every(key => {
-      return chosenGames.value[key].isChosen === false
+    return Object.keys(chosen.value).every(key => {
+      return chosen.value[key].isChosen === false
     })
   })
 
   return {
-    chosenGames,
+    chosen,
     oneGameChosen,
     noGamesChosen
   }

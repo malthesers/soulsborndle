@@ -45,12 +45,12 @@ const gamesStore = useGamesStore()
 const bosses = computed(() => {
   let chosenBosses = []
 
-  if (gamesStore.chosenGames.demonsSouls.isChosen) chosenBosses.push(...demonsSoulsBosses)
-  if (gamesStore.chosenGames.darkSouls1.isChosen) chosenBosses.push(...darkSouls1Bosses)
-  if (gamesStore.chosenGames.darkSouls2.isChosen) chosenBosses.push(...darkSouls2Bosses)
-  if (gamesStore.chosenGames.darkSouls3.isChosen) chosenBosses.push(...darkSouls3Bosses)
-  if (gamesStore.chosenGames.bloodborne.isChosen) chosenBosses.push(...bloodborneBosses)
-  if (gamesStore.chosenGames.eldenRing.isChosen) chosenBosses.push(...eldenRingBosses)
+  if (gamesStore.chosen.demonsSouls.isChosen) chosenBosses.push(...demonsSoulsBosses)
+  if (gamesStore.chosen.darkSouls1.isChosen) chosenBosses.push(...darkSouls1Bosses)
+  if (gamesStore.chosen.darkSouls2.isChosen) chosenBosses.push(...darkSouls2Bosses)
+  if (gamesStore.chosen.darkSouls3.isChosen) chosenBosses.push(...darkSouls3Bosses)
+  if (gamesStore.chosen.bloodborne.isChosen) chosenBosses.push(...bloodborneBosses)
+  if (gamesStore.chosen.eldenRing.isChosen) chosenBosses.push(...eldenRingBosses)
 
   return chosenBosses
 })
@@ -95,7 +95,7 @@ function validateGuess(boss) {
     modalStore.open('guessed')
 
     // Add to records
-    updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(gamesStore.chosenGames)));
+    updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(gamesStore.chosen)));
   } else {
     // Validate game, health and souls
     if (boss.game === correct.value.game) known.value.game = correct.value.game
@@ -221,7 +221,7 @@ onMounted(() => {
   if (localStorage.getItem('games')) {
     const savedGames = JSON.parse(localStorage.getItem('games'))
 
-    for (const game in savedGames) gamesStore.chosenGames[game].isChosen = savedGames[game].isChosen
+    for (const game in savedGames) gamesStore.chosen[game].isChosen = savedGames[game].isChosen
   }
 
   if (gamesStore.noGamesChosen.value) {

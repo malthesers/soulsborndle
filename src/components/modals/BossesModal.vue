@@ -15,7 +15,7 @@
               class="font-bold text-red-700">red</span> background means the game will be <span
               class="font-bold">excluded.</span></p>
           <div class="grid grid-cols-2 gap-4 mb-2">
-            <Button v-for="(game, key) in gamesStore.chosenGames" :key="game.name" :text="game.name"
+            <Button v-for="(game, key) in gamesStore.chosen" :key="game.name" :text="game.name"
               :class="game.isChosen ? 'bg-green-900' : 'bg-red-900'" class="!px-2 hover:bg-opacity-50" :hover="false"
               @click="toggleGame(key)" />
           </div>
@@ -60,7 +60,7 @@ function hideGames() {
 
 function toggleGame(key) {
   // Toggle game
-  gamesStore.chosenGames[key].isChosen = !gamesStore.chosenGames[key].isChosen
+  gamesStore.chosen[key].isChosen = !gamesStore.chosen[key].isChosen
 
   // Reset error messages
   showErrorMessage.value = false
@@ -75,9 +75,9 @@ watch(bossesModal, (newValue) => {
   if (newValue) newValue.focus()
 })
 
-watch(gamesStore.chosenGames, () => {
-  // Save chosenGames to localStorage
-  localStorage.setItem('games', JSON.stringify(gamesStore.chosenGames));
+watch(gamesStore.chosen, () => {
+  // Save chosen to localStorage
+  localStorage.setItem('games', JSON.stringify(gamesStore.chosen));
 })
 </script>
 

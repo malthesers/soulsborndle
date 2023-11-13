@@ -12,8 +12,8 @@
       <KnownInfo :known="known" />
       <!-- Boss search/guess container -->
       <div class="w-full">
-        <SearchPanel @updateSearch="(value) => search = value" :bosses="remainingBosses" :search="search" />
-        <GuessesPanel :guessedBosses="guessedBosses" :correct="correct" />
+        <SearchPanel @updateSearch="(value) => search = value" :bosses="bosses" :search="search" />
+        <GuessesPanel />
       </div>
     </div>
     <!-- Effects -->
@@ -56,10 +56,9 @@ const bosses = computed(() => {
   return chosenBosses
 })
 
-const guessedBosses = ref([])
-const remainingBosses = computed(() => {
-  return bosses.value.filter(boss => !guessedBosses.value.some(guess => guess.name === boss.name));
-})
+// const remainingBosses = computed(() => {
+//   return bosses.value.filter(boss => !guessedBosses.value.some(guess => guess.name === boss.name));
+// })
 
 const search = ref('')
 const correct = ref({})
@@ -176,7 +175,7 @@ function newGame() {
   modalStore.close('failed')
 
   // Generate new boss
-  correct.value = { ...bosses.value[Math.floor(Math.random() * bosses.value.length)] }
+  bossesStore.answer = { ...bosses.value[Math.floor(Math.random() * bosses.value.length)] }
   console.log(correct.value)
 
   // Reset known info

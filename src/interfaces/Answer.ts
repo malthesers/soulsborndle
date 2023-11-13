@@ -1,14 +1,10 @@
 import type { Game, DamageTypeList } from './'
 
-export interface Known {
+export interface Answer {
   name: string
   game: Game | '?'
   souls: number | '?'
   health: number | '?'
   weaknesses: DamageTypeList
   resistances: DamageTypeList
-  hasNo: {
-    weaknesses: boolean
-    resistances: boolean
-  }
 }

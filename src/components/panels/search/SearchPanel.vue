@@ -14,7 +14,11 @@
 </template>
 
 <script setup>
-const emits = defineEmits(['guessEntered', 'updateSearch'])
+import { useBossesStore } from '@/stores/bossesStore'
+
+const bossesStore = useBossesStore()
+
+const emits = defineEmits(['updateSearch'])
 const props = defineProps({
   bosses: Array,
   search: String,
@@ -28,7 +32,7 @@ const searchedBosses = computed(() => {
 })
 
 function enterGuess(boss) {
-  emits('guessEntered', boss)
+  bossesStore.validateGuess(boss)
 }
 
 watch(() => props.bosses, () => {

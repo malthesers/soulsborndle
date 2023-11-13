@@ -12,8 +12,7 @@
       <KnownInfo :known="known" />
       <!-- Boss search/guess container -->
       <div class="w-full">
-        <SearchPanel @guessEntered="(boss) => validateGuess(boss)" @updateSearch="(value) => search = value"
-          :bosses="remainingBosses" :search="search" />
+        <SearchPanel @updateSearch="(value) => search = value" :bosses="remainingBosses" :search="search" />
         <GuessesPanel :guessedBosses="guessedBosses" :correct="correct" />
       </div>
     </div>
@@ -78,72 +77,72 @@ const known = ref({
 })
 const damageTypes = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
 
-function validateGuess(boss) {
-  // Add to guessed bosses
-  guessedBosses.value.unshift(boss);
+// function validateGuess(boss) {
+//   // Add to guessed bosses
+//   guessedBosses.value.unshift(boss);
 
-  // Clear search value
-  search.value = ''
+//   // Clear search value
+//   search.value = ''
 
-  // Check if guess is correct
-  if (boss.name === correct.value.name) {
-    // Set correct vaules
-    for (const property in correct.value) known.value[property] = correct.value[property]
-    if (correct.value.weaknesses.length === 0) known.value.hasNo.weaknesses = true
-    if (correct.value.resistances.length === 0) known.value.hasNo.resistances = true
+//   // Check if guess is correct
+//   if (boss.name === correct.value.name) {
+//     // Set correct vaules
+//     for (const property in correct.value) known.value[property] = correct.value[property]
+//     if (correct.value.weaknesses.length === 0) known.value.hasNo.weaknesses = true
+//     if (correct.value.resistances.length === 0) known.value.hasNo.resistances = true
 
-    // Trigger succesful events
-    modalStore.open('guessed')
+//     // Trigger succesful events
+//     modalStore.open('guessed')
 
-    // Add to records
-    recordsStore.updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(gamesStore.chosen)));
-  } else {
-    // Validate game, health and souls
-    if (boss.game === correct.value.game) known.value.game = correct.value.game
-    if (boss.health === correct.value.health) known.value.health = correct.value.health
-    if (boss.souls === correct.value.souls) known.value.souls = correct.value.souls
+//     // Add to records
+//     recordsStore.updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(gamesStore.chosen)));
+//   } else {
+//     // Validate game, health and souls
+//     if (boss.game === correct.value.game) known.value.game = correct.value.game
+//     if (boss.health === correct.value.health) known.value.health = correct.value.health
+//     if (boss.souls === correct.value.souls) known.value.souls = correct.value.souls
 
-    // Validate weaknesses and resistances
-    const damageArrays = ['weaknesses', 'resistances']
-    damageArrays.forEach((damageArray) => {
-      if (boss[damageArray].toString() === correct.value[damageArray].toString()) {
-        // Set boolean to true no weaknesses/resistances
-        if (boss[damageArray].length === 0) {
-          known.value.hasNo[damageArray] = true
-          // Set correct weaknesses/resistances
-        } else {
-          known.value[damageArray] = correct.value[damageArray]
-        }
-      } else if (boss[damageArray].length === 1) {
-        const damage = boss[damageArray][0]
-        // If correct boss contains the one weakness/resistance and it is not already added
-        if (correct.value[damageArray].includes(damage) && !known.value[damageArray].includes(damage)) {
-          const guessedIndex = damageTypes.value.findIndex(damageType => damageType === damage)
-          const knownIndex1 = damageTypes.value.findIndex(damageType => damageType === known.value[damageArray][0])
-          const knownIndex2 = damageTypes.value.findIndex(damageType => damageType === known.value[damageArray][1])
+//     // Validate weaknesses and resistances
+//     const damageArrays = ['weaknesses', 'resistances']
+//     damageArrays.forEach((damageArray) => {
+//       if (boss[damageArray].toString() === correct.value[damageArray].toString()) {
+//         // Set boolean to true no weaknesses/resistances
+//         if (boss[damageArray].length === 0) {
+//           known.value.hasNo[damageArray] = true
+//           // Set correct weaknesses/resistances
+//         } else {
+//           known.value[damageArray] = correct.value[damageArray]
+//         }
+//       } else if (boss[damageArray].length === 1) {
+//         const damage = boss[damageArray][0]
+//         // If correct boss contains the one weakness/resistance and it is not already added
+//         if (correct.value[damageArray].includes(damage) && !known.value[damageArray].includes(damage)) {
+//           const guessedIndex = damageTypes.value.findIndex(damageType => damageType === damage)
+//           const knownIndex1 = damageTypes.value.findIndex(damageType => damageType === known.value[damageArray][0])
+//           const knownIndex2 = damageTypes.value.findIndex(damageType => damageType === known.value[damageArray][1])
 
-          // If 0 known weaknesses/resistances
-          if (known.value[damageArray].length === 0) {
-            known.value[damageArray].push(damage)
-          }
+//           // If 0 known weaknesses/resistances
+//           if (known.value[damageArray].length === 0) {
+//             known.value[damageArray].push(damage)
+//           }
 
-          // If 1 known weakness/resistance
-          else if (known.value[damageArray].length === 1) {
-            if (guessedIndex < knownIndex1) known.value[damageArray].splice(0, 0, damage)
-            if (guessedIndex > knownIndex1) known.value[damageArray].splice(1, 0, damage)
-          }
+//           // If 1 known weakness/resistance
+//           else if (known.value[damageArray].length === 1) {
+//             if (guessedIndex < knownIndex1) known.value[damageArray].splice(0, 0, damage)
+//             if (guessedIndex > knownIndex1) known.value[damageArray].splice(1, 0, damage)
+//           }
 
-          // If 2 known weaknesses/resistances
-          else if (known.value[damageArray].length === 2) {
-            if (guessedIndex < knownIndex1 && guessedIndex < knownIndex2) known.value[damageArray].splice(0, 0, damage)
-            if (guessedIndex > knownIndex1 && guessedIndex < knownIndex2) known.value[damageArray].splice(1, 0, damage)
-            if (guessedIndex > knownIndex1 && guessedIndex > knownIndex2) known.value[damageArray].splice(2, 0, damage)
-          }
-        }
-      }
-    })
-  }
-}
+//           // If 2 known weaknesses/resistances
+//           else if (known.value[damageArray].length === 2) {
+//             if (guessedIndex < knownIndex1 && guessedIndex < knownIndex2) known.value[damageArray].splice(0, 0, damage)
+//             if (guessedIndex > knownIndex1 && guessedIndex < knownIndex2) known.value[damageArray].splice(1, 0, damage)
+//             if (guessedIndex > knownIndex1 && guessedIndex > knownIndex2) known.value[damageArray].splice(2, 0, damage)
+//           }
+//         }
+//       }
+//     })
+//   }
+// }
 
 
 function giveUp() {
@@ -178,6 +177,7 @@ function newGame() {
 
   // Generate new boss
   correct.value = { ...bosses.value[Math.floor(Math.random() * bosses.value.length)] }
+  console.log(correct.value)
 
   // Reset known info
   known.value.name = '???'

@@ -1,43 +1,40 @@
 <template>
   <div class="relative mb-4">
-    <input ref="searchInput" @input="$emit('updateSearch', $event.target.value)" :value="search"
-      placeholder="Enter boss name..." class="w-full text-black p-2 rounded-none outline-none">
+    <input ref="searchInput" v-model="search" placeholder="Enter boss name..."
+      class="w-full text-black p-2 rounded-none outline-none">
     <Transition name="fade">
       <div v-if="showSearch"
         class="z-10 absolute w-full max-h-[530px] sm:max-h-[568px] overflow-auto overscroll-contain bg-zinc-700">
         <!-- Boss cards for search results -->
         <BossSearch v-for="boss in searchedBosses" tabindex="0" :key="boss.name" :boss="boss" @click="enterGuess(boss)"
-          @keydown.enter="enterGuess(boss)" @keydown.delete="searchInput.focus()" />
+          @keydown.enter="enterGuess(boss)" @keydown.delete="focusInput" />
       </div>
     </Transition>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { Boss } from '@/interfaces/Boss';
 import { useBossesStore } from '@/stores/bossesStore'
 
 const bossesStore = useBossesStore()
+const searchInput: Ref<HTMLInputElement | null> = ref(null)
+const search: Ref<string> = ref('')
+const showSearch: ComputedRef<boolean> = computed(() => search.value.length > 1 ? true : false)
 
-const emits = defineEmits(['updateSearch'])
-const props = defineProps({
-  bosses: Array,
-  search: String,
+const searchedBosses: ComputedRef<Boss[]> = computed(() => {
+  return bossesStore.allBosses.filter(boss => boss.name.toLocaleLowerCase().includes(search.value.toLocaleLowerCase())).slice(0, 15)
 })
 
-const searchInput = ref(null)
-const showSearch = computed(() => props.search.length > 1 ? true : false)
-
-const searchedBosses = computed(() => {
-  return props.bosses.filter(boss => boss.name.toLocaleLowerCase().includes(props.search.toLocaleLowerCase())).slice(0, 15)
-})
-
-function enterGuess(boss) {
+function enterGuess(boss: Boss) {
   bossesStore.validateGuess(boss)
+  search.value = ''
+  focusInput()
 }
 
-watch(() => props.bosses, () => {
-  if (screen.width > 669) searchInput.value.focus()
-})
+function focusInput() {
+  if (screen.width > 669) searchInput.value?.focus()
+}
 </script>
 
 <style scoped>

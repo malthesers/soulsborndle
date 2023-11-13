@@ -13,7 +13,6 @@ export const useBossesStore = defineStore('bossesStore', () => {
   const recordsStore = useRecordsStore()
   const modalStore = useModalStore()
   const gamesStore = useGamesStore()
-  const search:Ref<string> = ref('')
   const damageTypes:Ref<DamageType[]> = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
   const allBosses:Ref<Boss[]> = ref(bosses)
   const guessedBosses:Ref<Boss[]> = ref([])
@@ -39,9 +38,8 @@ export const useBossesStore = defineStore('bossesStore', () => {
   })
 
   function validateGuess(boss:Boss) {
-    // Add to guessed bosses and clear search value
+    // Add to guessed bosses
     guessedBosses.value.unshift(boss);
-    search.value = ''
   
     // Check if guess is correct
     if (boss.name === answer.value.name) {
@@ -116,7 +114,6 @@ export const useBossesStore = defineStore('bossesStore', () => {
     guessedBosses,
     answer,
     known,
-    search,
     validateGuess
   }
 })

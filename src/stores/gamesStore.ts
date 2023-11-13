@@ -34,7 +34,9 @@ export const useGamesStore = defineStore('gamesStore', () => {
     let chosenGamesCount = 0;
 
     // Check number of chosen games
-    for (const game in chosen.value) if (chosen.value[game].isChosen === true) chosenGamesCount++;
+    Object.keys(chosen.value).forEach((key) => {
+      if (chosen.value[key as keyof ChosenGames].isChosen) chosenGamesCount++
+    })
 
     // Return true if only one game is chosen
     return (chosenGamesCount === 1 ? true : false)
@@ -43,7 +45,7 @@ export const useGamesStore = defineStore('gamesStore', () => {
   const noGamesChosen:ComputedRef<boolean> = computed(() => {
     // Return true if every game is not chosen
     return Object.keys(chosen.value).every(key => {
-      return chosen.value[key].isChosen === false
+      return chosen.value[key as keyof ChosenGames].isChosen === false
     })
   })
 

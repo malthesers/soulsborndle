@@ -14,12 +14,12 @@
   </Teleport>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useModalStore } from '@/stores/modalStore'
 const emits = defineEmits(['hideEffect'])
 
 const modalStore = useModalStore()
-const failedEffect = ref(null)
+const failedEffect: Ref<HTMLDivElement | null> = ref(null)
 
 watch(failedEffect, (newValue) => {
   // Focus effect to allow continuing with keyboard

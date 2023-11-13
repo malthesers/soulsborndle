@@ -5,7 +5,7 @@
   </TransitionGroup>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useBossesStore } from '@/stores/bossesStore'
 import { useModalStore } from '@/stores/modalStore'
 

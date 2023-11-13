@@ -62,7 +62,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useBossesStore } from '@/stores/bossesStore'
 
 const bossesStore = useBossesStore()
@@ -77,4 +77,5 @@ const bossesStore = useBossesStore()
 .known-enter-from,
 .known-leave-to {
   opacity: 0;
-}</style>
+}
+</style>

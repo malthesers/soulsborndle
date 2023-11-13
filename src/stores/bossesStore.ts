@@ -39,7 +39,6 @@ export const useBossesStore = defineStore('bossesStore', () => {
   })
 
   function validateGuess(boss:Boss) {
-    console.log('yo')
     // Add to guessed bosses and clear search value
     guessedBosses.value.unshift(boss);
     search.value = ''

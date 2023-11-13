@@ -1,4 +1,4 @@
-import type { Game, DamageTypeList } from './'
+import type { Game, DamageType } from './'
 
 export interface Boss {
   name: string

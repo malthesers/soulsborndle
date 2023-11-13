@@ -4,7 +4,6 @@ import { useGamesStore } from '@/stores/gamesStore'
 import { defineStore } from 'pinia'
 import { bosses } from '../bosses'
 import { type Ref } from 'vue'
-import type { Answer } from '../interfaces/Answer'
 import type { Known } from '../interfaces/Known'
 import type { Boss } from '../interfaces/Boss'
 import type { DamageType } from '@/interfaces'
@@ -16,7 +15,7 @@ export const useBossesStore = defineStore('bossesStore', () => {
   const damageTypes:Ref<DamageType[]> = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
   const allBosses:Ref<Boss[]> = ref(bosses)
   const guessedBosses:Ref<Boss[]> = ref([])
-  const answer:Ref<Answer> = ref({
+  const answer:Ref<Boss> = ref({
     name: '?',
     game: '?',
     souls: 0,
@@ -44,7 +43,7 @@ export const useBossesStore = defineStore('bossesStore', () => {
     // Check if guess is correct
     if (boss.name === answer.value.name) {
       // Set correct vaules
-      Object.entries(answer.value).forEach(([key, value]) => known.value[key as keyof Answer] = value)
+      Object.entries(answer.value).forEach(([key, value]) => known.value[key as keyof Boss] = value)
       if (answer.value.weaknesses.length === 0) known.value.hasNo.weaknesses = true
       if (answer.value.resistances.length === 0) known.value.hasNo.resistances = true
   

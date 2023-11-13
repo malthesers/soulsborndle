@@ -38,15 +38,7 @@ const bossesStore = useBossesStore()
 const modalStore = useModalStore()
 const gamesStore = useGamesStore()
 
-// -----------------------------------------------
-// TODO: clear search from within search component
-// -----------------------------------------------
-const search = ref('')
-
 function giveUp() {
-  // Clear search value
-  search.value = ''
-
   // Trigger failure events
   modalStore.open('failed')
 
@@ -65,9 +57,6 @@ function giveUp() {
 }
 
 function newGame() {
-  // Clear search value
-  search.value = ''
-
   // Clear guesses
   bossesStore.guessedBosses.splice(0)
   modalStore.close('guessed')

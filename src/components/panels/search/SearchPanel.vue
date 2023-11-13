@@ -16,8 +16,10 @@
 <script setup lang="ts">
 import type { Boss } from '@/interfaces/Boss';
 import { useBossesStore } from '@/stores/bossesStore'
+import { useModalStore } from '@/stores/modalStore';
 
 const bossesStore = useBossesStore()
+const modalStore = useModalStore()
 const searchInput: Ref<HTMLInputElement | null> = ref(null)
 const search: Ref<string> = ref('')
 const showSearch: ComputedRef<boolean> = computed(() => search.value.length > 1 ? true : false)
@@ -35,6 +37,11 @@ function enterGuess(boss: Boss) {
 function focusInput() {
   if (screen.width > 669) searchInput.value?.focus()
 }
+
+modalStore.$subscribe((mutation, state) => {
+  if (state.showing['guessed'] || state.showing['failed']) search.value = ''
+  if (!state.showing['guessed'] || !state.showing['failed']) focusInput()
+})
 </script>
 
 <style scoped>

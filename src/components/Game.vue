@@ -37,6 +37,9 @@ const bossesStore = useBossesStore()
 const modalStore = useModalStore()
 const gamesStore = useGamesStore()
 
+// -----------------------------------------------
+// TODO: clear search from within search component
+// -----------------------------------------------
 const search = ref('')
 
 function giveUp() {

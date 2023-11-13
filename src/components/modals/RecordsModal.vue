@@ -59,14 +59,23 @@
   </Teleport>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useRecordsStore } from '@/stores/recordsStore'
 import { useModalStore } from '@/stores/modalStore'
 
+interface Games {
+  demonsSouls: 'DeS'
+  darkSouls1: 'DS'
+  darkSouls2: 'DS2'
+  darkSouls3: 'DS3'
+  bloodborne: 'BB'
+  eldenRing: 'ER'
+}
+
 const recordsStore = useRecordsStore()
 const modalStore = useModalStore()
-const recordsModal = ref(null)
-const games = ref({
+const recordsModal: Ref<HTMLDivElement | null> = ref(null)
+const games: Ref<Games> = ref({
   demonsSouls: 'DeS',
   darkSouls1: 'DS',
   darkSouls2: 'DS2',

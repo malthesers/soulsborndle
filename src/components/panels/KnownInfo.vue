@@ -4,7 +4,9 @@
     <div class="sm:inline-block lg:block mb-2 sm:mb-0">
       <p class="text-sm">Game</p>
       <Transition name="known" mode="out-in">
-        <p class="sm:min-w-[10rem] sm:h-11 sm:leading-[2.2] whitespace-nowrap text-xl lg:text-2xl" :key="known.game">{{ known.game }}</p>
+        <p class="sm:min-w-[10rem] sm:h-11 sm:leading-[2.2] whitespace-nowrap text-xl lg:text-2xl"
+          :key="bossesStore.known.game">{{
+            bossesStore.known.game }}</p>
       </Transition>
     </div>
     <!-- Known health & souls container -->
@@ -13,14 +15,18 @@
       <div class="sm:inline-block lg:block">
         <p class="text-sm">Health</p>
         <Transition name="known" mode="out-in">
-          <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl" :key="known.health">{{ known.health.toLocaleString() }}</p>
+          <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl"
+            :key="bossesStore.known.health">{{
+              bossesStore.known.health.toLocaleString() }}</p>
         </Transition>
       </div>
       <!-- Known souls -->
       <div class="sm:inline-block lg:block">
         <p class="text-sm">Souls</p>
         <Transition name="known" mode="out-in">
-          <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl" :key="known.souls">{{ known.souls.toLocaleString() }}</p>
+          <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl"
+            :key="bossesStore.known.souls">{{
+              bossesStore.known.souls.toLocaleString() }}</p>
         </Transition>
       </div>
     </div>
@@ -30,9 +36,11 @@
       <div class="sm:min-w-[8rem] sm:inline-block lg:block lg:mb-2">
         <p class="text-sm">Weaknesses</p>
         <Transition name="known" mode="out-in">
-          <p v-if="known.weaknesses.length === 0 && !known.hasNo.weaknesses" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
-          <TransitionGroup v-else-if="known.weaknesses.length > 0" name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
-            <DamageBox v-for="weakness in known.weaknesses" :key="weakness" :damageType="weakness"/>
+          <p v-if="bossesStore.known.weaknesses.length === 0 && !bossesStore.known.hasNo.weaknesses"
+            class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
+          <TransitionGroup v-else-if="bossesStore.known.weaknesses.length > 0" name="known" tag="div"
+            class="h-11 flex flex-row justify-center gap-1">
+            <DamageBox v-for="weakness in bossesStore.known.weaknesses" :key="weakness" :damageType="weakness" />
           </TransitionGroup>
           <p v-else class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">None</p>
         </Transition>
@@ -41,9 +49,11 @@
       <div class="sm:min-w-[8rem] sm:inline-block lg:block">
         <p class="text-sm">Resistances</p>
         <Transition name="known" mode="out-in">
-          <p v-if="known.resistances.length === 0 && !known.hasNo.resistances" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
-          <TransitionGroup v-else-if="known.resistances.length > 0" name="known" tag="div" class="h-11 flex flex-row justify-center gap-1">
-            <DamageBox v-for="resistance in known.resistances" :key="resistance" :damageType="resistance"/>
+          <p v-if="bossesStore.known.resistances.length === 0 && !bossesStore.known.hasNo.resistances"
+            class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>
+          <TransitionGroup v-else-if="bossesStore.known.resistances.length > 0" name="known" tag="div"
+            class="h-11 flex flex-row justify-center gap-1">
+            <DamageBox v-for="resistance in bossesStore.known.resistances" :key="resistance" :damageType="resistance" />
           </TransitionGroup>
           <p v-else class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">None</p>
         </Transition>
@@ -53,9 +63,9 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  known: Object
-})
+import { useBossesStore } from '@/stores/bossesStore'
+
+const bossesStore = useBossesStore()
 </script>
 
 <style scoped>
@@ -67,5 +77,4 @@ const props = defineProps({
 .known-enter-from,
 .known-leave-to {
   opacity: 0;
-}
-</style>
+}</style>

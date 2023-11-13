@@ -1,15 +1,9 @@
+import type { ChosenGames } from '@/interfaces/ChosenGames'
 import { defineStore } from 'pinia'
 import { type Ref } from 'vue'
 
-interface chosen {
-  [key: string]: {
-    name: string
-    isChosen: boolean
-  }
-}
-
 export const useGamesStore = defineStore('gamesStore', () => {
-  const chosen:Ref<chosen> = ref({
+  const chosen:Ref<ChosenGames> = ref({
     demonsSouls: {
       name: "Demon's Souls",
       isChosen: true

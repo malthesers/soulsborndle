@@ -10,11 +10,12 @@
             indicating excluded games.</p>
           <!-- No bosses guessed message -->
           <Transition name="message">
-            <p v-if="records.length === 0" class="font-bold overflow-hidden">You have not guessed a boss yet.</p>
+            <p v-if="recordsStore.records.length === 0" class="font-bold overflow-hidden">You have not guessed a boss yet.
+            </p>
           </Transition>
           <!-- Records table -->
           <Transition name="records">
-            <div v-if="records.length !== 0" class="mb-2 overflow-hidden max-h-[38rem] sm:max-h-96">
+            <div v-if="recordsStore.records.length !== 0" class="mb-2 overflow-hidden max-h-[38rem] sm:max-h-96">
               <table class="w-full text-left text-base">
                 <!-- Table head -->
                 <thead>
@@ -25,7 +26,7 @@
                       class="hidden xs:table-cell text-center w-9 border-l-4 border-black">{{ game }}</th>
                   </tr>
                 </thead>
-                <tbody v-for="record in records" :key="`${record.guesses}-${record.name}`"
+                <tbody v-for="record in recordsStore.records" :key="`${record.guesses}-${record.name}`"
                   class="bg-zinc-900 border-black border-b-8">
                   <!-- Desktop row -->
                   <tr>
@@ -49,7 +50,7 @@
           </Transition>
           <!-- Buttons -->
           <div class="flex gap-4 justify-center mt-2">
-            <Button v-if="records.length !== 0" @click="$emit('resetRecords')" text="Clear records" />
+            <Button v-if="recordsStore.records.length !== 0" @click="recordsStore.clearRecords()" text="Clear records" />
             <Button @click="modalStore.close('records')" text="Close" />
           </div>
         </div>
@@ -59,13 +60,10 @@
 </template>
 
 <script setup>
+import { useRecordsStore } from '@/stores/recordsStore'
 import { useModalStore } from '@/stores/modalStore'
 
-const emits = defineEmits(['resetRecords'])
-const props = defineProps({
-  records: Array,
-})
-
+const recordsStore = useRecordsStore()
 const modalStore = useModalStore()
 const recordsModal = ref(null)
 const games = ref({

@@ -22,7 +22,7 @@
     <FailedEffect @hideEffect="newGame" />
     <!-- Modals -->
     <InstructionsModal />
-    <RecordsModal @resetRecords="records = []" :records="records" />
+    <RecordsModal />
     <BossesModal @newGame="newGame" />
   </main>
 </template>
@@ -34,10 +34,12 @@ import darkSouls2Bosses from '../bosses/dark-souls-2.json'
 import darkSouls3Bosses from '../bosses/dark-souls-3.json'
 import bloodborneBosses from '../bosses/bloodborne.json'
 import eldenRingBosses from '../bosses/elden-ring.json'
+import { useRecordsStore } from '@/stores/recordsStore'
 import { useBossesStore } from '@/stores/bossesStore'
 import { useModalStore } from '@/stores/modalStore'
 import { useGamesStore } from '@/stores/gamesStore'
 
+const recordsStore = useRecordsStore()
 const bossesStore = useBossesStore()
 const modalStore = useModalStore()
 const gamesStore = useGamesStore()
@@ -61,7 +63,6 @@ const remainingBosses = computed(() => {
 })
 
 const search = ref('')
-const records = ref([])
 const correct = ref({})
 const known = ref({
   name: '?',
@@ -95,7 +96,7 @@ function validateGuess(boss) {
     modalStore.open('guessed')
 
     // Add to records
-    updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(gamesStore.chosen)));
+    recordsStore.updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(gamesStore.chosen)));
   } else {
     // Validate game, health and souls
     if (boss.game === correct.value.game) known.value.game = correct.value.game
@@ -144,20 +145,6 @@ function validateGuess(boss) {
   }
 }
 
-function updateRecords(name, guesses, games) {
-  // Add to array
-  records.value.push({
-    name: name,
-    guesses: guesses,
-    games: games
-  })
-
-  // Sort array by guesses
-  records.value.sort((record1, record2) => record1.guesses - record2.guesses)
-
-  // Cap records at 10 entries
-  records.value = records.value.slice(0, 10)
-}
 
 function giveUp() {
   // Clear search value
@@ -208,14 +195,14 @@ watch(() => modalStore.isOpen, () => {
   document.querySelector("body").classList = (modalStore.isOpen ? 'overflow-hidden' : '')
 })
 
-watch(records, () => {
+watch(() => recordsStore.records, () => {
   // Save records to localStorage
-  localStorage.setItem('records', JSON.stringify(records.value));
+  localStorage.setItem('records', JSON.stringify(recordsStore.records));
 })
 
 onMounted(() => {
   // Get stored records
-  if (localStorage.getItem('records')) records.value = JSON.parse(localStorage.getItem('records'))
+  if (localStorage.getItem('records')) recordsStore.records = JSON.parse(localStorage.getItem('records'))
 
   // Get stored games
   if (localStorage.getItem('games')) {

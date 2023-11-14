@@ -12,23 +12,9 @@
     <!-- Known health & souls container -->
     <div class="grid grid-cols-2 sm:flex sm:gap-1 lg:block mb-2 sm:mb-0">
       <!-- Known health -->
-      <div class="sm:inline-block lg:block">
-        <p class="text-sm">Health</p>
-        <Transition name="known" mode="out-in">
-          <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl"
-            :key="bossesStore.known.health">{{
-              bossesStore.known.health.toLocaleString() }}</p>
-        </Transition>
-      </div>
+      <KnownCount :count="bossesStore.known.health" value="health" />
       <!-- Known souls -->
-      <div class="sm:inline-block lg:block">
-        <p class="text-sm">Souls</p>
-        <Transition name="known" mode="out-in">
-          <p class="sm:min-w-[5rem] sm:h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl"
-            :key="bossesStore.known.souls">{{
-              bossesStore.known.souls.toLocaleString() }}</p>
-        </Transition>
-      </div>
+      <KnownCount :count="bossesStore.known.souls" value="souls" />
     </div>
     <!-- Known weaknesses & resistances container -->
     <div class="grid grid-cols-2 sm:flex sm:gap-1 lg:block">
@@ -68,7 +54,7 @@ import { useBossesStore } from '@/stores/bossesStore'
 const bossesStore = useBossesStore()
 </script>
 
-<style scoped>
+<style>
 .known-enter-active,
 .known-leave-active {
   transition: all 350ms ease-out;

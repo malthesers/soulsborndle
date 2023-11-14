@@ -9,7 +9,7 @@
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <!-- Known info container -->
-      <KnownInfo />
+      <KnownPanel />
       <!-- Boss search/guess container -->
       <div class="w-full">
         <SearchPanel />

@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BossesModal: typeof import('./src/components/modals/BossesModal.vue')['default']
     BossGuess: typeof import('./src/components/panels/guesses/BossGuess.vue')['default']
+    BossGuessDamage: typeof import('./src/components/panels/guesses/BossGuessDamage.vue')['default']
     BossSearch: typeof import('./src/components/panels/search/BossSearch.vue')['default']
     Button: typeof import('./src/components/layout/Button.vue')['default']
     DamageBox: typeof import('./src/components/layout/DamageBox.vue')['default']

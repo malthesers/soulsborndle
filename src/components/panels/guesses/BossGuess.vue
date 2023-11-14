@@ -40,56 +40,18 @@
       <!-- Weaknesses & Resistances container -->
       <div class="w-full flex gap-1">
         <!-- Guessed boss weaknesses -->
-        <div :class="weaknessesBgColor" class="sm:min-w-[8rem] w-full p-1">
-          <p class="text-sm">Weaknesses</p>
-          <div class="h-11 flex flex-row justify-center gap-1">
-            <DamageBox v-for="weakness in boss.weaknesses" :key="weakness" :damageType="weakness" />
-          </div>
-        </div>
+        <BossGuessDamage :damageList="boss.weaknesses" text="Weaknesses" />
         <!-- Guessed boss resistances -->
-        <div :class="resistancesBgColor" class="sm:min-w-[8rem] w-full p-1">
-          <p class="text-sm">Resistances</p>
-          <div class="h-11 flex flex-row justify-center gap-1">
-            <DamageBox v-for="resistance in boss.resistances" :key="resistance" :damageType="resistance" />
-          </div>
-        </div>
+        <BossGuessDamage :damageList="boss.resistances" text="Resistances" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { DamageType } from '@/interfaces';
 import type { Boss } from '@/interfaces/Boss';
 import { useBossesStore } from '@/stores/bossesStore'
 
 const bossesStore = useBossesStore()
 const props = defineProps<{ boss: Boss }>()
-
-
-const weaknessesBgColor = computed(() => {
-  // Set to red by default
-  let bgColor = 'bg-red-900';
-
-  // Make weaknesses yellow if partially correct
-  if (bossesStore.answer.weaknesses.some(weak => props.boss.weaknesses.includes(weak))) bgColor = 'bg-yellow-700'
-
-  // Make weaknesses green if completely correct
-  if (bossesStore.answer.weaknesses.toString() === props.boss.weaknesses.toString()) bgColor = 'bg-green-900'
-
-  return bgColor
-})
-
-const resistancesBgColor = computed(() => {
-  // Set to red by default
-  let bgColor = 'bg-red-900';
-
-  // Make resistances yellow if partially correct
-  if (bossesStore.answer.resistances.some((weak: DamageType) => props.boss.resistances.includes(weak))) bgColor = 'bg-yellow-700'
-
-  // Make resistances green if completely correct
-  if (bossesStore.answer.resistances.toString() === props.boss.resistances.toString()) bgColor = 'bg-green-900'
-
-  return bgColor
-})
 </script>

@@ -70,12 +70,10 @@ function hideGames() {
 }
 
 function toggleGame(key: keyof Chosen) {
-  // Toggle game
+  // Toggle game and reset error messages
   gamesStore.chosen[key as keyof Chosen] = !gamesStore.chosen[key as keyof Chosen]
-
-  // Reset error messages
-  showErrorMessage.value = false
   showErrorMessageExtra.value = false
+  showErrorMessage.value = false
 
   // Start new game
   emits('newGame')

@@ -11,7 +11,7 @@ interface Props {
   hover?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   hover: true
 })
 </script>

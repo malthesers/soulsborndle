@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import type { DamageType } from '@/interfaces';
 
-const props = defineProps<{
+defineProps<{
   damageList: DamageType[],
   value: 'weaknesses' | 'resistances'
 }>()

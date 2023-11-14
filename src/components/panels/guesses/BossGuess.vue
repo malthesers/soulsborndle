@@ -30,6 +30,7 @@
 import type { Boss } from '@/interfaces';
 import { useBossesStore } from '@/stores/bossesStore'
 
+defineProps<{ boss: Boss }>()
+
 const bossesStore = useBossesStore()
-const props = defineProps<{ boss: Boss }>()
 </script>

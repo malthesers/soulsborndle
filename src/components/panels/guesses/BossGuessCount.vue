@@ -16,7 +16,7 @@
 import { useBossesStore } from '@/stores/bossesStore'
 
 const bossesStore = useBossesStore()
-const props = defineProps<{
+defineProps<{
   count: number,
   value: 'health' | 'souls'
 }>()

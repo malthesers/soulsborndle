@@ -29,5 +29,5 @@
 <script setup lang="ts">
 import type { Boss } from '@/interfaces';
 
-const props = defineProps<{ boss: Boss }>()
+defineProps<{ boss: Boss }>()
 </script>

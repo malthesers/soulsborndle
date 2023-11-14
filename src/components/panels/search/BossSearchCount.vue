@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   count: number,
   value: 'health' | 'souls'
 }>()

@@ -11,9 +11,9 @@
       <!-- Health & Souls container -->
       <div class="w-full flex gap-1 sm:w-min">
         <!-- Guessed boss health -->
-        <BossGuessCounts :count="boss.health" value="health" />
+        <BossGuessCount :count="boss.health" value="health" />
         <!-- Guessed boss souls -->
-        <BossGuessCounts :count="boss.souls" value="souls" />
+        <BossGuessCount :count="boss.souls" value="souls" />
       </div>
       <!-- Weaknesses & Resistances container -->
       <div class="w-full flex gap-1">

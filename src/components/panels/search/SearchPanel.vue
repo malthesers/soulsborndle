@@ -17,6 +17,7 @@
 import type { Boss } from '@/interfaces';
 import { useBossesStore } from '@/stores/bossesStore'
 import { useModalStore } from '@/stores/modalStore';
+import Fuse from 'fuse.js';
 
 const bossesStore = useBossesStore()
 const modalStore = useModalStore()
@@ -25,8 +26,14 @@ const search: Ref<string> = ref('')
 const showSearch: ComputedRef<boolean> = computed(() => search.value.length > 1 ? true : false)
 
 const searchedBosses: ComputedRef<Boss[]> = computed(() => {
-  return bossesStore.remainingBosses.filter(boss => boss.name.toLocaleLowerCase().includes(search.value.toLocaleLowerCase())
-  ).slice(0, 15)
+  const fuse = new Fuse(bossesStore.remainingBosses, {
+    keys: ['name'],
+    threshold: 0.3
+  })
+
+  return fuse.search(search.value, {
+    limit: 10
+  }).map(result => result.item)
 })
 
 function enterGuess(boss: Boss) {

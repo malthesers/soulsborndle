@@ -15,8 +15,8 @@
               class="font-bold text-red-700">red</span> background means the game will be <span
               class="font-bold">excluded.</span></p>
           <div class="grid grid-cols-2 gap-4 mb-2">
-            <Button v-for="(game, key) in gamesStore.chosen" :key="game.name" :text="game.name"
-              :class="game.isChosen ? 'bg-green-900' : 'bg-red-900'" class="!px-2 hover:bg-opacity-50" :hover="false"
+            <Button v-for="(game, key) in gamesStore.chosen" :key="key" :text="games[key]"
+              :class="game ? 'bg-green-900' : 'bg-red-900'" class="!px-2 hover:bg-opacity-50" :hover="false"
               @click="toggleGame(key)" />
           </div>
           <!-- Error message -->
@@ -35,7 +35,8 @@
 <script setup lang="ts">
 import { useModalStore } from '@/stores/modalStore'
 import { useGamesStore } from '@/stores/gamesStore'
-import type { ChosenGames } from '@/interfaces/ChosenGames';
+import type { Chosen } from '@/interfaces/Chosen';
+import type { Game } from '@/interfaces';
 
 const emits = defineEmits(['hideGames', 'newGame'])
 
@@ -44,6 +45,16 @@ const gamesStore = useGamesStore()
 const bossesModal: Ref<HTMLDivElement | null> = ref(null)
 const showErrorMessage: Ref<boolean> = ref(false)
 const showErrorMessageExtra: Ref<boolean> = ref(false)
+const games: Ref<{
+  [key: string]: Game
+}> = ref({
+  demonsSouls: 'Demon\'s Souls',
+  darkSouls1: 'Dark Souls',
+  darkSouls2: 'Dark Souls II',
+  darkSouls3: 'Dark Souls III',
+  bloodborne: 'Bloodborne',
+  eldenRing: 'Elden Ring'
+})
 
 function hideGames() {
   if (gamesStore.noGamesChosen && !showErrorMessage.value) {
@@ -58,9 +69,9 @@ function hideGames() {
   }
 }
 
-function toggleGame(key: keyof ChosenGames) {
+function toggleGame(key: keyof Chosen) {
   // Toggle game
-  gamesStore.chosen[key as keyof ChosenGames].isChosen = !gamesStore.chosen[key as keyof ChosenGames].isChosen
+  gamesStore.chosen[key as keyof Chosen] = !gamesStore.chosen[key as keyof Chosen]
 
   // Reset error messages
   showErrorMessage.value = false

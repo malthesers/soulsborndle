@@ -31,7 +31,7 @@ import { useRecordsStore } from '@/stores/recordsStore'
 import { useBossesStore } from '@/stores/bossesStore'
 import { useModalStore } from '@/stores/modalStore'
 import { useGamesStore } from '@/stores/gamesStore'
-import type { ChosenGames } from '@/interfaces/ChosenGames';
+import type { Chosen } from '@/interfaces/Chosen';
 
 const recordsStore = useRecordsStore()
 const bossesStore = useBossesStore()
@@ -96,7 +96,7 @@ onMounted(() => {
   if (localStorage.getItem('games')) {
     const savedGames = JSON.parse(localStorage.getItem('games') as string)
 
-    Object.keys(savedGames).forEach((key) => gamesStore.chosen[key as keyof ChosenGames].isChosen = savedGames[key].isChosen)
+    Object.keys(savedGames).forEach((key) => gamesStore.chosen[key as keyof Chosen] = savedGames[key])
   }
 
   // Open bosses selection modal if none chosen

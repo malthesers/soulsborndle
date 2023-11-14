@@ -5,7 +5,7 @@ import { defineStore } from 'pinia'
 import { bosses } from '../bosses'
 import { type Ref } from 'vue'
 import type { Known } from '../interfaces/Known'
-import type { Boss } from '../interfaces/Boss'
+import type { Boss } from '@/interfaces'
 import type { DamageType } from '@/interfaces'
 
 export const useBossesStore = defineStore('bossesStore', () => {

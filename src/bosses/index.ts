@@ -4,7 +4,7 @@ import { darkSouls2Bosses } from './dark-souls-2'
 import { darkSouls3Bosses } from './dark-souls-3'
 import { bloodborneBosses } from './bloodborne'
 import { eldenRingBosses } from './elden-ring'
-import type { Boss } from '../interfaces/Boss'
+import type { Boss } from '@/interfaces'
 
 const bosses:Boss[] = [
   ...demonsSoulsBosses,

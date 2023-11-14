@@ -12,18 +12,18 @@
     <!-- Known health & souls container -->
     <div class="grid grid-cols-2 sm:flex sm:gap-1 lg:block mb-2 sm:mb-0">
       <!-- Known health -->
-      <KnownCount :count="bossesStore.known.health" value="health" />
+      <KnownCount :count="bossesStore.known.health" value='health' />
       <!-- Known souls -->
-      <KnownCount :count="bossesStore.known.souls" value="souls" />
+      <KnownCount :count="bossesStore.known.souls" value='souls' />
     </div>
     <!-- Known weaknesses & resistances container -->
     <div class="grid grid-cols-2 sm:flex sm:gap-1 lg:block">
       <!-- Known weaknesses -->
       <KnownDamage :hasNo="bossesStore.known.hasNo.weaknesses" :damageList="bossesStore.known.weaknesses"
-        value="weaknesses" />
+        value='weaknesses' />
       <!-- Known restistances -->
       <KnownDamage :hasNo="bossesStore.known.hasNo.resistances" :damageList="bossesStore.known.resistances"
-        value="resistances" />
+        value='resistances' />
     </div>
   </div>
 </template>

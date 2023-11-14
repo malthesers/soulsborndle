@@ -11,16 +11,16 @@
       <!-- Health & Souls container -->
       <div class="w-full flex gap-1 sm:w-min">
         <!-- Guessed boss health -->
-        <BossGuessCount :count="boss.health" value="health" />
+        <BossGuessCount :count="boss.health" value='health' />
         <!-- Guessed boss souls -->
-        <BossGuessCount :count="boss.souls" value="souls" />
+        <BossGuessCount :count="boss.souls" value='souls' />
       </div>
       <!-- Weaknesses & Resistances container -->
       <div class="w-full flex gap-1">
         <!-- Guessed boss weaknesses -->
-        <BossGuessDamage :damageList="boss.weaknesses" value="weaknesses" />
+        <BossGuessDamage :damageList="boss.weaknesses" value='weaknesses' />
         <!-- Guessed boss resistances -->
-        <BossGuessDamage :damageList="boss.resistances" value="resistances" />
+        <BossGuessDamage :damageList="boss.resistances" value='resistances' />
       </div>
     </div>
   </div>

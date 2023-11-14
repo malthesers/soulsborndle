@@ -25,7 +25,8 @@ const search: Ref<string> = ref('')
 const showSearch: ComputedRef<boolean> = computed(() => search.value.length > 1 ? true : false)
 
 const searchedBosses: ComputedRef<Boss[]> = computed(() => {
-  return bossesStore.allBosses.filter(boss => boss.name.toLocaleLowerCase().includes(search.value.toLocaleLowerCase())).slice(0, 15)
+  return bossesStore.remainingBosses.filter(boss => boss.name.toLocaleLowerCase().includes(search.value.toLocaleLowerCase())
+  ).slice(0, 15)
 })
 
 function enterGuess(boss: Boss) {

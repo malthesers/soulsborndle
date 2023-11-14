@@ -63,7 +63,7 @@ function newGame() {
   modalStore.close('failed')
 
   // Generate new boss
-  bossesStore.answer = { ...bossesStore.allBosses[Math.floor(Math.random() * bossesStore.allBosses.length)] }
+  bossesStore.answer = { ...bossesStore.filteredBosses[Math.floor(Math.random() * bossesStore.filteredBosses.length)] }
 
   // Reset known info
   bossesStore.known.name = '???'

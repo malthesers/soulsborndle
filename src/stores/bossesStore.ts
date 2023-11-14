@@ -12,9 +12,14 @@ export const useBossesStore = defineStore('bossesStore', () => {
   const recordsStore = useRecordsStore()
   const modalStore = useModalStore()
   const gamesStore = useGamesStore()
+  
   const damageTypes:Ref<DamageType[]> = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
+
   const allBosses:Ref<Boss[]> = ref(bosses)
   const guessedBosses:Ref<Boss[]> = ref([])
+  const filteredBosses:ComputedRef<Boss[]> = computed(() => allBosses.value.filter((boss) => gamesStore.games.includes(boss.game))) 
+  const remainingBosses:ComputedRef<Boss[]> = computed(() => filteredBosses.value.filter((boss) => !guessedBosses.value.includes(boss)))
+  
   const answer:Ref<Boss> = ref({
     name: '?',
     game: '?',
@@ -23,6 +28,7 @@ export const useBossesStore = defineStore('bossesStore', () => {
     weaknesses: [],
     resistances: [],
   })
+  
   const known:Ref<Known> = ref({
     name: '?',
     game: '?',
@@ -106,9 +112,11 @@ export const useBossesStore = defineStore('bossesStore', () => {
   }
 
   return {
-    damageTypes,
     allBosses,
     guessedBosses,
+    filteredBosses,
+    remainingBosses,
+    damageTypes,
     answer,
     known,
     validateGuess

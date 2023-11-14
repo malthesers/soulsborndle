@@ -1,8 +1,17 @@
-import type { Chosen } from '@/interfaces'
+import type { Chosen, Game } from '@/interfaces'
 import { defineStore } from 'pinia'
 import { type Ref } from 'vue'
 
 export const useGamesStore = defineStore('gamesStore', () => {
+  const names: Ref<{ [key: string]: Game }> = ref({
+    demonsSouls: 'Demon\'s Souls',
+    darkSouls1: 'Dark Souls',
+    darkSouls2: 'Dark Souls II',
+    darkSouls3: 'Dark Souls III',
+    bloodborne: 'Bloodborne',
+    eldenRing: 'Elden Ring'
+  })
+
   const chosen:Ref<Chosen> = ref({
     demonsSouls: true,
     darkSouls1: true,
@@ -10,6 +19,10 @@ export const useGamesStore = defineStore('gamesStore', () => {
     darkSouls2: true,
     eldenRing: true,
     darkSouls3: true,
+  })
+
+  const games:ComputedRef<Game[]> = computed(() => {
+    return Object.entries(chosen.value).filter(([key, value]) => value).map(([key]) => names.value[key])
   })
   
   const oneGameChosen:ComputedRef<boolean> = computed(() => {
@@ -23,6 +36,8 @@ export const useGamesStore = defineStore('gamesStore', () => {
   })
 
   return {
+    names,
+    games,
     chosen,
     oneGameChosen,
     noGamesChosen

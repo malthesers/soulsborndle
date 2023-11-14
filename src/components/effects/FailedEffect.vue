@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { useModalStore } from '@/stores/modalStore'
+
 defineEmits(['hideEffect'])
 
 const modalStore = useModalStore()

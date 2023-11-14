@@ -51,8 +51,9 @@
           </Transition>
           <!-- Buttons -->
           <div class="flex gap-4 justify-center mt-2">
-            <Button v-if="recordsStore.records.length !== 0" @click="recordsStore.clearRecords()" text="Clear records" />
-            <Button @click="modalStore.close('records')" text="Close" />
+            <SoulsButton v-if="recordsStore.records.length !== 0" @click="recordsStore.clearRecords()"
+              text="Clear records" />
+            <SoulsButton @click="modalStore.close('records')" text="Close" />
           </div>
         </div>
       </div>

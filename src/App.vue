@@ -1,5 +1,5 @@
 <template>
-  <YharnamScreen/>
-  <Header/>
-  <Game/>
+  <YharnamScreen />
+  <TheHeader />
+  <GameScreen />
 </template>

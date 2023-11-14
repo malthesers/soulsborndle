@@ -33,7 +33,7 @@
             </p>
           </div>
           <!-- Buttons -->
-          <Button @click="modalStore.close('instructions')" text="Close" />
+          <SoulsButton @click="modalStore.close('instructions')" text="Close" />
         </div>
       </div>
     </Transition>

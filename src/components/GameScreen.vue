@@ -2,10 +2,10 @@
   <main class="max-w-5xl mx-auto p-2 m-2 xs:my-8">
     <!-- Button group -->
     <div class="grid grid-cols-2 sm:flex gap-4 mb-4">
-      <Button @click="giveUp" text="New Game" />
-      <Button @click="modalStore.open('instructions')" text="Instructions" />
-      <Button @click="modalStore.open('records')" text="Records" />
-      <Button @click="modalStore.open('bosses')" text="Bosses" />
+      <SoulsButton @click="giveUp" text="New Game" />
+      <SoulsButton @click="modalStore.open('instructions')" text="Instructions" />
+      <SoulsButton @click="modalStore.open('records')" text="Records" />
+      <SoulsButton @click="modalStore.open('bosses')" text="Bosses" />
     </div>
     <div class="grid lg:grid-cols-[1fr_3fr] gap-4">
       <!-- Known info container -->

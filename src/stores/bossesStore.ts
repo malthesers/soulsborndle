@@ -4,7 +4,7 @@ import { useGamesStore } from '@/stores/gamesStore'
 import { defineStore } from 'pinia'
 import { bosses } from '../bosses'
 import { type Ref } from 'vue'
-import type { Known } from '../interfaces/Known'
+import type { Known } from '@/interfaces'
 import type { Boss } from '@/interfaces'
 import type { DamageType } from '@/interfaces'
 

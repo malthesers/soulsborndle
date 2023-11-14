@@ -15,7 +15,7 @@
               class="font-bold text-red-700">red</span> background means the game will be <span
               class="font-bold">excluded.</span></p>
           <div class="grid grid-cols-2 gap-4 mb-2">
-            <Button v-for="(game, key) in gamesStore.chosen" :key="key" :text="games[key]"
+            <SoulsButton v-for="(game, key) in gamesStore.chosen" :key="key" :text="games[key]"
               :class="game ? 'bg-green-900' : 'bg-red-900'" class="!px-2 hover:bg-opacity-50" :hover="false"
               @click="toggleGame(key)" />
           </div>
@@ -25,7 +25,7 @@
               class="text-red-500 drop-shadow-red duration-300 overflow-hidden">You must choose at least 1 game.</p>
           </Transition>
           <!-- Buttons -->
-          <Button @click="hideGames" text="Close" class="mt-2" />
+          <SoulsButton @click="hideGames" text="Close" class="mt-2" />
         </div>
       </div>
     </Transition>

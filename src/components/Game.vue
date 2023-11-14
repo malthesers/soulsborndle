@@ -99,9 +99,8 @@ onMounted(() => {
     Object.keys(savedGames).forEach((key) => gamesStore.chosen[key as keyof ChosenGames].isChosen = savedGames[key].isChosen)
   }
 
-  if (gamesStore.noGamesChosen) {
-    modalStore.open('bosses')
-  }
+  // Open bosses selection modal if none chosen
+  if (gamesStore.noGamesChosen) modalStore.open('bosses')
 
   // Start first game
   newGame()

@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { useModalStore } from '@/stores/modalStore'
 
-const emits = defineEmits(['hideEffect'])
+defineEmits(['hideEffect'])
 
 const modalStore = useModalStore()
 const guessedText: Ref<string> = ref('BOSS GUESSED');

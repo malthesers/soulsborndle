@@ -6,8 +6,9 @@
         class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer">
         <div
           class="grid grid-cols-[1fr] grid-rows-[1fr] place-content-center py-12 vertical-fade text-4xl sm:text-5xl md:text-7xl text-center">
-          <p class="col-[1/1] row-[1/1] z-20 whitespace-nowrap text-red-900 brightness-100 transform scale-y-[150%]">YOU
-            FAILED</p>
+          <p class="col-[1/1] row-[1/1] z-20 whitespace-nowrap text-red-900 brightness-100 transform scale-y-[150%]">
+            {{ failedText }}
+          </p>
         </div>
       </div>
     </Transition>
@@ -16,9 +17,10 @@
 
 <script setup lang="ts">
 import { useModalStore } from '@/stores/modalStore'
-const emits = defineEmits(['hideEffect'])
+defineEmits(['hideEffect'])
 
 const modalStore = useModalStore()
+const failedText: Ref<string> = ref('BOSS GUESSED');
 const failedEffect: Ref<HTMLDivElement | null> = ref(null)
 
 watch(failedEffect, (newValue) => {

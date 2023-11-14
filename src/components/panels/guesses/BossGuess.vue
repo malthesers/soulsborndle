@@ -18,9 +18,9 @@
       <!-- Weaknesses & Resistances container -->
       <div class="w-full flex gap-1">
         <!-- Guessed boss weaknesses -->
-        <BossGuessDamage :damageList="boss.weaknesses" text="Weaknesses" />
+        <BossGuessDamage :damageList="boss.weaknesses" value="weaknesses" />
         <!-- Guessed boss resistances -->
-        <BossGuessDamage :damageList="boss.resistances" text="Resistances" />
+        <BossGuessDamage :damageList="boss.resistances" value="resistances" />
       </div>
     </div>
   </div>

@@ -11,32 +11,16 @@
       <!-- Health & Souls container -->
       <div class="w-full flex gap-1 sm:w-min">
         <!-- Boss health -->
-        <div class="sm:min-w-[5rem] w-full text-xl p-1">
-          <p class="text-sm">Health</p>
-          <p class="leading-[2.2]">{{ boss.health.toLocaleString() }}</p>
-        </div>
+        <BossSearchCount :count="boss.health" value="health" />
         <!-- Boss souls -->
-        <div class="sm:min-w-[5rem] w-full text-xl p-1">
-          <p class="text-sm">Souls</p>
-          <p class="leading-[2.2]">{{ boss.souls.toLocaleString() }}</p>
-        </div>
+        <BossSearchCount :count="boss.souls" value="souls" />
       </div>
       <!-- Weaknesses & Resistances container -->
       <div class="w-full flex gap-1">
         <!-- Boss weaknesses -->
-        <div class="sm:min-w-[8rem] w-full p-1">
-          <p class="text-sm">Weaknesses</p>
-          <div class="h-11 flex flex-row justify-center gap-1">
-            <DamageBox v-for="weakness in boss.weaknesses" :key="weakness" :damageType="weakness" />
-          </div>
-        </div>
+        <BossSearchDamage :damageList="boss.weaknesses" value="weaknesses" />
         <!-- Boss resistances -->
-        <div class="sm:min-w-[8rem] w-full p-1">
-          <p class="text-sm">Resistances</p>
-          <div class="h-11 flex flex-row justify-center gap-1">
-            <DamageBox v-for="resistance in boss.resistances" :key="resistance" :damageType="resistance" />
-          </div>
-        </div>
+        <BossSearchDamage :damageList="boss.resistances" value="resistances" />
       </div>
     </div>
   </article>

@@ -1,11 +1,11 @@
-import type { ChosenGames } from '@/interfaces/ChosenGames'
+import type { Chosen } from '@/interfaces'
 import { defineStore } from 'pinia'
 import type { Ref } from 'vue'
 
 interface Record {
   name: string,
   guesses: number,
-  games: ChosenGames
+  games: Chosen
 }
 
 export const useRecordsStore = defineStore('recordsStore', () => {
@@ -15,7 +15,7 @@ export const useRecordsStore = defineStore('recordsStore', () => {
     records.value = []
   }
 
-  function updateRecords(name:string, guesses:number, games:ChosenGames) {
+  function updateRecords(name:string, guesses:number, games:Chosen) {
     // Add to array
     records.value.push({
       name: name,

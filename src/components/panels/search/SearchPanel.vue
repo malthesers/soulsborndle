@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Boss } from '@/interfaces/Boss';
+import type { Boss } from '@/interfaces';
 import { useBossesStore } from '@/stores/bossesStore'
 import { useModalStore } from '@/stores/modalStore';
 

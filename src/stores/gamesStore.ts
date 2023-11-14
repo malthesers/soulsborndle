@@ -1,4 +1,4 @@
-import type { Chosen } from '@/interfaces/Chosen'
+import type { Chosen } from '@/interfaces'
 import { defineStore } from 'pinia'
 import { type Ref } from 'vue'
 

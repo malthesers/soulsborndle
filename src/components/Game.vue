@@ -31,7 +31,7 @@ import { useRecordsStore } from '@/stores/recordsStore'
 import { useBossesStore } from '@/stores/bossesStore'
 import { useModalStore } from '@/stores/modalStore'
 import { useGamesStore } from '@/stores/gamesStore'
-import type { Chosen } from '@/interfaces/Chosen';
+import type { Chosen } from '@/interfaces';
 
 const recordsStore = useRecordsStore()
 const bossesStore = useBossesStore()

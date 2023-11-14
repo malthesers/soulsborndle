@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Boss } from '@/interfaces/Boss';
+import type { Boss } from '@/interfaces';
 
 const props = defineProps<{ boss: Boss }>()
 </script>

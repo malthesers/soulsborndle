@@ -54,7 +54,7 @@ const games: Ref<{ [key: string]: Game }> = ref({
   eldenRing: 'Elden Ring'
 })
 
-function hideGames() {
+function hideGames(): void {
   if (gamesStore.noGamesChosen && !showErrorMessage.value) {
     // Show error message if no games chosen
     showErrorMessage.value = true
@@ -67,7 +67,7 @@ function hideGames() {
   }
 }
 
-function toggleGame(key: keyof Chosen) {
+function toggleGame(key: keyof Chosen): void {
   // Toggle game and reset error messages
   gamesStore.chosen[key as keyof Chosen] = !gamesStore.chosen[key as keyof Chosen]
   showErrorMessageExtra.value = false

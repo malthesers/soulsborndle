@@ -9,13 +9,13 @@ interface Record {
 }
 
 export const useRecordsStore = defineStore('recordsStore', () => {
-  const records:Ref<Record[]> = ref([])
+  const records: Ref<Record[]> = ref([])
 
-  function clearRecords() {
+  function clearRecords(): void {
     records.value = []
   }
 
-  function updateRecords(name:string, guesses:number, games:Chosen) {
+  function updateRecords(name: string, guesses: number, games: Chosen): void {
     // Add to array
     records.value.push({
       name: name,

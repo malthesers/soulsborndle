@@ -11,12 +11,12 @@ export const useBossesStore = defineStore('bossesStore', () => {
   const modalStore = useModalStore()
   const gamesStore = useGamesStore()
   
-  const damageTypes:Ref<DamageType[]> = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
+  const damageTypes: Ref<DamageType[]> = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
 
-  const allBosses:Ref<Boss[]> = ref(bosses)
-  const guessedBosses:Ref<Boss[]> = ref([])
-  const filteredBosses:ComputedRef<Boss[]> = computed(() => allBosses.value.filter((boss) => gamesStore.games.includes(boss.game))) 
-  const remainingBosses:ComputedRef<Boss[]> = computed(() => filteredBosses.value.filter((boss) => !guessedBosses.value.includes(boss)))
+  const allBosses: Ref<Boss[]> = ref(bosses)
+  const guessedBosses: Ref<Boss[]> = ref([])
+  const filteredBosses: ComputedRef<Boss[]> = computed(() => allBosses.value.filter((boss) => gamesStore.games.includes(boss.game))) 
+  const remainingBosses: ComputedRef<Boss[]> = computed(() => filteredBosses.value.filter((boss) => !guessedBosses.value.includes(boss)))
   
   const answer:Ref<Boss> = ref({
     name: '?',
@@ -40,7 +40,7 @@ export const useBossesStore = defineStore('bossesStore', () => {
     }
   })
 
-  function validateGuess(boss:Boss): void {
+  function validateGuess(boss: Boss): void {
     // Add to guessed bosses
     guessedBosses.value.unshift(boss);
   
@@ -76,14 +76,14 @@ export const useBossesStore = defineStore('bossesStore', () => {
         
         // If guessed boss has exactly 1 weakness/resistance
         else if (boss[damageArray].length === 1) {
-          const damageType:DamageType = boss[damageArray][0]
+          const damageType: DamageType = boss[damageArray][0]
           
           // If correct boss contains the one weakness/resistance and it is not already added
           if (answer.value[damageArray].includes(damageType) && !known.value[damageArray].includes(damageType)) {
             // Get indices to place damageType properly
-            const guessedIndex:number = damageTypes.value.findIndex(type => type === damageType)
-            const knownIndex1:number = damageTypes.value.findIndex(type => type === known.value[damageArray][0])
-            const knownIndex2:number = damageTypes.value.findIndex(type => type === known.value[damageArray][1])
+            const guessedIndex: number = damageTypes.value.findIndex(type => type === damageType)
+            const knownIndex1: number = damageTypes.value.findIndex(type => type === known.value[damageArray][0])
+            const knownIndex2: number = damageTypes.value.findIndex(type => type === known.value[damageArray][1])
   
             // If 0 known weaknesses/resistances
             if (known.value[damageArray].length === 0) {

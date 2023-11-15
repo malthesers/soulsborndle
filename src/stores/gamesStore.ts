@@ -22,7 +22,7 @@ export const useGamesStore = defineStore('gamesStore', () => {
   })
 
   const games:ComputedRef<Game[]> = computed(() => {
-    return Object.entries(chosen.value).filter(([key, value]) => value).map(([key]) => names.value[key])
+    return Object.entries(chosen.value).filter(([_key, value]) => value).map(([key]) => names.value[key])
   })
   
   const oneGameChosen:ComputedRef<boolean> = computed(() => {

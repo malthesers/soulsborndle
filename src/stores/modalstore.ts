@@ -22,11 +22,11 @@ export const useModalStore = defineStore('modalStore', () => {
     return Object.values(showing.value).some(modal => modal === true)
   })
 
-  function open(modal:keyof Modals) {
+  function open(modal:keyof Modals): void {
     showing.value[modal] = true
   }
 
-  function close(modal:keyof Modals) {
+  function close(modal:keyof Modals): void {
     showing.value[modal] = false
   }
 

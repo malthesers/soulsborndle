@@ -35,17 +35,17 @@ const searchedBosses: ComputedRef<Boss[]> = computed(() => {
   }).map(result => result.item)
 })
 
-function enterGuess(boss: Boss) {
+function enterGuess(boss: Boss): void {
   bossesStore.validateGuess(boss)
   search.value = ''
   focusInput()
 }
 
-function focusInput() {
+function focusInput(): void {
   if (screen.width > 669) searchInput.value?.focus()
 }
 
-modalStore.$subscribe((mutation, state) => {
+modalStore.$subscribe((_mutation, state) => {
   if (state.showing['guessed'] || state.showing['failed']) search.value = ''
   if (!state.showing['guessed'] || !state.showing['failed']) focusInput()
 })

@@ -38,7 +38,7 @@ const bossesStore = useBossesStore()
 const modalStore = useModalStore()
 const gamesStore = useGamesStore()
 
-function giveUp() {
+function giveUp(): void {
   // Trigger failure events
   modalStore.open('failed')
 
@@ -56,7 +56,7 @@ function giveUp() {
   bossesStore.known.hasNo.resistances = (bossesStore.answer.resistances.length === 0 ? true : false)
 }
 
-function newGame() {
+function newGame(): void {
   // Clear guesses
   bossesStore.guessedBosses.splice(0)
   modalStore.close('guessed')

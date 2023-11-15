@@ -18,7 +18,7 @@ export const useModalStore = defineStore('modalStore', () => {
     failed: false
   })
   
-  const isOpen:ComputedRef<boolean> = computed(() => {
+  const isOpen: ComputedRef<boolean> = computed(() => {
     return Object.values(showing.value).some(modal => modal === true)
   })
 

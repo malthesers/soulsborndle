@@ -4,9 +4,7 @@ import { useGamesStore } from '@/stores/gamesStore'
 import { defineStore } from 'pinia'
 import { bosses } from '../bosses'
 import { type Ref } from 'vue'
-import type { Known } from '@/interfaces'
-import type { Boss } from '@/interfaces'
-import type { DamageType } from '@/interfaces'
+import type { Boss, DamageType, Known } from '@/interfaces'
 
 export const useBossesStore = defineStore('bossesStore', () => {
   const recordsStore = useRecordsStore()
@@ -42,7 +40,7 @@ export const useBossesStore = defineStore('bossesStore', () => {
     }
   })
 
-  function validateGuess(boss:Boss) {
+  function validateGuess(boss:Boss): void {
     // Add to guessed bosses
     guessedBosses.value.unshift(boss);
   
@@ -80,13 +78,12 @@ export const useBossesStore = defineStore('bossesStore', () => {
         else if (boss[damageArray].length === 1) {
           const damageType:DamageType = boss[damageArray][0]
           
-          if (damageType === undefined) return
           // If correct boss contains the one weakness/resistance and it is not already added
           if (answer.value[damageArray].includes(damageType) && !known.value[damageArray].includes(damageType)) {
             // Get indices to place damageType properly
-            const guessedIndex = damageTypes.value.findIndex(type => type === damageType)
-            const knownIndex1 = damageTypes.value.findIndex(type => type === known.value[damageArray][0])
-            const knownIndex2 = damageTypes.value.findIndex(type => type === known.value[damageArray][1])
+            const guessedIndex:number = damageTypes.value.findIndex(type => type === damageType)
+            const knownIndex1:number = damageTypes.value.findIndex(type => type === known.value[damageArray][0])
+            const knownIndex2:number = damageTypes.value.findIndex(type => type === known.value[damageArray][1])
   
             // If 0 known weaknesses/resistances
             if (known.value[damageArray].length === 0) {

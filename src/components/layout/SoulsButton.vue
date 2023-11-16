@@ -7,8 +7,8 @@
 
 <script setup lang="ts">
 interface Props {
-  text: string,
-  hover?: boolean
+  text: string, // Text to display in button
+  hover?: boolean // Adds hover fill effect if true
 }
 
 withDefaults(defineProps<Props>(), {

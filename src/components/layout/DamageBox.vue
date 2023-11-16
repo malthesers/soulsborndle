@@ -12,7 +12,7 @@ import type { DamageType } from '@/interfaces';
 
 interface Props {
   damageType: DamageType,
-  hover?: boolean
+  hover?: boolean // Adds hover name box if true
 }
 
 withDefaults(defineProps<Props>(), {

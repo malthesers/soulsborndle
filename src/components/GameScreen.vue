@@ -85,12 +85,12 @@ watch(() => modalStore.isOpen, () => {
 
 watch(recordsStore.records, () => {
   // Save records to localStorage
-  localStorage.setItem('records', JSON.stringify(recordsStore.records));
+  localStorage.setItem('soulsborndle/records', JSON.stringify(recordsStore.records));
 })
 
 onMounted(() => {
   // Get stored records
-  if (localStorage.getItem('records')) recordsStore.records = JSON.parse(localStorage.getItem('records') as string)
+  if (localStorage.getItem('soulsborndle/records')) recordsStore.records = JSON.parse(localStorage.getItem('soulsborndle/records') as string)
 
   // Get stored games
   if (localStorage.getItem('games')) {

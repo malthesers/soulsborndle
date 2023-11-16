@@ -18,15 +18,14 @@ const props = defineProps<{
 }>()
 
 const backgroundColour: ComputedRef<'bg-red-900' | 'bg-yellow-700' | 'bg-green-900'> = computed(() => {
-  // Set to red by default
-  let backgroundColour: 'bg-red-900' | 'bg-yellow-700' | 'bg-green-900' = 'bg-red-900';
+  // Check if partially correct or check if completely correct
+  const isPartial: boolean = bossesStore.answer[props.value].some((damageType: DamageType) => props.damageList.includes(damageType))
+  const isCorrect: boolean = bossesStore.answer[props.value].toString() === props.damageList.toString()
 
-  // Make weaknesses/resistances yellow if partially correct
-  if (bossesStore.answer[props.value].some((damageType: DamageType) => props.damageList.includes(damageType))) backgroundColour = 'bg-yellow-700'
-
-  // Make weaknesses/resistances green if completely correct
-  if (bossesStore.answer[props.value].toString() === props.damageList.toString()) backgroundColour = 'bg-green-900'
-
-  return backgroundColour
+  return (
+    isCorrect ? 'bg-green-900' :
+      isPartial ? 'bg-yellow-700' :
+        'bg-red-900'
+  )
 })
 </script>

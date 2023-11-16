@@ -25,28 +25,35 @@ const searchInput: Ref<HTMLInputElement | null> = ref(null)
 const search: Ref<string> = ref('')
 
 const searchedBosses: ComputedRef<Boss[]> = computed(() => {
+  // Create fuse searching by name pseudo-approximately
   const fuse = new Fuse(bossesStore.remainingBosses, {
     keys: ['name'],
     threshold: 0.3
   })
 
+  // Return top 10 results retrived from fuse objects
   return fuse.search(search.value, {
     limit: 10
   }).map(result => result.item)
 })
 
 function enterGuess(boss: Boss): void {
+  // Validate boss, clear search field and attempt focus
   bossesStore.validateGuess(boss)
   search.value = ''
   focusInput()
 }
 
 function focusInput(): void {
+  // Don't focus on mobile
   if (screen.width > 669) searchInput.value?.focus()
 }
 
+// When guessed or failed effects are applied
 modalStore.$subscribe((_mutation, state) => {
+  // If opened, clear input
   if (state.showing['guessed'] || state.showing['failed']) search.value = ''
+  // If closed, refocus input
   if (!state.showing['guessed'] || !state.showing['failed']) focusInput()
 })
 </script>

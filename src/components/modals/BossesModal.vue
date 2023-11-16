@@ -83,7 +83,7 @@ watch(bossesModal, (newValue) => {
 })
 
 watch(gamesStore.chosen, () => {
-  // Save chosen to localStorage
+  // Save chosen games to localStorage on change
   localStorage.setItem('soulsborndle/games', JSON.stringify(gamesStore.chosen));
 })
 </script>

@@ -52,6 +52,7 @@ const gamesDesktop: Ref<Game[]> = ref(['Demon\'s Souls', 'Bloodborne', 'Elden Ri
 const gamesMobile: Ref<Game[]> = ref(['Demon\'s Souls', 'Dark Souls', 'Bloodborne', 'Dark Souls II', 'Elden Ring', 'Dark Souls III'])
 
 watch(instructionsModal, (newValue) => {
-  if (newValue) newValue.focus() // Focus modal to allow continuing with keyboard
+  // Focus modal to allow continuing with keyboard
+  if (newValue) newValue.focus()
 })
 </script>

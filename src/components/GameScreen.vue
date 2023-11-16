@@ -93,8 +93,8 @@ onMounted(() => {
   if (localStorage.getItem('soulsborndle/records')) recordsStore.records = JSON.parse(localStorage.getItem('soulsborndle/records') as string)
 
   // Get stored games
-  if (localStorage.getItem('games')) {
-    const savedGames = JSON.parse(localStorage.getItem('games') as string)
+  if (localStorage.getItem('soulsborndle/games')) {
+    const savedGames = JSON.parse(localStorage.getItem('soulsborndle/games') as string)
 
     Object.keys(savedGames).forEach((key) => gamesStore.chosen[key as keyof Chosen] = savedGames[key])
   }

@@ -34,7 +34,19 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/desktop.png",
+      "src": "/screenshots/desktop1.png",
+      "type": "image/png",
+      "sizes": "1088x624",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshots/desktop2.png",
+      "type": "image/png",
+      "sizes": "1088x624",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshots/desktop3.png",
       "type": "image/png",
       "sizes": "1088x624",
       "form_factor": "wide"

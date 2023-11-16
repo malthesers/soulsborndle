@@ -76,6 +76,7 @@ function newGame(): void {
   bossesStore.known.hasNo.resistances = false
 }
 
+// When any modal is opened
 watch(() => modalStore.isOpen, () => {
   const body = document.querySelector('body') as HTMLBodyElement
 
@@ -83,11 +84,13 @@ watch(() => modalStore.isOpen, () => {
   modalStore.isOpen ? body.classList.add('overflow-hidden') : body.classList.remove('overflow-hidden')
 })
 
+// When a new record is set or records are cleared
 watch(recordsStore.records, () => {
   // Save records to localStorage
   localStorage.setItem('soulsborndle/records', JSON.stringify(recordsStore.records));
 })
 
+// When application is started
 onMounted(() => {
   // Get stored records
   if (localStorage.getItem('soulsborndle/records')) recordsStore.records = JSON.parse(localStorage.getItem('soulsborndle/records') as string)

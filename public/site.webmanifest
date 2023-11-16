@@ -28,9 +28,21 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshots/mobile.png",
+      "src": "/screenshots/mobile1.png",
       "type": "image/png",
-      "sizes": "372x613",
+      "sizes": "684x1140",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshots/mobile2.png",
+      "type": "image/png",
+      "sizes": "684x1140",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshots/mobile3.png",
+      "type": "image/png",
+      "sizes": "684x1140",
       "form_factor": "narrow"
     },
     {

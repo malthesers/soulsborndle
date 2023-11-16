@@ -21,7 +21,7 @@ import { useModalStore } from '@/stores/modalStore'
 defineEmits(['hideEffect'])
 
 const modalStore = useModalStore()
-const failedText: Ref<string> = ref('BOSS GUESSED');
+const failedText: Ref<string> = ref('YOU FAILED');
 const failedEffect: Ref<HTMLDivElement | null> = ref(null)
 
 watch(failedEffect, (newValue) => {

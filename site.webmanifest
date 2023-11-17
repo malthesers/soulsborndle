@@ -3,6 +3,12 @@
   "short_name": "Soulsborndle",
   "description": "A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!",
   "start_url": "/soulsborndle/",
+  "background_color": "#18181b",
+  "theme_color": "#18181b",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay"],
+  "lang": "en",
+  "categories": ["entertainment", "games"],
   "icons": [
     {
       "src": "android-chrome-192x192.png",
@@ -21,7 +27,42 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#18181b",
-  "background_color": "#18181b",
-  "display": "standalone"
+  "screenshots": [
+    {
+      "src": "screenshots/mobile1.png",
+      "type": "image/png",
+      "sizes": "684x1140",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/mobile2.png",
+      "type": "image/png",
+      "sizes": "684x1140",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/mobile3.png",
+      "type": "image/png",
+      "sizes": "684x1140",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/desktop1.png",
+      "type": "image/png",
+      "sizes": "1088x624",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshots/desktop2.png",
+      "type": "image/png",
+      "sizes": "1088x624",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshots/desktop3.png",
+      "type": "image/png",
+      "sizes": "1088x624",
+      "form_factor": "wide"
+    }
+  ]
 }

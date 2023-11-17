@@ -8,3 +8,9 @@
     <div class="yharnam-layer bg-[10%_center] bg-[url('/src/assets/background/6_foreground.svg')]"></div>
   </div>
 </template>
+
+<style lang="postcss" scoped>
+.yharnam-layer {
+  @apply absolute top-0 w-full h-full bg-cover;
+}
+</style>

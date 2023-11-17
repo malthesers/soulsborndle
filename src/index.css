@@ -16,10 +16,6 @@
   .failed-fade {
     transition: opacity 1000ms ease-in;
   }
-
-  .yharnam-layer {
-    @apply absolute top-0 w-full h-full bg-cover;
-  }
 }
 
 body::-webkit-scrollbar {

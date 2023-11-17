@@ -29,37 +29,37 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshots/mobile1.png",
+      "src": "screenshots/mobile1.png",
       "type": "image/png",
       "sizes": "684x1140",
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/mobile2.png",
+      "src": "screenshots/mobile2.png",
       "type": "image/png",
       "sizes": "684x1140",
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/mobile3.png",
+      "src": "screenshots/mobile3.png",
       "type": "image/png",
       "sizes": "684x1140",
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/desktop1.png",
+      "src": "screenshots/desktop1.png",
       "type": "image/png",
       "sizes": "1088x624",
       "form_factor": "wide"
     },
     {
-      "src": "/screenshots/desktop2.png",
+      "src": "screenshots/desktop2.png",
       "type": "image/png",
       "sizes": "1088x624",
       "form_factor": "wide"
     },
     {
-      "src": "/screenshots/desktop3.png",
+      "src": "screenshots/desktop3.png",
       "type": "image/png",
       "sizes": "1088x624",
       "form_factor": "wide"

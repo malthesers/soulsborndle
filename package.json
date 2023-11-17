@@ -1,8 +1,9 @@
 {
   "name": "soulsborndle",
-  "author": "Malthesers",
   "description": "A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!",
+  "author": "Malthesers",
   "version": "1.2.0",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -12,6 +13,10 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/malthesers/soulsborndle"
   },
   "dependencies": {
     "fuse.js": "^7.0.0",

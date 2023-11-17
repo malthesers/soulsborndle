@@ -1,7 +1,7 @@
 <template>
   <TransitionGroup :name="modalStore.showing['failed'] ? 'failed' : 'guess'" tag="div" mode="out-in"
     class="flex flex-col gap-4 min-h-[40rem] sm:min-h-0">
-    <BossGuess v-for="boss in bossesStore.guessedBosses" :key="boss.name" :boss="boss" class="failed-fade" />
+    <BossGuess v-for="boss in bossesStore.guessedBosses" :key="boss.name" :boss="boss" />
   </TransitionGroup>
 </template>
 

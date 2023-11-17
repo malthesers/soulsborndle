@@ -1,6 +1,8 @@
 {
   "name": "soulsborndle",
-  "version": "1.1.2",
+  "author": "Malthesers",
+  "description": "A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "dev": "vite",

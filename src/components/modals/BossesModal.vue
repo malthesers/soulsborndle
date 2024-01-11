@@ -1,5 +1,5 @@
 <template>
-  <ModalTemplate title="Bosses" :showModal="modalStore.showing['bosses']" :closeModal="hideGames">
+  <ModalTemplate title="Bosses" :showModal="modalStore.showing['bosses']" :closeModal="hideBosses">
     <p class="mb-2">Below you can choose the games whose bosses will be included.</p>
     <p class="mb-2">Bloodborne does not include Chalice Dungeon bosses, and Elden Ring does not include field
       bosses.</p>
@@ -25,7 +25,7 @@
         class="text-red-500 drop-shadow-red duration-300 overflow-hidden">You must choose at least 1 game.</p>
     </Transition>
     <!-- Buttons -->
-    <SoulsButton @click="hideGames" text="Close" class="mt-2" />
+    <SoulsButton @click="hideBosses" text="Close" class="mt-2" />
   </ModalTemplate>
 </template>
 
@@ -35,7 +35,7 @@ import { useGamesStore } from '@/stores/gamesStore'
 import type { Chosen } from '@/interfaces';
 import type { Game } from '@/interfaces';
 
-const emits = defineEmits(['hideGames', 'newGame'])
+const emits = defineEmits(['newGame'])
 
 const modalStore = useModalStore()
 const gamesStore = useGamesStore()
@@ -51,7 +51,7 @@ const games: Ref<{ [key: string]: Game }> = ref({
   eldenRing: 'Elden Ring'
 })
 
-function hideGames(): void {
+function hideBosses(): void {
   if (gamesStore.noGamesChosen && !showErrorMessage.value) {
     // Show error message if no games chosen
     showErrorMessage.value = true

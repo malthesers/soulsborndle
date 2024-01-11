@@ -3,7 +3,7 @@
     <Transition name="modal">
       <div v-if="modalStore.showing['instructions']" ref="instructionsModal" tabindex="0"
         @click.self="modalStore.close('instructions')"
-        class="fixed z-20 top-0 w-full h-screen bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
+        class="fixed z-20 top-0 w-full h-dvh bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer p-2">
         <div class="overflow-auto w-full max-w-xl max-h-[80%] mx-auto bg-black p-4 text-center md:text-lg cursor-auto">
           <p class="text-3xl">Instructions</p>
           <!-- General information -->

@@ -1,10 +1,10 @@
-import type { Boss } from '@/interfaces';
+import type { Boss } from '@/interfaces'
 
 interface BloodborneBoss extends Boss {
   game: 'Bloodborne'
 }
 
-export const bloodborneBosses:BloodborneBoss[] = [
+export const bloodborneBosses: BloodborneBoss[] = [
   {
     name: 'Amygdala',
     game: 'Bloodborne',
@@ -86,7 +86,7 @@ export const bloodborneBosses:BloodborneBoss[] = [
     resistances: ['magic']
   },
   {
-    name: 'Mergo\'s Wet Nurse',
+    name: "Mergo's Wet Nurse",
     game: 'Bloodborne',
     health: 14081,
     souls: 72000,

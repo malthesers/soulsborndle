@@ -6,13 +6,6 @@ import { bloodborneBosses } from './bloodborne'
 import { eldenRingBosses } from './elden-ring'
 import type { Boss } from '@/interfaces'
 
-const bosses:Boss[] = [
-  ...demonsSoulsBosses,
-  ...darkSouls1Bosses,
-  ...darkSouls2Bosses,
-  ...darkSouls3Bosses,
-  ...bloodborneBosses,
-  ...eldenRingBosses
-]
+const bosses: Boss[] = [...demonsSoulsBosses, ...darkSouls1Bosses, ...darkSouls2Bosses, ...darkSouls3Bosses, ...bloodborneBosses, ...eldenRingBosses]
 
 export { bosses }

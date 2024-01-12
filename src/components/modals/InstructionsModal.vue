@@ -44,8 +44,8 @@ import { useModalStore } from '@/stores/modalStore'
 const bossesStore = useBossesStore()
 const modalStore = useModalStore()
 const instructionsModal: Ref<HTMLDivElement | null> = ref(null)
-const gamesDesktop: Ref<Game[]> = ref(["Demon's Souls", 'Bloodborne', 'Elden Ring', 'Dark Souls', 'Dark Souls II', 'Dark Souls III'])
-const gamesMobile: Ref<Game[]> = ref(["Demon's Souls", 'Dark Souls', 'Bloodborne', 'Dark Souls II', 'Elden Ring', 'Dark Souls III'])
+const gamesDesktop: Ref<Game[]> = ref(['Demon\'s Souls', 'Bloodborne', 'Elden Ring', 'Dark Souls', 'Dark Souls II', 'Dark Souls III'])
+const gamesMobile: Ref<Game[]> = ref(['Demon\'s Souls', 'Dark Souls', 'Bloodborne', 'Dark Souls II', 'Elden Ring', 'Dark Souls III'])
 
 function hideInstructions(): void {
   modalStore.close('instructions')

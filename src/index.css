@@ -4,13 +4,7 @@
 
 @layer utilities {
   .vertical-fade {
-    background: linear-gradient(
-      0deg,
-      transparent 0%,
-      rgba(0, 0, 0, 1) 25%,
-      rgba(0, 0, 0, 1) 75%,
-      transparent 100%
-    );
+    background: linear-gradient(0deg, transparent 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 75%, transparent 100%);
   }
 }
 

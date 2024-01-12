@@ -9,8 +9,7 @@
     </p>
     <!-- No bosses guessed message -->
     <Transition name="message">
-      <p v-if="recordsStore.records.length === 0" class="font-bold overflow-hidden">You have not guessed a boss yet.
-      </p>
+      <p v-if="recordsStore.records.length === 0" class="font-bold overflow-hidden">You have not guessed a boss yet.</p>
     </Transition>
     <!-- Records table -->
     <Transition name="records">

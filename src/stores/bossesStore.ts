@@ -10,24 +10,24 @@ export const useBossesStore = defineStore('bossesStore', () => {
   const recordsStore = useRecordsStore()
   const modalStore = useModalStore()
   const gamesStore = useGamesStore()
-  
+
   const damageTypes: Ref<DamageType[]> = ref(['magic', 'fire', 'lightning', 'dark', 'holy', 'physical', 'slash', 'strike', 'thrust'])
 
   const allBosses: Ref<Boss[]> = ref(bosses)
   const guessedBosses: Ref<Boss[]> = ref([])
-  const filteredBosses: ComputedRef<Boss[]> = computed(() => allBosses.value.filter((boss) => gamesStore.games.includes(boss.game))) 
+  const filteredBosses: ComputedRef<Boss[]> = computed(() => allBosses.value.filter((boss) => gamesStore.games.includes(boss.game)))
   const remainingBosses: ComputedRef<Boss[]> = computed(() => filteredBosses.value.filter((boss) => !guessedBosses.value.includes(boss)))
-  
-  const answer:Ref<Boss> = ref({
+
+  const answer: Ref<Boss> = ref({
     name: '?',
     game: '?',
     souls: 0,
     health: 0,
     weaknesses: [],
-    resistances: [],
+    resistances: []
   })
-  
-  const known:Ref<Known> = ref({
+
+  const known: Ref<Known> = ref({
     name: '?',
     game: '?',
     souls: '?',
@@ -42,26 +42,26 @@ export const useBossesStore = defineStore('bossesStore', () => {
 
   function validateGuess(boss: Boss): void {
     // Add to guessed bosses
-    guessedBosses.value.unshift(boss);
-  
+    guessedBosses.value.unshift(boss)
+
     // Check if guess is correct
     if (boss.name === answer.value.name) {
       // Set correct vaules
-      Object.entries(answer.value).forEach(([key, value]) => known.value[key as keyof Boss] = value)
+      Object.entries(answer.value).forEach(([key, value]) => (known.value[key as keyof Boss] = value))
       if (answer.value.weaknesses.length === 0) known.value.hasNo.weaknesses = true
       if (answer.value.resistances.length === 0) known.value.hasNo.resistances = true
-  
+
       // Trigger succesful events and add to records
       modalStore.open('guessed')
-      recordsStore.updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(gamesStore.chosen)));
+      recordsStore.updateRecords(boss.name, guessedBosses.value.length, JSON.parse(JSON.stringify(gamesStore.chosen)))
     } else {
       // Validate game, health and souls
       if (boss.game === answer.value.game) known.value.game = answer.value.game
       if (boss.health === answer.value.health) known.value.health = answer.value.health
       if (boss.souls === answer.value.souls) known.value.souls = answer.value.souls
-  
+
       // Validate weaknesses and resistances
-      const damageArrays:('weaknesses' | 'resistances')[] = ['weaknesses', 'resistances']
+      const damageArrays: ('weaknesses' | 'resistances')[] = ['weaknesses', 'resistances']
       damageArrays.forEach((damageArray) => {
         // If correct weaknesses/resistances
         if (boss[damageArray].toString() === answer.value[damageArray].toString()) {
@@ -73,29 +73,29 @@ export const useBossesStore = defineStore('bossesStore', () => {
             known.value[damageArray] = answer.value[damageArray]
           }
         }
-        
+
         // If guessed boss has exactly 1 weakness/resistance
         else if (boss[damageArray].length === 1) {
           const damageType: DamageType = boss[damageArray][0]
-          
+
           // If correct boss contains the one weakness/resistance and it is not already added
           if (answer.value[damageArray].includes(damageType) && !known.value[damageArray].includes(damageType)) {
             // Get indices to place damageType properly
-            const guessedIndex: number = damageTypes.value.findIndex(type => type === damageType)
-            const knownIndex1: number = damageTypes.value.findIndex(type => type === known.value[damageArray][0])
-            const knownIndex2: number = damageTypes.value.findIndex(type => type === known.value[damageArray][1])
-  
+            const guessedIndex: number = damageTypes.value.findIndex((type) => type === damageType)
+            const knownIndex1: number = damageTypes.value.findIndex((type) => type === known.value[damageArray][0])
+            const knownIndex2: number = damageTypes.value.findIndex((type) => type === known.value[damageArray][1])
+
             // If 0 known weaknesses/resistances
             if (known.value[damageArray].length === 0) {
               known.value[damageArray].splice(0, 0, damageType)
             }
-  
+
             // If 1 known weakness/resistance
             else if (known.value[damageArray].length === 1) {
               if (guessedIndex < knownIndex1) known.value[damageArray].splice(0, 0, damageType)
               if (guessedIndex > knownIndex1) known.value[damageArray].splice(1, 0, damageType)
             }
-  
+
             // If 2 known weaknesses/resistances
             else if (known.value[damageArray].length === 2) {
               if (guessedIndex < knownIndex1 && guessedIndex < knownIndex2) known.value[damageArray].splice(0, 0, damageType)

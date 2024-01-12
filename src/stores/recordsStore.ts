@@ -3,8 +3,8 @@ import { defineStore } from 'pinia'
 import type { Ref } from 'vue'
 
 interface Record {
-  name: string,
-  guesses: number,
+  name: string
+  guesses: number
   games: Chosen
 }
 
@@ -22,10 +22,10 @@ export const useRecordsStore = defineStore('recordsStore', () => {
       guesses: guesses,
       games: games
     })
-  
+
     // Sort array by guesses
     records.value.sort((record1, record2) => record1.guesses - record2.guesses)
-  
+
     // Cap records at 10 entries
     records.value = records.value.slice(0, 10)
   }

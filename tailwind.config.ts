@@ -7,7 +7,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'boss-hidden': 'url(\'/boss-default.jpg\')'
+        'boss-hidden': "url('/boss-default.jpg')"
       },
       boxShadow: {
         'inner-dark': 'inset 0px 0px 5px 8px rgba(24, 24, 27, 1)',

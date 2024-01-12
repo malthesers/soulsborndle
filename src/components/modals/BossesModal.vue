@@ -26,11 +26,7 @@
     </div>
     <!-- Error message -->
     <Transition name="message">
-      <p
-        v-if="showErrorMessage"
-        :class="{ 'animate-pulse': showErrorMessageExtra }"
-        class="text-red-500 drop-shadow-red duration-300 overflow-hidden"
-      >
+      <p v-if="showErrorMessage" :class="{ 'animate-pulse': showErrorMessageExtra }" class="text-red-500 drop-shadow-red duration-300 overflow-hidden">
         You must choose at least 1 game.
       </p>
     </Transition>

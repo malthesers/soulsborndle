@@ -31,7 +31,7 @@ import { useRecordsStore } from '@/stores/recordsStore'
 import { useBossesStore } from '@/stores/bossesStore'
 import { useModalStore } from '@/stores/modalStore'
 import { useGamesStore } from '@/stores/gamesStore'
-import type { Chosen } from '@/interfaces';
+import type { Chosen } from '@/interfaces'
 
 const recordsStore = useRecordsStore()
 const bossesStore = useBossesStore()
@@ -52,8 +52,8 @@ function giveUp(): void {
   bossesStore.known.health = bossesStore.answer.health
   bossesStore.known.weaknesses = bossesStore.answer.weaknesses
   bossesStore.known.resistances = bossesStore.answer.resistances
-  bossesStore.known.hasNo.weaknesses = (bossesStore.answer.weaknesses.length === 0 ? true : false)
-  bossesStore.known.hasNo.resistances = (bossesStore.answer.resistances.length === 0 ? true : false)
+  bossesStore.known.hasNo.weaknesses = bossesStore.answer.weaknesses.length === 0 ? true : false
+  bossesStore.known.hasNo.resistances = bossesStore.answer.resistances.length === 0 ? true : false
 }
 
 function newGame(): void {
@@ -67,7 +67,7 @@ function newGame(): void {
 
   // Reset known info
   bossesStore.known.name = '???'
-  bossesStore.known.game = (gamesStore.oneGameChosen ? bossesStore.answer.game : '?')
+  bossesStore.known.game = gamesStore.oneGameChosen ? bossesStore.answer.game : '?'
   bossesStore.known.souls = '?'
   bossesStore.known.health = '?'
   bossesStore.known.weaknesses = []
@@ -77,29 +77,33 @@ function newGame(): void {
 }
 
 // When any modal is opened
-watch(() => modalStore.isOpen, () => {
-  const body = document.querySelector('body') as HTMLBodyElement
+watch(
+  () => modalStore.isOpen,
+  () => {
+    const body = document.querySelector('body') as HTMLBodyElement
 
-  // Prevent scrolling while modals is open
-  modalStore.isOpen ? body.classList.add('overflow-hidden') : body.classList.remove('overflow-hidden')
-})
+    // Prevent scrolling while modals is open
+    modalStore.isOpen ? body.classList.add('overflow-hidden') : body.classList.remove('overflow-hidden')
+  }
+)
 
 // When a new record is set or records are cleared
 watch(recordsStore.records, () => {
   // Save records to localStorage
-  localStorage.setItem('soulsborndle/records', JSON.stringify(recordsStore.records));
+  localStorage.setItem('soulsborndle/records', JSON.stringify(recordsStore.records))
 })
 
 // When application is started
 onMounted(() => {
   // Get stored records
-  if (localStorage.getItem('soulsborndle/records')) recordsStore.records = JSON.parse(localStorage.getItem('soulsborndle/records') as string)
+  if (localStorage.getItem('soulsborndle/records'))
+    recordsStore.records = JSON.parse(localStorage.getItem('soulsborndle/records') as string)
 
   // Get stored games
   if (localStorage.getItem('soulsborndle/games')) {
     const savedGames = JSON.parse(localStorage.getItem('soulsborndle/games') as string)
 
-    Object.keys(savedGames).forEach((key) => gamesStore.chosen[key as keyof Chosen] = savedGames[key])
+    Object.keys(savedGames).forEach((key) => (gamesStore.chosen[key as keyof Chosen] = savedGames[key]))
   }
 
   // Open bosses selection modal if none chosen

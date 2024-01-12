@@ -8,12 +8,12 @@
 </template>
 
 <script setup lang="ts">
-import type { DamageType } from '@/interfaces';
+import type { DamageType } from '@/interfaces'
 import { useBossesStore } from '@/stores/bossesStore'
 
 const bossesStore = useBossesStore()
 const props = defineProps<{
-  damageList: DamageType[],
+  damageList: DamageType[]
   value: 'weaknesses' | 'resistances'
 }>()
 
@@ -22,10 +22,7 @@ const backgroundColour: ComputedRef<'bg-red-900' | 'bg-yellow-700' | 'bg-green-9
   const isPartial: boolean = bossesStore.answer[props.value].some((damageType: DamageType) => props.damageList.includes(damageType))
   const isCorrect: boolean = bossesStore.answer[props.value].toString() === props.damageList.toString()
 
-  return (
-    isCorrect ? 'bg-green-900' :
-      isPartial ? 'bg-yellow-700' :
-        'bg-red-900'
-  )
+  // ----- If correct = green ----- else if partial = yellow ----- else = red
+  return isCorrect ? 'bg-green-900' : isPartial ? 'bg-yellow-700' : 'bg-red-900'
 })
 </script>

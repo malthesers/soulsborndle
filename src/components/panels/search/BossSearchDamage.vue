@@ -8,10 +8,10 @@
 </template>
 
 <script setup lang="ts">
-import type { DamageType } from '@/interfaces';
+import type { DamageType } from '@/interfaces'
 
 defineProps<{
-  damageList: DamageType[],
+  damageList: DamageType[]
   value: 'weaknesses' | 'resistances'
 }>()
 </script>

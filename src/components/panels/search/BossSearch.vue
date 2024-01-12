@@ -1,6 +1,5 @@
 <template>
-  <article
-    class="cursor-pointer overflow-hidden border-b-2 pb-1 outline-none transition duration-200 last:border-b-0 hover:bg-zinc-900 focus:bg-zinc-900">
+  <article class="cursor-pointer overflow-hidden border-b-2 pb-1 outline-none transition duration-200 last:border-b-0 hover:bg-zinc-900 focus:bg-zinc-900">
     <p class="text-lg px-2 py-1 text-center">{{ boss.name }}</p>
     <div class="flex flex-col sm:flex-row gap-1 text-center">
       <!-- Boss game -->
@@ -11,23 +10,23 @@
       <!-- Health & Souls container -->
       <div class="w-full flex gap-1 sm:w-min">
         <!-- Boss health -->
-        <BossSearchCount :count="boss.health" value='health' />
+        <BossSearchCount :count="boss.health" value="health" />
         <!-- Boss souls -->
-        <BossSearchCount :count="boss.souls" value='souls' />
+        <BossSearchCount :count="boss.souls" value="souls" />
       </div>
       <!-- Weaknesses & Resistances container -->
       <div class="w-full flex gap-1">
         <!-- Boss weaknesses -->
-        <BossSearchDamage :damageList="boss.weaknesses" value='weaknesses' />
+        <BossSearchDamage :damageList="boss.weaknesses" value="weaknesses" />
         <!-- Boss resistances -->
-        <BossSearchDamage :damageList="boss.resistances" value='resistances' />
+        <BossSearchDamage :damageList="boss.resistances" value="resistances" />
       </div>
     </div>
   </article>
 </template>
 
 <script setup lang="ts">
-import type { Boss } from '@/interfaces';
+import type { Boss } from '@/interfaces'
 
 defineProps<{ boss: Boss }>()
 </script>

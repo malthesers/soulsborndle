@@ -1,23 +1,28 @@
 <template>
   <div class="relative mb-4">
-    <input ref="searchInput" v-model="search" placeholder="Enter boss name..."
-      class="w-full text-black p-2 rounded-none outline-none">
+    <input ref="searchInput" v-model="search" placeholder="Enter boss name..." class="w-full text-black p-2 rounded-none outline-none" />
     <Transition name="fade">
-      <div v-if="search.length > 1"
-        class="z-10 absolute w-full max-h-[530px] sm:max-h-[568px] overflow-auto overscroll-contain bg-zinc-700">
+      <div v-if="search.length > 1" class="z-10 absolute w-full max-h-[530px] sm:max-h-[568px] overflow-auto overscroll-contain bg-zinc-700">
         <!-- Boss cards for search results -->
-        <BossSearch v-for="boss in searchedBosses" tabindex="0" :key="boss.name" :boss="boss" @click="enterGuess(boss)"
-          @keydown.enter="enterGuess(boss)" @keydown.delete="focusInput" />
+        <BossSearch
+          v-for="boss in searchedBosses"
+          tabindex="0"
+          :key="boss.name"
+          :boss="boss"
+          @click="enterGuess(boss)"
+          @keydown.enter="enterGuess(boss)"
+          @keydown.delete="focusInput"
+        />
       </div>
     </Transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Boss } from '@/interfaces';
+import type { Boss } from '@/interfaces'
 import { useBossesStore } from '@/stores/bossesStore'
-import { useModalStore } from '@/stores/modalStore';
-import Fuse from 'fuse.js';
+import { useModalStore } from '@/stores/modalStore'
+import Fuse from 'fuse.js'
 
 const bossesStore = useBossesStore()
 const modalStore = useModalStore()
@@ -32,9 +37,7 @@ const searchedBosses: ComputedRef<Boss[]> = computed(() => {
   })
 
   // Return top 10 results retrived from fuse objects
-  return fuse.search(search.value, {
-    limit: 10
-  }).map(result => result.item)
+  return fuse.search(search.value, { limit: 10 }).map((result) => result.item)
 })
 
 function enterGuess(boss: Boss): void {

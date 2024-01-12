@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Boss } from '@/interfaces'
+import type { Boss } from '@/types'
 
 defineProps<{ boss: Boss }>()
 </script>

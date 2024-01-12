@@ -38,8 +38,8 @@
 <script setup lang="ts">
 import { useModalStore } from '@/stores/modalStore'
 import { useGamesStore } from '@/stores/gamesStore'
-import type { Chosen } from '@/interfaces'
-import type { Game } from '@/interfaces'
+import type { Chosen } from '@/types'
+import type { Game } from '@/types'
 
 const emits = defineEmits(['newGame'])
 
@@ -49,7 +49,7 @@ const bossesModal: Ref<HTMLDivElement | null> = ref(null)
 const showErrorMessage: Ref<boolean> = ref(false)
 const showErrorMessageExtra: Ref<boolean> = ref(false)
 const games: Ref<{ [key: string]: Game }> = ref({
-  demonsSouls: 'Demon\'s Souls',
+  demonsSouls: "Demon's Souls",
   darkSouls1: 'Dark Souls',
   darkSouls2: 'Dark Souls II',
   darkSouls3: 'Dark Souls III',

@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import type { DamageType } from '@/interfaces'
+import type { DamageType } from '@/types'
 import { useBossesStore } from '@/stores/bossesStore'
 
 const bossesStore = useBossesStore()

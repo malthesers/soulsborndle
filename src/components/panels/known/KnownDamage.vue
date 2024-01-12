@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import type { DamageType } from '@/interfaces'
+import type { DamageType } from '@/types'
 
 defineProps<{
   hasNo: boolean

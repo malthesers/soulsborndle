@@ -20,25 +20,25 @@
             <tr>
               <th class="hidden xs:table-cell px-2 text-center">#</th>
               <th class="hidden xs:table-cell">Boss</th>
-              <th v-for="(game, key) in games" :key="key"
-                class="hidden xs:table-cell text-center w-9 border-l-4 border-black">{{ game }}</th>
+              <th v-for="(game, key) in games" :key="key" class="hidden xs:table-cell text-center w-9 border-l-4 border-black">{{ game }}</th>
             </tr>
           </thead>
-          <tbody v-for="record in recordsStore.records" :key="`${record.guesses}-${record.name}`"
-            class="bg-zinc-900 border-black border-b-8">
+          <tbody v-for="record in recordsStore.records" :key="`${record.guesses}-${record.name}`" class="bg-zinc-900 border-black border-b-8">
             <!-- Desktop row -->
             <tr>
               <td class="px-2 text-center">{{ record.guesses }}</td>
               <td class="xs:hidden" colspan="5">{{ record.name }}</td>
               <td class="hidden xs:table-cell" colspan="1">{{ record.name }}</td>
-              <td v-for="(game, key) in games" :key="key"
+              <td
+                v-for="(game, key) in games"
+                :key="key"
                 :class="record.games[key as keyof Chosen] ? 'bg-green-900' : 'bg-red-900'"
-                class="hidden xs:table-cell border-l-4 border-black"></td>
+                class="hidden xs:table-cell border-l-4 border-black"
+              ></td>
             </tr>
             <!-- Mobile row -->
             <tr class="xs:hidden">
-              <td v-for="(game, key) in games" :key="key"
-                :class="record.games[key as keyof Chosen] ? 'bg-green-900' : 'bg-red-900'" class="w-1/6 text-center">
+              <td v-for="(game, key) in games" :key="key" :class="record.games[key as keyof Chosen] ? 'bg-green-900' : 'bg-red-900'" class="w-1/6 text-center">
                 <span>{{ game }}</span>
               </td>
             </tr>
@@ -57,7 +57,7 @@
 <script setup lang="ts">
 import { useRecordsStore } from '@/stores/recordsStore'
 import { useModalStore } from '@/stores/modalStore'
-import type { Chosen } from '@/interfaces';
+import type { Chosen } from '@/types'
 
 const recordsStore = useRecordsStore()
 const modalStore = useModalStore()

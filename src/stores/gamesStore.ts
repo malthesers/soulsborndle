@@ -1,4 +1,4 @@
-import type { Chosen, Game } from '@/interfaces'
+import type { Chosen, Game } from '@/types'
 import { defineStore } from 'pinia'
 import { type Ref } from 'vue'
 

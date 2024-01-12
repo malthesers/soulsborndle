@@ -31,7 +31,7 @@ import { useRecordsStore } from '@/stores/recordsStore'
 import { useBossesStore } from '@/stores/bossesStore'
 import { useModalStore } from '@/stores/modalStore'
 import { useGamesStore } from '@/stores/gamesStore'
-import type { Chosen } from '@/interfaces'
+import type { Chosen } from '@/types'
 
 const recordsStore = useRecordsStore()
 const bossesStore = useBossesStore()
@@ -96,8 +96,7 @@ watch(recordsStore.records, () => {
 // When application is started
 onMounted(() => {
   // Get stored records
-  if (localStorage.getItem('soulsborndle/records'))
-    recordsStore.records = JSON.parse(localStorage.getItem('soulsborndle/records') as string)
+  if (localStorage.getItem('soulsborndle/records')) recordsStore.records = JSON.parse(localStorage.getItem('soulsborndle/records') as string)
 
   // Get stored games
   if (localStorage.getItem('soulsborndle/games')) {

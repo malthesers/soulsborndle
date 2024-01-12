@@ -4,7 +4,7 @@ import { useGamesStore } from '@/stores/gamesStore'
 import { defineStore } from 'pinia'
 import { bosses } from '../bosses'
 import { type Ref } from 'vue'
-import type { Boss, DamageType, Known } from '@/interfaces'
+import type { Boss, DamageType, Known } from '@/types'
 
 export const useBossesStore = defineStore('bossesStore', () => {
   const recordsStore = useRecordsStore()

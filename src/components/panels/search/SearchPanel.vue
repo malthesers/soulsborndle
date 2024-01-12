@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Boss } from '@/interfaces'
+import type { Boss } from '@/types'
 import { useBossesStore } from '@/stores/bossesStore'
 import { useModalStore } from '@/stores/modalStore'
 import Fuse from 'fuse.js'

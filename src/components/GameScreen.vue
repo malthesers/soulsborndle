@@ -17,8 +17,8 @@
       </div>
     </div>
     <!-- Effects -->
-    <GuessedEffect @hideEffect="newGame" />
-    <FailedEffect @hideEffect="newGame" />
+    <GuessedEffect :newGame="newGame" />
+    <FailedEffect :newGame="newGame" />
     <!-- Modals -->
     <InstructionsModal />
     <RecordsModal />
@@ -59,8 +59,6 @@ function giveUp(): void {
 function newGame(): void {
   // Clear guesses
   bossesStore.guessedBosses.splice(0)
-  modalStore.close('guessed')
-  modalStore.close('failed')
 
   // Generate new boss
   bossesStore.answer = { ...bossesStore.filteredBosses[Math.floor(Math.random() * bossesStore.filteredBosses.length)] }

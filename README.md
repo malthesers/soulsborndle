@@ -1,8 +1,6 @@
-[![](/public/docs/readme-cover.png)](https://malthesers.github.io/soulsborndle/)
+# [![Soulsborndle](/public/docs/title-card.png)](https://malthesers.github.io/soulsborndle/)
 
-# <img src="/public/favicon-32x32.png" alt="soulsborndle logo" align="center"> Soulsborndle
-
-A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!
+<p align="center">A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!/p>
 
 [![](/public/docs/new-game-link.png)](https://malthesers.github.io/soulsborndle/)
 
@@ -18,8 +16,8 @@ Both _health_ and _souls_ have arrows to indicate if the correct answer is highe
 
 The background colours of the boss information is described below.
 
-| Correct | Partially | Incorrect |
-| - | - | - |
+| Correct                                                      | Partially                                                  | Incorrect                                                  |
+| ------------------------------------------------------------ | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | <picture><img src="/public/docs/bg-incorrect.png"></picture> | <picture><img src="/public/docs/bg-partial.png"></picture> | <picture><img src="/public/docs/bg-correct.png"></picture> |
 
 ### 💀 Bosses
@@ -41,17 +39,17 @@ Additionally bosses that have **multiple phases**, may have several entries, if 
 
 Below are the damage types used for calculationg the weaknesses and resistances, including the icons used to represent each individual damage type as well as a description, as the names of similar damage types vary throughout the games, e.g. _lightning_ being _bolt_ in Bloodborne. Hence _bolt_ is treated as _lightning_ to simplify the types of damage instead of separating them.
 
-| Icon | Name | Description |
-| - | :-: | - |
-| <picture><img src="/public/icons/magic.svg" width="35" height="35"></picture> | Magic | Comprised of magic as well as Aacane from Bloodborne |
-| <picture><img src="/public/icons/fire.svg" width="35" height="35"></picture> | Fire | Comprised of fire from each individual game |
-| <picture><img src="/public/icons/lightning.svg" width="35" height="35"></picture> | Lightning | Comprised of lightning as well as bolt from Bloodborne |
-| <picture><img src="/public/icons/dark.svg" width="35" height="35"></picture> | Dark | Comprised of dark from the Dark Souls series |
-| <picture><img src="/public/icons/holy.svg" width="35" height="35"></picture> | Holy | Comprised of holy from Elden Ring |
-| <picture><img src="/public/icons/physical.svg" width="35" height="35"></picture> | Physical | Comprised of physical as well as standard from Dark Souls III and Elden Ring |
-| <picture><img src="/public/icons/slash.svg" width="35" height="35"></picture> | Slash | Comprised of slash from all the games excluding Bloodborne |
-| <picture><img src="/public/icons/strike.svg" width="35" height="35"></picture> | Strike | Comprised of strike as well as blunt from Demon's Souls and Bloodborne |
-| <picture><img src="/public/icons/thrust.svg" width="35" height="35"></picture> | Thrust | Comprised of thrust as well as pierce from Demon's Souls and Elden Ring |
+| Icon                                                                              |   Name    | Description                                                                  |
+| --------------------------------------------------------------------------------- | :-------: | ---------------------------------------------------------------------------- |
+| <picture><img src="/public/icons/magic.svg" width="35" height="35"></picture>     |   Magic   | Comprised of magic as well as Aacane from Bloodborne                         |
+| <picture><img src="/public/icons/fire.svg" width="35" height="35"></picture>      |   Fire    | Comprised of fire from each individual game                                  |
+| <picture><img src="/public/icons/lightning.svg" width="35" height="35"></picture> | Lightning | Comprised of lightning as well as bolt from Bloodborne                       |
+| <picture><img src="/public/icons/dark.svg" width="35" height="35"></picture>      |   Dark    | Comprised of dark from the Dark Souls series                                 |
+| <picture><img src="/public/icons/holy.svg" width="35" height="35"></picture>      |   Holy    | Comprised of holy from Elden Ring                                            |
+| <picture><img src="/public/icons/physical.svg" width="35" height="35"></picture>  | Physical  | Comprised of physical as well as standard from Dark Souls III and Elden Ring |
+| <picture><img src="/public/icons/slash.svg" width="35" height="35"></picture>     |   Slash   | Comprised of slash from all the games excluding Bloodborne                   |
+| <picture><img src="/public/icons/strike.svg" width="35" height="35"></picture>    |  Strike   | Comprised of strike as well as blunt from Demon's Souls and Bloodborne       |
+| <picture><img src="/public/icons/thrust.svg" width="35" height="35"></picture>    |  Thrust   | Comprised of thrust as well as pierce from Demon's Souls and Elden Ring      |
 
 ### 🥇 Records
 

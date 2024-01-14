@@ -12,6 +12,7 @@
 import { useModalStore } from '@/stores/modalStore'
 
 defineEmits(['hideEffect'])
+
 const props = defineProps<{
   newGame: () => void
 }>()

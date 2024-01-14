@@ -15,6 +15,7 @@
 import { useModalStore } from '@/stores/modalStore'
 
 defineEmits(['hideEffect'])
+
 const props = defineProps<{
   newGame: () => void
 }>()
@@ -29,16 +30,16 @@ function hideGuessed(): void {
 </script>
 
 <style scoped>
-.guessed-enter-active p:nth-of-type(1),
-.guessed-enter-active p:nth-of-type(2),
-.guessed-enter-active p:nth-of-type(3) {
+.effect-enter-active p:nth-of-type(1),
+.effect-enter-active p:nth-of-type(2),
+.effect-enter-active p:nth-of-type(3) {
   transition: letter-spacing 2.5s;
   transition-delay: 0.5s;
 }
 
-.guessed-enter-from p:nth-of-type(1),
-.guessed-enter-from p:nth-of-type(2),
-.guessed-enter-from p:nth-of-type(3) {
+.effect-enter-from p:nth-of-type(1),
+.effect-enter-from p:nth-of-type(2),
+.effect-enter-from p:nth-of-type(3) {
   letter-spacing: 1px;
 }
 </style>

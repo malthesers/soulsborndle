@@ -42,7 +42,7 @@ Additionally bosses that have **multiple phases**, may have several entries, if 
 Below are the damage types used for calculationg the weaknesses and resistances, including the icons used to represent each individual damage type as well as a description, as the names of similar damage types vary throughout the games, e.g. _lightning_ being _bolt_ in Bloodborne. Hence _bolt_ is treated as _lightning_ to simplify the types of damage instead of separating them.
 
 | Icon | Name | Description |
-| - | - | - |
+| - | :-: | - |
 | <picture><img src="/public/icons/magic.svg" width="35" height="35"></picture> | Magic | Comprised of magic as well as Aacane from Bloodborne |
 | <picture><img src="/public/icons/fire.svg" width="35" height="35"></picture> | Fire | Comprised of fire from each individual game |
 | <picture><img src="/public/icons/lightning.svg" width="35" height="35"></picture> | Lightning | Comprised of lightning as well as bolt from Bloodborne |

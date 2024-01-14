@@ -61,7 +61,6 @@ import type { Chosen } from '@/types'
 
 const recordsStore = useRecordsStore()
 const modalStore = useModalStore()
-const recordsModal: Ref<HTMLDivElement | null> = ref(null)
 const games: Ref<{ [key: string]: 'DeS' | 'DS' | 'DS2' | 'DS3' | 'BB' | 'ER' }> = ref({
   demonsSouls: 'DeS',
   darkSouls1: 'DS',
@@ -74,11 +73,6 @@ const games: Ref<{ [key: string]: 'DeS' | 'DS' | 'DS2' | 'DS3' | 'BB' | 'ER' }> 
 function hideRecords(): void {
   modalStore.close('records')
 }
-
-watch(recordsModal, (newValue) => {
-  // Focus modal to allow continuing with keyboard
-  if (newValue) newValue.focus()
-})
 </script>
 
 <style scoped>

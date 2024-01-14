@@ -45,7 +45,6 @@ const emits = defineEmits(['newGame'])
 
 const modalStore = useModalStore()
 const gamesStore = useGamesStore()
-const bossesModal: Ref<HTMLDivElement | null> = ref(null)
 const showErrorMessage: Ref<boolean> = ref(false)
 const showErrorMessageExtra: Ref<boolean> = ref(false)
 const games: Ref<{ [key: string]: Game }> = ref({
@@ -79,11 +78,6 @@ function toggleGame(key: keyof Chosen): void {
   // Start new game
   emits('newGame')
 }
-
-watch(bossesModal, (newValue) => {
-  // Focus modal to allow continuing with keyboard
-  if (newValue) newValue.focus()
-})
 
 watch(gamesStore.chosen, () => {
   // Save chosen games to localStorage on change

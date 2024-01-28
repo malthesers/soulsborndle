@@ -3,7 +3,7 @@
     <p class="bg-zinc-900 text-lg px-2 py-1 text-center whitespace-nowrap">{{ boss.name }}</p>
     <div class="flex flex-col sm:flex-row gap-1 text-center">
       <!-- Guessed boss game -->
-      <div :class="boss.game === bossesStore.answer.game ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[10rem] text-xl p-1">
+      <div :class="boss.game === bossesStore.answer.game ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-40 text-xl p-1">
         <p class="text-sm">Game</p>
         <p class="leading-[2.2]">{{ boss.game }}</p>
       </div>

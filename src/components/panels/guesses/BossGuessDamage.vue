@@ -1,5 +1,5 @@
 <template>
-  <div :class="backgroundColour" class="sm:min-w-[8rem] w-full p-1">
+  <div :class="backgroundColour" class="sm:min-w-32 w-full p-1">
     <p class="text-sm capitalize">{{ value }}</p>
     <div class="h-11 flex flex-row justify-center gap-1">
       <DamageBox v-for="damageType in damageList" :key="damageType" :damageType="damageType" />

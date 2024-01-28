@@ -3,7 +3,7 @@
     <p class="text-lg px-2 py-1 text-center">{{ boss.name }}</p>
     <div class="flex flex-col sm:flex-row gap-1 text-center">
       <!-- Boss game -->
-      <div class="sm:min-w-[10rem] text-xl p-1">
+      <div class="sm:min-w-40 text-xl p-1">
         <p class="text-sm">Game</p>
         <p class="leading-[2.2]">{{ boss.game }}</p>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="count === bossesStore.answer[value] ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-[5rem] w-full text-xl p-1">
+  <div :class="count === bossesStore.answer[value] ? 'bg-green-900' : 'bg-red-900'" class="sm:min-w-20 w-full text-xl p-1">
     <p class="text-sm capitalize">{{ value }}</p>
     <p class="leading-[2.2] relative flex justify-center">
       <span>{{ count.toLocaleString() }}</span>

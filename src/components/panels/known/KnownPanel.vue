@@ -4,7 +4,7 @@
     <div class="sm:inline-block lg:block mb-2 sm:mb-0">
       <p class="text-sm">Game</p>
       <Transition name="known" mode="out-in">
-        <p class="sm:min-w-[10rem] sm:h-11 sm:leading-[2.2] whitespace-nowrap text-xl lg:text-2xl" :key="bossesStore.known.game">
+        <p class="sm:min-w-40 sm:h-11 sm:leading-[2.2] whitespace-nowrap text-xl lg:text-2xl" :key="bossesStore.known.game">
           {{ bossesStore.known.game }}
         </p>
       </Transition>

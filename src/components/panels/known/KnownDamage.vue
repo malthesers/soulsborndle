@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'lg:mb-2': value === 'weaknesses' }" class="sm:min-w-[8rem] sm:inline-block lg:block">
+  <div :class="{ 'lg:mb-2': value === 'weaknesses' }" class="sm:min-w-32 sm:inline-block lg:block">
     <p class="text-sm capitalize">{{ value }}</p>
     <Transition name="known" mode="out-in">
       <p v-if="damageList.length === 0 && !hasNo" class="h-11 sm:leading-[2.2] text-lg xs:text-xl lg:text-2xl">?</p>

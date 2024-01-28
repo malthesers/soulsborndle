@@ -32,9 +32,5 @@ module.exports = {
       '2xl': '1536px'
     }
   },
-  plugins: [
-    plugin(function ({ addVariant }) {
-      addVariant('child', '& > *')
-    })
-  ]
+  plugins: []
 }

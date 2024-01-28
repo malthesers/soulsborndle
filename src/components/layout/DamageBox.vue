@@ -1,5 +1,5 @@
 <template>
-  <span class="relative grid w-11 h-11 rounded shadow-inner-dark group">
+  <span class="relative grid size-11 rounded shadow-inner-dark group">
     <img :src="`icons/${damageType}.svg`" :alt="damageType" class="w-8 m-auto" />
     <div
       v-if="hover"

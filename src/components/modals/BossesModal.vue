@@ -1,9 +1,9 @@
 <template>
   <ModalTemplate title="Bosses" :showModal="modalStore.showing['bosses']" :closeModal="hideBosses">
-    <p class="mb-2">Below you can choose the games whose bosses will be included.</p>
-    <p class="mb-2">Bloodborne does not include Chalice Dungeon bosses, and Elden Ring does not include field bosses.</p>
-    <p class="mb-2">Toggling a filter resets the game.</p>
-    <p class="mb-2">
+    <p class="mb-2 text-pretty">Below you can choose the games whose bosses will be included.</p>
+    <p class="mb-2 text-pretty">Bloodborne does not include Chalice Dungeon bosses, and Elden Ring does not include field bosses.</p>
+    <p class="mb-2 text-pretty">Toggling a filter resets the game.</p>
+    <p class="mb-2 text-pretty">
       <span>A </span>
       <span class="font-bold text-green-700">green </span>
       <span>background means the game will be </span>

@@ -1,6 +1,6 @@
 <template>
   <ModalTemplate title="Records" :showModal="modalStore.showing['records']" :closeModal="hideRecords">
-    <p class="mb-2">
+    <p class="mb-2 text-pretty">
       <span>Listed below are your 10 fastest victories sorted by amount of guesses, </span>
       <span class="text-green-900">green </span>
       <span>indicating the included games and </span>

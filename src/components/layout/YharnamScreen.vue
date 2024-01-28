@@ -11,6 +11,6 @@
 
 <style lang="postcss" scoped>
 .yharnam-layer {
-  @apply absolute top-0 w-full h-full bg-cover;
+  @apply absolute top-0 size-full bg-cover;
 }
 </style>

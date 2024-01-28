@@ -10,7 +10,7 @@
             aria-label="ko-fi page link"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-block ml-auto w-7 xs:w-8 sm:w-9 h-7 xs:h-8 sm:h-9 duration-200 hover:opacity-50"
+            class="inline-block ml-auto size-7 xs:size-8 sm:size-9 duration-200 hover:opacity-50"
           >
             <img src="/kofi-icon.svg" alt="ko-fi circle logo" />
           </a>
@@ -20,7 +20,7 @@
             aria-label="github repository link"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-block w-7 xs:w-8 sm:w-9 h-7 xs:h-8 sm:h-9 duration-200 hover:opacity-50"
+            class="inline-block size-7 xs:size-8 sm:size-9 duration-200 hover:opacity-50"
           >
             <img src="/github-icon.svg" alt="github octocat logo" />
           </a>

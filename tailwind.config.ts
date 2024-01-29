@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const plugin = require('tailwindcss/plugin')
-
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
@@ -10,7 +8,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'boss-hidden': "url('/boss-default.jpg')"
+        'boss-hidden': "url('/boss-default.jpg')",
+        'vertical-fade': 'linear-gradient(0deg, transparent 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 75%, transparent 100%)'
       },
       boxShadow: {
         'inner-dark': 'inset 0px 0px 5px 8px rgba(24, 24, 27, 1)',
@@ -32,13 +31,5 @@ module.exports = {
       '2xl': '1536px'
     }
   },
-  plugins: [
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        '.vertical-fade': {
-          background: 'linear-gradient(0deg, transparent 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 75%, transparent 100%)'
-        }
-      })
-    })
-  ]
+  plugins: []
 }

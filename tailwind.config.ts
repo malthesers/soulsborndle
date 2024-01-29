@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
@@ -30,5 +32,13 @@ module.exports = {
       '2xl': '1536px'
     }
   },
-  plugins: []
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.vertical-fade': {
+          background: 'linear-gradient(0deg, transparent 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 75%, transparent 100%)'
+        }
+      })
+    })
+  ]
 }

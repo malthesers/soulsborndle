@@ -8,7 +8,6 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'boss-hidden': "url('/boss-default.jpg')",
         'vertical-fade': 'linear-gradient(0deg, transparent 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 75%, transparent 100%)'
       },
       boxShadow: {

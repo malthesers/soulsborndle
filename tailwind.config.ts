@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+import { PluginAPI } from 'tailwindcss/types/config'
+
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
@@ -30,5 +32,13 @@ module.exports = {
       '2xl': '1536px'
     }
   },
-  plugins: []
+  plugins: [
+    ({ addUtilities }: PluginAPI) => {
+      addUtilities({
+        '.grid-center': {
+          'grid-area': '1/1/1/1'
+        }
+      })
+    }
+  ]
 }

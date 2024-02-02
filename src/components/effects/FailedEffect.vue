@@ -1,10 +1,6 @@
 <template>
   <EffectTemplate :showEffect="modalStore.showing['failed']" :hideEffect="hideFailed">
-    <div class="grid py-12 bg-vertical-fade text-4xl sm:text-5xl md:text-7xl text-center">
-      <p class="grid-center z-20 whitespace-nowrap text-red-900 brightness-100 transform scale-y-[150%]">
-        {{ failedText }}
-      </p>
-    </div>
+    <p class="grid-center whitespace-nowrap transform z-20 text-red-900 scale-y-[150%]">{{ failedText }}</p>
   </EffectTemplate>
 </template>
 

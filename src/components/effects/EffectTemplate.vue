@@ -10,7 +10,9 @@
         tabindex="0"
         class="fixed z-20 top-0 w-full h-dvh bg-black bg-opacity-30 flex flex-col place-content-center cursor-pointer"
       >
-        <slot></slot>
+        <div class="grid py-12 bg-vertical-fade text-4xl sm:text-5xl md:text-7xl text-center">
+          <slot></slot>
+        </div>
       </div>
     </Transition>
   </Teleport>

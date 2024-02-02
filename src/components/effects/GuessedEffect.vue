@@ -1,8 +1,6 @@
 <template>
   <EffectTemplate :showEffect="modalStore.showing['guessed']" :hideEffect="hideGuessed">
-    <div
-      class="grid grid-cols-[1fr] grid-rows-[1fr] place-content-center py-12 bg-vertical-fade text-4xl sm:text-5xl md:text-7xl text-center *:col-[1/1] *:row-[1/1] *:whitespace-nowrap *:transform"
-    >
+    <div class="grid py-12 bg-vertical-fade text-4xl sm:text-5xl md:text-7xl text-center *:col-[1/1] *:row-[1/1] *:whitespace-nowrap *:transform">
       <p class="text-zinc-700 scale-y-[165%] tracking-[3px] md:tracking-[6px]">{{ guessedText }}</p>
       <p class="text-zinc-600 scale-y-[160%] tracking-[2px] md:tracking-[4px]">{{ guessedText }}</p>
       <p class="text-zinc-500 scale-y-[155%] tracking-[1px] md:tracking-[2px]">{{ guessedText }}</p>

@@ -16,7 +16,7 @@ Both _health_ and _souls_ have arrows to indicate if the correct answer is highe
 
 The background colours of the boss information is described below.
 
-| Correct                                                      | Partially                                                  | Incorrect                                                  |
+| Incorrect                                                    | Partially                                                  | Ccorrect                                                   |
 | ------------------------------------------------------------ | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | <picture><img src="/public/docs/bg-incorrect.png"></picture> | <picture><img src="/public/docs/bg-partial.png"></picture> | <picture><img src="/public/docs/bg-correct.png"></picture> |
 

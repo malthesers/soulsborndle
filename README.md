@@ -1,6 +1,6 @@
 # [![Soulsborndle](/public/docs/title-card.png)](https://malthesers.github.io/soulsborndle/)
 
-<p align="center">A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!/p>
+<p align="center">A Wordle-like Souls-like web game - guess the boss by using hints from your past guesses!</p>
 
 [![](/public/docs/new-game-link.png)](https://malthesers.github.io/soulsborndle/)
 
